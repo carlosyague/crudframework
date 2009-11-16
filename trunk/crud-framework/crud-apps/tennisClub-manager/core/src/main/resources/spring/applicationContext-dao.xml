@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
+	default-lazy-init="false">
+
+    <description>
+        Definición de los beans de la capa DAO, sessionFactory y transactionManager
+    </description>
+
+
+    
+
+    <!--SocioDao-START-->
+    <bean id="socioDAO" class="org.tennisclub.manager.dao.hibernate.SocioDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--SocioDao-END-->
+
+    <!--PistaDao-START-->
+    <bean id="pistaDAO" class="org.tennisclub.manager.dao.hibernate.PistaDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--PistaDao-END-->
+
+    <!--ContactoDao-START-->
+    <bean id="contactoDAO" class="org.tennisclub.manager.dao.hibernate.ContactoDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--ContactoDao-END-->
+
+    <!--LlamadaDao-START-->
+    <bean id="llamadaDAO" class="org.tennisclub.manager.dao.hibernate.LlamadaDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--LlamadaDao-END-->
+
+    <!-- Add new DAOs here -->
+
+
+	<!-- Add new WS-Clients DAOs here -->
+
+</beans>
