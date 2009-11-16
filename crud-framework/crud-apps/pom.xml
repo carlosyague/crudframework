@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>es.uma.crudframework</groupId>
+		<artifactId>crudframework</artifactId>
+		<version>0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>es.uma.crudframework</groupId>
+	<artifactId>crud-apps</artifactId>
+	<packaging>pom</packaging>
+	<version>0.1-SNAPSHOT</version>
+	<name>CRUD: Applications</name>
+	<build>
+		<!-- CONFIGURACION PLUGINS COMUNES SUBMODULOS -->
+		<pluginManagement>
+			<plugins>
+
+    			<!-- CRUD GENERATOR PLUGIN -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>crudgenerator-maven-plugin</artifactId>
+					<version>${crudgenerator.maven.plugin.version}
+					</version>
+					<configuration>
+						<genericCore>${crudgenerator.maven.plugin.genericCore}</genericCore>
+						<fullSource>${crudgenerator.maven.plugin.fullSource}</fullSource>
+						<componentProperties>
+							<appfusePackage>${crudgenerator.maven.plugin.appfusePackage}</appfusePackage>
+							<authorName>${crudgenerator.maven.plugin.autorName}</authorName>
+							<configurationfile>src/main/resources/hibernate.cfg.xml</configurationfile>
+							<sampleDataFile>src/test/resources/sample-data.xml</sampleDataFile>
+						</componentProperties>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>${jdbc.groupId}</groupId>
+							<artifactId>${jdbc.artifactId}</artifactId>
+							<version>${jdbc.version}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>	
+	<dependencies>
+	</dependencies>
+	<modules>        
+        <module>tennisClub-manager</module>
+        <!-- 
+		<module>tennisClub-portal</module>
+		-->	
+	</modules>
+</project>

@@ -1,0 +1,259 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:v="http://corejsf.com/validator"
+	xmlns:crud="http://www.uma.es/crudframework/jsf/facelets">
+
+
+<ui:composition template="/templates/defaultTemplate.xhtml">
+	<ui:define name="title">#{text['llamadaForm.title']}</ui:define>
+	<ui:define name="body.id">llamadaFormAction</ui:define>
+
+	<ui:define name="body">
+		<f:view>
+			<f:loadBundle var="text" basename="#{llamadaFormAction.bundleName}"/>    
+
+<h:form id="llamadaForm" onsubmit="return validateLlamadaForm(this)">
+
+
+				<!-- PATH -->
+				<table border="0" cellpadding="0" cellspacing="0" class="ruta">
+					<tr>
+						<td class="path"><a
+							href="#{facesContext.externalContext.requestContextPath}/"
+							title="#{text['home.title']}"><h:outputText
+							value="#{text['home.title']}" /></a> > <h:outputText
+							value=" #{text['llamadaForm.pathText']}" /></td>
+						<td nowrap="true" class="fechahora">2 SEPT 2008 | 17:25<a
+							href="#" class="login">Martinruiz</a></td>
+					</tr>
+				</table>
+				<!-- FIN PATH -->
+				
+				<!-- CONTENIDO -->
+				<div id="contenido"><!-- PESTANA 1 -->
+				<div id="pestana1">
+				<table border="0" cellpadding="0" cellspacing="0" class="pestanas">
+					<tbody>
+						<tr>
+							<td><h:graphicImage value="/images/p01b.gif" /></td>
+							<td class="titulo_activa"><h:outputText
+								value="#{text['llamadaForm.tab01Text']}" /></td>
+							<td><h:graphicImage value="/images/p02b.gif" /></td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- CONTENIDO PESTANA -->
+				<div class="pestana">
+
+				<div class="cuadro">
+				<div class="cuadro02">
+
+				<table cellspacing="0" cellpadding="0" border="0" width="100%">
+					<tbody>
+						<!-- cabecera de la ficha -->
+						<tr>
+							<td class="esq01 titular" colspan="2"><h:outputText
+								value=" #{text['llamadaForm.formTitle']}" /></td>
+						</tr>
+
+
+			<h:inputHidden value="#{llamadaFormAction.llamada.id}" id="id"/>
+        
+        <tr>
+		<th width="10%"><h:outputLabel for="fechaHora" value="#{text['llamada.fechaHora']}" /></th>
+		<td width="90%">
+    <t:inputCalendar monthYearRowClass="yearMonthHeader" weekRowClass="weekHeader" id="fechaHora"
+            currentDayCellClass="currentDayCell" value="#{llamadaFormAction.llamada.fechaHora}"
+            renderAsPopup="true" addResources="true" required="false">
+    </t:inputCalendar>
+        <t:message for="fechaHora" styleClass="fieldError"/>
+    	</td>
+		</tr>
+		
+		
+		<tr>
+		<th width="10%"><h:outputLabel for="tfnoDestino" value="#{text['llamada.tfnoDestino']}" /></th>
+		<td width="90%">
+    <h:inputText styleClass="text medium" id="tfnoDestino" value="#{llamadaFormAction.llamada.tfnoDestino}" required="false" maxlength="255">
+    </h:inputText>
+        <t:message for="tfnoDestino" styleClass="fieldError"/>
+    	</td>
+		</tr>
+		
+		
+		<tr>
+		<th width="10%"><h:outputLabel for="tipoLlamada" value="#{text['llamada.tipoLlamada']}" /></th>
+		<td width="90%">
+    <h:inputText styleClass="text medium" id="tipoLlamada" value="#{llamadaFormAction.llamada.tipoLlamada}" required="false" maxlength="255">
+    </h:inputText>
+        <t:message for="tipoLlamada" styleClass="fieldError"/>
+    	</td>
+		</tr>
+        
+        
+		<tr>
+		<th width="10%"><h:outputLabel for="destino" value="#{text['llamada.destino']}" /></th>
+		<td width="90%">
+    <h:inputText styleClass="text medium" id="destino" value="#{llamadaFormAction.llamada.destino}" required="false" maxlength="255">
+    </h:inputText>
+        <t:message for="destino" styleClass="fieldError"/>
+    	</td>
+		</tr>
+    		   
+        
+		<tr>
+		<th width="10%"><h:outputLabel for="duracionSg" value="#{text['llamada.duracionSg']}" /></th>
+		<td width="90%">
+    <h:inputText styleClass="text medium" id="duracionSg" value="#{llamadaFormAction.llamada.duracionSg}" required="false" maxlength="255">
+    </h:inputText>
+        <t:message for="duracionSg" styleClass="fieldError"/>
+    	</td>
+		</tr>
+    		            		    
+        
+		<tr>
+		<th width="10%"><h:outputLabel for="importe" value="#{text['llamada.importe']}" /></th>
+		<td width="90%">
+    <h:inputText styleClass="text medium" id="importe" value="#{llamadaFormAction.llamada.importe}" required="false" maxlength="255">
+    </h:inputText>
+    <t:outputText value ="\u20ac" />
+        <t:message for="importe" styleClass="fieldError"/>
+    	</td>
+		</tr>				  
+		           		    		       
+		
+		
+    
+	
+
+    		<tr>
+    			<td class="esq02" colspan="2">
+    			
+    			<h:commandLink action="cancel" id="cancel" immediate="true" styleClass="boton_rojo" title="#{text['button.cancel']}" onclick="bCancel=true">
+        			<span> <h:outputText value="#{text['button.cancel']}" /> </span>
+        		</h:commandLink>
+        		
+        		<c:if test="${not empty llamadaFormAction.llamada.id}">        			            		
+            		<h:commandLink action="#{llamadaFormAction.delete}" id="delete"
+						styleClass="boton" title="#{text['button.delete']}"
+						onclick="bCancel=true; return confirmDelete('Llamada')">
+						<span> <h:outputText value="#{text['button.delete']}" /> </span>
+					</h:commandLink>
+        		</c:if>
+            	
+            	<h:commandLink action="#{llamadaFormAction.save}" id="save"
+					styleClass="boton" title="#{text['button.save']}">
+					<span> <h:outputText value="#{text['button.save']}" /> </span>
+				</h:commandLink>
+				</td>
+    		</tr>
+
+		</tbody>
+	</table>
+	</div>
+	</div>
+	
+	
+	<div class="cuadro">
+				<div class="cuadro02">
+
+				<table cellspacing="0" cellpadding="0" border="0" width="100%">
+					<tbody>
+						<!-- cabecera de la ficha -->
+						<tr>
+							<td class="esq01 titular" colspan="2"><h:outputText
+								value=" #{text['llamada.contacto']}" /></td>
+						</tr>
+						
+		<tr>
+		<th width="10%"><h:outputLabel for="contacto" value="#{text['contacto.nombre']}" /></th>
+		<td width="90%"><t:outputText value="#{llamadaFormAction.llamada.contacto.nombre}" /></td>
+		</tr>
+		
+		<tr>
+		<th width="10%"><h:outputLabel for="contacto" value="#{text['contacto.apellidos']}" /></th>
+		<td width="90%"><t:outputText value="#{llamadaFormAction.llamada.contacto.apellidos}" /></td>
+		</tr>
+		
+		<tr>
+		<th width="10%"><h:outputLabel for="contacto" value="#{text['contacto.tfno']}" /></th>
+		<td width="90%"><t:outputText value="#{llamadaFormAction.llamada.contacto.tfno}" /></td>
+		</tr>
+		
+		<tr>
+		<th width="10%"><h:outputLabel for="contacto" value="#{text['contacto.direccion']}" /></th>
+		<td width="90%"><t:outputText value="#{llamadaFormAction.llamada.contacto.direccion}" /></td>
+		</tr>
+		
+		<tr>
+		<th width="10%"><h:outputLabel for="contacto" value="#{text['contacto.codigoPostal']}" /></th>
+		<td width="90%"><t:outputText value="#{llamadaFormAction.llamada.contacto.codigoPostal}" /></td>
+		</tr>
+		
+		<tr>
+		<th width="10%"><h:outputLabel for="contacto" value="#{text['contacto.poblacion']}" /></th>
+		<td width="90%"><t:outputText value="#{llamadaFormAction.llamada.contacto.poblacion}" /></td>
+		</tr>
+		
+		<tr>
+		<th width="10%"><h:outputLabel for="contacto" value="#{text['contacto.provincia']}" /></th>
+		<td width="90%"><t:outputText value="#{llamadaFormAction.llamada.contacto.provincia}" /></td>
+		</tr>
+		
+		<tr>
+		<th width="10%"><h:outputLabel for="contacto" value="#{text['contacto.notas']}" /></th>
+		<td width="90%"><t:outputText value="#{llamadaFormAction.llamada.contacto.notas}" /></td>
+		</tr>
+		
+				<tr>
+    			<td class="esq02" colspan="2">
+    			    			        
+        		<c:if test="${not empty llamadaFormAction.contacto.id}">        			            		
+            		<h:commandLink action="#{contactoFormAction.edit}" value="#{rowValue}" title="#{text['edit']}">
+						<f:param name="id" value="#{llamadaFormAction.contacto.id}" />
+						<f:param name="from" value="list" />
+					</h:commandLink>
+        		</c:if>
+            	            	
+				</td>
+    			</tr>
+				
+				</tbody>
+				</table>
+				</div>
+		</div>
+	
+	
+	</div>
+	</div>
+
+	<div class="pie_pestana">
+		<table cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td width="5"><h:graphicImage value="/images/pie01.png" /></td>
+				<td class="blanco">&#x00A0;</td>
+				<td width="5"><h:graphicImage value="/images/pie02.png" /></td>
+			</tr>
+		</tbody>
+		</table>
+	</div>
+
+	</div>
+</h:form>
+
+	<v:validatorScript functionName="validateLlamadaForm" />
+
+	<script type="text/javascript">
+	    Form.focusFirstElement($('llamadaForm'));
+	    highlightFormElements();
+	</script>
+
+		</f:view>
+	</ui:define>
+</ui:composition>
+</html>

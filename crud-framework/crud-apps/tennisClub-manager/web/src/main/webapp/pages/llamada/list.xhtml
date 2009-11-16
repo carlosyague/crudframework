@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:crud="http://www.uma.es/crudframework/jsf/facelets">
+	
+<ui:composition template="/templates/defaultTemplate.xhtml">
+	<ui:define name="title">#{text['llamadaList.title']}</ui:define>
+	<ui:define name="body.id">llamadaListAction</ui:define>
+
+	<ui:define name="body">
+		<f:view>
+			<f:loadBundle var="text" basename="#{llamadaListAction.bundleName}"/>
+
+			<h:form id="editLlamada">
+			
+				<crud:breadCrumb />
+
+				<crud:tab tabLabel="#{text['llamadaList.title']}">
+
+					<t:panelGrid styleClass="botones" border="0" cellpadding="0"
+						cellspacing="0" columns="1" columnClasses="blank">
+
+						<h:commandLink action="add" id="add" immediate="true" styleClass="btn_barra">
+							<span><h:outputText value="#{text['button.add']}" /></span>
+						</h:commandLink>
+					</t:panelGrid>
+
+				<t:dataTable id="llamadas" var="entity" style="margin-top: 10px"
+    				value="#{llamadaListAction.llamadas}" rows="10" sortColumn="#{llamadaListAction.sortColumn}"
+    				sortAscending="#{llamadaListAction.ascending}" styleClass="listado"
+    				headerClass="standardTable_Header" rowClasses="impar,par">
+
+					<crud:dataTableColumnDate columnName="fechaHora"
+						columnLabel="#{text['llamada.fechaHora']}"
+						rowValue="#{entity.fechaHora}" />
+					<crud:dataTableColumn columnName="tfnoDestino"
+						columnLabel="#{text['llamada.tfnoDestino']}"
+						rowValue="#{entity.tfnoDestino}" />
+					<crud:dataTableColumn columnName="tipoLlamada"
+						columnLabel="#{text['llamada.tipoLlamada']}"
+						rowValue="#{entity.tipoLlamada}" />
+					<crud:dataTableColumn columnName="destino"
+						columnLabel="#{text['llamada.destino']}"
+						rowValue="#{entity.destino}" />
+        			<crud:dataTableColumn columnName="duracionSg"
+						columnLabel="#{text['llamada.duracionSg']}"
+						rowValue="#{entity.duracionSg}" />
+        			<crud:dataTableColumn columnName="importe"
+						columnLabel="#{text['llamada.importe']}"
+						rowValue="#{entity.importe}" />
+						
+					<crud:dataTableColumnEditLink columnName="contacto"
+						columnLabel="#{text['llamada.contacto']}" rowValue="#{entity.contacto.apellidos}, #{entity.contacto.nombre}"
+						crudFormAction="#{contactoFormAction}" />        			
+					<crud:dataTableColumnEditLink columnName="id"
+						columnLabel="#{text['llamada.id']}" rowValue="#{entity.id}"
+						crudFormAction="#{llamadaFormAction}" />
+				</t:dataTable>
+				
+				<crud:tableFooter tableName="llamadas" />
+
+				</crud:tab>
+
+			</h:form>
+		</f:view>
+	</ui:define>
+</ui:composition>
+</html>

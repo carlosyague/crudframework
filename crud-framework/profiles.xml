@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profilesXml
+	xmlns="http://maven.apache.org/PROFILES/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/PROFILES/1.0.0 http://maven.apache.org/xsd/profiles-1.0.0.xsd">
+    
+<profiles>
+
+
+	<!-- === Perfiles de SISTEMAS GESTORES DE BASE DE DATOS === -->
+
+	<!-- inicio mysql (activeProfile en %M2_HOME%/conf/settings.xml) -->
+	<profile>
+		<id>mysql</id>
+
+    	<activation>
+      		<property>
+        		<name>db</name>
+        		<value>mysql</value>
+      		</property>
+    	</activation>
+
+		<properties>
+			<profile.jdbc.host>mysql.crud</profile.jdbc.host>
+			<profile.jdbc.dbname>crud_db</profile.jdbc.dbname>
+			<profile.jdbc.username>crud_user</profile.jdbc.username>
+			<profile.jdbc.password>crud_pwd</profile.jdbc.password>
+			<profile.jdbc.url>
+				<![CDATA[jdbc:mysql://${profile.jdbc.host}/${profile.jdbc.dbname}?createDatabaseIfNotExist=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8]]>
+			</profile.jdbc.url>
+			<profile.jdbc.url.cas>
+				<![CDATA[jdbc:mysql://${profile.jdbc.host}/${profile.jdbc.dbname}]]>
+			</profile.jdbc.url.cas>
+			<profile.hibernate.dialect>
+				org.hibernate.dialect.MySQL5InnoDBDialect
+			</profile.hibernate.dialect>
+			<profile.dbunit.dataTypeFactoryName>
+				org.dbunit.dataset.datatype.DefaultDataTypeFactory
+			</profile.dbunit.dataTypeFactoryName>
+			<profile.jdbc.driverClassName>com.mysql.jdbc.Driver</profile.jdbc.driverClassName>
+			<profile.jdbc.groupId>mysql</profile.jdbc.groupId>
+			<profile.jdbc.artifactId>mysql-connector-java</profile.jdbc.artifactId>
+			<profile.jdbc.version>5.0.8</profile.jdbc.version>
+		</properties>
+	</profile>
+	<!-- fin mysql -->	
+
+	<!-- inicio postgresql -->
+	<profile>
+		<id>postgresql</id>
+
+		<activation>
+      		<property>
+        		<name>db</name>
+        		<value>postgresql</value>
+      		</property>
+    	</activation>
+
+		<properties>
+			<profile.jdbc.host>postgresql.crud</profile.jdbc.host>
+			<profile.jdbc.port>5432</profile.jdbc.port>
+			<profile.jdbc.dbname>crud_db</profile.jdbc.dbname>
+			<profile.jdbc.username>crud_user</profile.jdbc.username>
+			<profile.jdbc.password>crud_pwd</profile.jdbc.password>
+			<profile.dbunit.dataTypeFactoryName>
+				org.dbunit.dataset.datatype.DefaultDataTypeFactory
+			</profile.dbunit.dataTypeFactoryName>
+			<profile.hibernate.dialect>
+				org.hibernate.dialect.PostgreSQLDialect
+			</profile.hibernate.dialect>
+			<profile.jdbc.groupId>postgresql</profile.jdbc.groupId>
+			<profile.jdbc.artifactId>postgresql</profile.jdbc.artifactId>
+			<profile.jdbc.version>8.3-604.jdbc3</profile.jdbc.version>
+			<profile.jdbc.driverClassName>
+				org.postgresql.Driver
+			</profile.jdbc.driverClassName>
+			<profile.jdbc.url>
+				<![CDATA[jdbc:postgresql://${profile.jdbc.host}:${profile.jdbc.port}/${profile.jdbc.dbname}]]>
+			</profile.jdbc.url>
+		</properties>
+	</profile>
+	<!-- fin postgresql -->
+
+
+
+	<!-- === Perfiles de ENTORNOS === -->
+
+	<!-- inicio desaRROLLO (activeProfile en %M2_HOME%/conf/settings.xml) -->
+	<profile>
+		<id>desa</id>
+
+    	<activation>
+      		<property>
+        		<name>env</name>
+        		<value>desa</value>
+      		</property>
+    	</activation>
+
+		<properties>
+			<entorno>desa</entorno>
+
+			<!-- Hostnames -->
+			<host.tennisclub.portal>localhost</host.tennisclub.portal>
+			<host.tennisclub.manager>localhost</host.tennisclub.manager>	
+			
+			<!-- WAR Names -->            
+            <warName.tennisclub.portal>tennisclub-portal</warName.tennisclub.portal>
+			<warName.tennisclub.manager>tennisclub-manager</warName.tennisclub.manager>							
+
+			<!-- Ports -->
+			<port.tennisclub.portal>8081</port.tennisclub.portal>
+			<port.tennisclub.manager>8082</port.tennisclub.manager>
+		</properties>
+	</profile>
+	<!-- fin desaRROLLO -->
+
+	<!-- inicio proDUCCIÓN -->
+	<profile>
+		<id>pro</id>
+
+		<activation>
+      		<property>
+        		<name>env</name>
+        		<value>pro</value>
+      		</property>
+    	</activation>
+
+		<properties>
+			<entorno>pro</entorno>
+			
+			<!-- Hostnames -->
+			<host.tennisclub.portal>www.mytennisclub.com</host.tennisclub.portal>
+			<host.tennisclub.manager>www.mytennisclub.com</host.tennisclub.manager>	
+			
+			<!-- WAR Names -->            
+            <warName.tennisclub.portal>mytennisclub</warName.tennisclub.portal>
+			<warName.tennisclub.manager>mytennisclubmanager</warName.tennisclub.manager>							
+
+			<!-- Ports -->
+			<port.tennisclub.portal>8081</port.tennisclub.portal>
+			<port.tennisclub.manager>8082</port.tennisclub.manager>		
+					
+		</properties>
+	</profile>
+	<!-- fin proDUCCIÓN -->
+
+</profiles>
+
+</profilesXml>
