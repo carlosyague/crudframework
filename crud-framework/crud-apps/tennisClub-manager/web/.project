@@ -2,6 +2,8 @@
   <name>tennisclub-manager-webapp</name>
   <comment/>
   <projects>
+    <project>crud-common-core</project>
+    <project>crud-common-web</project>
     <project>tennisclub-manager-core</project>
   </projects>
   <buildSpec>
