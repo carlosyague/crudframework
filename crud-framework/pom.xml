@@ -113,7 +113,15 @@
 		<pluginRepository>
 			<id>codehaus</id>
 			<url>http://repository.codehaus.org</url>
-		</pluginRepository>		
+		</pluginRepository>
+		<pluginRepository>
+    		<id>codehaus snapshot repository</id>
+   			<url>http://snapshots.repository.codehaus.org/</url>
+    		<releases>
+      <enabled>true</enabled>
+    </releases>
+  </pluginRepository>
+		
 	</pluginRepositories>
 
 	<build>
@@ -178,6 +186,7 @@
 					<artifactId>maven-eclipse-plugin</artifactId>
 					<version>${eclipse.maven.version}</version>
 					<configuration>
+						<buildOutputDirectory>${eclipse.maven.default.buildOutputDirectory}</buildOutputDirectory>
 						<additionalProjectnatures>
 							<projectnature>
 								org.springframework.ide.eclipse.core.springnature
@@ -379,13 +388,14 @@
 		<crudgenerator.maven.plugin.fullSource>false</crudgenerator.maven.plugin.fullSource>
 
 		<!-- Eclipse Maven Plugin -->
-        <eclipse.maven.version>2.6</eclipse.maven.version>
+        <eclipse.maven.version>2.7</eclipse.maven.version>
         <eclipse.maven.jsf.facets.version>1.1</eclipse.maven.jsf.facets.version>
-        <eclipse.maven.wtp.version>1.5</eclipse.maven.wtp.version>
+        <eclipse.maven.wtp.version>2.0</eclipse.maven.wtp.version>
         <eclipse.maven.downloadSources>true</eclipse.maven.downloadSources>
         <eclipse.maven.downloadJavadocs>true</eclipse.maven.downloadJavadocs>
         <eclipse.maven.useProjectReferences>false</eclipse.maven.useProjectReferences>
         <eclipse.maven.useProjectReferences.webProjects>true</eclipse.maven.useProjectReferences.webProjects>
+        <eclipse.maven.default.buildOutputDirectory>build/classes</eclipse.maven.default.buildOutputDirectory>
 
 		<!-- Tomcat 5.5.x -->
 		<tomcat.maven.version>1.0-alpha-1</tomcat.maven.version>

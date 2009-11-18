@@ -1,11 +1,7 @@
 <projectDescription>
   <name>tennisclub-manager-webapp</name>
   <comment/>
-  <projects>
-    <project>crud-common-core</project>
-    <project>crud-common-web</project>
-    <project>tennisclub-manager-core</project>
-  </projects>
+  <projects/>
   <buildSpec>
     <buildCommand>
       <name>org.eclipse.jdt.core.javabuilder</name>

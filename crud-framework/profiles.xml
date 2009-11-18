@@ -108,8 +108,8 @@
 			<warName.tennisclub.manager>tennisclub-manager</warName.tennisclub.manager>							
 
 			<!-- Ports -->
-			<port.tennisclub.portal>8081</port.tennisclub.portal>
-			<port.tennisclub.manager>8082</port.tennisclub.manager>
+			<port.tennisclub.portal>8080</port.tennisclub.portal>
+			<port.tennisclub.manager>8080</port.tennisclub.manager>
 		</properties>
 	</profile>
 	<!-- fin desaRROLLO -->

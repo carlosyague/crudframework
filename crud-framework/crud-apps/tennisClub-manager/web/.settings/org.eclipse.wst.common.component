@@ -1,8 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project-modules id="moduleCoreId" project-version="1.5.0">
   <wb-module deploy-name="tennisclub-manager-webapp">
     <property name="context-root" value="tennisclub-manager-webapp"/>
-    <wb-resource deploy-path="/" source-path="src/main/webapp"/>
-    <property name="java-output-path" value="/target/classes"/>
+    <property name="java-output-path" value="/build/classes"/>
+<wb-resource deploy-path="/" source-path="src/main/webapp"/>
+<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
+<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/resources"/>
+<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
     <dependent-module archiveName="acegi-jsf-1.1.3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/net/sourceforge/jsf-comp/acegi-jsf/1.1.3/acegi-jsf-1.1.3.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
@@ -147,10 +151,10 @@
     <dependent-module archiveName="corejsf-validator-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/corejsf/corejsf-validator/1.0/corejsf-validator-1.0.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="crud-common-core.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/crud-common-core/crud-common-core">
+    <dependent-module archiveName="crud-common-core-0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/es/uma/crudframework/crud-common-core/0.1-SNAPSHOT/crud-common-core-0.1-SNAPSHOT.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="crud-common-web.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/crud-common-web/crud-common-web">
+    <dependent-module archiveName="crud-common-web-0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/es/uma/crudframework/crud-common-web/0.1-SNAPSHOT/crud-common-web-0.1-SNAPSHOT.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
     <dependent-module archiveName="dom4j-1.6.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar">
@@ -342,7 +346,7 @@
     <dependent-module archiveName="stax-api-1.0-2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="tennisclub-manager-core.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tennisclub-manager-core/tennisclub-manager-core">
+    <dependent-module archiveName="tennisclub-manager-core-0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/tennisclub/manager/tennisclub-manager-core/0.1-SNAPSHOT/tennisclub-manager-core-0.1-SNAPSHOT.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
     <dependent-module archiveName="tomahawk-1.1.8.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/myfaces/tomahawk/tomahawk/1.1.8/tomahawk-1.1.8.jar">
@@ -396,8 +400,5 @@
     <dependent-module archiveName="xom-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/xom/xom/1.0/xom-1.0.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
-    <wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/resources"/>
-    <wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/webapp/WEB-INF/spring"/>
   </wb-module>
 </project-modules>
