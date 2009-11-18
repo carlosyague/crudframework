@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-	<parent>		
+	<parent>
 		<groupId>org.tennisclub.manager</groupId>
 		<artifactId>tennisclub-manager</artifactId>
 		<version>0.1-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>tennisclub-manager-webapp</artifactId>
+	<artifactId>tennisclub-manager-webapp
+	</artifactId>
 	<packaging>war</packaging>
 	<name>Tennis Club: Manager - Web</name>
 	<build>
@@ -15,24 +16,9 @@
 				<filtering>true</filtering>
 				<directory>src/main/resources</directory>
 				<excludes>
-					<exclude>applicationContext-resources.xml</exclude>
+					<exclude>applicationContext-resources.xml
+					</exclude>
 				</excludes>
-			</resource>
-			<resource>
-				<directory>src/main/resources</directory>
-				<includes>
-					<include>applicationContext-resources.xml</include>
-				</includes>
-			</resource>
-			<resource>
-				<filtering>true</filtering>
-				<directory>src/main/webapp/WEB-INF/spring</directory>
-				<includes>
-					<include>applicationContext.xml</include>
-					<include>applicationContext-exporter.xml</include>
-					<include>applicationContext-security.xml</include>
-				</includes>
-				<targetPath>../${project.artifactId}-${project.version}/WEB-INF/spring</targetPath>
 			</resource>
 		</resources>
 		<testResources>
@@ -60,21 +46,56 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>			
+			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>tomcat-maven-plugin</artifactId>
 				<version>${tomcat.maven.version}</version>
 				<configuration>
-					<path>/${webapp.war.name}</path>
+<!--					<path>/${webapp.war.name}</path>-->
 					<port>${webapp.port}</port>
+					<server>crudserver</server>
 				</configuration>
 			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>org.codehaus.cargo</groupId>-->
+<!--				<artifactId>cargo-maven2-plugin</artifactId>-->
+<!--				<version>0.3-SNAPSHOT</version>-->
+<!--				<configuration>-->
+<!---->
+<!--					<containerId>tomcat5x</containerId>-->
+<!--					<warName>${webapp.war.name}</warName>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<configuration>
+					<wait>true</wait>
+					<warName>${webapp.war.name}</warName>
+					<container>
+						<containerId>tomcat5x</containerId>
+						<home>C:/J2EE/apache-tomcat/apache-tomcat-5.5.27</home>
+						
+<!--						<zipUrlInstaller>-->
+<!--							<url>-->
+<!--								http://www.apache.org/dist/tomcat/tomcat-5/v5.5.28/bin/apache-tomcat-5.5.28.zip-->
+<!--							</url>-->
+<!--							<installDir>${installDir}</installDir>-->
+<!--						</zipUrlInstaller>-->
+					</container>
+					<configuration>
+						<home>${project.build.directory}/tomcat5x/container
+						</home>
+					</configuration>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.0.2</version>
 				<configuration>
-					<warName>${webapp.war.name}</warName>
+<!--					<warName>${webapp.war.name}</warName>-->
 					<!-- <warSourceExcludes>WEB-INF/lib/*.jar</warSourceExcludes>-->
 					<archive>
 						<manifest>
@@ -144,7 +165,7 @@
 						${eclipse.maven.useProjectReferences.webProjects}
 					</useProjectReferences>
 				</configuration>
-			</plugin>			
+			</plugin>
 		</plugins>
 	</build>
 	<profiles>
@@ -178,7 +199,8 @@
 	<dependencies>
 		<dependency>
 			<groupId>${pom.parent.groupId}</groupId>
-			<artifactId>${pom.parent.artifactId}-core</artifactId>
+			<artifactId>${pom.parent.artifactId}-core
+			</artifactId>
 			<version>${pom.parent.version}</version>
 		</dependency>
 
@@ -192,8 +214,8 @@
 			<groupId>es.uma.crudframework</groupId>
 			<artifactId>crud-common-web</artifactId>
 			<version>0.1-SNAPSHOT</version>
-		</dependency>				
-		<!-- fin DEPENDENCIAS crud-common -->	
+		</dependency>
+		<!-- fin DEPENDENCIAS crud-common -->
 
 		<!-- inicio DEPENDENCIAS javax.servlet -->
 		<dependency>
@@ -223,5 +245,5 @@
 			<version>${shale.version}</version>
 			<optional>true</optional>
 		</dependency>
-	</dependencies>	
+	</dependencies>
 </project>
