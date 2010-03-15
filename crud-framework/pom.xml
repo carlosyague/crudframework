@@ -350,7 +350,7 @@
 
 	<!-- ********************************************* -->
 	<!-- REPORTING, JAVADOC -->
-	<!-- ********************************************* -->
+	<!-- ********************************************* -->	
 	<reporting>
 		<plugins>
 			<plugin>
@@ -361,6 +361,8 @@
 			</plugin>
 		</plugins>
 	</reporting>
+	
+	<dependencies></dependencies>
 
 	<!-- ******************************************** -->
 	<!-- PROPIEDADES Y VERSIONES COMUNES DEL PROYECTO -->
