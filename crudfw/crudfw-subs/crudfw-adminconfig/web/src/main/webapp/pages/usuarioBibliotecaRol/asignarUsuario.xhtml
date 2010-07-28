@@ -1,0 +1,101 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:librae="http://www.librae.org/jsf/facelets">
+
+	<head>
+		<script type="text/javascript">
+		<!--
+			function cargarRol(event) {
+				var clickFunction= "A4J.AJAX.Submit('_viewRoot','usuarioFormAction',event,{'parameters':{'usuarioFormAction:seleccionarRol':'usuarioFormAction:seleccionarRol'},'actionUrl':'/librae-adminconfig/pages/usuarioBibliotecaRol/asignarUsuario.html'})";
+		        try {
+			        eval(clickFunction);
+		        } catch (e) {
+			    }
+		        return;
+			}
+			function limpiarRol(event) {
+				var clickFunction= "A4J.AJAX.Submit('_viewRoot','usuarioFormAction',event,{'parameters':{'usuarioFormAction:limpiarRol':'usuarioFormAction:limpiarRol'},'actionUrl':'/librae-adminconfig/pages/usuarioBibliotecaRol/asignarUsuario.html'})";
+		        try {
+			        eval(clickFunction);
+		        } catch (e) {
+			    }
+		        return;
+			}
+		-->
+		</script>
+	</head>
+
+	<t:div styleClass="cuadro">
+		<t:div styleClass="cuadro02">
+			<t:panelGrid columns="1" columnClasses="" headerClass="titular" footerClass="esq02" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<f:facet name="header">
+					<h:outputText value="#{msg['asignarPerfilesUsuario.biblioteca']}" />
+				</f:facet>
+				<f:facet name="footer">
+					<h:panelGroup>
+						<ui:include src="/common/treeBibliotecas.xhtml">
+							<ui:param name="beanTreeData" value="#{treePermisosAsignarUsuarioAction}" />
+							<ui:param name="beanNodoClick" value="#{asignarPerfilesUsuarioAction}" />
+							<ui:param name="renderizar" value="idsRolAsignado, idsRolSinAsignar" />
+							<ui:param name="readOnly" value="false"/>
+							<ui:param name="quitarNodoRaiz" value="false" />
+						</ui:include>
+					</h:panelGroup>
+				</f:facet>
+			</t:panelGrid>
+		</t:div>
+	</t:div>
+
+	<librae:subTabListado
+				binding="#{usuarioFormAction.usuarioForm.subTabRoles}">
+
+		<t:panelGrid columns="2" styleClass="botones">
+			<t:panelGroup>
+				<span class="btn_barra"> <t:selectBooleanCheckbox
+					styleClass="btn_st" forceId="true" id="selectAll"
+					value="#{rolAsignadosSearchAction.selectedAll}"
+					onclick="actualizarSeleccionTodos(this, 'rolesAsignados', 'selectAllPage');" />
+				<em id="btn_st1"><h:outputText
+					value="#{common['button.selectAll']}" /></em> <em
+					style="display: none;" id="btn_st2"><h:outputText
+					value="#{common['button.deselectAll']}" /></em> </span>
+
+				<h:outputLink id="asignar" styleClass="btn_barra" value="#" title="#{common['asignarPerfiles.asignar']}"
+					onclick="javascript:abrirVentana('/librae-adminconfig/pages/rol/listLocalizador.html', 65, 30, 'ventana', 'Localizar roles no asignados'); return false;">
+					<span><h:outputText value="#{msg['asignarPerfiles.asignar']}" /></span>
+				</h:outputLink>
+
+				<h:commandLink action="#{rolAsignadosSearchAction.desasignar}" id="desasignar" styleClass="btn_barra">
+					<span><h:outputText value="#{msg['asignarPerfiles.desasignar']}" /></span>
+				</h:commandLink>
+			</t:panelGroup>
+			<t:panelGroup styleClass="botonfinal">
+				<t:selectOneMenu id="factorPaginacion"
+					styleClass="combo_paginacion" onchange="return oamSubmitForm('asignarPermisoRolAction','asignarPermisoRolAction:cambiarPaginacion');"
+					value="#{rolAsignadosSearchAction.pageSize}">
+					<f:selectItem itemValue="10" itemLabel="10" />
+					<f:selectItem itemValue="20" itemLabel="20" />
+					<f:selectItem itemValue="30" itemLabel="30" />
+					<f:selectItem itemValue="50" itemLabel="50" />
+					<!-- f:selectItem itemValue="-1" itemLabel="Todos" / -->
+				</t:selectOneMenu>
+				<t:commandLink action="#{rolAsignadosSearchAction.modificarPageSize}"
+					id="cambiarPaginacion" style="display:none;">
+					<h:outputText value="." />
+				</t:commandLink>
+			</t:panelGroup>
+		</t:panelGrid>
+
+		<ui:include src="/pages/rol/include/dataTable.xhtml">
+			<ui:param name="bean" value="#{rolAsignadosSearchAction}" />
+			<ui:param name="idListado" value="rolesNoAsignados" />
+		</ui:include>
+
+	</librae:subTabListado>
+
+</html>

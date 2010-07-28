@@ -1,0 +1,72 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:librae="http://www.librae.org/jsf/facelets">
+
+	<librae:listado id="#{idListado}" var="rol" value="#{bean.listado}" sortColumn="#{bean.sortColumn}"
+		sortAscending="#{bean.ascending}" styleClass="listado"
+		headerClass="standardTable_Header" rowClasses="impar,par"
+		rowStyleClass="#{rol.estilo}">
+
+		<t:column styleClass="anchura3">
+			<f:facet name="header">
+				<t:selectBooleanCheckbox forceId="true" id="selectAllPage" name="selectAllPage"
+				    onclick="actualizarSeleccionPagina(this, '#{idListado}', 'selectAll');" value="#{bean.selectedPage}"/>
+			</f:facet>
+			<t:selectBooleanCheckbox forceId="true" id="chk" styleClass="#{rol.id}"
+	        	 onclick="actualizarSeleccion(this, '#{idListado}', 'selectAll', 'selectAllPage');" value="#{rol.selected}"/>
+
+		</t:column>
+		<t:column id="rol_codigo">
+			<f:facet name="header">
+				<t:commandSortHeader id="Codigo" columnName="codigo" arrow="true">
+					<a4j:commandLink reRender="#{idListado}, paginacion" value="#{msg['rol.codigo']}" limitToList="true" immediate="true">
+						<a4j:actionparam name="sortColumn" value="codigo" assignTo="#{bean.sortColumn}"/>
+						<a4j:actionparam name="ascending"  value="#{!bean.ascending}" assignTo="#{bean.ascending}" />
+						<f:param name="ordenarListado" value="true" />
+					</a4j:commandLink>
+				</t:commandSortHeader>
+			</f:facet>
+			<t:outputText value="#{rol.codigo}" escape="true"/>
+		</t:column>
+		<t:column id="rol_nombre">
+			<f:facet name="header">
+				<t:commandSortHeader id="Nombre" columnName="nombre" arrow="true">
+					<a4j:commandLink reRender="#{idListado}, paginacion" value="#{msg['rol.nombre']}" limitToList="true" immediate="true">
+						<a4j:actionparam name="sortColumn" value="nombre" assignTo="#{bean.sortColumn}"/>
+						<a4j:actionparam name="ascending"  value="#{!bean.ascending}" assignTo="#{bean.ascending}" />
+						<f:param name="ordenarListado" value="true" />
+					</a4j:commandLink>
+				</t:commandSortHeader>
+			</f:facet>
+			<t:outputText value="#{rol.nombre}" escape="true"/>
+		</t:column>
+		<t:column id="rol_nivel">
+			<f:facet name="header">
+				<t:commandSortHeader id="Nivel" columnName="nivel" arrow="true">
+					<a4j:commandLink reRender="#{idListado}, paginacion" value="#{msg['rol.nivel']}" limitToList="true" immediate="true">
+						<a4j:actionparam name="sortColumn" value="nivel" assignTo="#{bean.sortColumn}"/>
+						<a4j:actionparam name="ascending"  value="#{!bean.ascending}" assignTo="#{bean.ascending}" />
+						<f:param name="ordenarListado" value="true" />
+					</a4j:commandLink>
+				</t:commandSortHeader>
+			</f:facet>
+			<t:outputText value="#{rol.nivel}" escape="true"/>
+		</t:column>
+		<t:column styleClass="editLink" rendered="#{localizador==null}">
+			<f:facet name="header" style="center">
+			</f:facet>
+			<t:commandLink action="#{rolFormAction.edit}" id="edit" visibleOnUserRole="ADM_Mostrar_Rol" title="#{common['button.lapiz']}">
+            	<f:param name="idRol" value="#{rol.id}"/>
+           		<f:param name="from" value="/pages/rol/list.xhtml"/>
+           		<f:param name="procesarListado" value="true" />
+            	<span><h:graphicImage border="0" value="/images/editar_icon.gif" alt="#{common['button.lapiz']}" /></span>
+        	</t:commandLink>
+		</t:column>
+	</librae:listado>
+
+</html>

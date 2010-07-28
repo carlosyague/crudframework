@@ -1,0 +1,96 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:v="http://corejsf.com/validator"
+	xmlns:librae="http://www.librae.org/jsf/facelets">
+
+<ui:composition template="/templates/defaultTemplate.xhtml">
+	<ui:define name="title">#{msg['cambiarClave.title']}</ui:define>
+	<ui:define name="body.id">usuarioCorporativoOrbeAction</ui:define>
+	<ui:define name="body">
+		<f:view>
+
+			<h:form id="usuarioForm">
+
+				<librae:executeMethod getter="#{breadCrumbAction.limpiarPath}" id="initPath"/>
+				<librae:breadCrumbFavoritos favoritoBean="#{menuAction}" />
+
+				<t:div styleClass="contenido">
+					<t:div styleClass="pestana1">
+						<t:panelGrid columns="4" styleClass="pestanas" columnClasses="blank,titulo_activa" cellpadding="0" cellspacing="0" border="0">
+							<h:graphicImage value="/images/p01b.gif" />
+							<h:outputText value="#{msg['cambiarClave.tab']}" />
+							<h:graphicImage value="/images/p02b.gif" />
+						</t:panelGrid>
+
+						<t:div styleClass="pestana">
+							<t:div styleClass="cuadro">
+								<t:div styleClass="cuadro02">
+									<t:panelGrid columns="2" headerClass="titular" footerClass="esq02" cellpadding="0" cellspacing="0" border="0" width="100%" columnClasses="anchura10, anchura50">
+										<f:facet name="header">
+											<h:outputText value="#{msg['cambiarClave.cuadro']}" />
+										</f:facet>
+
+										<h:outputLabel for="usuario" value="#{msg['usuario.usuario']}" />
+									    <h:panelGroup>
+										    <h:inputText size="50" styleClass="text medium" id="usuario" value="#{usuarioCorporativoOrbeAction.usuarioForm.usuario}" required="true" maxlength="50"/>
+								        	<t:message for="usuario" styleClass="fieldError" detailFormat="{1} #{common['required']}." showSummary="false" showDetail="true" />
+										</h:panelGroup>
+
+										<h:outputLabel for="claveNueva" value="#{msg['cambiarClave.claveNueva']}" />
+									    <h:panelGroup>
+										    <h:inputSecret size="50" styleClass="text medium" id="claveNueva" value="#{usuarioCorporativoOrbeAction.usuarioForm.claveNueva}" required="true" maxlength="50"/>
+											<t:message for="claveNueva" styleClass="fieldError" detailFormat="{1} #{common['required']}." showSummary="false" showDetail="true" />
+										</h:panelGroup>
+
+										<h:outputLabel for="claveRepetida" value="#{msg['cambiarClave.claveRepetida']}" />
+									    <h:panelGroup>
+										    <h:inputSecret size="50" styleClass="text medium" id="claveRepetida" value="#{usuarioCorporativoOrbeAction.usuarioForm.claveRepetida}" required="true" maxlength="50"/>
+											<t:message for="claveRepetida" styleClass="fieldError" detailFormat="{1} #{common['required']}." showSummary="false" showDetail="true" />
+										</h:panelGroup>
+
+										<f:facet name="footer">
+											<h:outputText value="&#160;" />
+										</f:facet>
+									</t:panelGrid>
+								</t:div>
+							</t:div>
+							<h:panelGroup>
+									<t:div><h:outputText value="&#160;" /></t:div>
+									<h:commandLink action="#{usuarioCorporativoOrbeAction.cambiarClave}" immediate="false" styleClass="boton" title="#{common['button.done']}">
+										<span><h:outputText value="#{common['button.done']}" /></span>
+									</h:commandLink>
+								</h:panelGroup>
+						</t:div>
+					</t:div>
+
+					<t:div styleClass="pie_pestana">
+						<t:panelGrid columns="3" columnClasses="blank,blanco,blank" cellpadding="0" cellspacing="0" border="0">
+							<h:graphicImage value="/images/pie01.gif" />
+							<h:outputText value=" " />
+							<h:graphicImage value="/images/pie02.gif" />
+						</t:panelGrid>
+					</t:div>
+				</t:div>
+
+			</h:form>
+
+			<ui:include src="/common/windowMessages.xhtml">
+				<ui:param name="bean" value="#{usuarioCorporativoOrbeAction}"/>
+				<ui:param name="borrar" value="true"/>
+			</ui:include>
+
+			<v:validatorScript functionName="validateUsuarioForm" />
+
+			<script type="text/javascript">
+			    Form.focusFirstElement($('usuarioForm'));
+			    highlightFormElements();
+			</script>
+
+		</f:view>
+	</ui:define>
+</ui:composition>
+</html>

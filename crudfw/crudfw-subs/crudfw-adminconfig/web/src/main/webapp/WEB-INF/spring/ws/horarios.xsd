@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://horario.ws.librae.org/"
+	xmlns:tns="http://horario.ws.librae.org/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+	
+	<complexType name="HorarioInt">
+		<sequence>
+			<!-- Fecha de inicio del intervalo en que se aplica el horario. Primer día en el que se aplica el horario. -->
+			<element name="fechaInicio" type="xs:date"/>
+			
+			<!-- Fecha de fin del intervalo en que se aplica el horario. Último día que se
+				aplica el horario. -->
+			<element name="fechaFin" type="xs:date"/>
+			
+			<!-- Hora de inicio del primer intervalo horario -->
+			<element name="horaInicio1" type="xs:time"/>
+			
+			<!-- Hora de inicio del segundo intervalo horario -->
+			<element name="horaInicio2" type="xs:time"/>
+			
+			<!-- Hora de inicio del tercer intervalo horario -->
+			<element name="horaInicio3" type="xs:time"/>
+			
+			<!-- Hora de inicio del cuarto intervalo horario -->
+			<element name="horaInicio4" type="xs:time"/>
+			
+			<!-- Hora de inicio del quinto intervalo horario -->
+			<element name="horaInicio5" type="xs:time"/>
+			
+			<!-- Hora de fin del primer intervalo horario -->
+			<element name="horaFin1" type="xs:time"/>
+			
+			<!-- Hora de fin del segundo intervalo horario -->
+			<element name="horaFin2" type="xs:time"/>
+			
+			<!-- Hora de fin del tercer intervalo horario -->
+			<element name="horaFin3" type="xs:time"/>
+			
+			<!-- Hora de fin del cuarto intervalo horario -->
+			<element name="horaFin4" type="xs:time"/>
+			
+			<!-- Hora de fin del quinto intervalo horario -->
+			<element name="horaFin5" type="xs:time"/>
+			
+			<!-- Lista de días de la semana del intervalo en los que se aplica el horario.
+				Valores permitidos: lista de valores no repetidos de los caracteres L, M,
+				X, J, V, S, D. -->
+			<element name="diaSemana" type="xs:string"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="Horario">
+		<sequence>
+			<!-- Fecha de la ultima actualización del horario -->
+			<element name="fechaActualizacion" type="xs:dateTime"/>
+			
+			<!-- Listado de intervalos de horarios -->
+			<element name="horariosInt" type="tns:HorarioInt" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="Error">
+		<sequence>
+			<!-- 00: Sin Errores
+			     01: Codigo de biblioteca incorrecto
+			     02: Biblioteca sin horario
+			     98: Falta alguno de los parámetros obligatorios
+			     99: Error general -->
+			<element name="codigo" type="xs:string"/>
+			<element name="descripcion" type="xs:string"/>
+		</sequence>
+	</complexType>
+	
+	<xs:complexType name="ConsultaType">
+		<xs:sequence>
+			<xs:element name="codBiblioteca" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="RespuestaType">
+		<xs:sequence>
+			<xs:element name="Horario" type="tns:Horario"/>
+			<xs:element name="Error" type="tns:Error"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<element name="Consulta" type="tns:ConsultaType"/>
+	<element name="Respuesta" type="tns:RespuestaType"/>
+	
+</xs:schema>

@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:v="http://corejsf.com/validator"
+	xmlns:librae="http://www.librae.org/jsf/facelets">
+
+<ui:composition template="/templates/templatePopup.xhtml">
+	<ui:define name="title">#{msg['cambiarClave.title']}</ui:define>
+	<ui:define name="body.id">usuarioCorporativoOrbeAction</ui:define>
+	<ui:define name="body">
+		<f:view>
+
+			<ui:include src="/pages/iaa/gestionUsuarios/include/cambiarClaveUsuario.xhtml"/>
+
+			<librae:windowMessages bean="#{usuarioCorporativoOrbeAction}" borrar="true" />
+
+		</f:view>
+	</ui:define>
+</ui:composition>
+</html>

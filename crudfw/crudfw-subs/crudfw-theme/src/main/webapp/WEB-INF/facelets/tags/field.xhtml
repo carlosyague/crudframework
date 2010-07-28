@@ -1,0 +1,56 @@
+<html 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+>
+<ui:composition>
+  <c:if test="${empty label}">
+    <c:set var="label" value="${fieldName}" />
+  </c:if>
+  <c:if test="${empty required}">
+    <c:set var="required" value="false" />
+  </c:if>
+  <c:if test="${empty count}">
+    <c:set var="count" value="" />
+  </c:if>
+  <h:panelGroup>
+    <h:outputLabel id="#{fieldName}Label#{count}" value="${label}" for="#{fieldName}#{count}" />
+    <br />
+    <c:if test="${empty maxlength and empty size}">
+      <h:inputText id="#{fieldName}#{count}" value="#{entity[fieldName]}" required="${required}">
+        <ui:insert />
+      </h:inputText>
+    </c:if>
+    <c:if test="${not empty maxlength and empty size}">
+      <h:inputText id="#{fieldName}#{count}" value="#{entity[fieldName]}" required="${required}"
+        maxlength="${maxlength}">
+        <ui:insert />
+      </h:inputText>
+    </c:if>
+    <c:if test="${empty maxlength and not empty size}">
+      <h:inputText id="#{fieldName}#{count}" value="#{entity[fieldName]}" required="${required}"
+        size="${size}">
+        <ui:insert />
+      </h:inputText>
+    </c:if>
+    <c:if test="${not empty maxlength and not empty size}">
+      <h:inputText id="#{fieldName}#{count}" value="#{entity[fieldName]}" required="${required}"
+        maxlength="${maxlength}" size="#{size}">
+        <ui:insert />
+      </h:inputText>
+    </c:if>
+    <br />
+  </h:panelGroup>
+</ui:composition>
+</html>
+<!-- This component makes it easy to construct a input label, text field and error message combination -->
+<!-- The samples below illustrate a minimal call and the full call including adding custom validator
+  Minimal Example
+    <a:field fieldName="branch" entity="#{locationForm.location}"/>
+    Maximum Example
+      <a:field fieldName="branch" label="#{text['location.branch']}" required="true" labelStyleClass="labelClass" textStyleClass="textClass" errorStyleClass="errorClass" entity="#{locationForm.location}">
+      <f:validateDoubleRange minimum="15.0" maximum="100.0" />
+      </a:field>
+   -->

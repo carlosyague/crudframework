@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:v="http://corejsf.com/validator"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:librae="http://www.librae.org/jsf/facelets">
+
+	<ui:composition template="/templates/templatePopup.xhtml">
+		<ui:define name="title">#{msg['permiso.listado.title']}</ui:define>
+		<ui:define name="body.id">permisoSearchAction</ui:define>
+		<ui:define name="body">
+			<f:view>
+				<ui:include src="/pages/permiso/include/listado.xhtml">
+					<ui:param name="bean" value="#{permisoNoAsignadosSearchAction}"/>
+					<ui:param name="idListado" value="permisosNoAsignados"/>
+					<ui:param name="localizador" value="localizador"/>
+				</ui:include>
+			</f:view>
+		</ui:define>
+	</ui:composition>
+
+</html>

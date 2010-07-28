@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<indexed-fields>
+
+	<!-- indexed fields of org.librae.adminconfig.model.Book -->
+	<fields beanClass="org.librae.adminconfig.model.Book">
+		<field attributeName="id" className="java.lang.Long" name4Solr="id" storable="1"/>
+		<field attributeName="isbn" className="java.lang.String" name4Solr="isbn" storable="1"/>
+		<field attributeName="titulo" className="java.lang.String" name4Solr="titulo" storable="1"/>
+		<field attributeName="autor" className="java.lang.String" name4Solr="autor" storable="1"/>
+	</fields>
+
+	<!-- indexed fields of org.librae.catalogacion.model.Registro -->
+	<fields beanClass="org.librae.catalogacion.model.Registro">
+		<field attributeName="id" className="java.lang.Long" name4Solr="id" storable="1"/>
+		<field attributeName="cabecera" className="java.lang.String" name4Solr="cabecera" storable="1"/>
+	</fields>
+
+</indexed-fields>

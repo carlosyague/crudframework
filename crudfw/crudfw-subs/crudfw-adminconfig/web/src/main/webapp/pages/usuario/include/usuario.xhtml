@@ -1,0 +1,137 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:librae="http://www.librae.org/jsf/facelets">
+
+	<t:div styleClass="cuadro">
+		<t:div styleClass="cuadro02">
+			<t:saveState id="saveReadMode" value="#{usuarioFormAction.usuarioForm.readMode}" />
+			<t:saveState id="saveIdUsuario" value="#{usuarioFormAction.usuarioForm.idUsuario}" />
+			<h:inputHidden value="#{usuarioFormAction.usuarioForm.idUsuario}" id="idUsuario" />
+
+			<t:panelGrid columns="6" columnClasses="anchura10, anchura20, anchura15, anchura20, anchura5, anchura30" headerClass="titular" footerClass="esq02" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<f:facet name="header">
+					<h:outputText value="#{msg['usuario.crear.marco.titulo']}" />
+				</f:facet>
+
+				<h:outputLabel for="tipoIdentificacion" value="#{msg['usuario.identificacion']}" />
+				<h:panelGroup>
+					<t:saveState id="saveTipoIdentificacion" value="#{usuarioFormAction.usuarioForm.tipoIdentificacion}" />
+					<h:selectOneMenu id="tipoIdentificacion" value="#{usuarioFormAction.usuarioForm.tipoIdentificacion}" disabled="#{usuarioFormAction.usuarioForm.readMode or usuarioFormAction.orbeActivo}">
+						<f:selectItems value="#{comboAction.tiposIdentificacion}" />
+					</h:selectOneMenu>
+				</h:panelGroup>
+
+				<h:outputLabel for="numeroIdentificacion" value="#{msg['usuario.numeroIdentificacion']}" />
+				<t:panelGroup colspan="3">
+					<t:saveState id="saveNumeroIdentificacion" value="#{usuarioFormAction.usuarioForm.numeroIdentificacion}" />
+					<h:inputText styleClass="text medium" size="20" id="numeroIdentificacion" value="#{usuarioFormAction.usuarioForm.numeroIdentificacion}" required="true" maxlength="40" disabled="#{usuarioFormAction.usuarioForm.readMode or usuarioFormAction.orbeActivo}"/>
+					<t:message for="numeroIdentificacion" styleClass="fieldError" detailFormat="{1} #{common['required']}." showSummary="false" showDetail="true" />
+				</t:panelGroup>
+
+				<h:outputLabel for="usuario" value="#{msg['usuario.usuario']}" />
+				<t:panelGroup colspan="5">
+					<t:saveState id="saveUsuario" value="#{usuarioFormAction.usuarioForm.usuario}" />
+					<h:inputText styleClass="text medium" size="20" id="usuario" value="#{usuarioFormAction.usuarioForm.usuario}" required="true" maxlength="40" disabled="#{usuarioFormAction.usuarioForm.readMode or usuarioFormAction.orbeActivo}"/>
+					<t:message for="usuario" styleClass="fieldError" detailFormat="{1} #{common['required']}." showSummary="false" showDetail="true" />
+				</t:panelGroup>
+
+				<h:outputLabel for="clave" value="#{msg['usuario.clave']}" rendered="#{usuarioFormAction.usuarioForm.creacion}"/>
+				<t:panelGroup rendered="#{usuarioFormAction.usuarioForm.creacion}" colspan="5">
+					<t:saveState id="saveClave" value="#{usuarioFormAction.usuarioForm.clave}" />
+					<h:inputSecret styleClass="text medium" size="20" id="clave" value="#{usuarioFormAction.usuarioForm.clave}" required="true" maxlength="255" disabled="#{usuarioFormAction.usuarioForm.readMode or usuarioFormAction.orbeActivo}"/>
+					<t:message for="clave" styleClass="fieldError" detailFormat="{1} #{common['required']}." showSummary="false" showDetail="true" />
+				</t:panelGroup>
+				
+				<h:outputLabel for="claveRepetida" value="#{msg['usuario.claveRepetida']}" rendered="#{usuarioFormAction.usuarioForm.creacion}"/>
+				<t:panelGroup rendered="#{usuarioFormAction.usuarioForm.creacion}" colspan="5">
+					<t:saveState id="saveClaveRepetida" value="#{usuarioFormAction.usuarioForm.claveRepetida}" />
+					<h:inputSecret styleClass="text medium" size="20" id="claveRepetida" value="#{usuarioFormAction.usuarioForm.claveRepetida}" required="true" maxlength="255" disabled="#{usuarioFormAction.usuarioForm.readMode or usuarioFormAction.orbeActivo}"/>
+					<t:message for="claveRepetida" styleClass="fieldError" detailFormat="{1} #{common['required']}." showSummary="false" showDetail="true" />
+				</t:panelGroup>
+
+				<h:outputLabel for="nombre" value="#{msg['usuario.nombre']}" />
+				<t:panelGroup colspan="5">
+					<t:saveState id="saveNombre" value="#{usuarioFormAction.usuarioForm.nombre}" />
+					<h:inputText styleClass="text medium" size="60" id="nombre" value="#{usuarioFormAction.usuarioForm.nombre}" required="true" maxlength="80" disabled="#{usuarioFormAction.usuarioForm.readMode or usuarioFormAction.orbeActivo}"/>
+					<t:message for="nombre" styleClass="fieldError" detailFormat="{1} #{common['required']}." showSummary="false" showDetail="true" />
+				</t:panelGroup>
+
+				<h:outputLabel for="apellido1" value="#{msg['usuario.primerApellido']}" />
+				<t:panelGroup colspan="5">
+					<t:saveState id="saveApellido1" value="#{usuarioFormAction.usuarioForm.apellido1}" />
+					<h:inputText styleClass="text medium" size="60" id="apellido1" value="#{usuarioFormAction.usuarioForm.apellido1}" required="true" maxlength="80" disabled="#{usuarioFormAction.usuarioForm.readMode or usuarioFormAction.orbeActivo}"/>
+					<t:message for="apellido1" styleClass="fieldError" detailFormat="{1} #{common['required']}." showSummary="false" showDetail="true" />
+				</t:panelGroup>
+
+				<h:outputLabel for="apellido2" value="#{msg['usuario.segundoApellido']}" />
+				<t:panelGroup colspan="5">
+					<t:saveState id="saveApellido2" value="#{usuarioFormAction.usuarioForm.apellido2}" />
+					<h:inputText styleClass="text medium" size="60" id="apellido2" value="#{usuarioFormAction.usuarioForm.apellido2}" required="false" maxlength="80" disabled="#{usuarioFormAction.usuarioForm.readMode or usuarioFormAction.orbeActivo}"/>
+					<t:message for="apellido2" styleClass="fieldError"/>
+				</t:panelGroup>
+
+				<h:outputLabel for="telefono" value="#{msg['usuario.telefono']}" />
+				<h:panelGroup>
+					<t:saveState id="saveTelefono" value="#{usuarioFormAction.usuarioForm.telefono}" />
+					<h:inputText styleClass="text medium" size="20" id="telefono" value="#{usuarioFormAction.usuarioForm.telefono}" required="false" maxlength="80" disabled="#{usuarioFormAction.usuarioForm.readMode or usuarioFormAction.orbeActivo}"/>
+					<t:message for="telefono" styleClass="fieldError" detailFormat="#{common['phone']}." showSummary="false" showDetail="true" />
+				</h:panelGroup>
+
+				<h:outputLabel for="movil" value="#{msg['usuario.movil']}" />
+				<h:panelGroup>
+					<t:saveState id="saveMovil" value="#{usuarioFormAction.usuarioForm.movil}" />
+					<h:inputText styleClass="text medium" size="20" id="movil" value="#{usuarioFormAction.usuarioForm.movil}" required="false" maxlength="80" disabled="#{usuarioFormAction.usuarioForm.readMode or usuarioFormAction.orbeActivo}"/>
+					<t:message for="movil" styleClass="fieldError" detailFormat="#{common['phone']}." showSummary="false" showDetail="true" />
+				</h:panelGroup>
+
+				<h:outputLabel for="email" value="#{msg['usuario.email']}" />
+				<h:panelGroup>
+					<t:saveState id="saveEmail" value="#{usuarioFormAction.usuarioForm.email}" />
+					<h:inputText styleClass="text medium" size="20" id="email" value="#{usuarioFormAction.usuarioForm.email}" required="false" maxlength="80" disabled="#{usuarioFormAction.usuarioForm.readMode or usuarioFormAction.orbeActivo}">
+						<t:validateEmail />
+					</h:inputText>
+					<t:message for="email" styleClass="fieldError" detailFormat="#{common['email.formato.valido']}" showSummary="false" showDetail="true" />
+				</h:panelGroup>
+
+				<h:outputLabel for="fax" value="#{msg['usuario.fax']}" />
+				<h:panelGroup>
+					<t:saveState id="saveFax" value="#{usuarioFormAction.usuarioForm.fax}" />
+					<h:inputText styleClass="text medium" size="20" id="fax" value="#{usuarioFormAction.usuarioForm.fax}" required="false" maxlength="80" disabled="#{usuarioFormAction.usuarioForm.readMode or usuarioFormAction.orbeActivo}"/>
+					<t:message for="fax" styleClass="fieldError" detailFormat="#{common['fax']}." showSummary="false" showDetail="true" />
+				</h:panelGroup>
+
+				<h:outputLabel for="tratamiento" value="#{msg['usuario.tratamiento']}" />
+				<h:panelGroup>
+					<t:saveState id="saveTratamientos" value="#{usuarioFormAction.usuarioForm.tratamiento}" />
+					<h:selectOneMenu id="tratamiento" value="#{usuarioFormAction.usuarioForm.tratamiento}" size="20" disabled="#{usuarioFormAction.usuarioForm.readMode}">
+						<f:selectItem itemValue="0" itemLabel="#{common['select.seleccione']}"/>
+						<f:selectItems value="#{comboAction.tratamientos}" />
+					</h:selectOneMenu>
+				</h:panelGroup>
+
+				<h:outputLabel for="sexo" value="#{msg['usuario.sexo']}" />
+				<h:panelGroup>
+					<t:saveState id="saveSexo" value="#{usuarioFormAction.usuarioForm.sexo}" />
+					<h:selectOneMenu id="sexo" value="#{usuarioFormAction.usuarioForm.sexo}" size="20" disabled="#{usuarioFormAction.usuarioForm.readMode}">
+						<f:selectItem itemLabel="#{msg['usuario.sexo.sd']}" itemValue="0"/>
+						<f:selectItem itemLabel="#{msg['usuario.sexo.hombre']}" itemValue="1"/>
+						<f:selectItem itemLabel="#{msg['usuario.sexo.mujer']}" itemValue="2"/>
+					</h:selectOneMenu>
+				</h:panelGroup>
+
+				<f:facet name="footer">
+					<h:panelGroup>
+						<ui:include src="/pages/usuario/include/botonera.xhtml">
+							<ui:param name="idBotonera" value="usuario" />
+						</ui:include>
+					</h:panelGroup>
+				</f:facet>
+			</t:panelGrid>
+		</t:div>
+	</t:div>
+</html>

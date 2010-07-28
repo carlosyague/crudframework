@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:librae="http://www.librae.org/jsf/facelets">
+
+	<t:saveState id="saveListadoUsuarios" value="asignarPerfilesUsuarioAction.usuarios" />
+	<librae:listado id="usuarios" var="usuario"  value="#{asignarPerfilesUsuarioAction.usuarios}"
+		styleClass="listado nobg" headerClass="standardTable_Header" rowClasses="impar,par" rows="10">
+		<t:column>
+	        <f:facet name="header">
+	            <h:outputText value="#{msg['usuario.usuario']}" />
+	        </f:facet>
+	    	<h:outputText value="#{usuario.usuario}" escape="true"/>
+	    </t:column>
+	    <t:column>
+	        <f:facet name="header">
+				<h:outputText value="#{msg['usuario.nombre']}" />
+	        </f:facet>
+	    	<h:outputText value="#{usuario.nombre} #{usuario.apellido1} #{usuario.apellido2}" escape="true"/>
+	    </t:column>
+	    <t:column>
+	        <f:facet name="header">
+				<h:outputText value="#{msg['usuario.numeroIdentificacion']}" />
+	        </f:facet>
+	   	 	<h:outputText value="#{usuario.numeroIdentificacion}" escape="true"/>
+	    </t:column>
+	</librae:listado>
+
+</html>

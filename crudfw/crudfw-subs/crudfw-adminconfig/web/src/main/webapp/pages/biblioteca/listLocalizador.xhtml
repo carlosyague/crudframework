@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:v="http://corejsf.com/validator"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:librae="http://www.librae.org/jsf/facelets">
+
+	<ui:composition template="/templates/templatePopup.xhtml">
+		<ui:define name="title">#{msg['bibliotecaList.title']}</ui:define>
+		<ui:define name="body.id">bibliotecaListAction</ui:define>
+		<ui:define name="body">
+			<f:view>
+				<h:form id="bF" onsubmit="$('bF:buscar').focus();">
+				    <head>
+						<script type="text/javascript">
+							Event.observe(document, 'keydown', loading_intro_biblioteca);
+							function loading_intro_biblioteca(event) {
+								loading_intro(event, 'bF', 'bF:buscar');
+							}
+						</script>
+					</head>
+
+					<ui:include src="/common/breadCrumbPopUp.xhtml"/>
+
+					<ui:include src="/pages/biblioteca/include/listado.xhtml">
+						<ui:param name="bean" value="#{bibliotecaLocalizadorAction}"/>
+						<ui:param name="idListado" value="localizadorBibliotecas"/>
+						<ui:param name="localizador" value="localizador"/>
+						<ui:param name="page" value="/librae-adminconfig/pages/biblioteca/listLocalizador.html" />
+					</ui:include>
+				</h:form>
+				<librae:windowMessages bean="#{bibliotecaLocalizadorAction}" borrar="true" />
+			</f:view>
+		</ui:define>
+	</ui:composition>
+
+</html>

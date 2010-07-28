@@ -1,0 +1,192 @@
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+
+    <!-- Entidades del subsistema: Administración y Configuración -->
+        <mapping class="org.librae.adminconfig.model.Provincia" />
+        <mapping class="org.librae.adminconfig.model.ComunidadAutonoma" />
+        <mapping class="org.librae.adminconfig.model.Municipio" />
+        <mapping class="org.librae.adminconfig.model.Localidad" />
+        <mapping class="org.librae.adminconfig.model.Rol" />
+        <mapping class="org.librae.adminconfig.model.Permiso" />
+        <mapping class="org.librae.adminconfig.model.PermisoRol" />
+        <mapping class="org.librae.adminconfig.model.Usuario" />
+        <mapping class="org.librae.adminconfig.model.Pais" />
+        <mapping class="org.librae.adminconfig.model.TipoVia" />
+        <mapping class="org.librae.adminconfig.model.Direccion" />
+        <mapping class="org.librae.adminconfig.model.Biblioteca" />
+        <mapping class="org.librae.adminconfig.model.TipoBiblioteca" />
+        <mapping class="org.librae.adminconfig.model.TipoIdentificacion" />
+        <mapping class="org.librae.adminconfig.model.Tratamiento" />
+        <mapping class="org.librae.adminconfig.model.UsuarioBibliotecaRol" />
+        <mapping class="org.librae.adminconfig.model.Catalogo" />
+        <mapping class="org.librae.adminconfig.model.Calendario" />
+        <mapping class="org.librae.adminconfig.model.Festivo" />
+        <mapping class="org.librae.adminconfig.model.TipoPermiso" />
+        <mapping class="org.librae.adminconfig.model.Horario" />
+        <mapping class="org.librae.adminconfig.model.HorarioInt" />
+        <mapping class="org.librae.adminconfig.model.Moneda" />
+        <mapping class="org.librae.adminconfig.model.Menu" />
+        <mapping class="org.librae.adminconfig.model.Parametro" />
+        <mapping class="org.librae.adminconfig.model.ParametroBiblioteca" />
+        <mapping class="org.librae.adminconfig.model.Codigo"/>
+        <mapping class="org.librae.adminconfig.model.ValorCodigo"/>
+        <mapping class="org.librae.adminconfig.model.AsignacionValorCodigo"/>
+        <mapping class="org.librae.adminconfig.model.TipoCodigo"/>
+        <mapping class="org.librae.adminconfig.model.FavoritoUsuario"/>
+        <mapping class="org.librae.adminconfig.model.Modulo"/>
+        <mapping class="org.librae.adminconfig.model.GrupoFuncional"/>
+        <mapping class="org.librae.adminconfig.model.BibliotecaView"/>
+
+    <!-- Entidades del subsistema: Adquisiciones -->
+    <mapping class="org.librae.adquisicion.model.MotivoRechazo" />
+    <mapping class="org.librae.adquisicion.model.Desiderata" />
+    <mapping class="org.librae.adquisicion.model.Divisa" />
+    <mapping class="org.librae.adquisicion.model.Factura" />
+    <mapping class="org.librae.adquisicion.model.DetalleFactura" />
+    <mapping class="org.librae.adquisicion.model.Presupuesto" />
+    <mapping class="org.librae.adquisicion.model.PartidaPresupuestaria" />
+    <mapping class="org.librae.adquisicion.model.TipoOperacion" />
+    <mapping class="org.librae.adquisicion.model.Transferencia" />
+    <mapping class="org.librae.adquisicion.model.Proveedor" />
+    <mapping class="org.librae.adquisicion.model.DireccionPostal" />
+    <mapping class="org.librae.adquisicion.model.ProveedorBiblioteca" />
+    <mapping class="org.librae.adquisicion.model.Pedido" />
+    <mapping class="org.librae.adquisicion.model.EstadoPedido" />
+    <mapping class="org.librae.adquisicion.model.ContactoDireccion" />
+		<mapping class="org.librae.adquisicion.model.DetallePedido" />
+		<mapping class="org.librae.adquisicion.model.TipoPedido" />
+		<mapping class="org.librae.adquisicion.model.Reclamacion" />
+		<mapping class="org.librae.adquisicion.model.Devolucion" />
+		<mapping class="org.librae.adquisicion.model.DetalleReclamacion" />
+		<mapping class="org.librae.adquisicion.model.DetalleDevolucion" />
+
+    <!-- Entidades del subsistema: Catalogación -->
+    <mapping class="org.librae.catalogacion.model.Autoridad" />
+    <mapping class="org.librae.catalogacion.model.AutoridadTipo" />
+    <mapping class="org.librae.catalogacion.model.AutoridadEtiqueta" />
+    <mapping class="org.librae.catalogacion.model.AutoridadEtiquetaControl" />
+    <mapping class="org.librae.catalogacion.model.Ejemplar" />
+    <mapping class="org.librae.catalogacion.model.EjemplarEstado" />
+    <mapping class="org.librae.catalogacion.model.EjemplarLocalizacion" />
+    <mapping class="org.librae.catalogacion.model.EjemplarSituacion" />
+    <mapping class="org.librae.catalogacion.model.EjemplarSoporte" />
+    <mapping class="org.librae.catalogacion.model.EjemplarTipo" />
+    <mapping class="org.librae.catalogacion.model.Novedad" />
+    <mapping class="org.librae.catalogacion.model.Procedencia" />
+    <mapping class="org.librae.catalogacion.model.RegistroImagen" />
+    <mapping class="org.librae.catalogacion.model.Registro" />
+    <mapping class="org.librae.catalogacion.model.RegistroEstado" />
+    <mapping class="org.librae.catalogacion.model.RegistroEtiqueta" />
+    <mapping class="org.librae.catalogacion.model.RegistroEtiquetaControl" />
+    <mapping class="org.librae.catalogacion.model.RegistroFormato" />
+    <mapping class="org.librae.catalogacion.model.RegistroTipo" />
+    <mapping class="org.librae.catalogacion.model.RestriccionUso" />
+    <mapping class="org.librae.catalogacion.model.EjemplarSituacion" />
+    <mapping class="org.librae.catalogacion.model.BusquedaExperta" />
+    <mapping class="org.librae.catalogacion.model.RegistroEjemplar" />
+    <mapping class="org.librae.catalogacion.model.ActivoDigital" />
+	<mapping class="org.librae.catalogacion.model.ViewRegistroBibliotecas" />
+    <mapping class="org.librae.catalogacion.model.EjemplarView" />
+
+    <!-- Entidades del subsistema: Circulación -->
+    <mapping class="org.librae.circulacion.model.Prestamo" />
+    <mapping class="org.librae.circulacion.model.PrecedenciaParametrosDom" />
+    <mapping class="org.librae.circulacion.model.PoliticaPrestamoDom" />
+    <mapping class="org.librae.circulacion.model.EsquemaOET" />
+    <mapping class="org.librae.circulacion.model.ValorOET" />
+    <mapping class="org.librae.circulacion.model.RestriccionUsoEjemplar" />
+    <mapping class="org.librae.circulacion.model.EstadoCirculacion" />
+    <mapping class="org.librae.circulacion.model.pet.ActividadPET" />
+    <mapping class="org.librae.circulacion.model.pet.PeticionPET" />
+    <mapping class="org.librae.circulacion.model.pet.RestriccionUsoPET" />
+    <mapping class="org.librae.circulacion.model.pib.ConceptoTransaccionPIB" />
+    <mapping class="org.librae.circulacion.model.pib.MetodoPagoTransaccionPIB" />
+    <mapping class="org.librae.circulacion.model.pib.TipoResolucionPIB" />
+    <mapping class="org.librae.circulacion.model.pib.TipoAccionTransaccionPIB" />
+    <mapping class="org.librae.circulacion.model.pib.TipoPeticionPIB" />
+    <mapping class="org.librae.circulacion.model.pib.EstadoPeticionPIB" />
+    <mapping class="org.librae.circulacion.model.pib.AlcancePeticionPIB" />
+    <mapping class="org.librae.circulacion.model.pib.PeticionPIB" />
+    <mapping class="org.librae.circulacion.model.pib.BibliotecaExterna" />
+    <mapping class="org.librae.circulacion.model.pib.TipoEventoPIB" />
+    <mapping class="org.librae.circulacion.model.pib.EventoPIB" />
+    <mapping class="org.librae.circulacion.model.pib.AccionPrestamoPIB" />
+    <mapping class="org.librae.circulacion.model.pib.ContactoPIB" />
+    <mapping class="org.librae.circulacion.model.pib.RestriccionUsoPIB" />
+    <mapping class="org.librae.circulacion.model.PrestamoHistorico" />
+    <mapping class="org.librae.circulacion.model.Reserva" />
+    <mapping class="org.librae.circulacion.model.AsocPoliticaPrestamoDom" />
+    <mapping class="org.librae.circulacion.model.AsocPoliticaReserva" />
+    <mapping class="org.librae.circulacion.model.Parametro" />
+    <mapping class="org.librae.circulacion.model.TipoPrestamo" />
+    <mapping class="org.librae.circulacion.model.TipoReserva" />
+    <mapping class="org.librae.circulacion.model.PoliticaReserva" />
+    <mapping class="org.librae.circulacion.model.Consorcio" />
+    <mapping class="org.librae.circulacion.model.BibliotecaConsorcio" />
+    <mapping class="org.librae.circulacion.model.PrestamoDiaView" />
+    <mapping class="org.librae.circulacion.model.NcipServicio" />
+    <mapping class="org.librae.circulacion.model.CodigoNcipServicio" />
+    <mapping class="org.librae.circulacion.model.EstadoReserva" />
+    <mapping class="org.librae.circulacion.model.HistoryStep" />
+
+    <!-- Entidades del subsistema: Estadísticas -->
+        <mapping class="org.librae.estadisticas.model.Informe" />
+        <mapping class="org.librae.estadisticas.model.FormatoInforme" />
+        <mapping class="org.librae.estadisticas.model.Formato" />
+        <mapping class="org.librae.estadisticas.model.Parametro" />
+        <mapping class="org.librae.estadisticas.model.ParametroInforme" />
+        <mapping class="org.librae.estadisticas.model.PlantillaInforme" />
+
+    <!-- Entidades del subsistema: Importación y Exportación -->
+    <mapping class="org.librae.importexport.model.Log" />
+    <mapping class="org.librae.importexport.model.TransformJob" />
+    <mapping class="org.librae.importexport.model.TipoTransformJob" />
+
+    <!-- Entidades del subsistema: Lectores -->
+    <mapping class="org.librae.lectores.model.Lector" />
+    <mapping class="org.librae.lectores.model.LectorTelefono" />
+    <mapping class="org.librae.lectores.model.LectorCorreo" />
+    <mapping class="org.librae.lectores.model.LectorTipo" />
+    <mapping class="org.librae.lectores.model.LectorEstado" />
+    <mapping class="org.librae.lectores.model.TipoLector" />
+    <mapping class="org.librae.lectores.model.MotivoBloqueo" />
+    <mapping class="org.librae.lectores.model.LectorDireccion" />
+    <mapping class="org.librae.lectores.model.GeneradorSecuencial" />
+
+		 <!-- Entidades del subsistema: Mensajeria y comunicaciones -->
+		 <mapping class="org.librae.mensajeria.model.TipoNotificacion" />
+		 <mapping class="org.librae.mensajeria.model.CanalInformacion" />
+		 <mapping class="org.librae.mensajeria.model.TipoNotificacionCanalInformacion" />
+		 <mapping class="org.librae.mensajeria.model.TipoNotificacionLector" />
+		 <mapping class="org.librae.mensajeria.model.Notificacion" />
+		 <mapping class="org.librae.mensajeria.model.MotivoNoEntrega" />
+		 <mapping class="org.librae.mensajeria.model.Sucursal" />
+
+    <!-- Entidades del subsistema: Procesos Planificados -->
+    <mapping class="org.librae.procplanificados.model.Ejecucion" />
+    <mapping class="org.librae.procplanificados.model.Proceso" />
+
+    <!-- Entidades del subsistema: Publicaciones Seriadas -->
+    <mapping class="org.librae.pubseriadas.model.Circulacion" />
+    <mapping class="org.librae.pubseriadas.model.DatosFondo" />
+    <mapping class="org.librae.pubseriadas.model.Encuadernacion" />
+    <mapping class="org.librae.pubseriadas.model.Numero" />
+    <mapping class="org.librae.pubseriadas.model.EstadoNumero" />
+    <mapping class="org.librae.pubseriadas.model.PedidoEncuadernacion" />
+    <mapping class="org.librae.pubseriadas.model.PedidoSuscripcion" />
+    <mapping class="org.librae.pubseriadas.model.PedidoSuscripcionRenovacion" />
+    <mapping class="org.librae.pubseriadas.model.Periodicidad" />
+    <mapping class="org.librae.pubseriadas.model.Suscripcion" />
+    <mapping class="org.librae.pubseriadas.model.TipoPeriodicidad" />
+    <mapping class="org.librae.pubseriadas.model.Excepcion" />
+    <mapping class="org.librae.pubseriadas.model.ModoVisualizacion" />
+    <mapping class="org.librae.pubseriadas.model.EtiquetaVisualizacion" />
+
+    <!-- Entidades del subsistema: Productos Impresos -->
+    <mapping class="org.librae.productos_impresos.model.Producto" />
+
+     <!-- Configuración clases en Caché -->
+  </session-factory>
+</hibernate-configuration>

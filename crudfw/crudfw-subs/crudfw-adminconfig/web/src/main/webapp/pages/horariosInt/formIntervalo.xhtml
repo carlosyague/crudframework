@@ -1,0 +1,108 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:v="http://corejsf.com/validator"
+	xmlns:librae="http://www.librae.org/jsf/facelets">
+
+
+<ui:composition template="/templates/defaultTemplate.xhtml">
+	<ui:define name="title">#{text['horarioIntForm.title']}</ui:define>
+	<ui:define name="body.id">horarioIntFormAction</ui:define>
+
+	<ui:define name="body">
+		<f:view>
+		<h:form id="horarioIntForm">
+
+			<librae:breadCrumb />
+
+			<t:div styleClass="contenido">
+			<t:div styleClass="pestana1"><!-- PESTAÑA1 -->
+
+			<t:panelGrid columns="3" styleClass="pestanas" columnClasses="blank,titulo_activa" cellpadding="0" cellspacing="0" border="0">
+				<h:graphicImage value="/images/p01b.gif" />
+				<h:outputText value="#{msg['horarioIntForm.crear.tab']}" />
+				<h:graphicImage value="/images/p02b.gif" />
+			</t:panelGrid>
+
+			<!-- CONTENIDO PESTANA -->
+			<t:div styleClass="pestana">
+
+				<t:div styleClass="cuadro">
+				<t:div styleClass="cuadro02">
+
+				   <t:panelGrid columns="2" headerClass="titular" footerClass="esq02" cellpadding="0" cellspacing="0" border="0" width="100%" columnClasses="columnLabel">
+
+				   			<f:facet name="header">
+					  			<h:outputText value="" />
+				   			</f:facet>
+
+
+							<h:outputLabel for="horaI" value="#{msg['horarioIntForm.horaI']}" />
+							<t:panelGroup>
+								<t:saveState id="saveHoraI" value="#{horarioIntFormAction.form.horaI}" />
+								<h:selectOneMenu id="horaI" value="#{horarioIntFormAction.form.horaI}"  disabled="#{horarioIntFormAction.form.readMode}">
+										<f:selectItems value="#{comboAction.horas}" />
+								</h:selectOneMenu>
+								<h:outputText value=" : " />
+								<t:saveState id="saveMinutoI" value="#{horarioIntFormAction.form.minutoI}" />
+								<h:selectOneMenu id="minutoI" value="#{horarioIntFormAction.form.minutoI}"  disabled="#{horarioIntFormAction.form.readMode}">
+										<f:selectItems value="#{comboAction.minutos}" />
+								</h:selectOneMenu>
+    			 			</t:panelGroup>
+
+							<h:outputLabel for="horaF" value="#{msg['horarioIntForm.horaF']}" />
+							<t:panelGroup>
+								<t:saveState id="saveHoraF" value="#{horarioIntFormAction.form.horaF}" />
+								<h:selectOneMenu id="horaF" value="#{horarioIntFormAction.form.horaF}"  disabled="#{horarioIntFormAction.form.readMode}">
+										<f:selectItems value="#{comboAction.horas}" />
+								</h:selectOneMenu>
+								<h:outputText value=" : " />
+								<t:saveState id="saveMinutoF" value="#{horarioIntFormAction.form.minutoF}" />
+								<h:selectOneMenu id="minutoF" value="#{horarioIntFormAction.form.minutoF}"  disabled="#{horarioIntFormAction.form.readMode}">
+										<f:selectItems value="#{comboAction.minutos}" />
+								</h:selectOneMenu>
+							</t:panelGroup>
+
+							<t:saveState id="saveReadMode" value="#{horarioIntFormAction.form.readMode}" />
+							<h:inputHidden value="#{horarioIntFormAction.form.readMode}" id="readMode"/>
+
+							 <!-- Botonera -->
+	   						<f:facet name="footer">
+								<h:panelGroup>
+									<t:commandLink action="#{horarioIntFormAction.cancelNuevoIntervalo}" id="cancelNuevoIntervalo" styleClass="boton_rojo" title="#{common['button.cancel']}" immediate="true" >
+										<span> <h:outputText value="#{common['button.cancel']}" /> </span>
+									</t:commandLink>
+			    					<t:commandLink action="#{horarioIntFormAction.saveNuevoIntervalo}" id="saveNuevoIntervalo" styleClass="boton" title="#{common['button.done']}" rendered="#{!horarioIntFormAction.form.readMode}">
+										<span> <h:outputText value="#{common['button.done']}" /> </span>
+									</t:commandLink>
+							</h:panelGroup>
+	   					</f:facet>
+	   					<!-- Fin Botonera -->
+
+					</t:panelGrid>
+				</t:div>
+				</t:div>
+			</t:div>
+			</t:div>
+
+			<!-- pie_pestana -->
+			<t:div styleClass="pie_pestana">
+				<t:panelGrid columns="3" columnClasses="blank,blanco,blank" cellpadding="0" cellspacing="0" border="0">
+					<h:graphicImage value="/images/pie01.gif" />
+					<h:outputText value=" " />
+					<h:graphicImage value="/images/pie02.gif" />
+				</t:panelGrid>
+			</t:div>
+
+			</t:div>
+		</h:form>
+
+		<librae:windowMessages bean="#{horarioIntFormAction}" borrar="true" />
+
+		</f:view>
+	</ui:define>
+</ui:composition>
+</html>

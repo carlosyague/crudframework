@@ -1,0 +1,168 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:s="http://myfaces.apache.org/sandbox"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:librae="http://www.librae.org/jsf/facelets">
+
+<ui:composition template="/templates/defaultTemplate.xhtml">
+	<ui:define name="title">#{msg['parametro.crear.title']}</ui:define>
+	<ui:define name="body.id">parametroFormAction</ui:define>
+	<ui:define name="body">
+		<f:view>
+			<h:outputText value="#{parametroFormAction.init}" />
+			<h:form id="parametroFormAction" enctype="multipart/form-data">
+
+				<!-- BREADCRUMB -->
+				<librae:breadCrumb />
+
+				<t:saveState id="saveCreacion"
+					value="#{parametroFormAction.form.creacion}" />
+				<t:panelGrid columns="1" styleClass="ruta"
+					columnClasses="path,fechahora" cellpadding="0" cellspacing="0"
+					border="0" rendered="#{!parametroFormAction.form.creacion}">
+					<t:panelGroup visibleOnUserRole="ADM_Eliminar_Parametro">
+						<h:outputLink value="#" id="delete" styleClass="btn_barra"
+								 title="#{common['button.remove']}" onclick="dialogo1Var.show();">
+							<strong><h:outputText value="#{common['button.remove']}" /></strong>
+						</h:outputLink>
+					</t:panelGroup>
+				</t:panelGrid>
+
+				<t:div styleClass="contenido">
+					<t:div styleClass="pestana1">
+						<t:panelGrid columns="4" styleClass="pestanas" columnClasses="blank,titulo_activa" cellpadding="0" cellspacing="0" border="0">
+							<h:graphicImage value="/images/p01b.gif" />
+							<h:outputText value="#{msg['parametro.crear.tab']}" rendered="#{parametroFormAction.form.creacion}"/>
+							<h:outputText value="#{msg['parametro.edicion.tab']}" rendered="#{!parametroFormAction.form.creacion}"/>
+							<a4j:status>
+								<f:facet name="start">
+									 <h:graphicImage value="/images/ajax-loader01.gif" />
+								</f:facet>
+							</a4j:status>
+							<h:graphicImage value="/images/p02b.gif" />
+						</t:panelGrid>
+
+						<t:div styleClass="pestana">
+							<t:div styleClass="cuadro">
+								<t:div styleClass="cuadro02">
+									<t:saveState id="saveReadMode" value="#{parametroFormAction.form.readMode}" />
+									<t:saveState id="saveIdParametro" value="#{parametroFormAction.form.idParametro}" />
+									<h:inputHidden value="#{parametroFormAction.form.idParametro}" id="idParametro" />
+
+									<t:panelGrid columns="2"  columnClasses="columnLabel" headerClass="titular" footerClass="esq02" cellpadding="0" cellspacing="0" border="0" width="100%">
+										<f:facet name="header">
+											<h:outputText value="#{msg['parametro.crear.marco.titulo']}" />
+										</f:facet>
+
+										<h:outputLabel for="codigo" value="#{msg['parametro.codigo']}" />
+										<h:panelGroup>
+											<t:saveState id="savecodigo" value="#{parametroFormAction.form.codigo}" />
+											<h:inputText styleClass="text medium" size="60" id="codigo" value="#{parametroFormAction.form.codigo}" required="true" maxlength="40" disabled="#{parametroFormAction.form.readMode}"/>
+											<t:message for="codigo" styleClass="fieldError" detailFormat="{1} #{common['required']}." showSummary="false" showDetail="true" />
+										</h:panelGroup>
+
+										<h:outputLabel for="valor" value="#{msg['parametro.valor']}" />
+										<h:panelGroup>
+											<t:saveState id="saveValor" value="#{parametroFormAction.form.valor}" />
+											<h:inputText styleClass="text medium" size="60" id="valor" value="#{parametroFormAction.form.valor}" maxlength="255" disabled="#{parametroFormAction.form.readMode}"/>
+											<t:message for="valor" styleClass="fieldError" detailFormat="{1} #{common['required']}." showSummary="false" showDetail="true" />
+										</h:panelGroup>
+
+										<h:outputLabel for="descripcion" value="#{msg['parametro.descripcion']}" />
+										<h:panelGroup>
+											<t:saveState id="saveDescripcion" value="#{parametroFormAction.form.descripcion}" />
+											<h:inputText styleClass="text medium" size="60" id="descripcion" value="#{parametroFormAction.form.descripcion}" maxlength="80" disabled="#{parametroFormAction.form.readMode}"/>
+											<t:message for="descripcion" styleClass="fieldError" detailFormat="{1} #{common['required']}." showSummary="false" showDetail="true" />
+										</h:panelGroup>
+
+										<h:outputLabel for="fichero"
+											value="#{msg['parametro.fichero']}" />
+										<h:panelGroup>
+							                 <!-- t:saveState id="fichero" value="#{parametroFormAction.form.fichero}" /-->
+							                 <t:inputFileUpload id="logotipo" value="#{parametroFormAction.form.uploadedFile}" rendered="#{!parametroFormAction.form.readMode}" accept="*" />
+							                 <h:outputText value="&#160;&#160;"/>
+							                 <h:outputLink value="#{facesContext.externalContext.requestContextPath}/ImageFicheroServlet" target="_self" rendered="#{parametroFormAction.existeFichero}">
+							                 	<f:param name="id" value="#{parametroFormAction.form.idParametro}"/>
+							                 	<h:outputText value="#{common['button.download']} #{parametroFormAction.form.fileName}"/>
+							                 </h:outputLink>
+							            </h:panelGroup>
+
+										<f:facet name="footer">
+											<h:panelGroup>
+												<h:commandLink action="list" id="cancel" styleClass="boton_rojo"
+													title="#{common['button.cancel']}" immediate="true"
+													rendered="#{!parametroFormAction.form.readMode}">
+													<span><h:outputText value="#{common['button.cancel']}" /></span>
+												</h:commandLink>
+												<h:commandLink action="list" id="back" styleClass="boton_rojo"
+													title="#{common['button.back']}" immediate="true"
+													rendered="#{parametroFormAction.form.readMode}">
+													<span><h:outputText value="#{common['button.back']}" /></span>
+												</h:commandLink>
+												<t:commandLink action="#{parametroFormAction.editable}"
+													id="editable" styleClass="boton"
+													title="#{common['button.edit']}"
+													rendered="#{parametroFormAction.form.readMode}"
+													immediate="true" visibleOnUserRole="ADM_Mantenimiento_Parametro">
+													<span><h:outputText value="#{common['button.edit']}" /></span>
+												</t:commandLink>
+												<h:commandLink action="#{parametroFormAction.saveAceptar}"
+													id="saveAceptar" styleClass="boton"
+													title="#{common['button.done']}"
+													rendered="#{!parametroFormAction.form.readMode}">
+													<span><h:outputText value="#{common['button.done']}" /></span>
+												</h:commandLink>
+												<h:commandLink action="#{parametroFormAction.saveGuardar}"
+													id="save" styleClass="boton"
+													title="#{common['button.save']}"
+													rendered="#{!parametroFormAction.form.readMode}">
+													<span><h:outputText value="#{common['button.save']}" /></span>
+												</h:commandLink>
+											</h:panelGroup>
+										</f:facet>
+									</t:panelGrid>
+								</t:div>
+							</t:div>
+
+						</t:div>
+					</t:div>
+
+					<t:div styleClass="pie_pestana">
+						<t:panelGrid columns="3" columnClasses="blank,blanco,blank" cellpadding="0" cellspacing="0" border="0">
+							<h:graphicImage value="/images/pie01.gif" />
+							<h:outputText value=" " />
+							<h:graphicImage value="/images/pie02.gif" />
+						</t:panelGrid>
+					</t:div>
+				</t:div>
+
+				<t:div id="divConfirmacionBorrar" style="display: none;">
+					<s:modalDialog  dialogId="dialogo2"  dialogVar="dialogo1Var"
+						      dialogAttr="bgColor='white' bgOpacity='0.5' toggle='fade' toggleDuration='50'"
+						      hiderIds="btnCerrar">
+					        <t:panelGrid border="0" columns="1" styleClass="ventanaEmergente">
+						    	<t:outputText id="msg"  value="#{msg['confirmacion.parametro']}" style="text-align:center;"/>
+						    	<t:panelGroup>
+						        	<t:panelGrid border="0" columns="2">
+								        <t:commandLink action="#{parametroFormAction.delete}" id="editD" immediate="true" styleClass="btn_barra">
+											<t:htmlTag value="span"><h:outputText value="#{common['button.remove']}" /></t:htmlTag>
+										</t:commandLink>
+								        <t:commandButton id="btnCerrar" forceId="true" onclick="dialogo1Var.hide();" styleClass="btn_barra_cerrar" value="#{common['button.cancel']}"/>
+						        	</t:panelGrid>
+					        	</t:panelGroup>
+					        </t:panelGrid>
+					</s:modalDialog>
+				</t:div>
+			</h:form>
+
+			<!-- WINDOW MESSAGES -->
+			<librae:windowMessages bean="#{parametroFormAction}" borrar="true" />
+
+		</f:view>
+	</ui:define>
+</ui:composition>
+</html>

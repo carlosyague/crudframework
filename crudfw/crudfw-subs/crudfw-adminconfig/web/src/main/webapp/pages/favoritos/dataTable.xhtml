@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:librae="http://www.librae.org/jsf/facelets">
+
+	<librae:listado id="favoritos" var="favorito" columnClasses="anchura5,anchura55,anchura20,anchura20" value="#{bean.listado}" sortColumn="#{bean.sortColumn}"
+		sortAscending="#{bean.ascending}" styleClass="listado" headerClass="standardTable_Header anchura1"
+		rowClasses="impar,par" rowStyleClass="#{favorito.estilo}">
+		
+	    <t:column  styleClass="anchura2">
+			<f:facet name="header">
+				<t:selectBooleanCheckbox forceId="true" id="selectAllPage" name="selectAllPage"
+				    onclick="actualizarSeleccionPagina(this, 'favoritos', 'selectAll');" value="#{bean.selectedPage}"/>
+			</f:facet>
+			<t:selectBooleanCheckbox forceId="true" id="chk" styleClass="#{favorito.id}"
+	        	 onclick="actualizarSeleccion(this, 'favoritos', 'selectAll', 'selectAllPage');" value="#{favorito.selected}"/>
+		</t:column>
+
+		<t:column id="favorito_texto">
+			<f:facet name="header">
+					<t:outputText value="#{msg['favorito.texto']}" escape="true"/>
+			</f:facet>
+			<t:outputText value="#{favorito.texto}" escape="true"/>
+		</t:column>
+
+		<t:column styleClass="editLink">
+			<f:facet name="header" style="center">
+			</f:facet>
+
+			<a4j:commandLink reRender="favoritos" immediate="true" action="#{bean.subirOrden}" id="idSubirOrden" title="#{common['button.upload']}">
+				<a4j:actionparam name="idSubirOrden" value="#{favorito.id}" assignTo="#{bean.idSubirOrden}" noEscape="true" />
+				<h:graphicImage border="0" value="/images/subir.gif" alt="#{common['button.subir']}" />
+				<f:param name="procesarListado" value="true" />
+				<f:param name="ordenarListado" value="true" />
+			</a4j:commandLink>
+		</t:column>
+
+		<t:column styleClass="editLink">
+			<f:facet name="header" style="center">
+			</f:facet>
+
+			<a4j:commandLink reRender="favoritos" immediate="true" action="#{bean.bajarOrden}" id="idBajarOrden" title="#{common['button.bajar']}" >
+				<a4j:actionparam name="idBajarOrden" value="#{favorito.id}" assignTo="#{bean.idBajarOrden}" noEscape="true" />
+				<h:graphicImage border="0" value="/images/bajar.gif" alt="#{common['button.bajar']}" />
+				<f:param name="procesarListado" value="true" />
+				<f:param name="ordenarListado" value="true" />
+			</a4j:commandLink>
+		</t:column>
+	</librae:listado>
+</html>

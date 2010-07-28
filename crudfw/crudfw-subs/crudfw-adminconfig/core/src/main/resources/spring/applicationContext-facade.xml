@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
+	default-lazy-init="true">
+
+	<bean id="arboledaFacadeAdminconfig"
+		class="org.librae.adminconfig.facade.impl.ArboledaFacadeImpl">
+		<property name="bibliotecaDao" ref="bibliotecaDAO"></property>
+		<property name="bibliotecaViewDao" ref="bibliotecaViewDAO"/>
+	</bean>
+
+	<bean id="direccionFacade"
+		class="org.librae.adminconfig.facade.impl.DireccionFacadeImpl">
+         <property name="paisDao" ref="paisDAO"></property>
+         <property name="comunidadDao" ref="comunidadAutonomaDAO"></property>
+         <property name="provinciaDao" ref="provinciaDAO"></property>
+         <property name="municipioDao" ref="municipioDAO"></property>
+         <property name="localidadDao" ref="localidadDAO"></property>
+         <property name="tipoViaDao" ref="tipoViaDAO"></property>
+         <property name="direccionDao" ref="direccionDAO"></property>
+	</bean>
+
+</beans>

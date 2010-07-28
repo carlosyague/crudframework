@@ -1,0 +1,98 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:s="http://myfaces.apache.org/sandbox"
+	xmlns:librae="http://www.librae.org/jsf/facelets">
+
+    <librae:listado id="#{idListado}" var="biblioteca" value="#{bean.listado}"
+    	sortColumn="#{bean.sortColumn}" sortAscending="#{bean.ascending}" styleClass="listado"
+		headerClass="standardTable_Header" rowClasses="impar,par" rowStyleClass="#{biblioteca.estilo}"
+		rowIndexVar="bibliotecaIndex">
+
+	<h:column rendered="#{localizador!=null}">
+		<f:facet name="header"></f:facet>
+		<t:selectOneRadio id="chkRadio" forceId="true" forceIdIndex="false" layout="spread" immediate="true" styleClass="#{biblioteca.id}"
+        	 onclick="javascript:actualizarSeleccionRadioButton(this, '#{biblioteca.id}', '#{idListado}');"
+	         value="#{biblioteca.selected}">
+        	 <f:selectItems id="itmId" value="#{bean.listadoIndicesTbl}"/>
+        </t:selectOneRadio>
+        <t:radio for="chkRadio" index="#{bibliotecaIndex}" />
+	</h:column>
+
+    <t:column id="biblioteca_codigo">
+			<f:facet name="header">
+				<t:commandSortHeader id="Codigo" columnName="codigo" arrow="true">
+					<a4j:commandLink reRender="#{idListado}, paginacion" value="#{msg['biblioteca.codigo']}" limitToList="true" immediate="true">
+						<a4j:actionparam name="sortColumn" value="codigo" assignTo="#{bean.sortColumn}"/>
+						<a4j:actionparam name="ascending"  value="#{!bean.ascending}" assignTo="#{bean.ascending}" />
+						<f:param name="ordenarListado" value="true" />
+					</a4j:commandLink>
+				</t:commandSortHeader>
+			</f:facet>
+			<t:outputText value="#{biblioteca.codigo}" escape="true"/>
+	</t:column>
+    <t:column id="biblioteca_nombre">
+			<f:facet name="header">
+				<t:commandSortHeader id="Descripcion" columnName="descripcion" arrow="true">
+					<a4j:commandLink reRender="#{idListado}, paginacion" value="#{msg['biblioteca.nombre']}" limitToList="true" immediate="true">
+						<a4j:actionparam name="sortColumn" value="descripcion" assignTo="#{bean.sortColumn}"/>
+						<a4j:actionparam name="ascending"  value="#{!bean.ascending}" assignTo="#{bean.ascending}" />
+						<f:param name="ordenarListado" value="true" />
+					</a4j:commandLink>
+				</t:commandSortHeader>
+			</f:facet>
+			<t:outputText value="#{biblioteca.descripcion}" escape="true"/>
+	</t:column>
+	 <t:column id="biblioteca_personaContacto">
+			<f:facet name="header">
+				<t:commandSortHeader id="PersonaContacto" columnName="personaContacto" arrow="true">
+					<a4j:commandLink reRender="#{idListado}, paginacion" value="#{msg['biblioteca.personaContacto']}" limitToList="true" immediate="true">
+						<a4j:actionparam name="sortColumn" value="personaContacto" assignTo="#{bean.sortColumn}"/>
+						<a4j:actionparam name="ascending"  value="#{!bean.ascending}" assignTo="#{bean.ascending}" />
+						<f:param name="ordenarListado" value="true" />
+					</a4j:commandLink>
+				</t:commandSortHeader>
+			</f:facet>
+			<t:outputText value="#{biblioteca.personaContacto}" escape="true"/>
+	</t:column>
+	<t:column id="biblioteca_tipoBiblioteca_nombre">
+			<f:facet name="header">
+				<t:commandSortHeader id="TipoBiblioteca" columnName="tipoBiblioteca.codigo" arrow="true">
+					<a4j:commandLink reRender="#{idListado}, paginacion" value="#{msg['biblioteca.tipoBiblioteca.nombre']}" limitToList="true" immediate="true">
+						<a4j:actionparam name="sortColumn" value="tipoBiblioteca.codigo" assignTo="#{bean.sortColumn}"/>
+						<a4j:actionparam name="ascending"  value="#{!bean.ascending}" assignTo="#{bean.ascending}" />
+						<f:param name="ordenarListado" value="true" />
+					</a4j:commandLink>
+				</t:commandSortHeader>
+			</f:facet>
+			<t:outputText value="#{biblioteca.tipoBiblioteca.nombre}" escape="true"/>
+	</t:column>
+
+	<t:column id="biblioteca_fechaHoraUltimaConexion">
+			<f:facet name="header">
+				<t:commandSortHeader id="FechaUltimaConexion" columnName="fechaHoraUltimaConexion" arrow="true">
+					<a4j:commandLink reRender="#{idListado}, paginacion" value="#{msg['biblioteca.fechaHoraUltimaConexion']}" limitToList="true" immediate="true">
+						<a4j:actionparam name="sortColumn" value="fechaHoraUltimaConexion" assignTo="#{bean.sortColumn}"/>
+						<a4j:actionparam name="ascending"  value="#{!bean.ascending}" assignTo="#{bean.ascending}" />
+						<f:param name="ordenarListado" value="true" />
+					</a4j:commandLink>
+				</t:commandSortHeader>
+			</f:facet>
+			<t:outputText value="#{biblioteca.fechaHoraUltimaConexion}" escape="true" converter="timeZoneConverter"/>
+	</t:column>
+    <t:column styleClass="editLink" rendered="#{localizador==null}">
+        <f:facet name="header" style="center"></f:facet>
+        <t:commandLink action="#{bibliotecaFormAction.edit}" id="edit" visibleOnUserRole="ADM_Mostrar_Biblioteca" title="#{common['button.lapiz']}">
+            <f:param name="idBiblioteca" value="#{biblioteca.id}"/>
+           	<f:param name="from" value="/pages/biblioteca/list.xhtml"/>
+           	<f:param name="procesarListado" value="true" />
+            <span><h:graphicImage border="0" value="/images/editar_icon.gif" alt="#{common['button.lapiz']}" /></span>
+        </t:commandLink>
+    </t:column>
+</librae:listado>
+
+</html>

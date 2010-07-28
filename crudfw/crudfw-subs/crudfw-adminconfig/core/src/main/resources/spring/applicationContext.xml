@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
+	default-lazy-init="true">
+
+	<description>
+        Inclusión de los contextos para el classpath del ear
+    </description>
+
+    <import resource="./applicationContext-dao.xml"/>
+    <import resource="./applicationContext-facade.xml"/>
+    <import resource="./applicationContext-service.xml"/>
+
+</beans>

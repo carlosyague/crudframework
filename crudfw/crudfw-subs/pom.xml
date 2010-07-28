@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.crudfw</groupId>
+		<artifactId>crudfw</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<groupId>org.crudfw</groupId>
+	<artifactId>crudfw-subsistemas</artifactId>
+	<packaging>pom</packaging>
+
+	<version>1.0-SNAPSHOT</version>
+
+	<name>CRUD Framework: Subsistemas</name>
+	<build>
+		<!-- CONFIGURACION PLUGINS COMUNES SUBMODULOS -->
+		<pluginManagement>
+			<plugins>
+
+    			<!-- crudfw PLUGIN -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>crudfw-maven-plugin</artifactId>
+					<version>${crudfw.maven.plugin.version}
+					</version>
+					<configuration>
+						<genericCore>${crudfw.maven.plugin.genericCore}
+						</genericCore>
+						<fullSource>${crudfw.maven.plugin.fullSource}
+						</fullSource>
+						<componentProperties>
+							<appfusePackage> ${crudfw.maven.plugin.appfusePackage}
+							</appfusePackage>
+							<authorName>${crudfw.maven.plugin.autorName}</authorName>
+							<configurationfile>../../crudfw-model/src/main/resources/hibernate.cfg.xml</configurationfile>
+							<sampleDataFile>../../crudfw-model/src/test/resources/sample-data.xml</sampleDataFile>
+						</componentProperties>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>${jdbc.groupId}</groupId>
+							<artifactId>${jdbc.artifactId}</artifactId>
+							<version>${jdbc.version}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<configuration>
+					<aggregate>true</aggregate>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<configuration>
+					<aggregate>true</aggregate>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+	<dependencies>
+	</dependencies>
+	<modules>
+    	<module>crudfw-model</module>
+		<module>crudfw-context-ear</module>
+		<module>crudfw-theme</module>
+		<module>crudfw-adminconfig</module>
+	</modules>
+</project>

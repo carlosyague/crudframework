@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:librae="http://www.librae.org/jsf/facelets">
+
+	<librae:listado id="#{idListado}" var="usuarioBiliotecaRol" value="#{bean.listado}" sortColumn="#{bean.sortColumn}"
+		sortAscending="#{bean.ascending}" styleClass="listado"
+		headerClass="standardTable_Header" rowClasses="impar,par"
+		rowStyleClass="#{usuarioBiliotecaRol.estilo}" rowIndexVar="rolesIndex">
+
+		<h:column rendered="#{!readMode}">
+			<f:facet name="header">
+				<t:selectBooleanCheckbox forceId="true" id="selectAllPage" name="selectAllPage"
+				    onclick="actualizarSeleccionPagina(this, '#{idListado}', 'selectAll');" value="#{bean.selectedPage}"/>
+			</f:facet>
+			<t:selectBooleanCheckbox forceId="true" id="chk" styleClass="#{rolesIndex}"
+	        	 onclick="actualizarSeleccion(this, '#{idListado}', 'selectAll', 'selectAllPage');" value="#{usuarioBiliotecaRol.selected}"/>
+		</h:column>
+
+
+		<t:column id="rol_codigoRol">
+			<f:facet name="header">
+				<t:commandSortHeader columnName="rol.codigo" arrow="true">
+					<a4j:commandLink reRender="#{idListado}, paginacion" value="#{msg['rol.codigoRol']}">
+						<a4j:actionparam name="sortColumn" value="rol.codigo" assignTo="#{bean.sortColumn}"/>
+						<a4j:actionparam name="ascending"  value="#{!bean.ascending}" assignTo="#{bean.ascending}" />
+						<f:param name="ordenarListado" value="true" />
+					</a4j:commandLink>
+				</t:commandSortHeader>
+			</f:facet>
+			<t:outputText value="#{usuarioBiliotecaRol.rol.codigo}" escape="true"/>
+		</t:column>
+		<t:column id="rol_nombreRol">
+			<f:facet name="header">
+				<t:commandSortHeader columnName="rol.nombre" arrow="true">
+					<a4j:commandLink reRender="#{idListado}, paginacion" value="#{msg['rol.nombreRol']}">
+						<a4j:actionparam name="sortColumn" value="rol.nombre" assignTo="#{bean.sortColumn}"/>
+						<a4j:actionparam name="ascending"  value="#{!bean.ascending}" assignTo="#{bean.ascending}" />
+						<f:param name="ordenarListado" value="true" />
+					</a4j:commandLink>
+				</t:commandSortHeader>
+			</f:facet>
+			<t:outputText value="#{usuarioBiliotecaRol.rol.nombre}" escape="true"/>
+		</t:column>
+	    <t:column id="biblioteca_codigoBiblioteca">
+				<f:facet name="header">
+					<t:commandSortHeader columnName="biblioteca.codigo" arrow="true">
+						<a4j:commandLink reRender="#{idListado}, paginacion" value="#{msg['biblioteca.codigoBiblioteca']}">
+							<a4j:actionparam name="sortColumn" value="biblioteca.codigo" assignTo="#{bean.sortColumn}"/>
+							<a4j:actionparam name="ascending"  value="#{!bean.ascending}" assignTo="#{bean.ascending}" />
+							<f:param name="ordenarListado" value="true" />
+						</a4j:commandLink>
+					</t:commandSortHeader>
+				</f:facet>
+				<t:outputText value="#{usuarioBiliotecaRol.biblioteca.codigo}" escape="true"/>
+		</t:column>
+	    <t:column id="biblioteca_nombreBiblioteca">
+				<f:facet name="header">
+					<t:commandSortHeader columnName="biblioteca.descripcion" arrow="true">
+						<a4j:commandLink reRender="#{idListado}, paginacion" value="#{msg['biblioteca.nombreBiblioteca']}">
+							<a4j:actionparam name="sortColumn" value="biblioteca.descripcion" assignTo="#{bean.sortColumn}"/>
+							<a4j:actionparam name="ascending"  value="#{!bean.ascending}" assignTo="#{bean.ascending}" />
+							<f:param name="ordenarListado" value="true" />
+						</a4j:commandLink>
+					</t:commandSortHeader>
+				</f:facet>
+				<t:outputText value="#{usuarioBiliotecaRol.biblioteca.descripcion}" escape="true"/>
+		</t:column>
+	</librae:listado>
+
+</html>

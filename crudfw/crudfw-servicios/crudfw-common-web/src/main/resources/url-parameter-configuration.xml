@@ -1,0 +1,45 @@
+
+    <!--
+        ################################## camunda GmbH 2006 The
+        Business Process Company www.camunda.com Configuration file for
+        JSF UrlParameter component. ##################################
+
+        This example configuration shows the usage of the XML
+        configuration. Two parameters are being configured: - articleId
+        - categoryId The backing bean that should be called when these
+        parameters are found in the request URL is the
+        "MyJsfManagedBean". It must be registered in faces-config.xml
+        under this name. The actual class should look like this: package
+        com.camunda.example.MyJsfManagedBean; public class
+        MyJsfManagedBean { (...) public void setArticle(String s) { //
+        for example this.articleId = s; } public void setCategory(String
+        s) { // for example this.categoryId = s; } (...) } Note, that
+        the method signature must have public accessibilty and one
+        String parameter. Since parameter values coming from the URL are
+        always String, conversion (and hence, validation e.g. on for
+        handling conversion errors) should be made within that method.
+
+        For more information please have a look at
+
+        http://www.camunda.com/hendrik_beck/jsf:_passing_parameters_per_http_get_within_the_url.html
+
+        or feel free to send an email to hendrik.beck@camunda.com Of
+        course, any feedback or experiences are highly appreciated!
+    -->
+
+
+
+<url-parameter-configuration>
+    <!-- <url-parameter>
+        <name>articleId</name>
+        <managed-bean-name>MyJsfManagedBean</managed-bean-name>
+        <managed-bean-class>com.camunda.example.MyJsfManagedBean</managed-bean-class>
+        <managed-bean-method>setArticle</managed-bean-method>
+    </url-parameter>
+    <url-parameter>
+        <name>categoryId</name>
+        <managed-bean-name>MyJsfManagedBean</managed-bean-name>
+        <managed-bean-class>com.camunda.example.MyJsfManagedBean</managed-bean-class>
+        <managed-bean-method>setCategory</managed-bean-method>
+    </url-parameter>-->
+</url-parameter-configuration>

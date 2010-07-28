@@ -1,0 +1,123 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:librae="http://www.librae.org/jsf/facelets"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax">
+
+<ui:composition template="/templates/defaultTemplate.xhtml">
+	<ui:define name="title">#{msg['asignarPerfiles.title']}</ui:define>
+	<ui:define name="body.id">asignarPerfilesUsuarioAction</ui:define>
+	<ui:define name="body">
+		<f:view>
+
+			<h:form id="asignarPerfilesUsuarioAction">
+
+				<librae:breadCrumb />
+
+				<t:div styleClass="contenido">
+					<t:div styleClass="pestana1">
+						<t:panelGrid columns="3" styleClass="pestanas" columnClasses="blank,titulo_activa" cellpadding="0" cellspacing="0" border="0">
+							<h:graphicImage value="/images/p01b.gif" />
+							<h:outputText value="#{msg['asignarPerfiles.tab']}" />
+							<h:graphicImage value="/images/p02b.gif" />
+						</t:panelGrid>
+
+						<t:div styleClass="pestana">
+							<t:div styleClass="cuadro">
+								<t:div styleClass="cuadro02">
+									<t:panelGrid columns="2" columnClasses="" headerClass="titular" footerClass="esq02" cellpadding="0" cellspacing="0" border="0" width="100%">
+										<f:facet name="header">
+											<h:outputText value="#{msg['asignarPerfiles.usuario']}" />
+										</f:facet>
+										<f:facet name="footer">
+											<h:panelGroup>
+												<ui:include src="/pages/usuarioBibliotecaRol/dataTableUsuarios.xhtml">
+												</ui:include>
+												<ui:include src="/common/tableFooterSeveralPages.xhtml">
+													<ui:param name="scrollName" value="scrollPrestar"/>
+										    		<ui:param name="tableName" value="usuarios"/>
+												</ui:include>
+											</h:panelGroup>
+										</f:facet>
+									</t:panelGrid>
+								</t:div>
+							</t:div>
+						</t:div>
+
+						<t:div styleClass="pestana">
+							<t:div styleClass="cuadro">
+								<t:div styleClass="cuadro02">
+									<t:panelGrid columns="1" columnClasses="" headerClass="titular" footerClass="esq02" cellpadding="0" cellspacing="0" border="0" width="100%">
+										<f:facet name="header">
+											<h:outputText value="#{msg['asignarPerfiles.biblioteca']}" />
+										</f:facet>
+										<f:facet name="footer">
+											<h:panelGroup>
+												<ui:include src="/common/tree/arbolBibliotecasSinAjax.xhtml">
+													<ui:param name="beanTreeData" value="#{treePermisosAsignarUsuarioAction}"/>
+													<ui:param name="beanNodoClick" value="#{asignarPerfilesUsuarioAction}"/>
+													<ui:param name="readOnly" value="false"/>
+													<ui:param name="form" value="asignarPerfilesUsuarioAction" />
+			  										<ui:param name="page" value="/librae-adminconfig/pages/usuarioBibliotecaRol/asignarUsuarios.html" />
+												</ui:include>
+											</h:panelGroup>
+										</f:facet>
+									</t:panelGrid>
+								</t:div>
+							</t:div>
+						</t:div>
+
+						<t:div styleClass="pestana">
+							<t:div styleClass="cuadro">
+								<t:div styleClass="cuadro02">
+									<t:panelGrid columns="2" columnClasses="columnLabel" headerClass="titular" footerClass="esq02" cellpadding="0" cellspacing="0" border="0" width="100%">
+										<f:facet name="header">
+											<h:outputText value="#{msg['asignarPerfiles.roles']}" />
+										</f:facet>
+
+										<h:outputLabel for="roles" value="#{msg['asignarPerfiles.roles']}" />
+										<h:selectManyListbox id="roles" value="#{asignarPerfilesUsuarioAction.form.rolesSeleccionados}" size="10" styleClass="margenDerecho">
+											<f:selectItems value="#{comboAction.roles}" />
+										</h:selectManyListbox>
+										<t:saveState id="saveRoles" value="#{comboAction.roles}" />
+
+										<f:facet name="footer">
+											<h:panelGroup>
+												<h:commandLink action="list" id="cancel" styleClass="boton_rojo" title="#{common['button.cancel']}" immmediate="true">
+													<span><h:outputText value="#{common['button.cancel']}" /></span>
+											    </h:commandLink>
+												<h:commandLink action="#{asignarPerfilesUsuarioAction.desasignarUsuarios}" id="revocar" styleClass="boton" title="#{common['button.desasignar']}">
+													<span><h:outputText value="#{common['button.desasignar']}" /></span>
+												</h:commandLink>
+												<h:commandLink action="#{asignarPerfilesUsuarioAction.asignarUsuarios}" id="asignar" styleClass="boton" title="#{common['button.asignar']}">
+													<span><h:outputText value="#{common['button.asignar']}" /></span>
+												</h:commandLink>
+											</h:panelGroup>
+										</f:facet>
+									</t:panelGrid>
+								</t:div>
+							</t:div>
+						</t:div>
+
+					</t:div>
+
+					<t:div styleClass="pie_pestana">
+						<t:panelGrid columns="3" columnClasses="blank,blanco,blank" cellpadding="0" cellspacing="0" border="0">
+							<h:graphicImage value="/images/pie01.gif" />
+							<h:outputText value=" " />
+							<h:graphicImage value="/images/pie02.gif" />
+						</t:panelGrid>
+					</t:div>
+
+				</t:div>
+			</h:form>
+
+			<librae:windowMessages bean="#{asignarPerfilesUsuarioAction}" borrar="true" />
+
+		</f:view>
+	</ui:define>
+</ui:composition>
+</html>

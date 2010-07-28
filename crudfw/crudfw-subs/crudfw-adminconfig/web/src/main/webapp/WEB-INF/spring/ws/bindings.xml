@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+	jaxb:version="1.0">
+  <jaxb:bindings schemaLocation="horarios.xsd">
+    <jaxb:bindings node="//xs:element[@name='Respuesta']">
+      <jaxb:class name="RespuestaElement"/>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='RespuestaType']">
+      <jaxb:class name="Respuesta"/>
+      <jaxb:bindings node=
+          "//xs:complexType[@name='RespuestaType']//xs:element[@name='Horario']">
+         <jaxb:property name="horario"/>
+      </jaxb:bindings>
+    </jaxb:bindings>
+  </jaxb:bindings>
+</jaxb:bindings>

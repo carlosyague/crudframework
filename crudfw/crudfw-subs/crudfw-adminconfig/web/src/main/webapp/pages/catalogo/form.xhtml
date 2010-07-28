@@ -1,0 +1,146 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:v="http://corejsf.com/validator"
+	xmlns:s="http://myfaces.apache.org/sandbox"
+	xmlns:librae="http://www.librae.org/jsf/facelets">
+
+
+<ui:composition template="/templates/defaultTemplate.xhtml">
+	<ui:define name="title">#{msg['catalogo.title']}</ui:define>
+	<ui:define name="body.id">catalogoFormAction</ui:define>
+
+	<ui:define name="body">
+		<f:view>
+
+		<librae:executeMethod getter="#{catalogoFormAction.init}" />
+		<h:form id="catalogoForm">
+
+			<t:saveState id="saveReadMode" value="#{catalogoFormAction.catalogoForm.readMode}" />
+			<librae:breadCrumb />
+
+			<t:saveState id="saveCreacion" value="#{catalogoFormAction.catalogoForm.creacion}" />
+			<t:panelGrid columns="1" styleClass="ruta" columnClasses="path,fechahora" cellpadding="0" cellspacing="0" border="0" rendered="#{!catalogoFormAction.catalogoForm.creacion}">
+				<t:panelGroup visibleOnUserRole="ADM_Eliminar_Catalogo">
+					<h:outputLink value="#" id="delete" styleClass="btn_barra"
+							title="#{common['button.remove']}" onclick="dialogo1Var.show();">
+						<strong><h:outputText value="#{common['button.remove']}" /></strong>
+					</h:outputLink>
+				</t:panelGroup>
+			</t:panelGrid>
+
+			<!-- CONTENIDO -->
+			<t:div styleClass="contenido"><!-- PESTANA 1 -->
+
+				<t:div styleClass="pestana1">
+
+				<t:panelGrid columns="3" styleClass="pestanas" columnClasses="blank,titulo_activa" cellpadding="0" cellspacing="0" border="0">
+					<h:graphicImage value="/images/p01b.gif" />
+					<h:outputText value="#{msg['catalogoListAction.tab01Text']}" />
+					<h:graphicImage value="/images/p02b.gif" />
+				</t:panelGrid>
+
+				<!-- CONTENIDO PESTANA -->
+				<t:div styleClass="pestana">
+
+				<t:div styleClass="cuadro">
+				<t:div styleClass="cuadro02">
+
+				<t:saveState id="saveIdCatalogo" value="#{catalogoFormAction.catalogoForm.id}" />
+				<h:inputHidden value="#{catalogoFormAction.catalogoForm.id}" id="id"/>
+
+				<t:panelGrid columns="2" styleClass="formularioSuperior" headerClass="titular" footerClass="esq02" cellpadding="0" cellspacing="0" border="0" width="100%" columnClasses="columnLabel">
+
+					<f:facet name="header">
+						<h:outputText value=" " />
+					</f:facet>
+
+					<h:outputLabel for="codigo" value="#{msg['catalogo.codigo']}" />
+							<h:panelGroup>
+								<t:saveState id="saveCodigo" value="#{catalogoFormAction.catalogoForm.codigo}" />
+								<h:inputText styleClass="text medium" size="80" id="codigo" value="#{catalogoFormAction.catalogoForm.codigo}" required="true" maxlength="40" disabled="#{catalogoFormAction.catalogoForm.readMode}" />
+								<t:message for="codigo" styleClass="fieldError" detailFormat="{1} #{common['required']}." showSummary="false" showDetail="true" />
+							</h:panelGroup>
+
+					<h:outputLabel for="nombre" value="#{msg['catalogo.nombre']}" />
+							<h:panelGroup>
+								<t:saveState id="saveNombre" value="#{catalogoFormAction.catalogoForm.nombre}" />
+								<h:inputText styleClass="text medium" size="80" id="nombre" value="#{catalogoFormAction.catalogoForm.nombre}" required="true" maxlength="80" disabled="#{catalogoFormAction.catalogoForm.readMode}" />
+								<t:message for="nombre" styleClass="fieldError" detailFormat="{1} #{common['required']}." showSummary="false" showDetail="true" />
+							</h:panelGroup>
+
+					<h:outputLabel for="descripcion" value="#{msg['catalogo.descripcion']}" />
+							<h:panelGroup>
+								<t:saveState id="saveDescripcion" value="#{catalogoFormAction.catalogoForm.descripcion}" />
+								<h:inputTextarea styleClass="text medium" cols="80" rows="5" id="descripcion" value="#{catalogoFormAction.catalogoForm.descripcion}" required="false" maxlength="120" disabled="#{catalogoFormAction.catalogoForm.readMode}">
+									<v:commonsValidator type="maxlength" maxlength="120" arg="#{common['errors.maxlength']}" client="true" server="true"/>
+								</h:inputTextarea>
+								<t:message for="descripcion" styleClass="fieldErrorArriba" showDetail="true" detailFormat="{1} #{common['maxlength']} 120 #{common['chars']}." showSummary="false" />
+							</h:panelGroup>
+
+					<f:facet name="footer">
+						<h:outputText value=" " />
+					</f:facet>
+				</t:panelGrid>
+
+				</t:div>
+				</t:div>
+
+				<h:commandLink action="list" id="cancel" styleClass="boton_rojo" title="#{common['button.cancel']}" rendered="#{!catalogoFormAction.catalogoForm.readMode}" immediate="true">
+					<span><h:outputText value="#{common['button.cancel']}" /></span>
+				</h:commandLink>
+				<h:commandLink action="list" id="back" styleClass="boton_rojo" title="#{common['button.back']}" rendered="#{catalogoFormAction.catalogoForm.readMode}" immediate="true">
+					<span><h:outputText value="#{common['button.back']}" /></span>
+				</h:commandLink>
+				<t:commandLink action="#{catalogoFormAction.editable}" id="editable" styleClass="boton" title="#{common['button.edit']}" rendered="#{catalogoFormAction.catalogoForm.readMode}" immediate="true" visibleOnUserRole="ADM_Mantenimiento_Catalogo">
+					<span><h:outputText value="#{common['button.edit']}" /></span>
+				</t:commandLink>
+				<h:commandLink action="#{catalogoFormAction.saveAceptar}" id="saveAceptar" styleClass="boton" title="#{common['button.done']}" rendered="#{!catalogoFormAction.catalogoForm.readMode}">
+					<span> <h:outputText value="#{common['button.done']}" /> </span>
+				</h:commandLink>
+				<h:commandLink action="#{catalogoFormAction.saveGuardar}" id="save" styleClass="boton" title="#{common['button.save']}" rendered="#{!catalogoFormAction.catalogoForm.readMode}">
+					<span> <h:outputText value="#{common['button.save']}" /> </span>
+				</h:commandLink>
+
+				</t:div><!-- pestana -->
+				</t:div><!-- pestana1 -->
+
+				<t:div styleClass="pie_pestana">
+					<t:panelGrid columns="3" columnClasses="blank,blanco,blank" cellpadding="0" cellspacing="0" border="0">
+						<h:graphicImage value="/images/pie01.gif" />
+						<h:outputText value=" " />
+						<h:graphicImage value="/images/pie02.gif" />
+					</t:panelGrid>
+				</t:div>
+
+	</t:div>
+
+		<t:div id="divConfirmacionBorrar" style="display: none;">
+			<s:modalDialog  dialogId="dialogo2"  dialogVar="dialogo1Var"
+				      dialogAttr="bgColor='white' bgOpacity='0.5' toggle='fade' toggleDuration='50'"
+				      hiderIds="btnCerrar">
+			        <t:panelGrid border="0" columns="1" styleClass="ventanaEmergente">
+				    	<t:outputText id="msg"  value="#{msg['confirmacion.catalogo']}" style="text-align:center;"/>
+				    	<t:panelGroup>
+				        	<t:panelGrid border="0" columns="2">
+						        <t:commandLink action="#{catalogoFormAction.delete}" id="editD" immediate="true" styleClass="btn_barra">
+									<t:htmlTag value="span"><h:outputText value="#{common['button.remove']}" /></t:htmlTag>
+								</t:commandLink>
+						        <t:commandButton id="btnCerrar" forceId="true" onclick="dialogo1Var.hide();" styleClass="btn_barra_cerrar" value="#{common['button.cancel']}"/>
+				        	</t:panelGrid>
+			        	</t:panelGroup>
+			        </t:panelGrid>
+			</s:modalDialog>
+		</t:div>
+
+	</h:form>
+
+	<librae:windowMessages bean="#{catalogoFormAction}" borrar="true" />
+
+	</f:view>
+	</ui:define>
+</ui:composition>
+</html>

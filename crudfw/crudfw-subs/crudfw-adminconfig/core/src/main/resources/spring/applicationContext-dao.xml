@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
+	default-lazy-init="true">
+
+    <description>
+        Definición de los beans de la capa DAO, sessionFactory y transactionManager
+    </description>
+
+	<!--ProvinciaDao-START-->
+    <bean id="provinciaDAO" class="org.librae.adminconfig.dao.hibernate.ProvinciaDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--ProvinciaDao-END-->
+
+    <!--ComunidadAutonomaDao-START-->
+    <bean id="comunidadAutonomaDAO" class="org.librae.adminconfig.dao.hibernate.ComunidadAutonomaDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--ComunidadAutonomaDao-END-->
+
+
+
+    <!--MunicipioDao-START-->
+    <bean id="municipioDAO" class="org.librae.adminconfig.dao.hibernate.MunicipioDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--MunicipioDao-END-->
+
+    <!--LocalidadDao-START-->
+    <bean id="localidadDAO" class="org.librae.adminconfig.dao.hibernate.LocalidadDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--LocalidadDao-END-->
+
+    <!--RolDao-START-->
+    <bean id="rolDAO" class="org.librae.adminconfig.dao.hibernate.RolDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--RolDao-END-->
+
+    <!--PermisoDao-START-->
+    <bean id="permisoDAO" class="org.librae.adminconfig.dao.hibernate.PermisoDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--PermisoDao-END-->
+
+    <!--PermisoRolDao-START-->
+    <bean id="permisoRolDAO" class="org.librae.adminconfig.dao.hibernate.PermisoRolDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--PermisoRolDao-END-->
+
+    <!--UsuarioDao-START-->
+    <bean id="usuarioDAO" class="org.librae.adminconfig.dao.hibernate.UsuarioDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--UsuarioDao-END-->
+
+    <!--PaisDao-START-->
+    <bean id="paisDAO" class="org.librae.adminconfig.dao.hibernate.PaisDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--PaisDao-END-->
+
+    <!--TipoViaDao-START-->
+    <bean id="tipoViaDAO" class="org.librae.adminconfig.dao.hibernate.TipoViaDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--TipoViaDao-END-->
+
+    <!--DireccionDao-START-->
+    <bean id="direccionDAO" class="org.librae.adminconfig.dao.hibernate.DireccionDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--DireccionDao-END-->
+
+    <!--BibliotecaDao-START-->
+    <bean id="bibliotecaDAO" class="org.librae.adminconfig.dao.hibernate.BibliotecaDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--BibliotecaDao-END-->
+
+     <!--BibliotecaViewDao-START-->
+    <bean id="bibliotecaViewDAO" class="org.librae.adminconfig.dao.hibernate.BibliotecaViewDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--BibliotecaViewDao-END-->
+
+    <!--TipoBibliotecaDao-START-->
+    <bean id="tipoBibliotecaDAO" class="org.librae.adminconfig.dao.hibernate.TipoBibliotecaDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--TipoBibliotecaDao-END-->
+
+    <!--TipoIdentificacionDao-START-->
+    <bean id="tipoIdentificacionDAO" class="org.librae.adminconfig.dao.hibernate.TipoIdentificacionDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--TipoIdentificacionDao-END-->
+
+    <!--TratamientoDao-START-->
+    <bean id="tratamientoDAO" class="org.librae.adminconfig.dao.hibernate.TratamientoDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--TratamientoDao-END-->
+
+    <!--UsuarioBibliotecaRolDao-START-->
+    <bean id="usuarioBibliotecaRolDAO" class="org.librae.adminconfig.dao.hibernate.UsuarioBibliotecaRolDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--UsuarioBibliotecaRolDao-END-->
+
+    <!--CatalogoDao-START-->
+    <bean id="catalogoDAO" class="org.librae.adminconfig.dao.hibernate.CatalogoDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--CatalogoDao-END-->
+
+    <!--CalendarioDao-START-->
+    <bean id="calendarioDAO" class="org.librae.adminconfig.dao.hibernate.CalendarioDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--CalendarioDao-END-->
+
+    <!--FestivoDao-START-->
+    <bean id="festivoDAO" class="org.librae.adminconfig.dao.hibernate.FestivoDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--FestivoDao-END-->
+
+    <!--TipoPermisoDao-START-->
+    <bean id="tipoPermisoDAO" class="org.librae.adminconfig.dao.hibernate.TipoPermisoDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--TipoPermisoDao-END-->
+
+    <!--HorarioDao-START-->
+    <bean id="horarioDAO" class="org.librae.adminconfig.dao.hibernate.HorarioDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--HorarioDao-END-->
+
+    <!--HorarioIntDao-START-->
+    <bean id="horarioIntDAO" class="org.librae.adminconfig.dao.hibernate.HorarioIntDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--HorarioIntDao-END-->
+
+    <!--MonedaDao-START-->
+    <bean id="monedaDAO" class="org.librae.adminconfig.dao.hibernate.MonedaDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--MonedaDao-END-->
+
+    <!--MenuDao-START-->
+    <bean id="menuDAO" class="org.librae.adminconfig.dao.hibernate.MenuDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--MenuDao-END-->
+
+    <!--ParametroDao-START-->
+    <bean id="parametroDAO" class="org.librae.adminconfig.dao.hibernate.ParametroDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--ParametroDao-END-->
+
+    <!--ParametroBibliotecaDao-START-->
+    <bean id="parametroBibliotecaDAO" class="org.librae.adminconfig.dao.hibernate.ParametroBibliotecaDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--ParametroBibliotecaDao-END-->
+
+    <!--CodigoBibliotecaDao-START-->
+    <bean id="codigoDAO" class="org.librae.adminconfig.dao.hibernate.CodigoDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--CodigoBibliotecaDao-END-->
+
+    <!--ValorCodigoBibliotecaDao-START-->
+    <bean id="valorCodigoDAO" class="org.librae.adminconfig.dao.hibernate.ValorCodigoDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--ValorCodigoBibliotecaDao-END-->
+
+    <!--AsignacionValorCodigoBibliotecaDao-START-->
+    <bean id="asignacionValorCodigoDAO" class="org.librae.adminconfig.dao.hibernate.AsignacionValorCodigoDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--AsignacionValorCodigoBibliotecaDao-END-->
+
+    <!--TipoDeCodigoDao-START-->
+    <bean id="tipoCodigoDAO" class="org.librae.adminconfig.dao.hibernate.TipoCodigoDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--TipoDeCodigoDao-END-->
+
+	<bean id="ejemplarTipoADMGenericDAO"
+		class="org.librae.common.dao.hibernate.GenericDAOImpl">
+		<constructor-arg value="org.librae.catalogacion.model.EjemplarTipo"/>
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="politicaPrestamoADMGenericDAO"
+		class="org.librae.common.dao.hibernate.GenericDAOImpl">
+		<constructor-arg value="org.librae.circulacion.model.PoliticaPrestamoDom"/>
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="politicaReservaADMGenericDAO"
+		class="org.librae.common.dao.hibernate.GenericDAOImpl">
+		<constructor-arg value="org.librae.circulacion.model.PoliticaReserva"/>
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="tipoLectorADMGenericDAO"
+		class="org.librae.common.dao.hibernate.GenericDAOImpl">
+		<constructor-arg value="org.librae.lectores.model.TipoLector"/>
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="lectorADMGenericDAO"
+		class="org.librae.common.dao.hibernate.GenericDAOImpl">
+		<constructor-arg value="org.librae.lectores.model.Lector"/>
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="consorcioGenericDAO"
+		class="org.librae.common.dao.hibernate.GenericDAOImpl">
+		<constructor-arg value="org.librae.circulacion.model.Consorcio"/>
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="estadoReservaADMGenericDAO"
+		class="org.librae.common.dao.hibernate.GenericDAOImpl">
+		<constructor-arg value="org.librae.circulacion.model.EstadoReserva"/>
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="tipoTransformJobADMGenericDAO"
+		class="org.librae.common.dao.hibernate.GenericDAOImpl">
+		<constructor-arg value="org.librae.importexport.model.TipoTransformJob"/>
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="tipoPeticionPIBADMGenericDAO"
+		class="org.librae.common.dao.hibernate.GenericDAOImpl">
+		<constructor-arg value="org.librae.circulacion.model.pib.TipoPeticionPIB"/>
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="estadoPeticionPIBADMGenericDAO"
+		class="org.librae.common.dao.hibernate.GenericDAOImpl">
+		<constructor-arg value="org.librae.circulacion.model.pib.EstadoPeticionPIB"/>
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="tipoResolucionPIBADMGenericDAO"
+		class="org.librae.common.dao.hibernate.GenericDAOImpl">
+		<constructor-arg value="org.librae.circulacion.model.pib.TipoResolucionPIB"/>
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="tipoEventoPIBADMGenericDAO"
+		class="org.librae.common.dao.hibernate.GenericDAOImpl">
+		<constructor-arg value="org.librae.circulacion.model.pib.TipoEventoPIB"/>
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="alcancePeticionPIBADMGenericDAO"
+		class="org.librae.common.dao.hibernate.GenericDAOImpl">
+		<constructor-arg value="org.librae.circulacion.model.pib.AlcancePeticionPIB"/>
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="favoritoDAO" class="org.librae.adminconfig.dao.hibernate.FavoritoDAOImpl">
+    </bean>
+
+    <bean id="favoritoUsuarioDAO" class="org.librae.adminconfig.dao.hibernate.FavoritoUsuarioDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- Add new DAOs here -->
+
+     <bean id="grupoFuncionalDAO" class="org.librae.adminconfig.dao.hibernate.GrupoFuncionalDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+	<!-- Add new WS-Clients DAOs here -->
+
+	<bean id="codigoNcipServicioADMGenericDAO"
+		class="org.librae.common.dao.hibernate.GenericDAOImpl">
+		<constructor-arg value="org.librae.circulacion.model.CodigoNcipServicio"/>
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!--ModuloDao-START-->
+	<bean id="moduloDAO" class="org.librae.adminconfig.dao.hibernate.ModuloDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+    <!--ModuloDao-END-->
+</beans>
