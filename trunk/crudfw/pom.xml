@@ -762,5 +762,179 @@
 
         <!-- Page settings -->
         <page.bienvenida>inicio.htm</page.bienvenida>
+        
+        <!-- PROFILE por defecto "mysql" -->
+        <profile.jdbc.host>mysql.sigb</profile.jdbc.host>
+			<profile.jdbc.port>3306</profile.jdbc.port>
+			<profile.jdbc.dbname>librae_db</profile.jdbc.dbname>
+			<profile.jdbc.username>librae_user</profile.jdbc.username>
+			<profile.jdbc.password>librae_pwd</profile.jdbc.password>
+			<profile.jdbc.url>
+				<![CDATA[jdbc:mysql://${profile.jdbc.host}:${profile.jdbc.port}/${profile.jdbc.dbname}?createDatabaseIfNotExist=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8]]>
+			</profile.jdbc.url>
+			<profile.jdbc.url.cas>
+				<![CDATA[jdbc:mysql://${profile.jdbc.host}:${profile.jdbc.port}/${profile.jdbc.dbname}]]>
+			</profile.jdbc.url.cas>
+			<profile.hibernate.dialect>
+				org.librae.common.dao.hibernate.dialects.MySqlDialect
+			</profile.hibernate.dialect>
+			<hibernate.dialect.osworkflow>
+				org.hibernate.dialect.MySQLDialect
+			</hibernate.dialect.osworkflow>
+			<profile.dbunit.dataTypeFactoryName>
+				org.dbunit.ext.mysql.MySqlDataTypeFactory
+			</profile.dbunit.dataTypeFactoryName>
+			<profile.jdbc.driverClassName>com.mysql.jdbc.Driver</profile.jdbc.driverClassName>
+			<profile.jdbc.groupId>mysql</profile.jdbc.groupId>
+			<profile.jdbc.artifactId>mysql-connector-java</profile.jdbc.artifactId>
+			<profile.jdbc.version>5.0.8</profile.jdbc.version>
+
+			<!-- usado en los scripts de librae-model -->
+			<profile.database>mysql</profile.database>
+		
+		<!-- PROFILE POR DEFECTO "tomcat" -->
+		<profile.server.shared.lib>${env.CATALINA_HOME}/shared/lib</profile.server.shared.lib>
+			<glassfish.shared.lib></glassfish.shared.lib>
+			<ear.exclude.common.websession>false</ear.exclude.common.websession>
+		
+		<!-- PROFILE POR DEFECTO "desa" -->
+		<!-- SERVIDORES WEB -->
+
+			<!-- Tomcat Plugin hostnames -->
+			<tomcat.host.adminconfig>localhost</tomcat.host.adminconfig>
+			<tomcat.host.adquisicion>localhost</tomcat.host.adquisicion>
+			<tomcat.host.catalogacion>localhost</tomcat.host.catalogacion>
+			<tomcat.host.circulacion>localhost</tomcat.host.circulacion>
+			<tomcat.host.estadisticas>localhost</tomcat.host.estadisticas>
+			<tomcat.host.productos-impresos>localhost</tomcat.host.productos-impresos>
+			<tomcat.host.importexport>localhost</tomcat.host.importexport>
+			<tomcat.host.lectores>localhost</tomcat.host.lectores>
+			<tomcat.host.procplanificados>localhost</tomcat.host.procplanificados>
+			<tomcat.host.pubseriadas>localhost</tomcat.host.pubseriadas>
+			<tomcat.host.mensajeria>localhost</tomcat.host.mensajeria>
+			<tomcat.host.cas>localhost</tomcat.host.cas>
+
+			<!-- Tomcat Plugin ports -->
+			<!--  el 8080 se usa para axis2 -->
+			<!--  el 6969 se usa para liferay -->
+			<tomcat.port.adminconfig>8081</tomcat.port.adminconfig>
+			<tomcat.port.adquisicion>8082</tomcat.port.adquisicion>
+			<tomcat.port.catalogacion>8083</tomcat.port.catalogacion>
+			<tomcat.port.circulacion>8084</tomcat.port.circulacion>
+			<tomcat.port.estadisticas>8085</tomcat.port.estadisticas>
+			<tomcat.port.productos-impresos>8091</tomcat.port.productos-impresos>
+			<tomcat.port.importexport>8086</tomcat.port.importexport>
+			<tomcat.port.lectores>8087</tomcat.port.lectores>
+			<tomcat.port.procplanificados>8088</tomcat.port.procplanificados>
+			<tomcat.port.pubseriadas>8089</tomcat.port.pubseriadas>
+			<tomcat.port.cas>8443</tomcat.port.cas>
+			<tomcat.port.z3950-common.jzkit-webapp2>8090</tomcat.port.z3950-common.jzkit-webapp2>
+
+			<!-- Webapps context paths -->
+            <webapp.path.theme>librae-theme</webapp.path.theme>
+			<webapp.path.adminconfig>librae-adminconfig</webapp.path.adminconfig>
+			<webapp.path.adquisicion>librae-adquisicion</webapp.path.adquisicion>
+			<webapp.path.catalogacion>librae-catalogacion</webapp.path.catalogacion>
+			<webapp.path.circulacion>librae-circulacion</webapp.path.circulacion>
+			<webapp.path.estadisticas>librae-estadisticas</webapp.path.estadisticas>
+			<webapp.path.productos-impresos>librae-productos-impresos</webapp.path.productos-impresos>
+			<webapp.path.importexport>librae-importexport</webapp.path.importexport>
+			<webapp.path.lectores>librae-lectores</webapp.path.lectores>
+			<webapp.path.procplanificados>librae-procplanificados</webapp.path.procplanificados>
+			<webapp.path.pubseriadas>librae-pubseriadas</webapp.path.pubseriadas>
+			<webapp.path.mensajeria>librae-mensajeria</webapp.path.mensajeria>
+			<webapp.path.cas>librae-sso</webapp.path.cas>
+			<webapp.path.z3950-common.jzkit-webapp2>jzkit_webapp2</webapp.path.z3950-common.jzkit-webapp2>
+
+			<!-- Tomcat Admin Webapp path -->
+			<tomcat.admin.path.z3950-common.jzkit-webapp2>local-tomcat</tomcat.admin.path.z3950-common.jzkit-webapp2>
+
+			<!-- JBOSS -->
+			<profile.jboss.home>${directorio_raiz}/../jboss-4.2.2.GA</profile.jboss.home>
+
+			<!--OPAC -->
+			<profile.opac.host>localhost</profile.opac.host>
+			<profile.opac.port>6969</profile.opac.port>
+
+			<!-- WEBAPP SERVER (crossContext enabled)  -->
+			<profile.server.cas.protocol>https</profile.server.cas.protocol>
+			<profile.server.ssl.port>8443</profile.server.ssl.port>
+			<profile.server.protocol>http</profile.server.protocol>
+			<profile.server.port>8080</profile.server.port>
+			<profile.server.host>localhost</profile.server.host>
+
+			<jboss.jndi.name>libraeDS</jboss.jndi.name>
+
+			<!-- UserWatchdogPhaseListener Configuration -->
+			<user.wathdog.simular>false</user.wathdog.simular>
+			<user.wathdog.crossContext.activo>true</user.wathdog.crossContext.activo>
+			<user.wathdog.autorizar.page.url>/librae-adminconfig/pages/iaa/autorizar/autorizar.html</user.wathdog.autorizar.page.url>
+			<user.wathdog.autorizar.page.jsf>/pages/iaa/autorizar/autorizar.xhtml</user.wathdog.autorizar.page.jsf>
+
+			<!-- solr para registros bibliograficos -->
+			<solr.registros.host>localhost</solr.registros.host>
+	 		<solr.registros.port>8993</solr.registros.port>
+	 		<solr.registros.context>solrRegistro</solr.registros.context>
+	 		<solr.registros.commit>true</solr.registros.commit>
+			<!-- solr para autoridades -->
+			<solr.autoridades.host>localhost</solr.autoridades.host>
+	 		<solr.autoridades.port>8993</solr.autoridades.port>
+	 		<solr.autoridades.context>solrAutoridad</solr.autoridades.context>
+	 		<solr.autoridades.commit>true</solr.autoridades.commit>
+
+
+			<!-- librae-common-almacen -->
+			<alfrescoRepositoryTestEnable>false</alfrescoRepositoryTestEnable>
+			<alfrescoRepositoryUrl>192.168.8.62:8080</alfrescoRepositoryUrl>
+			<alfrescoRepositoryUserID>admin</alfrescoRepositoryUserID>
+			<alfrescoRepositoryUserPSW>admin</alfrescoRepositoryUserPSW>
+
+			<!-- deploy skips -->
+			<model.skip.deploy>true</model.skip.deploy>
+
+			<!-- propiedades menu -->
+			<maximo.menu>4</maximo.menu>
+			<biblioteca.nodo.principal>Red</biblioteca.nodo.principal>
+			<nombre.instalacion>LibrAE-And</nombre.instalacion>
+
+			<!-- propiedades listados -->
+            <listados.numero.maximo>1000</listados.numero.maximo>
+
+
+			<!-- MENSAJERIA -->
+			<mensajeria.smtp.habilitado>true</mensajeria.smtp.habilitado>
+			<mensajeria.smtp.host>192.168.216.15</mensajeria.smtp.host>
+			<mensajeria.smtp.requiereAutentificacion>false</mensajeria.smtp.requiereAutentificacion>
+			<mensajeria.smtp.user></mensajeria.smtp.user>
+			<mensajeria.smtp.password></mensajeria.smtp.password>
+			<mensajeria.smtp.from>librae@librae.com</mensajeria.smtp.from>
+			<mensajeria.smtp.puerto>25</mensajeria.smtp.puerto>
+			<mensajeria.smtp.from.mail.default></mensajeria.smtp.from.mail.default>
+			<!-- FIN MENSAJERIA -->
+
+			<!-- LECTORES -->
+			<lectores.codigo.pais>714</lectores.codigo.pais>
+			<!-- FIN LECTORES -->
+
+			<!-- ORBE -->
+			<rol.orbe.vacio.codigo>ORBE_INICIAL_VACIO</rol.orbe.vacio.codigo>
+			<orbe.activo>false</orbe.activo>
+			<user.wathdog.autorizar.orbe.page.url>/librae-adminconfig/pages/iaa/autorizar/autorizarOrbe.html</user.wathdog.autorizar.orbe.page.url>
+			<user.wathdog.autorizar.orbe.page.jsf>/pages/iaa/autorizar/autorizarOrbe.xhtml</user.wathdog.autorizar.orbe.page.jsf>
+			<!-- FIN ORBE -->
+
+            <!-- TRANSACTION MANAGER -->
+            <!-- El uso del HibernateTransactionManager de Spring está indicado en entornos sin clusterizar
+-->
+            <transaction.manager>org.springframework.orm.hibernate3.HibernateTransactionManager</transaction.manager>
+            <!-- El uso del HibernateTransactionManager de LibrAE está indicado en entornos CLUSTER
+-->
+            <!--
+                <transaction.manager>org.librae.common.dao.hibernate.SerializableHibernateTransactionManager</transaction.manager>
+            -->
+              <!-- Direcciones en las bibliotecas -->
+			<biblioteca.id.pais>205</biblioteca.id.pais>
+			<biblioteca.id.comunidad>1</biblioteca.id.comunidad>
+		
     </properties>
 </project>

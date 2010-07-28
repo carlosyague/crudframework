@@ -38,7 +38,6 @@
 					<include>applicationContext-security.xml
 					</include>
 				</includes>
-				<targetPath>../${webapp.deploy.target.directory}/WEB-INF/spring</targetPath>
 			</resource>
 			<resource>
 				<filtering>true</filtering>
@@ -48,7 +47,6 @@
 					<include>web.xml</include>
 					<include>spring-ws-servlet.xml</include>
 				</includes>
-				<targetPath>../${webapp.deploy.target.directory}/WEB-INF</targetPath>
 			</resource>
 		</resources>
 		<testResources>
@@ -98,7 +96,6 @@
 							<goal>war</goal>
 						</goals>
 						<configuration>
-							<webappDirectory>${webapp.deploy.directory}</webappDirectory>
 							<warName>${webapp.path.adminconfig}</warName>
 							<archive>
 								<manifest>
@@ -117,7 +114,6 @@
 							<goal>war</goal>
 						</goals>
 						<configuration>
-							<webappDirectory>${webapp.deploy.directory}</webappDirectory>
 							<warSourceExcludes>WEB-INF/lib/*.jar</warSourceExcludes>
 							<archive>
 								<manifest>
@@ -131,10 +127,8 @@
 						</configuration>
 					</execution>
 				</executions>
-				<configuration>
-					<webappDirectory>${webapp.deploy.directory}</webappDirectory>					
-				</configuration>
 			</plugin>
+			
 			<plugin>
 				<groupId>org.appfuse</groupId>
 				<artifactId>maven-warpath-plugin</artifactId>
@@ -250,7 +244,7 @@
 						</goals>
 						<configuration>
                				 <tasks >
-								<delete dir="target/crudfw-adminconfig-webapp_1.0-SNAPSHOT/WEB-INF/lib" />
+								<delete dir="target/crudfw-adminconfig-webapp-1.0-SNAPSHOT/WEB-INF/lib" />
 							</tasks>
 						</configuration>
 					</execution>
@@ -397,12 +391,4 @@
 		</dependency>
 		<!-- Fin saaj -->
 	</dependencies>
-	<properties>
-		<webapp.deploy.target.directory>
-			${project.artifactId}_${project.version}
-		</webapp.deploy.target.directory>
-		<webapp.deploy.directory>
-			./target/${webapp.deploy.target.directory}
-		</webapp.deploy.directory>
-	</properties>
 </project>
