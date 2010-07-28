@@ -1,0 +1,1 @@
+alter table cat_registro modify(R_INTERNACIONAL_NUMBER varchar2(1500));

@@ -1,0 +1,217 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:v="http://corejsf.com/validator"
+	xmlns:s="http://myfaces.apache.org/sandbox"
+	xmlns:librae="http://www.librae.org/jsf/facelets">
+
+
+<ui:composition template="/templates/defaultTemplate.xhtml">
+	<ui:define name="title">#{text['horarioIntForm.title']}</ui:define>
+	<ui:define name="body.id">horarioIntFormAction</ui:define>
+
+	<ui:define name="body">
+		<f:view>
+		<h:form id="horarioIntForm">
+			<h:outputText value="#{horarioIntFormAction.init}" />
+
+			<librae:breadCrumb />
+
+			<t:panelGrid columns="1" styleClass="ruta" columnClasses="path,fechahora" cellpadding="0" cellspacing="0" border="0" rendered="#{horarioIntFormAction.creacion}">
+				
+				<h:panelGroup>
+					<h:outputLink value="#" id="delete" styleClass="btn_barra"
+								title="#{common['button.remove']}" onclick="dialogo1Var.show();">
+							<strong><h:outputText value="#{common['button.remove']}" /></strong>
+					</h:outputLink>
+				</h:panelGroup>
+			</t:panelGrid>
+
+			<t:div styleClass="contenido">
+			<t:div styleClass="pestana1"><!-- PESTAÑA1 -->
+
+			<t:panelGrid columns="3" styleClass="pestanas" columnClasses="blank,titulo_activa" cellpadding="0" cellspacing="0" border="0">
+				<h:graphicImage value="/images/p01b.gif" />
+				<h:outputText value="#{msg['horarioIntFormAction.tab']}" />
+				<h:graphicImage value="/images/p02b.gif" />
+			</t:panelGrid>
+
+			<!-- CONTENIDO PESTANA -->
+			<t:div styleClass="pestana">
+
+				<t:panelGrid columns="1" styleClass="datos" columnClasses="blank">
+				<h:panelGroup>
+				<t:div styleClass="cuadro">
+				<t:div styleClass="cuadro02">
+
+				   <t:panelGrid columns="3" headerClass="titular" footerClass="esq02" cellpadding="0" cellspacing="0" border="0" width="100%" columnClasses="columnLabel">
+
+				   			<f:facet name="header">
+					  			<h:outputText value="" />
+				   			</f:facet>
+
+							<h:outputLabel value="#{msg['horario.comienzo']}" />
+								<t:panelGroup>
+									<t:panelGrid id="comienzoGrid" columns="3" styleClass="nobg" cellpadding="0" cellspacing="0" border="0" columnClasses="columnLabel">
+										<t:saveState id="saveComienzo" value="#{horarioIntFormAction.form.comienzo}" />
+										<t:inputCalendar id="comienzo" value="#{horarioIntFormAction.form.comienzo}" popupButtonStyle="margin:1px"
+											renderAsPopup="true" popupDateFormat="dd/MM/yyyy" timeZone="Europe/Madrid" renderPopupButtonAsImage="true"
+											popupTodayString="#{common['common.calendar.hoyEs']}" popupWeekString="#{common['common.calendar.wK']}"
+											popupButtonImageUrl="../../images/calendar_icon.gif" disabled="#{horarioIntFormAction.form.readMode}" styleClass="dateDisabled"/>
+										<h:graphicImage border="0" value="/images/icon_limpiar.gif" alt="#{msg['horario.comienzo']}" onclick="$('horarioIntForm:comienzo').value=''" disabled="#{horarioIntFormAction.form.readMode}"/>
+										<script type="text/javascript">
+												$('horarioIntForm:comienzo').disabled=true;
+										</script>
+									</t:panelGrid>
+    			 				</t:panelGroup>
+								<t:panelGroup>
+									<t:saveState id="saveLunes" value="#{horarioIntFormAction.form.lunes}" />
+									<h:selectBooleanCheckbox id="lunes" value="#{horarioIntFormAction.form.lunes}" disabled="#{horarioIntFormAction.form.readMode}"/>
+									<h:outputText value=" #{msg['horarioIntFormAction.lunes']}" />
+									<h:outputText value="&#160;&#160;&#160;&#160;" />
+									<t:saveState id="saveMartes" value="#{horarioIntFormAction.form.martes}" />
+									<h:selectBooleanCheckbox id="martes" value="#{horarioIntFormAction.form.martes}" disabled="#{horarioIntFormAction.form.readMode}"/>
+									<h:outputText value=" #{msg['horarioIntFormAction.martes']}" />
+									<h:outputText value="&#160;&#160;&#160;&#160;" />
+									<t:saveState id="saveMiercoles" value="#{horarioIntFormAction.form.miercoles}" />
+									<h:selectBooleanCheckbox id="miercoles" value="#{horarioIntFormAction.form.miercoles}" disabled="#{horarioIntFormAction.form.readMode}"/>
+									<h:outputText value=" #{msg['horarioIntFormAction.miercoles']}" />
+									<h:outputText value="&#160;&#160;&#160;&#160;" />
+									<t:saveState id="saveJueves" value="#{horarioIntFormAction.form.jueves}" />
+									<h:selectBooleanCheckbox id="jueves" value="#{horarioIntFormAction.form.jueves}" disabled="#{horarioIntFormAction.form.readMode}"/>
+									<h:outputText value=" #{msg['horarioIntFormAction.jueves']}" />
+									<h:outputText value="&#160;&#160;&#160;&#160;" />
+									<t:saveState id="saveViernes" value="#{horarioIntFormAction.form.viernes}" />
+									<h:selectBooleanCheckbox id="viernes" value="#{horarioIntFormAction.form.viernes}" disabled="#{horarioIntFormAction.form.readMode}"/>
+									<h:outputText value=" #{msg['horarioIntFormAction.viernes']}" />
+								</t:panelGroup>
+
+								<h:outputLabel value="#{msg['horario.fin']}" />
+								<t:panelGroup>
+									<t:panelGrid id="finGrid" columns="3" styleClass="nobg" cellpadding="0" cellspacing="0" border="0" columnClasses="columnLabel">
+										<t:saveState id="saveFin" value="#{horarioIntFormAction.form.fin}" />
+										<t:inputCalendar id="fin" value="#{horarioIntFormAction.form.fin}" popupButtonStyle="margin:1px"
+											renderAsPopup="true" popupDateFormat="dd/MM/yyyy" timeZone="Europe/Madrid" renderPopupButtonAsImage="true"
+											popupTodayString="#{common['common.calendar.hoyEs']}" popupWeekString="#{common['common.calendar.wK']}"
+											popupButtonImageUrl="../../images/calendar_icon.gif" disabled="#{horarioIntFormAction.form.readMode}" styleClass="dateDisabled"/>
+										<h:graphicImage border="0" value="/images/icon_limpiar.gif" alt="#{msg['horario.fin']}" onclick="$('horarioIntForm:fin').value=''" disabled="#{horarioIntFormAction.form.readMode}"/>
+										<script type="text/javascript">
+												$('horarioIntForm:fin').disabled=true;
+										</script>
+									</t:panelGrid>
+    			 				</t:panelGroup>
+								<t:panelGroup>
+    			 					<h:outputText value="" />
+    			 					<t:saveState id="saveSabado" value="#{horarioIntFormAction.form.sabado}" />
+									<h:selectBooleanCheckbox id="sabado" value="#{horarioIntFormAction.form.sabado}" disabled="#{horarioIntFormAction.form.readMode}"/>
+									<h:outputText value=" #{msg['horarioIntFormAction.sabado']}" />
+									<h:outputText value="&#160;&#160;&#160;&#160;" />
+									<t:saveState id="saveDomingo" value="#{horarioIntFormAction.form.domingo}" />
+									<h:selectBooleanCheckbox id="domingo" value="#{horarioIntFormAction.form.domingo}" disabled="#{horarioIntFormAction.form.readMode}"/>
+									<h:outputText value=" #{msg['horarioIntFormAction.domingo']}" />
+									<t:commandLink action="#{horarioIntFormAction.actLabSegunCalendario}" id="actLabSegunCalendario" styleClass="boton" title="#{common['button.actLabSegunCalendario']}" onclick="$('horarioIntForm:comienzo').disabled=false;$('horarioIntForm:fin').disabled=false;">
+										<span><h:outputText value="#{common['button.actLabSegunCalendario']}" /></span>
+			   					    </t:commandLink>
+								</t:panelGroup>
+
+								<t:saveState id="saveIdHorarioInt" value="#{horarioIntFormAction.form.idHorarioInt}" />
+								<h:inputHidden value="#{horarioIntFormAction.form.idHorarioInt}" id="idHorarioInt"/>
+
+								<t:saveState id="saveReadMode" value="#{horarioIntFormAction.form.readMode}" />
+								<h:inputHidden value="#{horarioIntFormAction.form.readMode}" id="readMode"/>
+
+	   							<f:facet name="footer">
+									<h:panelGroup>
+									</h:panelGroup>
+								</f:facet>
+						</t:panelGrid>
+				</t:div>
+				</t:div>
+				</h:panelGroup>
+
+				<t:panelGrid columns="1" width="100%" border="0" cellspacing="0" cellpadding="0" headerClass="titular" footerClass="esq02">
+					<h:panelGroup>
+						<t:div>
+						<t:div styleClass="listado">
+						<t:panelGrid columns="1" width="100%" border="0" cellspacing="0" cellpadding="0" headerClass="titular" footerClass="esq02">
+
+							<f:facet name="header">
+								<h:outputText value="" />
+							</f:facet>
+
+							<h:panelGroup></h:panelGroup>
+
+							<h:panelGroup>
+								<ui:include src="/pages/horariosInt/dataTableForm.xhtml">
+									<ui:param name="bean" value="#{horarioIntFormAction}" />
+								</ui:include>
+							</h:panelGroup>
+
+							<h:panelGroup>
+								<h:commandLink action="#{horarioIntFormAction.nuevoIntervalo}" id="nuevoIntervalo" styleClass="boton" title="#{common['button.nuevoIntervalo']}" rendered="#{!HorarioIntFormAction.form.readMode}" onclick="$('horarioIntForm:comienzo').disabled=false;$('horarioIntForm:fin').disabled=false;">
+									<span> <h:outputText value="#{common['button.nuevoIntervalo']}" /> </span>
+								</h:commandLink>
+							</h:panelGroup>
+
+							<f:facet name="footer">
+								<h:outputText value="" />
+							</f:facet>
+						</t:panelGrid>
+						</t:div>
+						</t:div>
+					</h:panelGroup>
+				</t:panelGrid>
+
+			<!-- Botonera -->
+		   <f:facet name="footer">
+			<h:panelGroup>
+				<t:commandLink action="#{horarioIntFormAction.cancel}" id="cancel" styleClass="boton_rojo" title="#{common['button.cancel']}" immediate="true">
+					<span><h:outputText value="#{common['button.cancel']}" /></span>
+			    </t:commandLink>
+				<h:commandLink action="#{horarioIntFormAction.save}" id="save" styleClass="boton" title="#{common['button.save']}" rendered="#{!HorarioIntFormAction.form.readMode}" onclick="$('horarioIntForm:comienzo').disabled=false;$('horarioIntForm:fin').disabled=false;">
+					<span> <h:outputText value="#{common['button.save']}" /> </span>
+				</h:commandLink>
+			</h:panelGroup>
+		   </f:facet>
+		   <!-- Fin Botonera -->
+			</t:panelGrid>
+
+			</t:div>
+			</t:div>
+
+			<t:div styleClass="pie_pestana">
+				<t:panelGrid columns="3" columnClasses="blank,blanco,blank" cellpadding="0" cellspacing="0" border="0">
+					<h:graphicImage value="/images/pie01.gif" />
+					<h:outputText value=" " />
+					<h:graphicImage value="/images/pie02.gif" />
+				</t:panelGrid>
+			</t:div>
+
+			</t:div>
+
+			<t:div id="divConfirmacionBorrar" style="display: none;">
+				<s:modalDialog dialogId="dialogo2"  dialogVar="dialogo1Var"
+					      dialogAttr="bgColor='white' bgOpacity='0.5' toggle='fade' toggleDuration='50'"
+					      hiderIds="btnCerrar">
+				        <t:panelGrid border="0" columns="1" styleClass="ventanaEmergente">
+					    	<t:outputText id="msg"  value="#{msg['confirmacion.horario']}" style="text-align:center;"/>
+					    	<t:panelGroup>
+					        	<t:panelGrid border="0" columns="2">
+							        <t:commandLink action="#{horarioIntFormAction.eliminarHorario}" id="editD" immediate="true" styleClass="btn_barra">
+										<t:htmlTag value="span"><h:outputText value="#{common['button.remove']}" /></t:htmlTag>
+									</t:commandLink>
+							        <t:commandButton id="btnCerrar" forceId="true" onclick="dialogo1Var.hide();" styleClass="btn_barra_cerrar" value="#{common['button.cancel']}"/>
+					        	</t:panelGrid>
+				        	</t:panelGroup>
+				        </t:panelGrid>
+				</s:modalDialog>
+			</t:div>
+		</h:form>
+		<librae:windowMessages bean="#{horarioIntFormAction}" borrar="true" />
+		</f:view>
+	</ui:define>
+</ui:composition>
+</html>

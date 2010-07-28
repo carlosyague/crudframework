@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:security="http://www.springframework.org/schema/security"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+              http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.4.xsd">
+
+
+    <!-- ======================== FILTER CHAIN ======================= -->
+
+    <bean id="filterChainProxy"
+        class="org.springframework.security.util.FilterChainProxy">
+        <security:filter-chain-map path-type="ant">
+            <security:filter-chain pattern="/**/*.ht*"
+                filters="channelProcessingFilter,httpSessionContextIntegrationFilter,securityContextHolderAwareRequestFilter,logoutFilter,casProcessingFilter,basicProcessingFilter,anonymousProcessingFilter,exceptionTranslationFilter,filterInvocationInterceptor" />
+            <security:filter-chain
+                pattern="/j_spring_cas_security_check"
+                filters="httpSessionContextIntegrationFilter,securityContextHolderAwareRequestFilter,casProcessingFilter,anonymousProcessingFilter,exceptionTranslationFilter,filterInvocationInterceptor" />
+        </security:filter-chain-map>
+    </bean>
+
+
+    <!-- ======================== AUTHENTICATION ======================= -->
+
+    <bean id="authenticationManager"
+        class="org.springframework.security.providers.ProviderManager">
+        <property name="providers">
+            <list>
+                <ref local="casAuthenticationProvider" />
+                <ref local="anonymousAuthenticationProvider"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="jdbcDaoImpl"
+        class="org.springframework.security.userdetails.jdbc.JdbcDaoImpl">
+        <property name="dataSource" ref="dataSource" />
+        <property name="usersByUsernameQuery"
+            value="SELECT T_USUARIO, T_CLAVE, L_ACTIVO FROM ADM_USUARIO WHERE T_USUARIO = ?" />
+        <property name="authoritiesByUsernameQuery"
+            value="select T_USUARIO, 'ROLE_USER' as AUTHORITY from ADM_USUARIO TABLA where TABLA.T_USUARIO = ?" />
+    </bean>
+
+    <bean id="anonymousProcessingFilter"
+		class="org.springframework.security.providers.anonymous.AnonymousProcessingFilter">
+		<property name="key" value="changeThis" />
+		<property name="userAttribute"
+			value="anonymousUser,ROLE_ANONYMOUS" />
+	</bean>
+
+	<bean id="securityContextHolderAwareRequestFilter"
+		class="org.springframework.security.wrapper.SecurityContextHolderAwareRequestFilter" />
+
+    <bean id="basicProcessingFilter"
+        class="org.springframework.security.ui.basicauth.BasicProcessingFilter">
+        <property name="authenticationManager">
+            <ref local="authenticationManager" />
+        </property>
+        <property name="authenticationEntryPoint">
+            <ref local="basicProcessingFilterEntryPoint" />
+        </property>
+    </bean>
+
+    <bean id="basicProcessingFilterEntryPoint"
+        class="org.springframework.security.ui.basicauth.BasicProcessingFilterEntryPoint">
+        <property name="realmName">
+            <value>Contacts Realm</value>
+        </property>
+    </bean>
+
+    <bean id="httpSessionContextIntegrationFilter"
+        class="org.springframework.security.context.HttpSessionContextIntegrationFilter" />
+
+	<!-- ========================================================= -->
+	<!-- casAuthenticationProvider load the authorities for a user -->
+	<!-- ========================================================= -->
+    <bean id="casAuthenticationProvider"
+        class="org.springframework.security.providers.cas.CasAuthenticationProvider">
+        <security:custom-authentication-provider />
+        <property name="userDetailsService" ref="jdbcDaoImpl" />
+        <property name="serviceProperties" ref="serviceProperties" />
+        <property name="ticketValidator"
+            ref="cas20ServiceTicketValidator" />
+        <property name="statelessTicketCache">
+            <ref local="statelessTicketCache" />
+        </property>
+        <property name="key"
+            value="my_password_for_this_auth_provider_only" />
+    </bean>
+
+    <bean id="anonymousAuthenticationProvider"
+    	class="org.springframework.security.providers.anonymous.AnonymousAuthenticationProvider">
+  		<property name="key" value="changethis"/>
+	</bean>
+
+
+    <bean id="cas20ServiceTicketValidator"
+        class="org.jasig.cas.client.validation.Cas20ServiceTicketValidator">
+        <constructor-arg index="0"
+            value="${profile.server.cas.protocol}://${profile.server.host}:${profile.server.ssl.port}/${webapp.path.cas}" />
+    </bean>
+
+    <bean id="cacheManager"
+        class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" />
+
+    <bean id="ticketCacheBackend"
+        class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+        <property name="cacheManager">
+            <ref local="cacheManager" />
+        </property>
+        <property name="cacheName" value="ticketCache" />
+    </bean>
+
+    <bean id="statelessTicketCache"
+        class="org.springframework.security.providers.cas.cache.EhCacheBasedTicketCache">
+        <property name="cache">
+            <ref local="ticketCacheBackend" />
+        </property>
+    </bean>
+
+	<!-- ================================================ -->
+	<!-- serviceProperties (service == cased application) -->
+	<!-- ================================================ -->
+    <bean id="serviceProperties"
+        class="org.springframework.security.ui.cas.ServiceProperties">
+        <property name="service"
+            value="${profile.server.protocol}://${profile.server.host}:${profile.server.port}/${webapp.path.adminconfig}/j_spring_cas_security_check" />
+        <property name="sendRenew" value="false" />
+    </bean>
+
+
+    <!-- note logout has little impact, due to CAS reauthentication functionality (it will cause a refresh of the authentication though)
+-->
+    <bean id="logoutFilter"
+        class="org.springframework.security.ui.logout.LogoutFilter">
+        <constructor-arg value="/logout.jsp" />
+        <!-- URL redirected to after logout -->
+        <constructor-arg>
+            <list>
+                <bean
+                    class="org.springframework.security.ui.logout.SecurityContextLogoutHandler" />
+            </list>
+        </constructor-arg>
+    </bean>
+
+
+    <!-- ===================== HTTP CHANNEL REQUIREMENTS ====================
+-->
+
+    <!-- Enabled by default for CAS, as a CAS deployment uses HTTPS -->
+
+    <bean id="channelProcessingFilter"
+        class="org.springframework.security.securechannel.ChannelProcessingFilter">
+        <property name="channelDecisionManager">
+            <ref local="channelDecisionManager" />
+        </property>
+        <property name="filterInvocationDefinitionSource">
+            <security:filter-invocation-definition-source
+                path-type="regex">
+                <security:intercept-url pattern="\A/secure/.*\Z"
+                    access="REQUIRES_SECURE_CHANNEL" />
+                <security:intercept-url pattern="\A/j_spring_cas_security_check.*\Z"
+                    access="REQUIRES_SECURE_CHANNEL" />
+
+				<!-- <security:intercept-url pattern="\A.*\Z"
+                    access="REQUIRES_SECURE_CHANNEL" />-->
+            </security:filter-invocation-definition-source>
+        </property>
+    </bean>
+
+    <bean id="channelDecisionManager"
+        class="org.springframework.security.securechannel.ChannelDecisionManagerImpl">
+        <property name="channelProcessors">
+            <list>
+                <ref local="secureChannelProcessor" />
+                <ref local="insecureChannelProcessor" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="secureChannelProcessor"
+        class="org.springframework.security.securechannel.SecureChannelProcessor" />
+    <bean id="insecureChannelProcessor"
+        class="org.springframework.security.securechannel.InsecureChannelProcessor" />
+
+
+    <!-- ===================== HTTP REQUEST SECURITY ==================== -->
+
+    <bean id="exceptionTranslationFilter"
+		class="org.librae.common.webapp.filter.SIGBExceptionTranslationFilter">
+        <property name="authenticationEntryPoint">
+            <ref local="casProcessingFilterEntryPoint" />
+        </property>
+        <property name="urlSessionExpired">
+            <value>${profile.server.protocol}://${profile.server.host}:${profile.server.port}/${webapp.path.adminconfig}/logOut.html</value>
+        </property>
+    </bean>
+
+	<!-- ================================================== -->
+	<!-- casProcessingFilter (service == cased application) -->
+	<!-- ================================================== -->
+    <bean id="casProcessingFilter"
+        class="org.librae.common.webapp.filter.SIGBCasProcessingFilter">
+        <security:custom-filter after="CAS_PROCESSING_FILTER" />
+        <property name="authenticationManager">
+            <ref local="authenticationManager" />
+        </property>
+        <property name="authenticationFailureUrl">
+            <value>/403.html</value>
+        </property>
+        <property name="defaultTargetUrl">
+            <value>/</value>
+        </property>
+        <property name="filterProcessesUrl">
+            <value>/j_spring_cas_security_check</value>
+        </property>
+    </bean>
+
+	<!-- =============================================== -->
+	<!-- casProcessingFilterEntryPoint (loginUrl == CAS) -->
+	<!-- =============================================== -->
+    <bean id="casProcessingFilterEntryPoint"
+        class="org.springframework.security.ui.cas.CasProcessingFilterEntryPoint">
+        <property name="loginUrl">
+            <value>${profile.server.cas.protocol}://${profile.server.host}:${profile.server.ssl.port}/${webapp.path.cas}/login</value>
+        </property>
+        <property name="serviceProperties">
+            <ref local="serviceProperties" />
+        </property>
+    </bean>
+
+    <bean id="httpRequestAccessDecisionManager"
+        class="org.springframework.security.vote.AffirmativeBased">
+        <property name="allowIfAllAbstainDecisions">
+            <value>false</value>
+        </property>
+        <property name="decisionVoters">
+            <list>
+                <ref bean="roleVoter" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="roleVoter"
+        class="org.springframework.security.vote.RoleVoter">
+        <property name="rolePrefix">
+			<value></value>
+		</property>
+	</bean>
+
+    <bean id="filterInvocationInterceptor"
+        class="org.librae.common.webapp.filter.SIGBFilterSecurityInterceptor">
+        <property name="authenticationManager">
+            <ref local="authenticationManager" />
+        </property>
+        <property name="userDetailsService" ref="jdbcDaoImpl" />
+        <property name="accessDecisionManager">
+            <ref local="httpRequestAccessDecisionManager" />
+        </property>
+        <property name="objectDefinitionSource">
+            <value>
+                CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
+                \A/403.html\Z=ROLE_USER, ROLE_ANONYMOUS
+
+                \A/.*pages/usuario/list.*\Z=ADM_Listar_Usuarios
+                \A/.*pages/usuario/form.*\Z=ADM_Mostrar_Usuario
+                \A/.*pages/biblioteca/list.*\Z=ADM_Listar_Biblioteca
+                \A/.*pages/biblioteca/biblioteca.*\Z=ADM_Mostrar_Biblioteca
+                \A/.*pages/rol/list.*\Z=ADM_Listar_Roles
+                \A/.*pages/catalogo/list.*\Z=ADM_Listar_Catalogos
+                \A/.*pages/catalogo/form.*\Z=ADM_Mostrar_Catalogo
+                \A/.*pages/iaa/gestionusuarios/cambiarclave.*\Z=ADM_Cambiar_Clave
+                \A/.*pages/rol/form.*\Z=ADM_Mostrar_Rol
+                \A/.*pages/parametro/list.*\Z=ADM_Listar_Parametros
+                \A/.*pages/parametro/form.*\Z=ADM_Mostrar_Parametro
+                \A/.*pages/codigos/list.*\Z=ADM_Listar_Codigos
+                \A/.*pages/codigos/valores/list.*\Z=ADM_Mostrar_Codigo
+
+                \A/.*\Z=ROLE_USER
+            </value>
+        </property>
+    </bean>
+
+</beans>

@@ -1,0 +1,238 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:c="http://java.sun.com/jstl/core"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:t="http://myfaces.apache.org/tomahawk"
+  xmlns:v="http://corejsf.com/validator"
+  xmlns:a4j="https://ajax4jsf.dev.java.net/ajax">
+
+      <!-- CONTENIDO -->
+      <t:panelGrid columns="1" styleClass="datos" columnClasses="blank">
+
+      <h:panelGroup>
+      <t:div styleClass="cuadro">
+      <t:div styleClass="cuadro02">
+
+      <t:panelGrid columns="4" width="100%" border="0" cellspacing="0" cellpadding="0" headerClass="titular" footerClass="esq02" columnClasses="columnLabel">
+
+      <f:facet name="header">
+        <h:outputText value=" " />
+      </f:facet>
+
+      <h:outputLabel for="tipoBiblioteca" value="#{msg['biblioteca.tipoBiblioteca.nombre']}" />
+      <h:panelGroup>
+        <t:saveState id="saveIdTipo" value="#{bibliotecaFormAction.form.idTipo}" />
+        <h:selectOneMenu id="idTipo" value="#{bibliotecaFormAction.form.idTipo}" disabled="#{bibliotecaFormAction.form.readMode}" >
+          <f:selectItems value="#{bibliotecaFormAction.tiposBiblioteca}" />
+          <a4j:support event="onchange" reRender="codigos" action="#{gestionCodigosSearchAction.buscar}" immediate="true">
+            <a4j:actionparam name="idTipo" value="$F('bibliotecaForm:idTipo')" assignTo="#{gestionCodigosSearchAction.form.idTipo}" noEscape="true" />
+          </a4j:support>
+        </h:selectOneMenu>
+      </h:panelGroup>
+
+      <h:panelGroup></h:panelGroup>
+      <h:panelGroup></h:panelGroup>
+
+      <h:outputLabel for="codigo" value="#{msg['biblioteca.codigo']}" />
+      <h:panelGroup>
+          <t:saveState id="saveCodigo" value="#{bibliotecaFormAction.form.codigo}" />
+          <h:inputText styleClass="text medium" size="55" id="codigo" value="#{bibliotecaFormAction.form.codigo}" required="true" maxlength="40" disabled="#{bibliotecaFormAction.form.readMode or bibliotecaFormAction.isPrincipal}" >
+          </h:inputText>
+          <t:message for="codigo" styleClass="fieldError" detailFormat="{1} #{common['required']}." showSummary="false" showDetail="true" />
+      </h:panelGroup>
+
+   		<h:panelGroup>
+     		<h:inputHidden value="#{bibliotecaFormAction.form.fileName}" id="fileName"/>
+		</h:panelGroup>
+      <h:panelGroup></h:panelGroup>
+
+      <h:outputLabel for="nombre" value="#{msg['biblioteca.nombre']}" />
+      <h:panelGroup>
+          <t:saveState id="saveNombre" value="#{bibliotecaFormAction.form.nombre}" />
+          <h:inputText styleClass="text medium" size="55" id="nombre" value="#{bibliotecaFormAction.form.nombre}" required="true" maxlength="255" disabled="#{bibliotecaFormAction.form.readMode}" >
+          </h:inputText>
+          <t:message for="nombre" styleClass="fieldError" detailFormat="{1} #{common['required']}." showSummary="false" showDetail="true" />
+      </h:panelGroup>
+
+      <h:panelGroup></h:panelGroup>
+      <h:panelGroup></h:panelGroup>
+
+      <h:outputLabel for="domicilio" value="#{msg['biblioteca.direccion']}" />
+      <h:panelGroup>
+            <t:saveState id="saveDomicilio" value="#{bibliotecaFormAction.form.domicilio}" />
+             <h:inputText styleClass="text medium" size="55" id="domicilio" value="#{bibliotecaFormAction.form.domicilio}"  required="false" maxlength="20" disabled="true" readonly="true"/>
+              <t:message for="calendario" styleClass="fieldError"/>
+              <h:commandLink action="#{bibliotecaFormAction.editDireccion}" id="editDireccion">
+                <f:param name="idBiblioteca" value="#{bibliotecaFormAction.form.idBiblioteca}"/>
+                   <f:param name="from" value="/pages/biblioteca/form.xhtml"/>
+                  <h:graphicImage border="0" value="/images/icon_folder.gif" alt="Abrir" />
+              </h:commandLink>
+         </h:panelGroup>
+
+      <h:outputLabel for="personaContacto" value="#{msg['biblioteca.personaContacto']}" />
+      <h:panelGroup>
+          <t:saveState id="savePersonaContacto" value="#{bibliotecaFormAction.form.personaContacto}" />
+          <h:inputText styleClass="text medium" size="55" id="personaContacto" value="#{bibliotecaFormAction.form.personaContacto}" required="false" maxlength="40" disabled="#{bibliotecaFormAction.form.readMode}" >
+          </h:inputText>
+          <t:message for="personaContacto" styleClass="fieldError"/>
+      </h:panelGroup>
+
+      <h:outputLabel for="correoElectronico" value="#{msg['biblioteca.correoElectronico']}" />
+      <h:panelGroup>
+          <t:saveState id="saveCorreoElectronico" value="#{bibliotecaFormAction.form.correoElectronico}" />
+          <h:inputText styleClass="text medium" size="55" id="correoElectronico" value="#{bibliotecaFormAction.form.correoElectronico}" required="false" maxlength="80" disabled="#{bibliotecaFormAction.form.readMode}" >
+          </h:inputText>
+          <t:message for="correoElectronico" styleClass="fieldError"/>
+      </h:panelGroup>
+
+      <h:outputLabel for="telefono" value="#{msg['biblioteca.telefono']}" />
+      <h:panelGroup>
+          <t:saveState id="saveTelefono" value="#{bibliotecaFormAction.form.telefono}" />
+          <h:inputText styleClass="text medium" size="55" id="telefono" value="#{bibliotecaFormAction.form.telefono}" required="false" maxlength="80" disabled="#{bibliotecaFormAction.form.readMode}" >
+          </h:inputText>
+      </h:panelGroup>
+
+      <h:outputLabel for="fax" value="#{msg['biblioteca.fax']}" />
+      <h:panelGroup>
+          <t:saveState id="saveFax" value="#{bibliotecaFormAction.form.fax}" />
+          <h:inputText styleClass="text medium" size="55" id="fax" value="#{bibliotecaFormAction.form.fax}" required="false" maxlength="255" disabled="#{bibliotecaFormAction.form.readMode}" >
+          </h:inputText>
+          <t:message for="fax" styleClass="fieldError" detailFormat="#{common['fax']}." showSummary="false" showDetail="true" />
+      </h:panelGroup>
+
+      <h:outputLabel for="urlWeb" value="#{msg['biblioteca.urlWeb']}" />
+      <h:panelGroup>
+          <t:saveState id="saveUrlWeb" value="#{bibliotecaFormAction.form.urlWeb}" />
+          <h:inputText styleClass="text medium" size="55" id="urlWeb" value="#{bibliotecaFormAction.form.urlWeb}" required="false" maxlength="255" disabled="#{bibliotecaFormAction.form.readMode}" >
+          </h:inputText>
+          <t:message for="urlWeb" styleClass="fieldError" />
+      </h:panelGroup>
+
+      <h:outputLabel for="logotipo" value="#{msg['biblioteca.logotipo']}" />
+      <h:panelGroup>
+                 <t:inputFileUpload id="logotipo" value="#{bibliotecaFormAction.form.uploadedFileLogotipo}" rendered="#{!bibliotecaFormAction.form.readMode}" accept="image/*" />
+
+                 <h:outputText value="&#160;&#160;&#160;" rendered="#{!bibliotecaFormAction.form.readMode}"/>
+                 <h:outputLink value="#{facesContext.externalContext.requestContextPath}/ImageBibliotecaServlet"  target="_blank" rendered="#{bibliotecaFormAction.existeLogotipo}">
+                   <f:param name="id" value="#{bibliotecaFormAction.form.idBiblioteca}"/>
+                   <h:outputText value="#{common['button.view']} #{bibliotecaFormAction.form.fileName}"/>
+                 </h:outputLink>
+
+            </h:panelGroup>
+
+      <h:panelGroup></h:panelGroup>
+      <h:panelGroup></h:panelGroup>
+
+            <h:outputLabel for="calendario" value="#{msg['biblioteca.calendario']}" />
+        <h:panelGroup>
+            <t:saveState id="saveFechaActualizacion" value="#{bibliotecaFormAction.form.fechaActualizacion}" />
+             <h:inputText styleClass="text medium" size="" id="calendario" value="#{bibliotecaFormAction.form.fechaActualizacion}"  required="false" maxlength="20" disabled="true" readonly="true" converter="timeZoneConverter"/>
+              <t:message for="calendario" styleClass="fieldError"/>
+              <h:commandLink action="#{bibliotecaFormAction.editCalendario}" id="editCalendario">
+                <f:param name="idBiblioteca" value="#{bibliotecaFormAction.form.idBiblioteca}"/>
+                   <f:param name="from" value="/pages/biblioteca/form.xhtml"/>
+                  <h:graphicImage border="0" value="/images/icon_folder.gif" alt="Abrir" />
+              </h:commandLink>
+         </h:panelGroup>
+
+          <h:outputLabel for="horario" value="#{msg['biblioteca.horario']}" />
+        <h:panelGroup>
+            <t:saveState id="saveFechaActualizacionH" value="#{bibliotecaFormAction.form.fechaActualizacionH}" />
+             <h:inputText styleClass="text medium" size="" id="horario" value="#{bibliotecaFormAction.form.fechaActualizacionH}"  required="false" maxlength="20" disabled="true" converter="timeZoneConverter"/>
+              <t:message for="horario" styleClass="fieldError"/>
+              <h:commandLink action="#{bibliotecaFormAction.editHorario}" id="editHorario">
+                <f:param name="idBiblioteca" value="#{bibliotecaFormAction.form.idBiblioteca}"/>
+                   <f:param name="from" value="/pages/biblioteca/form.xhtml"/>
+                  <h:graphicImage border="0" value="/images/icon_folder.gif" alt="Abrir" />
+              </h:commandLink>
+         </h:panelGroup>
+
+      <h:panelGroup>
+        <t:saveState id="saveIdBiblioteca" value="#{bibliotecaFormAction.form.idBiblioteca}" />
+        <h:inputHidden value="#{bibliotecaFormAction.form.idBiblioteca}" id="idBiblioteca"/>
+      </h:panelGroup>
+
+      <h:panelGroup>
+        <t:saveState id="saveReadMode" value="#{bibliotecaFormAction.form.readMode}" />
+        <h:inputHidden value="#{bibliotecaFormAction.form.readMode}" id="readMode"/>
+      </h:panelGroup>
+
+      <f:facet name="footer">
+          <h:panelGroup>
+          </h:panelGroup>
+       </f:facet>
+
+      </t:panelGrid>
+
+      </t:div>
+      </t:div>
+      </h:panelGroup>
+
+
+      <!-- ARBOL-->
+      <t:panelGrid columns="1" width="100%" border="0" cellspacing="0" cellpadding="0" headerClass="titular" footerClass="esq02">
+        <h:panelGroup>
+          <t:div styleClass="cuadro">
+          <t:div styleClass="cuadro02">
+          <t:panelGrid columns="2" width="100%" border="0" cellspacing="0" cellpadding="0" headerClass="titular" footerClass="esq02">
+
+          <f:facet name="header">
+            <h:outputText value="#{msg['biblioteca.asociarALaRed']}" />
+          </f:facet>
+
+          <h:panelGroup></h:panelGroup>
+
+          <h:panelGroup>
+            <ui:include src="/common/tree/arbolBibliotecasSinAjax.xhtml">
+              <ui:param name="beanTreeData" value="#{treePermisosMantenimientoBibliotecaAction}"/>
+              <ui:param name="beanNodoClick" value="#{bibliotecaFormAction}"/>
+              <ui:param name="readOnly" value="#{bibliotecaFormAction.form.readMode}"/>
+			  <ui:param name="form" value="bibliotecaForm" />
+			  <ui:param name="page" value="/librae-adminconfig/pages/biblioteca/biblioteca.html" />
+            </ui:include>
+          </h:panelGroup>
+
+          <f:facet name="footer">
+            <h:panelGroup>
+            </h:panelGroup>
+          </f:facet>
+
+          </t:panelGrid>
+          </t:div>
+          </t:div>
+        </h:panelGroup>
+
+        <f:facet name="footer">
+          <h:panelGroup>
+          </h:panelGroup>
+         </f:facet>
+      </t:panelGrid>
+      <!-- FIN ARBOL -->
+
+       <!-- Botonera -->
+       <f:facet name="footer">
+        <h:panelGroup>
+          <h:commandLink action="#{bibliotecaFormAction.cancel}" id="cancel" styleClass="boton_rojo" title="#{common['button.cancel']}" immediate="true" rendered="#{!bibliotecaFormAction.form.readMode and !sinEdicion}" >
+            <span><h:outputText value="#{common['button.cancel']}" /></span>
+            </h:commandLink>
+          <h:commandLink action="#{bibliotecaFormAction.cancel}" id="back" styleClass="boton_rojo" title="#{common['button.back']}" immediate="true" rendered="#{bibliotecaFormAction.form.readMode and !sinEdicion}" >
+            <span><h:outputText value="#{common['button.back']}" /></span>
+            </h:commandLink>
+          <h:commandLink action="#{bibliotecaFormAction.cancelSoloLectura}" id="cancelSoloLectura" styleClass="boton_rojo" title="#{common['button.back']}" immediate="true" rendered="#{sinEdicion}" >
+            <span><h:outputText value="#{common['button.back']}" /></span>
+            </h:commandLink>
+            <t:commandLink action="#{bibliotecaFormAction.editable}" id="editable" styleClass="boton" title="#{common['button.edit']}" rendered="#{bibliotecaFormAction.form.readMode and !sinEdicion}" visibleOnUserRole="ADM_Mantenimiento_Biblioteca">
+            <span><h:outputText value="#{common['button.edit']}" /></span>
+          </t:commandLink>
+          <h:commandLink action="#{bibliotecaFormAction.saveAceptar}" id="saveAceptar" styleClass="boton" title="#{common['button.done']}" rendered="#{!bibliotecaFormAction.form.readMode}" >
+            <span> <h:outputText value="#{common['button.done']}" /> </span>
+          </h:commandLink>
+          <t:commandLink action="#{bibliotecaFormAction.saveGuardar}" id="save" styleClass="boton" title="#{common['button.save']}" rendered="#{!bibliotecaFormAction.form.readMode}" >
+            <span> <h:outputText value="#{common['button.save']}" /> </span>
+          </t:commandLink>
+        </h:panelGroup>
+       </f:facet>
+       <!-- Fin Botonera -->
+</t:panelGrid>
+</html>

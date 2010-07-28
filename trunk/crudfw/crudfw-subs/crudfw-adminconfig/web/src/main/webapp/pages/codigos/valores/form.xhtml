@@ -1,0 +1,105 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:librae="http://www.librae.org/jsf/facelets"
+	xmlns:s="http://myfaces.apache.org/sandbox"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax">
+
+<ui:composition template="/templates/defaultTemplate.xhtml">
+	<ui:define name="title">#{msg['valorCodigoForm.title']}</ui:define>
+	<ui:define name="body.id">valorCodigoForm</ui:define>
+	<ui:define name="body">
+		<f:view>
+			<h:form id="valorCodigoForm">
+
+				<ui:include src="/common/breadCrumb.xhtml"/>
+				<librae:executeMethod getter="#{valorCodigoSearchAction.init}" />
+
+				<t:panelGrid columns="1" styleClass="ruta" columnClasses="path" cellpadding="0" cellspacing="0" border="0" rendered="#{valorCodigoSearchAction.key != null}">
+					<t:panelGroup visibleOnUserRole="ADM_Eliminar_Codigo">
+						<h:outputLink value="#" id="delete" styleClass="btn_barra"
+								title="#{common['button.remove']}" onclick="dialogo1Var.show();">
+							<strong><h:outputText value="#{common['button.remove']}" /></strong>
+						</h:outputLink>
+					</t:panelGroup>
+				</t:panelGrid>
+
+				<t:div styleClass="contenido">
+					<t:div styleClass="pestana1">
+						<t:panelGrid columns="3" styleClass="pestanas" columnClasses="blank,titulo_activa" cellpadding="0" cellspacing="0" border="0">
+							<h:graphicImage value="/images/p01b.gif" />
+							<h:outputText value="#{msg['valorCodigoForm.tab']}" />
+							<h:graphicImage value="/images/p02b.gif" />
+						</t:panelGrid>
+
+						<t:div styleClass="pestana">
+							<t:div styleClass="cuadro">
+								<t:div styleClass="cuadro02">
+									<t:panelGrid columns="3" columnClasses="anchura10,anchura15,anchura75" headerClass="titular" footerClass="esq02" cellpadding="0" cellspacing="0" border="0" width="100%">
+										<f:facet name="header">
+											<h:outputText value="#{msg['valorCodigoForm.cuadro']}" />
+										</f:facet>
+
+										<h:outputLabel for="valor" value="#{msg['valorCodigo.valor']}" />
+										<h:inputText styleClass="text medium" size="25" id="valor" value="#{valorCodigoSearchAction.valorCodigoForm.valor}" required="true" maxlength="40" />
+										<t:message for="valor" styleClass="fieldError" detailFormat="{1} #{common['required']}." showSummary="false" showDetail="true" />
+
+										<h:outputLabel for="descripcion" value="#{msg['valorCodigo.descripcion']}" />
+										<h:inputText styleClass="text medium" size="25" id="descripcion" value="#{valorCodigoSearchAction.valorCodigoForm.descripcion}" maxlength="40" />
+										<t:message for="descripcion" styleClass="fieldError" />
+
+										<h:outputLabel for="descripcionAlternativa" value="#{msg['valorCodigo.descripcionAlternativa']}" />
+										<h:inputText styleClass="text medium" size="25" id="descripcionAlternativa" value="#{valorCodigoSearchAction.valorCodigoForm.descripcionAlternativa}" maxlength="255" />
+										<t:message for="descripcionAlternativa" styleClass="fieldError" />
+
+										<f:facet name="footer">
+											<h:panelGroup>
+												<h:commandLink action="list" id="cancel" styleClass="boton_rojo" title="#{common['button.cancel']}" immediate="true">
+													<span><h:outputText value="#{common['button.cancel']}" /></span>
+											    </h:commandLink>
+											    <h:commandLink action="#{valorCodigoSearchAction.save}" id="save" styleClass="boton" title="#{common['button.done']}">
+													<span> <h:outputText value="#{common['button.done']}" /> </span>
+												</h:commandLink>
+											</h:panelGroup>
+										</f:facet>
+									</t:panelGrid>
+								</t:div>
+							</t:div>
+						</t:div>
+					</t:div>
+
+					<t:div styleClass="pie_pestana">
+						<t:panelGrid columns="3" columnClasses="blank,blanco,blank" cellpadding="0" cellspacing="0" border="0">
+							<h:graphicImage value="/images/pie01.gif" />
+								<h:outputText value="" />
+							<h:graphicImage value="/images/pie02.gif" />
+						</t:panelGrid>
+					</t:div>
+				</t:div>
+
+				<t:div id="divConfirmacionBorrar" style="display: none;">
+					<s:modalDialog  dialogId="dialogo2"  dialogVar="dialogo1Var"
+						      dialogAttr="bgColor='white' bgOpacity='0.5' toggle='fade' toggleDuration='50'" hiderIds="btnCerrar">
+					        <t:panelGrid border="0" columns="1" styleClass="ventanaEmergente">
+						    	<t:outputText id="msg"  value="#{msg['confirmacion.valor']}" style="text-align:center;"/>
+						    	<t:panelGroup>
+						        	<t:panelGrid border="0" columns="2">
+								        <t:commandLink action="#{valorCodigoSearchAction.delete}" id="editD" immediate="true" styleClass="btn_barra">
+											<t:htmlTag value="span"><h:outputText value="#{common['button.remove']}" /></t:htmlTag>
+										</t:commandLink>
+								        <t:commandButton id="btnCerrar" forceId="true" onclick="dialogo1Var.hide();" styleClass="btn_barra_cerrar" value="#{common['button.cancel']}"/>
+						        	</t:panelGrid>
+					        	</t:panelGroup>
+					        </t:panelGrid>
+					</s:modalDialog>
+				</t:div>
+			</h:form>
+
+			<librae:windowMessages bean="#{valorCodigoSearchAction}" borrar="true" />
+
+		</f:view>
+	</ui:define>
+</ui:composition>
+</html>

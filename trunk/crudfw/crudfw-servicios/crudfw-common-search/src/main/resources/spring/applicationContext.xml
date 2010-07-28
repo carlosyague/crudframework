@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
+	default-lazy-init="true">
+
+	<description>
+    </description>
+
+	<bean name="searchIndexer" class="org.librae.common.search.index.impl.solr.v1_3.SearchIndexerSolr">
+	</bean>
+
+    <bean name="searchIndexerRegistroBibliografico" class="org.librae.common.search.index.impl.solr.v1_3.SearchIndexerSolr">
+	  <property name="solrServer" value="${solr.registros.host}" />
+	  <property name="solrPort" value="${solr.registros.port}" />
+	  <property name="solrContextName" value="${solr.registros.context}" />
+	  <property name="instantCommit" value="${solr.registros.commit}" />
+	</bean>
+
+	 <bean name="searchIndexerAutoridad" class="org.librae.common.search.index.impl.solr.v1_3.SearchIndexerSolr">
+	  <property name="solrServer" value="${solr.autoridades.host}" />
+	  <property name="solrPort" value="${solr.autoridades.port}" />
+	  <property name="solrContextName" value="${solr.autoridades.context}" />
+	  <property name="instantCommit" value="${solr.autoridades.commit}" />
+	</bean>
+
+<!-- Hay que eliminar este bean ya que no se van a buscar ejemplares desde solr -->
+	 <bean name="searchIndexerEjemplar" class="org.librae.common.search.index.impl.solr.v1_3.SearchIndexerSolr">
+	  <property name="solrServer" value="localhost" />
+	  <property name="solrPort" value="8993" />
+	  <property name="solrContextName" value="solrEjemplares" />
+	  <property name="instantCommit" value="true" />
+	</bean>
+</beans> 

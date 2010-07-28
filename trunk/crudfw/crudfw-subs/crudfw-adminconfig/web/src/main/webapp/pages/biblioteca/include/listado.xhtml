@@ -1,0 +1,179 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:librae="http://www.librae.org/jsf/facelets">
+
+<librae:executeMethod getter="#{bibliotecaFormAction.limpiarForm}" />
+<t:div styleClass="contenido">
+	<librae:tabbedPage tabs="#{bean.tabGroup}"
+		subTabs="#{bean.subTabGroup}">
+		<librae:tab binding="#{bean.tabListado}">
+			<t:div styleClass="cuadro">
+				<t:div styleClass="cuadro02">
+					<t:panelGrid columns="4" columnClasses="width:1%" headerClass="titular"
+						footerClass="esq02" cellpadding="0" cellspacing="0" border="0"
+						width="100%" styleClass="width:1%">
+
+						<f:facet name="header">
+							<h:outputText value="#{msg['biblioteca.busqueda']}" />
+						</f:facet>
+
+						<h:outputLabel for="biblioteca"
+							value=" " />
+
+						<h:panelGroup>
+							<h:selectOneRadio id="radios"
+								value="#{bean.form.busqueda}" styleClass="nobg cajaTexto"
+								layout="pageDirection" onclick="limpiarSeleccionados()">
+								<f:selectItems
+									value="#{bean.form.buscarPorBiblioteca}" />
+							</h:selectOneRadio>
+
+							<t:panelGroup>
+								<t:panelGroup>
+									<h:inputText styleClass="cajaTexto" size="51" id="nombre"
+										value="#{bean.form.nombre}" required="false"
+										maxlength="40" />
+									<h:outputLink onclick="$('bF:nombre').value=$F('bF:codigoBiblioteca');" id="recuperarContextoCodigo" value="#">
+										<h:graphicImage border="0" value="/images/ico_recuperar.gif" alt="#{common['button.contexto']}" title="#{common['button.contexto']}"/>
+									</h:outputLink>
+								</t:panelGroup>
+								<t:panelGroup>
+									<h:inputText styleClass="cajaTexto" size="51" id="descripcion"
+										value="#{bean.form.descripcion}" required="false"
+										maxlength="80" />
+								</t:panelGroup>
+								<t:panelGroup>
+									<ui:include src="/common/tree/arbolBibliotecasSuggest.xhtml">
+										<ui:param name="beanTreeData" value="#{treePermisosListarBibliotecaAction}" />
+										<ui:param name="beanNodoClick" value="#{bean}" />
+										<ui:param name="readOnly" value="false" />
+										<ui:param name="form" value="bF" />
+										<ui:param name="page" value="#{page}" />
+									</ui:include>
+								</t:panelGroup>
+							</t:panelGroup>
+						</h:panelGroup>
+
+
+						<t:panelGrid columns="2" columnClasses="columnLabel" headerClass="titular"
+							footerClass="esq02" cellpadding="0" cellspacing="0" border="0"
+							width="100%" styleClass="nobg">
+							<h:outputLabel for="tiposBiblioteca"
+								value="#{msg['biblioteca.tipoBiblioteca.nombre']}" />
+							<h:panelGroup>
+								<t:saveState id="saveTiposBiblioteca"
+									value="#{comboAction.tiposBiblioteca}" />
+								<h:selectOneMenu id="tipoBiblioteca"
+									value="#{bean.form.tipoBiblioteca}">
+									<f:selectItem itemValue="0"
+										itemLabel="#{common['select.seleccione']}" />
+									<f:selectItems value="#{comboAction.tiposBiblioteca}" />
+								</h:selectOneMenu>
+							</h:panelGroup>
+
+							<h:outputLabel for="contacto"
+								value="#{msg['biblioteca.personaContacto']}" />
+							<h:panelGroup>
+								<h:inputText styleClass="text medium" size="20" id="contacto"
+									value="#{bean.form.contacto}"
+									required="false" maxlength="255" />
+							</h:panelGroup>
+						</t:panelGrid>
+						<f:facet name="footer">
+							<h:panelGroup>
+								<h:commandLink styleClass="boton_rojo"
+									title="#{common['button.clean']}" alt="#{common['button.clean']}"
+									action="#{bean.limpiar}">
+									<span><h:outputText value="#{common['button.clean']}" /></span>
+								</h:commandLink>
+								<h:commandLink action="#{bean.buscar}" id="buscar" styleClass="boton"
+									title="#{common['button.search']}" alt="#{common['button.search']}">
+									<span><h:outputText value="#{common['button.search']}" /></span>
+								</h:commandLink>
+							</h:panelGroup>
+						</f:facet>
+					</t:panelGrid>
+				</t:div>
+			</t:div>
+			<h:inputHidden value="#{contextoAction.codigoBiblioteca}" id="codigoBiblioteca"/>
+			<!-- SUBPESTAÑA 1 -->
+			<librae:subTabListado
+				binding="#{bean.subTabResults}">
+
+				<!-- BOTONES -->
+				<t:panelGrid columns="2" styleClass="botones">
+					<t:panelGroup>
+						<t:commandLink action="add" id="add" immediate="true" rendered="#{localizador==null}"
+							styleClass="btn_barra" visibleOnUserRole="ADM_Mantenimiento_Biblioteca" title="#{common['button.add']}">
+							<span><h:outputText value="#{common['button.add']}" /></span>
+						</t:commandLink>
+					</t:panelGroup>
+					<t:panelGroup styleClass="botonfinal">
+
+						<h:commandButton action="#{bean.generarPdf}" immediate="true" styleClass="imprimir" title="#{common['button.pdf']}" image="/images/pdf_icon.gif" alt="#{common['button.pdf']}" />
+						<h:commandButton action="#{bean.generarExcel}" immediate="true" styleClass="imprimir" title="#{common['button.excel']}" image="/images/hoja_calculo_icon.gif" alt="#{common['button.excel']}" />
+						<t:selectOneMenu id="factorPaginacion"
+										styleClass="combo_paginacion" onchange="document.getElementById('_viewRoot:status.start').style.display='';return oamSubmitForm('bF','bF:cambiarPaginacion');"
+										value="#{bean.pageSize}">
+										<f:selectItem itemValue="10" itemLabel="10" />
+										<f:selectItem itemValue="20" itemLabel="20" />
+										<f:selectItem itemValue="30" itemLabel="30" />
+										<f:selectItem itemValue="50" itemLabel="50" />
+										<!-- f:selectItem itemValue="-1" itemLabel="Todos" / -->
+									</t:selectOneMenu>
+									<t:commandLink action="#{bean.modificarPageSize}" onclick="document.getElementById('_viewRoot:status.start').style.display='';"
+										id="cambiarPaginacion" style="display:none;">
+										<h:outputText value="." />
+									</t:commandLink>
+						</t:panelGroup>
+				</t:panelGrid>
+
+				<ui:include src="/pages/biblioteca/include/dataTable.xhtml">
+					<ui:param name="bean" value="#{bean}" />
+					<ui:param name="idListado" value="#{idListado}" />
+				</ui:include>
+
+				<ui:include src="/common/paginatorAjax.xhtml">
+					<ui:param name="bean" value="#{bean}" />
+					<ui:param name="idListado" value="#{idListado}" />
+				</ui:include>
+
+				<t:panelGroup rendered="#{localizador!=null}">
+					<h:outputLink id="btnCancelar"  immediate="true" styleClass="boton_rojo"
+								onclick="javascript:parent.cerrar();"
+								title="#{common['button.cancel']}">
+							<span><h:outputText value="#{common['button.cancel']}" /></span>
+						</h:outputLink>
+
+					<h:outputLink styleClass="boton_verde" title="#{common['button.done']}"
+						 id="seleccionarBiblioteca" onclick="parent.cargarBiblioteca();javascript:parent.cerrar();">
+						<span><h:outputText value="#{common['button.done']}" /></span>
+					</h:outputLink>
+				</t:panelGroup>
+
+			</librae:subTabListado>
+		</librae:tab>
+	</librae:tabbedPage>
+</t:div>
+<head>
+<script type="text/javascript">
+	//<![CDATA[
+		if (($('bF:radios:0').checked) || ($('bF:radios:1').checked)) {
+				arbolActivo=false;
+		}
+		function limpiarSeleccionados() {
+			if (($('bF:radios:0').checked) || ($('bF:radios:1').checked)) {
+				arbolActivo=false;
+			} else if ($('bF:radios:2').checked) {
+				arbolActivo=true;
+			}
+		}
+ 		//]]>
+ 	</script>
+</head>
+</html>

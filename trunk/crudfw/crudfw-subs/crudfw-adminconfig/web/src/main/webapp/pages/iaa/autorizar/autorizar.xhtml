@@ -1,0 +1,142 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:v="http://corejsf.com/validator"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:s="http://myfaces.apache.org/sandbox"
+	xmlns:librae="http://www.librae.org/jsf/facelets">
+
+<ui:composition template="/templates/noMenuTemplate.xhtml">
+	<ui:define name="title">#{text['autorizarUsuarioForm.title']}</ui:define>
+	<ui:define name="body.id">autorizarUsuarioAction</ui:define>
+	<ui:define name="body">
+		<f:view>
+			<h:form id="autorizarUsuarioForm" >
+				<h:inputHidden value="#{autorizarUsuarioAction.urlBack}" id="urlBack"/>
+
+				<h:outputText value="#{breadCrumbAction.limpiarPath}" id="initPath"/>
+				<t:panelGrid columns="2" styleClass="ruta" columnClasses="path,fechahora" cellpadding="0" cellspacing="0" border="0">
+					<h:panelGroup>
+						<h:outputText value=" #{msg['autorizar.path']}" />
+					</h:panelGroup>
+					<h:panelGroup>
+						<a4j:status>
+							<f:facet name="start">
+								<t:div styleClass="status">
+				     				<h:graphicImage value="/images/popup/ventana-modal-cargando/cargando.gif" />
+			     				</t:div>
+							</f:facet>
+						</a4j:status>
+		   				<h:outputText value="&#160;&#160;" />
+					</h:panelGroup>
+				</t:panelGrid>
+
+				<t:div styleClass="contenido">
+					<librae:tabbedPageSimple tabs="#{autorizarUsuarioAction.tabGroup}">
+    					<librae:tab binding="#{autorizarUsuarioAction.tabBiblioteca}">
+    						<t:div styleClass="cuadro">
+							<t:div styleClass="cuadro02">
+							<t:panelGrid columns="2" headerClass="titular" footerClass="esq02" cellpadding="0" cellspacing="0" border="0" width="100%" columnClasses="anhcura50, anchura50">
+								<f:facet name="header">
+									<h:outputText value=" #{msg['autorizar.opciones.usuario']}" />
+								</f:facet>
+								<t:panelGroup>
+									<t:div styleClass="cuadro">
+										<t:div styleClass="cuadro02">
+											<t:panelGrid columns="1" headerClass="titular" footerClass="esq02" cellpadding="0" cellspacing="0" border="0" width="100%">
+
+												<f:facet name="header">
+													<h:outputText value=" #{msg['autorizar.titulo.biblioteca']}" />
+												</f:facet>
+
+												<t:panelGroup>
+													<ui:include src="/common/tree/arbolBibliotecas.xhtml">
+														<ui:param name="beanTreeData" value="#{autorizarUsuarioAction}"/>
+														<ui:param name="beanNodoClick" value="#{autorizarUsuarioAction}"/>
+														<ui:param name="renderizar" value="roles, defecto"/>
+														<ui:param name="readOnly" value="false"/>
+														<ui:param name="page" value="/librae-adminconfig/pages/iaa/autorizar/autorizar.html"/>
+														<ui:param name="form" value="autorizarUsuarioForm"/>
+													</ui:include>
+												</t:panelGroup>
+
+												<f:facet name="footer">
+													<t:div>
+														<h:selectBooleanCheckbox id="defecto" value="#{autorizarUsuarioAction.defecto}" />
+														<h:outputLabel value=" #{msg['autorizar.biblioteca.defecto']}" />
+													</t:div>
+												</f:facet>
+											</t:panelGrid>
+										</t:div>
+									</t:div>
+								</t:panelGroup>
+								<t:panelGroup>
+									<t:div styleClass="cuadro">
+										<t:div styleClass="cuadro02">
+											<t:panelGrid columns="1" headerClass="titular" footerClass="esq02" cellpadding="0" cellspacing="0" border="0" width="100%">
+												<f:facet name="header">
+													<h:outputText value=" #{msg['autorizar.titulo.perfiles']}" />
+												</f:facet>
+												<h:panelGroup>
+													<t:dataTable id="roles" var="rol" value="#{autorizarUsuarioAction.roles}" styleClass="nobg_autorizar">
+													    <t:column>
+													    	<h:outputText value="#{rol}"/>
+													    </t:column>
+													</t:dataTable>
+												</h:panelGroup>
+												<h:panelGroup>
+													<h:commandLink action="#{autorizarUsuarioAction.cancel}" id="cancel" styleClass="boton" title="#{common['button.cancel']}">
+														<span><h:outputText value="#{common['button.cancel']}" /></span>
+													</h:commandLink>
+													<h:commandLink action="#{autorizarUsuarioAction.save}" id="save" styleClass="boton" title="#{common['button.save']}">
+														<span><h:outputText value="#{common['button.done']}" /></span>
+													</h:commandLink>
+												</h:panelGroup>
+												<f:facet name="footer">
+													<h:outputText value="" />
+												</f:facet>
+											</t:panelGrid>
+										</t:div>
+									</t:div>
+								</t:panelGroup>
+								<t:panelGroup rendered="#{!autorizarUsuarioAction.orbeActivo}">
+									<t:div styleClass="cuadro">
+										<t:div styleClass="cuadro02">
+											<t:panelGrid columns="1" headerClass="titular" footerClass="esq02" cellpadding="0" cellspacing="0" border="0" width="100%">
+												<f:facet name="header">
+													<h:outputText value=" #{msg['autorizar.otrasOpciones']}" />
+												</f:facet>
+												<h:outputLink value="#" id="cambiarClaveUsuario" styleClass="boton_form" title="#{common['button.save']}" onclick="javascript:abrirVentana('/librae-adminconfig/pages/iaa/gestionUsuarios/cambiarClaveUsuario.html', 300, 150, 'ventana', 'Cambiar clave', '#{facesContext.externalContext.requestContextPath}'); return false;">
+													<strong>
+														<h:outputText value="#{msg['autorizar.cambiarPass']}" />
+													</strong>
+												</h:outputLink>
+												<h:outputText value="" />
+												<h:outputText value="" />
+												<h:outputText value="" />
+
+												<f:facet name="footer">
+													<a4j:commandLink reRender="errores" id="seleccionarCambiarClave" style="display:none;" />
+												</f:facet>
+											</t:panelGrid>
+										</t:div>
+									</t:div>
+								</t:panelGroup>
+								<f:facet name="footer">
+									<h:outputText value="" />
+								</f:facet>
+							</t:panelGrid>
+							</t:div>
+							</t:div>
+						</librae:tab>
+    				</librae:tabbedPageSimple>
+				</t:div>
+			</h:form>
+			<librae:windowMessagesClose bean="#{autorizarUsuarioAction}" borrar="true" />
+		</f:view>
+	</ui:define>
+</ui:composition>
+</html>

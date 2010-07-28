@@ -1,0 +1,135 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:librae="http://www.librae.org/jsf/facelets"
+	xmlns:s="http://myfaces.apache.org/sandbox">
+
+	<t:div styleClass="cuadro">
+		<t:div styleClass="cuadro02">
+
+			<t:panelGrid columns="2" columnClasses="anchura5" headerClass="titular"
+				footerClass="esq02" cellpadding="0" cellspacing="0" border="0"
+				width="100%">
+
+				<f:facet name="header">
+					<h:outputText value="#{msg['biblioteca.busqueda']}" />
+				</f:facet>
+
+				<h:outputLabel for="codigo" value="#{msg['rol.codigo']}" />
+				<h:panelGroup>
+					<h:inputText styleClass="text medium" size="20" id="codigo"
+						value="#{bean.form.codigo}"
+						required="false" maxlength="40" />
+					<h:outputLink onclick="$('rolCriteriaForm:codigo').value=$F('rolCriteriaForm:codigoRol');" id="recuperarContextoCodigo" value="#">
+						<h:graphicImage border="0" value="/images/ico_recuperar.gif" alt="#{common['button.contexto']}" title="#{common['button.contexto']}"/>
+					</h:outputLink>
+				</h:panelGroup>
+
+				<h:outputLabel for="nombre" value="#{msg['rol.nombre']}" />
+				<h:panelGroup>
+					<h:inputText styleClass="text medium" size="20" id="nombre"
+						value="#{bean.form.nombre}"
+						required="false" maxlength="120" />
+				</h:panelGroup>
+
+				<f:facet name="footer">
+					<h:panelGroup>
+						<h:commandLink styleClass="boton_rojo"
+							title="#{common['button.clean']}" alt="#{common['button.clean']}"
+							action="#{bean.limpiar}">
+							<span><h:outputText value="#{common['button.clean']}" /></span>
+						</h:commandLink>
+						<h:commandLink action="#{bean.buscar}" id="buscar" styleClass="boton"
+							title="#{common['button.search']}" alt="#{common['button.search']}">
+							<span><h:outputText value="#{common['button.search']}" /></span>
+						</h:commandLink>
+					</h:panelGroup>
+				</f:facet>
+			</t:panelGrid>
+		</t:div>
+	</t:div>
+
+	<h:inputHidden value="#{contextoAction.codigoRol}" id="codigoRol"/>
+	<h:outputText value=" " />
+	<h:outputText value=" " />
+
+	<!-- SUBPESTAÑA 1 -->
+	<librae:subTabListado binding="#{subtabRoles}">
+
+		<t:div styleClass="listado">
+
+			<t:panelGrid columns="2" styleClass="botones">
+				<t:panelGroup>
+					<span class="btn_barra"> <t:selectBooleanCheckbox
+						styleClass="btn_st" forceId="true" id="selectAll"
+						value="#{bean.selectedAll}"
+						onclick="actualizarSeleccionTodos(this, '#{idListado}', 'selectAllPage');" />
+					<em id="btn_st1"><h:outputText
+						value="#{common['button.selectAll']}" /></em> <em
+						style="display: none;" id="btn_st2"><h:outputText
+						value="#{common['button.deselectAll']}" /></em> </span>
+
+					<t:commandLink action="add" id="add" immediate="true"
+						styleClass="btn_barra" rendered="#{localizador==null}"
+						visibleOnUserRole="ADM_Mantenimiento_Rol" title="#{common['button.add']}">
+						<span><h:outputText value="#{common['button.add']}" /></span>
+					</t:commandLink>
+
+					<t:commandLink action="#{rolAction.duplicar}" id="duplicar"
+						styleClass="btn_barra" rendered="#{localizador==null}"
+						visibleOnUserRole="ADM_Duplicar_Roles" title="#{common['button.duplicar']}">
+						<span><h:outputText
+							value="#{common['button.duplicar']}" /></span>
+						<f:param name="idListado" value="roles" />
+					</t:commandLink>
+				</t:panelGroup>
+				<t:panelGroup styleClass="botonfinal">
+					<h:commandButton action="#{bean.generarPdf}" immediate="true" styleClass="imprimir" title="#{common['button.pdf']}" image="/images/pdf_icon.gif" alt="#{common['button.pdf']}" />
+					<h:commandButton action="#{bean.generarExcel}" immediate="true" styleClass="imprimir" title="#{common['button.excel']}" image="/images/hoja_calculo_icon.gif" alt="#{common['button.excel']}" />
+
+					<t:selectOneMenu id="factorPaginacion"
+						styleClass="combo_paginacion" onchange="document.getElementById('_viewRoot:status.start').style.display='';return oamSubmitForm('rolCriteriaForm','rolCriteriaForm:cambiarPaginacion');"
+						value="#{bean.pageSize}">
+						<f:selectItem itemValue="10" itemLabel="10" />
+						<f:selectItem itemValue="20" itemLabel="20" />
+						<f:selectItem itemValue="30" itemLabel="30" />
+						<f:selectItem itemValue="50" itemLabel="50" />
+						<!-- f:selectItem itemValue="-1" itemLabel="Todos" / -->
+					</t:selectOneMenu>
+					<t:commandLink action="#{bean.modificarPageSize}"
+							id="cambiarPaginacion" style="display:none;">
+							<h:outputText value="." />
+						</t:commandLink>
+				</t:panelGroup>
+			</t:panelGrid>
+
+			<ui:include src="/pages/rol/include/dataTable.xhtml">
+				<ui:param name="bean" value="#{bean}" />
+				<ui:param name="idListadoEficiente" value="#{idListadoEficiente}" />
+				<ui:param name="idListado" value="#{idListado}" />
+			</ui:include>
+
+			<ui:include src="/common/paginatorAjax.xhtml">
+				<ui:param name="bean" value="#{bean}" />
+				<ui:param name="idListado" value="#{idListadoEficiente}, #{idListado}" />
+			</ui:include>
+		</t:div>
+
+	</librae:subTabListado>
+
+	<t:panelGroup rendered="#{localizador!=null}">
+		<t:commandButton id="btnCancelar"  immediate="true" styleClass="boton_rojo_chico"
+				onclick="parent.limpiarRol();javascript:parent.cerrar()"
+				title="#{common['button.cancel']}" alt="#{common['button.cancel']}" value="#{common['button.cancel']}" />
+
+		<h:outputLink styleClass="boton_verde" title="#{common['button.done']}"
+			 	id="seleccionarRol" onclick="parent.cargarRol();javascript:parent.cerrar();">
+			<span><h:outputText value="#{common['button.done']}" /></span>
+		</h:outputLink>
+	</t:panelGroup>
+
+</html>

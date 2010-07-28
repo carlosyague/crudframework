@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:librae="http://www.librae.org/jsf/facelets">
+
+	<librae:listado id="valores" var="valor" value="#{bean.listado}" sortColumn="#{bean.sortColumn}"
+		sortAscending="#{bean.ascending}" styleClass="listado"
+		headerClass="standardTable_Header" rowClasses="impar,par">
+
+		<t:column id="codigo_codigo">
+			<f:facet name="header">
+				<t:commandSortHeader columnName="valor" arrow="true">
+					<a4j:commandLink reRender="valores, paginacion" value="#{msg['codigo.codigo']}">
+						<a4j:actionparam name="sortColumn" value="valor" assignTo="#{bean.sortColumn}"/>
+						<a4j:actionparam name="ascending"  value="#{!bean.ascending}" assignTo="#{bean.ascending}" />
+						<f:param name="ordenarListado" value="true" />
+					</a4j:commandLink>
+				</t:commandSortHeader>
+			</f:facet>
+			<t:outputText value="#{valor.valor}" escape="true"/>
+		</t:column>
+		<t:column id="valorCodigo_descripcion">
+			<f:facet name="header">
+				<t:commandSortHeader columnName="descripcion" arrow="true">
+					<a4j:commandLink reRender="valores, paginacion" value="#{msg['valorCodigo.descripcion']}">
+						<a4j:actionparam name="sortColumn" value="descripcion" assignTo="#{bean.sortColumn}"/>
+						<a4j:actionparam name="ascending"  value="#{!bean.ascending}" assignTo="#{bean.ascending}" />
+						<f:param name="ordenarListado" value="true" />
+					</a4j:commandLink>
+				</t:commandSortHeader>
+			</f:facet>
+			<t:outputText value="#{valor.descripcion}" escape="true"/>
+		</t:column>
+		<t:column id="valorCodigo_descripcionAlternativa">
+			<f:facet name="header">
+				<t:commandSortHeader columnName="descripcionAlternativa" arrow="true">
+					<a4j:commandLink reRender="valores, paginacion" value="#{msg['valorCodigo.descripcionAlternativa']}">
+						<a4j:actionparam name="sortColumn" value="descripcionAlternativa" assignTo="#{bean.sortColumn}"/>
+						<a4j:actionparam name="ascending"  value="#{!bean.ascending}" assignTo="#{bean.ascending}" />
+						<f:param name="ordenarListado" value="true" />
+					</a4j:commandLink>
+				</t:commandSortHeader>
+			</f:facet>
+			<t:outputText value="#{valor.descripcionAlternativa}" escape="true"/>
+		</t:column>
+		<t:column style="width: 30" rendered="#{!codigoFormAction.codigoForm.readMode}">
+			<f:facet name="header" style="center">
+			</f:facet>
+
+			<h:commandLink id="updateLink" action="#{codigoFormAction.updateCodigo}" visibleOnUserRole="ADM_Mantenimiento_Codigo" title="#{common['button.lapiz']}">
+				<span><h:graphicImage border="0" value="/images/editar_icon.gif" alt="#{msg['valorCodigoSearch.alt.modificar']}" /></span>
+				<f:param name="key" value="#{codigoFormAction.pos}"/>
+				<f:param name="procesarListado" value="true" />
+            </h:commandLink>
+		</t:column>
+	</librae:listado>
+
+</html>

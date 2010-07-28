@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:v="http://corejsf.com/validator">
+
+	<t:div styleClass="listado">
+		<t:panelGrid columns="1" styleClass="border_subpest">
+				<t:panelGrid columns="3" styleClass="subpestanas" border="0"
+					cellpadding="0" cellspacing="0"
+					columnClasses="blank,titulo_activa,blank">
+					<h:graphicImage value="/images/sp01a.gif" />
+					<h:outputText value="#{label}" />
+					<h:graphicImage value="/images/sp02a.gif" />
+				</t:panelGrid>
+
+		</t:panelGrid>
+
+		<ui:insert name="tabBody" />
+
+	</t:div>
+</html>

@@ -1,0 +1,1 @@
+alter table ser_periodicidades add (t_excepciones_meses varchar2(12));

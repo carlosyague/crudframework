@@ -1,0 +1,196 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:v="http://corejsf.com/validator">
+
+			<!-- CONTENIDO -->
+			<t:panelGrid columns="1" styleClass="datos" columnClasses="blank">
+
+			<h:panelGroup>
+			<t:div styleClass="cuadro">
+			<t:div styleClass="cuadro02">
+
+			<t:panelGrid columns="2" width="100%" border="0" cellspacing="0" cellpadding="0" headerClass="titular" footerClass="esq02" columnClasses="anchura40">
+
+				<f:facet name="header">
+					<h:outputText value="#{msg['biblioteca.general']}" />
+				</f:facet>
+
+				<h:panelGroup>
+					<t:saveState id="saveCumplimentarReservasEnDevoluciones" value="#{bibliotecaFormAction.form.cumplimentarReservasEnDevoluciones}" />
+					<h:selectBooleanCheckbox style="margin-top:0px;margin-left:3px" title="cumplimentarReservasEnDevoluciones" value="#{bibliotecaFormAction.form.cumplimentarReservasEnDevoluciones}" disabled="#{bibliotecaFormAction.form.readMode}" >
+					</h:selectBooleanCheckbox>
+					<t:message for="cumplimentarReservasEnDevoluciones" styleClass="fieldError"/>
+					<h:outputLabel value="#{msg['biblioteca.autoreservar']}"/>
+				</h:panelGroup>
+				
+				<h:panelGroup></h:panelGroup>
+
+				<h:panelGroup>
+					<t:saveState id="saveEmitirReciboEnDevoluciones" value="#{bibliotecaFormAction.form.emitirReciboEnDevoluciones}" />
+					<h:selectBooleanCheckbox style="margin-top:0px;margin-left:3px" title="emitirReciboEnDevoluciones" value="#{bibliotecaFormAction.form.emitirReciboEnDevoluciones}"  disabled="#{bibliotecaFormAction.form.readMode}" >
+					</h:selectBooleanCheckbox>
+					<t:message for="emitirReciboEnDevoluciones" styleClass="fieldError"/>
+					<h:outputLabel value="#{msg['biblioteca.devoluciones']}"/>
+				</h:panelGroup>
+
+				<h:panelGroup></h:panelGroup>
+
+				<h:panelGroup>
+					<t:saveState id="saveEmitirReciboEnRenovaciones" value="#{bibliotecaFormAction.form.emitirReciboEnRenovaciones}" />
+					<h:selectBooleanCheckbox style="margin-top:0px;margin-left:3px" title="emitirReciboEnRenovaciones" value="#{bibliotecaFormAction.form.emitirReciboEnRenovaciones}" disabled="#{bibliotecaFormAction.form.readMode}">
+					</h:selectBooleanCheckbox>
+					<t:message for="emitirReciboEnRenovaciones" styleClass="fieldError"/>
+					<h:outputLabel value="#{msg['biblioteca.renovaciones']}"/>
+				</h:panelGroup>
+
+				<!-- h:panelGroup>
+					<t:saveState id="saveEmitirReciboEnReservas" value="#{bibliotecaFormAction.form.emitirReciboEnReservas}" />
+					<h:selectBooleanCheckbox style="margin-top:0px;margin-left:3px" title="emitirReciboEnReservas" value="#{bibliotecaFormAction.form.reservaSiSuspendido}" disabled="#{bibliotecaFormAction.form.readMode}">
+					</h:selectBooleanCheckbox>
+					<t:message for="emitirReciboEnReservas" styleClass="fieldError"/>
+					<h:outputLabel value="#{msg['biblioteca.reservas']}"/>
+				</h:panelGroup -->
+
+				<h:panelGroup>
+					<t:saveState id="savePrestamoRenovacionSiSuspendido" value="#{bibliotecaFormAction.form.prestamoRenovacionSiSuspendido}" />
+					<h:selectBooleanCheckbox style="margin-top:0px;margin-left:3px" title="prestamoRenovacionSiSuspendido" value="#{bibliotecaFormAction.form.prestamoRenovacionSiSuspendido}" disabled="#{bibliotecaFormAction.form.readMode}">
+					</h:selectBooleanCheckbox>
+					<t:message for="prestamoRenovacionSiSuspendido" styleClass="fieldError"/>
+					<h:outputLabel value="#{msg['biblioteca.prestamos']}"/>
+				</h:panelGroup>
+
+				<h:panelGroup></h:panelGroup>
+
+				<h:panelGroup>
+					<t:saveState id="saveReservaSiSuspendido" value="#{bibliotecaFormAction.form.reservaSiSuspendido}" />
+					<h:selectBooleanCheckbox style="margin-top:0px;margin-left:3px" title="reservaSiSuspendido" value="#{bibliotecaFormAction.form.reservaSiSuspendido}" disabled="#{bibliotecaFormAction.form.readMode}">
+					</h:selectBooleanCheckbox>
+					<t:message for="reservaSiSuspendido" styleClass="fieldError"/>
+					<h:outputLabel value="#{msg['biblioteca.suspendidos']}"/>
+				</h:panelGroup>
+
+				<h:panelGroup></h:panelGroup>
+
+				<h:panelGroup>
+					<t:panelGrid columns="3" width="100%" border="0" cellspacing="0" cellpadding="0" styleClass="nobg" columnClasses="anchura50">
+							<h:outputLabel for="numeroMaxPrestamosDom" value="#{msg['biblioteca.maxPrest']}" />
+							<h:inputText styleClass="text medium" size="10" id="numeroMaxPrestamosDom" value="#{bibliotecaFormAction.form.numeroMaxPrestamosDom}" required="true" maxlength="10" disabled="#{bibliotecaFormAction.form.readMode}">
+							</h:inputText>
+							<t:message for="numeroMaxPrestamosDom" styleClass="fieldError" detailFormat="#{common['required.integer']}" showSummary="false" showDetail="true" />
+						
+						<h:outputLabel for="numeroMaxReservasPorCola" value="#{msg['biblioteca.maxRes']}" />
+						<h:inputText styleClass="text medium" size="10" id="numeroMaxReservasPorCola" value="#{bibliotecaFormAction.form.numeroMaxReservasPorCola}" required="true" maxlength="10" disabled="#{bibliotecaFormAction.form.readMode}">
+						</h:inputText>
+						<t:message for="numeroMaxReservasPorCola" styleClass="fieldError" detailFormat="#{common['required.integer']}" showSummary="false" showDetail="true" />
+					</t:panelGrid>
+				</h:panelGroup>
+
+				<f:facet name="footer">
+					<t:saveState id="saveNumeroMaxPrestamosDom" value="#{bibliotecaFormAction.form.numeroMaxPrestamosDom}" />
+					<t:saveState id="saveNumeroMaxReservasPorCola" value="#{bibliotecaFormAction.form.numeroMaxReservasPorCola}" />
+			 	</f:facet>
+
+			</t:panelGrid>
+			</t:div>
+			</t:div>
+			</h:panelGroup>
+
+			<h:panelGroup>
+			<t:div styleClass="cuadro">
+			<t:div styleClass="cuadro02">
+
+			<t:panelGrid columns="1" width="100%" border="0" cellspacing="0" cellpadding="0" headerClass="titular" footerClass="esq02" columnClasses="columnLabel">
+
+			<f:facet name="header">
+				<h:outputText value="#{msg['biblioteca.sucursal']}" />
+			</f:facet>
+
+				<h:panelGroup>
+					<t:saveState id="saveAdmiteDevolucionMismaBiblioteca" value="#{bibliotecaFormAction.form.admiteDevolucionMismaBiblioteca}" />
+					<h:selectBooleanCheckbox style="margin-top:0px;margin-left:3px" title="admiteDevolucionMismaBiblioteca" value="#{bibliotecaFormAction.form.admiteDevolucionMismaBiblioteca}" disabled="#{bibliotecaFormAction.form.readMode}">
+					</h:selectBooleanCheckbox>
+					<t:message for="admiteDevolucionMismaBiblioteca" styleClass="fieldError"/>
+					<h:outputLabel value="#{msg['prestamo.bibliotecaAdmiDevOtrasSucMismaBiblio']}"/>
+				</h:panelGroup>
+
+				<h:panelGroup>
+					<t:saveState id="saveAdmitePrestamoMismaBiblioteca" value="#{bibliotecaFormAction.form.admitePrestamoMismaBiblioteca}" />
+					<h:selectBooleanCheckbox style="margin-top:0px;margin-left:3px" title="admitePrestamoMismaBiblioteca" value="#{bibliotecaFormAction.form.admitePrestamoMismaBiblioteca}" disabled="#{bibliotecaFormAction.form.readMode}">
+					</h:selectBooleanCheckbox>
+					<t:message for="admitePrestamoMismaBiblioteca" styleClass="fieldError"/>
+					<h:outputLabel value="#{msg['prestamo.bibliotecaAdmiPrestOtrasSucMismaBiblio']}"/>
+				</h:panelGroup>
+
+				<h:panelGroup>
+					<t:saveState id="saveAdmiteRenovacionMismaBiblioteca" value="#{bibliotecaFormAction.form.admiteRenovacionMismaBiblioteca}" />
+					<h:selectBooleanCheckbox style="margin-top:0px;margin-left:3px" title="admiteRenovacionMismaBiblioteca" value="#{bibliotecaFormAction.form.admiteRenovacionMismaBiblioteca}" disabled="#{bibliotecaFormAction.form.readMode}">
+					</h:selectBooleanCheckbox>
+					<t:message for="admiteRenovacionMismaBiblioteca" styleClass="fieldError"/>
+					<h:outputLabel value="#{msg['prestamo.bibliotecaAdmiRenOtrasSucMismaBiblio']}"/>
+				</h:panelGroup>
+
+				<h:panelGroup>
+					<t:saveState id="savePermiteDevolucionMismaBiblioteca" value="#{bibliotecaFormAction.form.permiteDevolucionMismaBiblioteca}" />
+					<h:selectBooleanCheckbox style="margin-top:0px;margin-left:3px" title="permiteDevolucionMismaBiblioteca" value="#{bibliotecaFormAction.form.permiteDevolucionMismaBiblioteca}" disabled="#{bibliotecaFormAction.form.readMode}">
+					</h:selectBooleanCheckbox>
+					<t:message for="permiteDevolucionMismaBiblioteca" styleClass="fieldError"/>
+					<h:outputLabel value="#{msg['prestamo.bibliotecaPermDevOtrasSucMismaBiblio']}"/>
+				</h:panelGroup>
+
+				<h:panelGroup>
+					<t:saveState id="savePermitePrestamoMismaBiblioteca" value="#{bibliotecaFormAction.form.permitePrestamoMismaBiblioteca}" />
+					<h:selectBooleanCheckbox style="margin-top:0px;margin-left:3px" title="permitePrestamoMismaBiblioteca" value="#{bibliotecaFormAction.form.permitePrestamoMismaBiblioteca}" disabled="#{bibliotecaFormAction.form.readMode}">
+					</h:selectBooleanCheckbox>
+					<t:message for="permitePrestamoMismaBiblioteca" styleClass="fieldError"/>
+					<h:outputLabel value="#{msg['prestamo.bibliotecaPermPrestOtrasSucMismaBiblio']}"/>
+				</h:panelGroup>
+
+				<h:panelGroup>
+					<t:saveState id="savePermiteRenovacionMismaBiblioteca" value="#{bibliotecaFormAction.form.permiteRenovacionMismaBiblioteca}" />
+					<h:selectBooleanCheckbox style="margin-top:0px;margin-left:3px" title="permiteRenovacionMismaBiblioteca" value="#{bibliotecaFormAction.form.permiteRenovacionMismaBiblioteca}" disabled="#{bibliotecaFormAction.form.readMode}">
+					</h:selectBooleanCheckbox>
+					<t:message for="permiteRenovacionMismaBiblioteca" styleClass="fieldError"/>
+					<h:outputLabel value="#{msg['prestamo.bibliotecaPermRenOtrasSucMismaBiblio']}"/>
+				</h:panelGroup>
+
+				<f:facet name="footer">
+					<h:panelGroup>
+					</h:panelGroup>
+			 	</f:facet>
+
+		</t:panelGrid>
+		</t:div>
+		</t:div>
+		</h:panelGroup>
+
+ 		    <!-- Botonera -->
+		   <f:facet name="footer">
+				<h:panelGroup>
+					<h:commandLink action="#{bibliotecaFormAction.cancel}" id="cancelPol" styleClass="boton_rojo" title="#{common['button.cancel']}" immediate="true" rendered="#{!bibliotecaFormAction.form.readMode and !sinEdicion}" onclick="$('bibliotecaForm:horario').disabled=false;$('bibliotecaForm:calendario').disabled=false;$('bibliotecaForm:domicilio').disabled=false;">
+						<span><h:outputText value="#{common['button.cancel']}" /></span>
+				    </h:commandLink>
+					<h:commandLink action="#{bibliotecaFormAction.cancel}" id="backPol" styleClass="boton_rojo" title="#{common['button.back']}" immediate="true" rendered="#{bibliotecaFormAction.form.readMode and !sinEdicion}" onclick="$('bibliotecaForm:horario').disabled=false;$('bibliotecaForm:calendario').disabled=false;$('bibliotecaForm:domicilio').disabled=false;">
+						<span><h:outputText value="#{common['button.back']}" /></span>
+				    </h:commandLink>
+					<h:commandLink action="#{bibliotecaFormAction.cancelSoloLectura}" id="cancelSoloLecturaPol" styleClass="boton_rojo" title="#{common['button.back']}" immediate="true" rendered="#{sinEdicion}" onclick="$('bibliotecaForm:horario').disabled=false;$('bibliotecaForm:calendario').disabled=false;$('bibliotecaForm:domicilio').disabled=false;">
+						<span><h:outputText value="#{common['button.back']}" /></span>
+				    </h:commandLink>
+				    <t:commandLink action="#{bibliotecaFormAction.editable}" id="editablePol" styleClass="boton" title="#{common['button.edit']}" rendered="#{bibliotecaFormAction.form.readMode and !sinEdicion}" visibleOnUserRole="ADM_Mantenimiento_Biblioteca" onclick="$('bibliotecaForm:horario').disabled=false;$('bibliotecaForm:calendario').disabled=false;$('bibliotecaForm:domicilio').disabled=false;">
+						<span><h:outputText value="#{common['button.edit']}" /></span>
+					</t:commandLink>
+    				<h:commandLink action="#{bibliotecaFormAction.saveAceptar}" id="saveAceptarPol" styleClass="boton" title="#{common['button.done']}" rendered="#{!bibliotecaFormAction.form.readMode}" onclick="$('bibliotecaForm:horario').disabled=false;$('bibliotecaForm:calendario').disabled=false;$('bibliotecaForm:domicilio').disabled=false;">
+						<span> <h:outputText value="#{common['button.done']}" /> </span>
+					</h:commandLink>
+					<h:commandLink action="#{bibliotecaFormAction.saveGuardar}" id="savePol" styleClass="boton" title="#{common['button.save']}" rendered="#{!bibliotecaFormAction.form.readMode}" onclick="$('bibliotecaForm:horario').disabled=false;$('bibliotecaForm:calendario').disabled=false;$('bibliotecaForm:domicilio').disabled=false;">
+						<span> <h:outputText value="#{common['button.save']}" /> </span>
+					</h:commandLink>
+				</h:panelGroup>
+		   </f:facet>
+		   <!-- Fin Botonera -->
+
+</t:panelGrid>
+</html>

@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:c="http://java.sun.com/jstl/core" xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+>
+<ui:composition template="/templates/masterTemplate.xhtml">
+  <ui:define name="title">#{msg['errorPage.title']}</ui:define>
+  <ui:define name="heading">#{msg['errorPage.heading']}</ui:define>
+  <ui:define name="body">
+    <h:form id="errorPage">
+      <h:panelGrid width="100%">
+        <h:outputText id="errorText" value="#{msg['errorPage.label.message']}" />
+        <h:inputTextarea style="width: 99%;" rows="20" readonly="true"
+          value="#{errorController.stackTrace}" />
+      </h:panelGrid>
+    </h:form>
+  </ui:define>
+</ui:composition>
+</html>

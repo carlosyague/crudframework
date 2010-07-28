@@ -1,0 +1,1352 @@
+<html xmlns:ns0="urn:schemas-microsoft-com:office:smarttags">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Módulos comunes</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Mangal;
+	panose-1:0 0 4 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Arial Narrow";
+	panose-1:2 11 6 6 2 2 2 3 2 4;}
+@font-face
+	{font-family:OpenSymbol;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+h1
+	{mso-style-link:"Título 1 Car";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:-.15pt;
+	page-break-before:always;
+	font-size:12.0pt;
+	font-family:"Arial Narrow","sans-serif";
+	font-weight:bold;}
+h2
+	{mso-style-link:"Título 2 Car";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;
+	font-style:italic;}
+h3
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+p.MsoIndex1, li.MsoIndex1, div.MsoIndex1
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-12.0pt;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	font-variant:small-caps;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	font-style:italic;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:48.0pt;
+	margin-bottom:.0001pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:72.0pt;
+	margin-bottom:.0001pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:84.0pt;
+	margin-bottom:.0001pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:96.0pt;
+	margin-bottom:.0001pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Encabezado Car";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Pie de página Car";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	font-weight:bold;}
+p.MsoList, li.MsoList, div.MsoList
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-link:"Texto independiente Car";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+a:link, span.MsoHyperlink
+	{font-family:"Times New Roman","serif";
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{font-family:"Times New Roman","serif";
+	color:purple;
+	text-decoration:underline;}
+em
+	{font-family:"Times New Roman","serif";}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Texto de globo Car";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+span.Ttulo1Car
+	{mso-style-name:"Título 1 Car";
+	mso-style-link:"Título 1";
+	font-family:"Cambria","serif";
+	font-weight:bold;}
+span.Ttulo2Car
+	{mso-style-name:"Título 2 Car";
+	mso-style-link:"Título 2";
+	font-family:"Cambria","serif";
+	font-weight:bold;
+	font-style:italic;}
+span.Vietas
+	{mso-style-name:Viñetas;
+	font-family:OpenSymbol;}
+p.Encabezado1, li.Encabezado1, div.Encabezado1
+	{mso-style-name:Encabezado1;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Arial","sans-serif";}
+span.TextoindependienteCar
+	{mso-style-name:"Texto independiente Car";
+	mso-style-link:"Texto independiente";
+	font-family:"Arial Unicode MS","sans-serif";}
+p.Etiqueta, li.Etiqueta, div.Etiqueta
+	{mso-style-name:Etiqueta;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	font-style:italic;}
+p.ndice, li.ndice, div.ndice
+	{mso-style-name:Índice;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.Contenidodelatabla, li.Contenidodelatabla, div.Contenidodelatabla
+	{mso-style-name:"Contenido de la tabla";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.PiedepginaCar
+	{mso-style-name:"Pie de página Car";
+	mso-style-link:"Pie de página";
+	font-family:"Arial Unicode MS","sans-serif";}
+span.EncabezadoCar
+	{mso-style-name:"Encabezado Car";
+	mso-style-link:Encabezado;
+	font-family:"Arial Unicode MS","sans-serif";}
+p.Prrafonivel1, li.Prrafonivel1, div.Prrafonivel1
+	{mso-style-name:"Párrafo nivel 1";
+	margin-top:3.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.Ilustracin, li.Ilustracin, div.Ilustracin
+	{mso-style-name:Ilustración;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	font-style:italic;}
+p.Contenidodelmarco, li.Contenidodelmarco, div.Contenidodelmarco
+	{mso-style-name:"Contenido del marco";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.TextodegloboCar
+	{mso-style-name:"Texto de globo Car";
+	mso-style-link:"Texto de globo";
+	font-family:"Tahoma","sans-serif";}
+p.ListParagraph, li.ListParagraph, div.ListParagraph
+	{mso-style-name:"List Paragraph";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.ListParagraphCxSpFirst, li.ListParagraphCxSpFirst, div.ListParagraphCxSpFirst
+	{mso-style-name:"List ParagraphCxSpFirst";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.ListParagraphCxSpMiddle, li.ListParagraphCxSpMiddle, div.ListParagraphCxSpMiddle
+	{mso-style-name:"List ParagraphCxSpMiddle";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.ListParagraphCxSpLast, li.ListParagraphCxSpLast, div.ListParagraphCxSpLast
+	{mso-style-name:"List ParagraphCxSpLast";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.Estilotitulo, li.Estilotitulo, div.Estilotitulo
+	{
+	mso-style-name:Estilo_titulo;
+	mso-style-link:"Estilo_titulo Car";
+	margin:0cm;
+	margin-bottom:0.0001pt;
+	font-size:10.5pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;
+	color: #FFFFFF;
+}
+p.Estilotitulo2, li.Estilotitulo2, div.Estilotitulo2
+	{mso-style-name:Estilo_titulo2;
+	mso-style-link:"Estilo_titulo2 Car";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;
+	font-style:italic;}
+p.Estilotexto, li.Estilotexto, div.Estilotexto
+	{mso-style-name:Estilo_texto;
+	mso-style-link:"Estilo_texto Car";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.5pt;
+	font-family:"Calibri","sans-serif";}
+span.Estilotitulo2Car
+	{mso-style-name:"Estilo_titulo2 Car";
+	mso-style-link:Estilo_titulo2;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;
+	font-style:italic;}
+span.EstilotituloCar
+	{mso-style-name:"Estilo_titulo Car";
+	mso-style-link:Estilo_titulo;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;}
+span.EstilotextoCar
+	{mso-style-name:"Estilo_texto Car";
+	mso-style-link:Estilo_texto;
+	font-family:"Calibri","sans-serif";}
+ /* Page Definitions */
+ @page Section1
+	{size:841.9pt 595.3pt;
+	margin:80.6pt 2.0cm 80.6pt 2.0cm;}
+div.Section1
+	{page:Section1;}
+@page Section2
+	{size:841.9pt 595.3pt;
+	margin:80.6pt 2.0cm 80.6pt 2.0cm;}
+div.Section2
+	{page:Section2;}
+@page Section3
+	{size:841.9pt 595.3pt;
+	margin:80.6pt 2.0cm 80.6pt 2.0cm;}
+div.Section3
+	{page:Section3;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+.Estilo1 {
+	font-size: 10pt;
+	font-weight: bold;
+}
+-->
+</style>
+
+</head>
+
+<body bgcolor=white lang=ES link=blue vlink=purple style='line-break:strict'>
+
+<div class=Section1>
+<p class=MsoNormal Estilo1 style='text-align:justify;background:black;color:#FFFFFF'><span
+style='font-size:20.0pt;font-family:"Calibri","sans-serif"'>Manual 00. Componentes comunes</span></p>
+<p class=MsoNormal><span
+class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";color:windowtext'><a
+href="#_Toc263170654"><span class="Estilo1" style='color:windowtext'><br><br>1. FAVORITOS</span><span
+style='color:windowtext;display:none;text-decoration:none'>  3</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+font-variant:normal !important;color:windowtext;text-transform:uppercase'><a
+href="#_Toc263170655"><span style='color:windowtext'>1.1.- Introducción</span><span
+style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>3</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+font-variant:normal !important;color:windowtext;text-transform:uppercase'><a
+href="#_Toc263170656"><span style='color:windowtext'>1.2.-Acceso</span><span
+style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>3</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+font-variant:normal !important;color:windowtext;text-transform:uppercase'><a
+href="#_Toc263170657"><span style='color:windowtext'>1.3 .- Cómo administrar
+mis favoritos</span><span style='color:windowtext;display:none;text-decoration:
+none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>4</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+font-variant:normal !important;color:windowtext;text-transform:uppercase'><a
+href="#_Toc263170658"><span style='color:windowtext'>1.3.1.- Cómo cambiar el
+orden de los favoritos</span><span style='color:windowtext;display:none;
+text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>5</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+font-variant:normal !important;color:windowtext;text-transform:uppercase'><a
+href="#_Toc263170659"><span style='color:windowtext'>1.3.2.- Cómo borrar un
+favorito que ya no es necesario</span><span style='color:windowtext;display:
+none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>5</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+color:windowtext'><a href="#_Toc263170660"><span style='color:windowtext'>2.
+Historial</span><span style='color:windowtext;display:none;text-decoration:
+none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>6</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+font-variant:normal !important;color:windowtext;text-transform:uppercase'><a
+href="#_Toc263170661"><span style='color:windowtext'>2.1.- Introducción</span><span
+style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>6</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+font-variant:normal !important;color:windowtext;text-transform:uppercase'><a
+href="#_Toc263170662"><span style='color:windowtext'>2.2.- Acceso</span><span
+style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>6</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+font-variant:normal !important;color:windowtext;text-transform:uppercase'><a
+href="#_Toc263170663"><span style='color:windowtext'>2.2.1- Cómo acceder a las
+páginas del historial</span><span style='color:windowtext;display:none;
+text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>6</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+color:windowtext'><a href="#_Toc263170664"><span style='color:windowtext'>3.
+Listados</span><span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>8</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+font-variant:normal !important;color:windowtext;text-transform:uppercase'><a
+href="#_Toc263170665"><span style='color:windowtext'>3.1.- Introducción</span><span
+style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>8</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+font-variant:normal !important;color:windowtext;text-transform:uppercase'><a
+href="#_Toc263170666"><span style='color:windowtext'>3.2.- Cómo cambiar el
+orden de los resultados</span><span style='color:windowtext;display:none;
+text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>9</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+font-variant:normal !important;color:windowtext;text-transform:uppercase'><a
+href="#_Toc263170667"><span style='color:windowtext'>3.3.- Cómo seleccionar
+todos</span><span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>10</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+font-variant:normal !important;color:windowtext;text-transform:uppercase'><a
+href="#_Toc263170668"><span style='color:windowtext'>3.4.- Cómo ver el detalle
+de la búsqueda</span><span style='color:windowtext;display:none;text-decoration:
+none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>11</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+font-variant:normal !important;color:windowtext;text-transform:uppercase'><a
+href="#_Toc263170669"><span style='color:windowtext'>3.5.- Cómo exportar a PDF
+u hoja de cálculo</span><span style='color:windowtext;display:none;text-decoration:
+none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>12</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+color:windowtext'><a href="#_Toc263170670"><span style='color:windowtext'>4.
+Autorizaciones de un usuario</span><span style='color:windowtext;display:none;
+text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>14</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+font-variant:normal !important;color:windowtext;text-transform:uppercase'><a
+href="#_Toc263170671"><span style='color:windowtext'>4.1.-Introducción</span><span
+style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>14</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+font-variant:normal !important;color:windowtext;text-transform:uppercase'><a
+href="#_Toc263170672"><span style='color:windowtext'>4.2.- Cómo cambiar la
+biblioteca en la que nos encontramos</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>15</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+font-variant:normal !important;color:windowtext;text-transform:uppercase'><a
+href="#_Toc263170673"><span style='color:windowtext'>4.3.- Cómo cambiar la
+clave de nuestro usuario</span><span style='color:windowtext;display:none;
+text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>16</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span style='font-family:"Calibri","sans-serif";
+color:windowtext'><a href="#_Toc263170674"><span style='color:windowtext'>5.
+Otras opciones de la aplicación</span><span style='color:windowtext;display:
+none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>17</span></a></span></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Calibri","sans-serif"'><span
+style='color:white'>&nbsp;</span></span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:black'>
+
+<p class=Estilotitulo style='background:black;border:none;padding:0cm'><a
+name="_Toc263170654">1. Favoritos</a></p>
+
+</div>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Dentro de esta parte del
+manual, se van a explicar las partes generales y comunes que el usuario
+encontrará en <b>Libr</b><em><b><span style='font-family:"Calibri","sans-serif"'>Æ</span></b></em>.</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotitulo2 style='text-align:justify'><a name="_Toc263170655">1.1.-
+</a><a name="_Toc260649293"></a><a name="_Toc260643064"></a><a
+name="_Toc260647922">Introducción</a></p>
+
+<p class=Estilotitulo2 style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Permite a un usuario administrar
+las páginas de favoritos que él haya agregado en la aplicación. Para agregar
+estas páginas, deberemos de estar en la página que queramos y hacer clic sobre
+el icono  <img width=17 height=16
+src="00Componentes%20comunes_archivos/image001.jpg"> que aparece en la parte
+superior derecha de la pantalla. Solo se podrán agregar como favoritos aquellas
+páginas donde se muestre el icono <img width=17 height=16
+src="00Componentes%20comunes_archivos/image001.jpg">.</p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Los favoritos son de un usuario
+y cada usuario tendrá diferentes favoritos según desee.</p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotitulo2 style='text-align:justify'> <a name="_Toc263170656">1.2.-Acceso</a></p>
+
+<p class=Estilotitulo2 style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Para acceder a la
+administración de mis favoritos, un usuario identificado en Libr<i>Æ</i> y con
+permisos de administración de mis favoritos, deberá hacer clic en el menú
+“Favoritos” &gt;”Administrar mis favoritos”. </p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'><img width=133
+height=103 src="00Componentes%20comunes_archivos/image002.jpg"></p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>Ilustración 1.1</p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=Estilotexto style='text-align:justify'>Como vemos en la imagen, en
+dicho menú también nos aparecen los favoritos que hemos agregado anteriormente,
+en este caso hay dos: “Bibliotecas” y ”Roles”. Si queremos ir a alguno de ellos
+tendremos que seleccionar el que queramos y nos llevará a la pantalla
+correspondiente.</p>
+
+<p class=Estilotitulo2>&nbsp;</p>
+
+<p class=Estilotitulo2 style='text-align:justify'><a name="_Toc263170657">1.3 .-
+Cómo administrar mis favoritos</a></p>
+
+<p class=Estilotitulo2 style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Una vez que hemos seleccionado
+esta opción nos vamos a la pantalla “Administrar favoritos”, donde vemos que
+aparecen las opciones propias de esta página.  </p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=869
+height=203 src="00Componentes%20comunes_archivos/image003.jpg"></p>
+
+<p class=Estilotexto align=center style='text-align:center'>Ilustración 1.2</p>
+
+<p class=MsoNormal align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>En esta pantalla, un usuario
+podrá:</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Cambiar el orden de los favoritos.</p>
+
+<p class=Estilotexto style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Eliminar un favorito.</p>
+
+<p class=Estilotitulo2>&nbsp;</p>
+
+<p class=Estilotitulo2>&nbsp;</p>
+
+<p class=Estilotitulo2>&nbsp;</p>
+
+<p class=Estilotitulo2 style='text-align:justify'><a name="_Toc263170658">1.3.1.-
+Cómo cambiar el orden de los favoritos</a></p>
+
+<p class=Estilotitulo2 style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Para cambiar el orden
+únicamente deberemos de hacer clic en las flechas que aparecen a la derecha de
+la pantalla, si queremos que nuestro favorito ascienda en el orden haremos clic
+en<img width=17 height=15 src="00Componentes%20comunes_archivos/image004.jpg">,
+y si queremos que descienda en el orden haremos clic en<img width=17 height=14
+src="00Componentes%20comunes_archivos/image005.jpg">. De esta manera iremos
+viendo como cambia el orden de los favoritos que queramos.</p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotitulo2 style='text-align:justify'><a name="_Toc263170659">1.3.2.-
+Cómo borrar un favorito que ya no es necesario</a></p>
+
+<p class=Estilotitulo2 style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Para borrar un favorito,
+únicamente deberemos de seleccionar el que queramos. Una vez hecho esto deberemos
+de hacer clic en el botón “Eliminar” tras lo cual, en la zona de resultados ya
+no debe de aparecer el favorito que acabamos de eliminar.</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'><img width=870
+height=139 src="00Componentes%20comunes_archivos/image006.jpg"></p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>Ilustración 1.3</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Cómo se ve en la ilustración
+1.2, teníamos dos favoritos. Hemos eliminado el favorito “Bibliotecas” y en la
+ilustración 1.3 vemos como queda el resultado de nuestra eliminación.</p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotitulo style='background:black'><a name="_Toc263170660">2.
+Historial</a> </p>
+
+<p class=Estilotitulo>&nbsp;</p>
+
+<p class=Estilotitulo>&nbsp;</p>
+
+<p class=Estilotitulo2 style='text-align:justify'><a name="_Toc263170661">2.1.-
+Introducción</a></p>
+
+<p class=Estilotexto style='text-align:justify'>El historial muestra la
+navegación realizada por un usuario en <b>Libr</b><em><b><span
+style='font-family:"Calibri","sans-serif"'>Æ</span></b></em> durante su sesión.
+Esto quiere decir que cuando el usuario salga de la aplicación y vuelva a
+entrar, el historial estará vacío y mostrará la navegación a partir de ese
+momento.</p>
+
+<p class=Estilotitulo2 style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotitulo2 style='text-align:justify'><a name="_Toc263170662">2.2.-
+Acceso</a></p>
+
+<p class=Estilotexto style='text-align:justify'>Una vez que hemos accedido a la
+aplicación, si situamos el ratón sobre “Historial”, no nos debe de aparecer
+nada, ya que todavía no hemos accedido a ninguna opción de la aplicación.
+Conforme vayamos accediendo a las distintas opciones, se irán añadiendo al
+“Historial”. </p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotitulo2 style='text-align:justify'><a name="_Toc263170663">2.2.1-
+Cómo acceder a las páginas del historial</a></p>
+
+<p class=Estilotexto style='text-align:justify'>Para acceder a las páginas en
+las que ya hemos estado, deberemos de hacer clic en la pestaña “Historial” y en
+ese momento nos aparecerán las páginas a las que podemos ir.<br><br></p>
+
+<p class=Estilotexto align=center style='text-align:center'><img width=109
+height=103 src="00Componentes%20comunes_archivos/image007.jpg"></p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>Ilustración 2.1<br><br></p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>En la imagen vemos que aparecen
+las páginas en las que ya hemos estado en este caso “Códigos” y “Bibliotecas”.<br><br></p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'><img width=118
+height=104 src="00Componentes%20comunes_archivos/image008.jpg"></p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>Ilustración 2.2<br><br></p>
+
+<p class=Estilotexto style='text-align:justify'>Ahora seleccionamos la opcion
+“Códigos”, por lo que la aplicación nos llevará a la pantalla correspondiente:</p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'><img width=867
+height=239 src="00Componentes%20comunes_archivos/image009.jpg"></p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>Ilustración 2.3</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotitulo style='background:black'><a name="_Toc263170664">3.
+Listados</a></p>
+
+<p class=Estilotitulo2>&nbsp;</p>
+
+<p class=Estilotitulo2 style='text-align:justify'><a name="_Toc263170665">3.1.-
+Introducción</a></p>
+
+<p class=Estilotitulo2 style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'><b>Libr</b><em><b><span
+style='font-family:"Calibri","sans-serif"'>Æ</span></b></em>  es una aplicación
+de gestión en la cual, la mayoría de las pantallas muestra listados que tienen
+un mismo comportamiento y acciones en toda la aplicación y solo difieren en los
+resultados e información que muestran. </p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Vamos a explicar estas
+características y acciones comunes en el listado de roles:</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'><img width=869
+height=203 src="00Componentes%20comunes_archivos/image010.jpg"></p>
+
+<p class=Estilotexto align=center style='text-align:center'>Ilustración 3.1</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Como vemos en la imagen,
+tenemos un listado con los roles disponibles. Las opciones que tenemos en
+nuestro listado son:</p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Cambiar el orden de los resultados.</p>
+
+<p class=Estilotexto style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Seleccionar todos.</p>
+
+<p class=Estilotexto style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Ver el detalle de la búsqueda.</p>
+
+<p class=Estilotexto style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Exportar a PDF u hoja de cálculo.</p>
+
+<p class=Estilotexto style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Seleccionar el número de resultados que aparecen en la pantalla.</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotitulo2 style='text-align:justify'><a name="_Toc263170666">3.2.-
+Cómo cambiar el orden de los resultados</a></p>
+
+<p class=Estilotitulo2 style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Para cambiar el orden de los
+resultados tendremos que hacer clic en la cabecera de las columnas. Al hacer
+clic sobre un nombre de la cabecera, el listado se ordenará de forma ascendente
+por el campo que designa la columna., Si volvemos a hacer clic nos lo ordenará de
+forma descendente. En el siguiente ejemplo hemos hecho clic en “Código”.</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'><img width=862
+height=154 src="00Componentes%20comunes_archivos/image011.jpg"></p>
+
+<p class=Estilotexto align=center style='text-align:center'>Ilustración 3.2</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Como vemos en la imagen ahora
+nuestro listado aparece en otro orden al que teníamos anteriormente. También se
+puede ordenar con las otras dos opciones posibles como son “Descripción” y
+“Nivel”. </p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotitulo2 style='text-align:justify'><a name="_Toc263170667">3.3.-
+Cómo seleccionar todos</a></p>
+
+<p class=Estilotitulo2 style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Para seleccionar todos,
+únicamente tenemos que hacer clic en el botón “Seleccionar todos”, y se nos
+seleccionaran todos los resultados que hayamos obtenido en la búsqueda, aunque
+no estén en la misma página, es decir se seleccionan todo el resultado
+independientemente de la paginación. Para seleccionar solo los resultados de la
+primera página seleccionamos el ícono <img width=14 height=12
+src="00Componentes%20comunes_archivos/image012.jpg"> que aparece junto a
+“Código” de la cabecera de resultados.</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'><img width=866
+height=199 src="00Componentes%20comunes_archivos/image013.jpg"></p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>Ilustración 3.3</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Cómo vemos en la imagen con
+esta opción solo seleccionaríamos los resultados de la primera página de resultados.</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotitulo2 style='text-align:justify'><a name="_Toc263170668">3.4.-
+Cómo ver el detalle de la búsqueda</a></p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Para ver el detalle de nuestra
+búsqueda, debemos de hacer clic en el icono <img width=25 height=15
+src="00Componentes%20comunes_archivos/image014.jpg"> del resultado que queramos
+ver. Accederemos al detalle en modo lectura, es decir con los campos
+deshabilitados, si queremos editar algún campo deberemos de hacer clic en
+“Editar”, por lo que la aplicación se pondrá en modo de edición.</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'><img width=870
+height=205 src="00Componentes%20comunes_archivos/image015.jpg"></p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>Ilustración 3.4</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Aquí en la imagen vemos los
+detalles de nuestro resultado pero sólo en modo lectura.</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotitulo2 style='text-align:justify'><a name="_Toc263170669">3.5.-
+Cómo exportar a PDF u hoja de cálculo</a></p>
+
+<p class=Estilotitulo2 style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'><b>Libr</b><em><b><span
+style='font-family:"Calibri","sans-serif"'>Æ </span></b></em><em><span
+style='font-family:"Calibri","sans-serif";font-style:normal'>permite exportar
+los resultados mostrados en los listados a Pdf o a una hoja de cálculo. </span></em>Para
+poder realizar estas operaciones, deberemos de hacer clic en el icono <img
+width=18 height=20 src="00Componentes%20comunes_archivos/image016.jpg"> para la
+hoja de cálculo, o en el icono <img width=24 height=19
+src="00Componentes%20comunes_archivos/image017.jpg"> para el PDF.</p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Nos vamos a centrar en este
+último para explicar el funcionamiento de esta opción, ya que la otra funciona
+de la misma manera. Hacemos clic en el icono del PDF y se nos despliega la
+siguiente pantalla (o similar):</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'><img width=419
+height=276 src="00Componentes%20comunes_archivos/image018.jpg"></p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>Ilustración 3.5</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Aquí en la imagen vemos que nos
+da la opción de abrir directamente nuestro archivo PDF, o guardarlo. En nuestro
+caso lo dejamos con la opcion de “Abrir con” seleccionada y hacemos clic en
+“Aceptar”, por lo que a continuación se mostrará el resultado de nuestro PDF.</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'><img width=854
+height=301 src="00Componentes%20comunes_archivos/image019.jpg"></p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>Ilustración 3.6</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Aquí nos aparece el  PDF de los
+resultados. Además de los resultados, aparece la biblioteca desde la que se han
+obtenido los resultados, en este caso la de Antequera y la página de la
+aplicación, en nuestro caso “Roles”.</p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Hay que tener en cuenta que
+siempre se exportará el contenido de los listados tal como se ve en pantalla.
+Es decir, si en la pantalla de un listado tenemos 5.000 resultados, se
+exportarán esos 5.000 resultados aunque hay que tener en cuenta que las hojas
+de cálculo tienen un límite que nunca podremos pasar.</p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotitulo style='background:black'><a name="_Toc263170670">4. Autorizaciones
+de un usuario</a></p>
+
+<p class=Estilotitulo2>&nbsp;</p>
+
+<p class=Estilotitulo2 style='text-align:justify'><a name="_Toc263170671">4.1.-Introducción</a></p>
+
+<p class=Estilotexto style='text-align:justify'>Una vez que nos hemos identificado
+con nuestro usuario en la aplicación, podemos cambiar una serie de opciones
+para esa misma sesión o para cada vez que accedamos de nuevo a la aplicación.
+Para acceder a estas opciones, deberemos de hacer clic en el enlace con el
+nombre de usuario que aparece en la parte superior derecha de la aplicación.
+Una vez hecho esto iremos a la pantalla “Autorizar usuario”.<br><br></p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'><img width=867
+height=307 src="00Componentes%20comunes_archivos/image020.jpg"></p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>Ilustración 4.1<br><br></p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto style='margin-left:36.0pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Cambiar la biblioteca en la que nos encontramos.</p>
+
+<p class=Estilotexto style='margin-left:36.0pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Cambiar la clave de nuestro usuario.</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotitulo2 style='text-align:justify'><a name="_Toc263170672">4.2.-
+Cómo cambiar la biblioteca en la que nos encontramos</a></p>
+
+<p class=Estilotitulo2 style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>En la pantalla de “Autorizar
+usuario” se nos muestra el árbol de bibliotecas donde el usuario tiene permisos
+de acceso  y los perfiles que tiene el usuario actualmente.</p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>En la imagen vemos que aparece
+como biblioteca por defecto la de “Antequera”, es decir cada vez que nos identifiquemos
+en <b>Libr</b><em><b><span style='font-family:"Calibri","sans-serif"'>Æ</span></b></em>
+estaremos situados en esa biblioteca. Para cambiar la biblioteca en esta sesión
+deberemos de señalar en el árbol la que queramos y hacer clic en el botón
+“Aceptar”:</p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+<div class=Section2>
+
+<p class=Estilotexto align=center style='text-align:center'><img width=867
+height=318 src="00Componentes%20comunes_archivos/image021.jpg"></p>
+
+<p class=Estilotexto align=center style='text-align:center'>Ilustración 4.2<br><br></p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>La casilla “Marcar como
+biblioteca por defecto” nos permite especificar si el cambio de biblioteca
+tendrá efecto solo durante la sesión actual del usuario o si será permanente (hasta
+que se vuelva a cambiar) cada vez que el usuario se identifique. Si no se marca
+dicha casilla, la biblioteca cambiará pero si el usuario sale de la aplicación
+y vuelve a entrar, su biblioteca será “Antequera” (siguiendo el ejemplo). En
+cambio, si marcamos dicha casilla y el usuario sale de la aplicación y vuelve a
+entrar, entonces su biblioteca será “Ayuntamiento”.</p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+<div class=Section3>
+
+<p class=Estilotitulo2>&nbsp;</p>
+
+<p class=Estilotitulo2><a name="_Toc263170673">4.3.- Cómo cambiar la clave de
+nuestro usuario</a></p>
+
+<p class=Estilotitulo2>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Para cambiar la clave del
+usuario, deberemos de hacer clic en el botón “Cambiar clave”. Una vez hecho
+esto nos iremos a la pantalla “Cambiar clave”:</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'><img width=561
+height=178 src="00Componentes%20comunes_archivos/image022.jpg"></p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>Ilustración 4.3</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>En esta pantalla lo único que
+tenemos que hacer es meter nuestra nueva clave y confirmarla en sus respectivos
+campos, ahora sólo tenemos que hacer clic en “Aceptar” y volveremos a la
+pantalla “Autorizar usuario”.</p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>Una vez aquí para que los
+cambios surtan efecto volveremos a hacer clic en “Aceptar” y volveremos a la
+pantalla de inicio de la aplicación. En la parte superior derecha de la
+aplicación, nos aparece la biblioteca de nuestro usuario.</p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotexto>&nbsp;</p>
+
+<p class=Estilotitulo style='background:black'><a name="_Toc263170674">5. Otras
+opciones de la aplicación</a></p>
+
+<p class=Estilotitulo2>&nbsp;</p>
+
+<p class=Estilotexto style='text-align:justify'>En esta parte del manual vamos
+a detallar una serie de botones y otras opciones que aparecen en la aplicación.</p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+<p class=Estilotexto style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Botón “Limpiar” en las búsquedas: En las pantallas de búsqueda si
+hacemos clic en “Limpiar” nos borrarça todas las opciones de búsqueda que
+habíamos seleccionado, además de todos los resultados obtenidos. </p>
+
+<p class=Estilotexto style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Botón “Cancelar”: Si estamos en modo edición y hacemos clic en
+“Cancelar”, nos devuelve a la zona de búsqueda y no tiene en cuenta los cambios
+realizados en la edición.</p>
+
+<p class=Estilotexto style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Botón “Volver”: Si estamos en modo lectura, y hacemos clic en
+“Volver”, nos llevará a la pantalla de búsqueda.</p>
+
+<p class=Estilotexto style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Botón “Guardar”: Si estamos en modo edición, una vez que hemos
+realizado los cambios, y hacemos clic en “Guardar”, se guardarán todos los
+cambios, pero nos quedaremos en la misma pantalla en la que estamos por si
+queremos volver a editar.</p>
+
+<p class=Estilotexto style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Botón “Aceptar”: Si estamos en modo edición, una vez que hemos
+realizado los cambios, y hacemos clic en “Aceptar”, se guardarán todos los
+cambios, pero nos iremos a la zona de búsqueda de la pantalla en la que nos
+encontramos.</p>
+
+<p class=Estilotexto style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Icono<img width=20 height=13
+src="00Componentes%20comunes_archivos/image023.jpg">: Una vez que hemos
+realizado una búsqueda y la hemos visto en detalle mediante el icono<img
+width=25 height=15 src="00Componentes%20comunes_archivos/image014.jpg">, si
+hacemos clic en este icono, se nos rellenará ese campo con el último resultado
+que hemos visto en detalle.</p>
+
+<p class=Estilotexto style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Icono<img width=34 height=19
+src="00Componentes%20comunes_archivos/image024.jpg">: Este icono nos sirve para
+añadir la fecha que queramos en las diferentes opciones que aparece dentro de
+la aplicación. El  icono del calendario nos lleva a la pantalla para elegir la
+fecha:<br><br></p>
+
+<p class=Estilotexto align=center style='margin-left:18.0pt;text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='margin-left:18.0pt;text-align:center'><img
+width=256 height=172 src="00Componentes%20comunes_archivos/image025.jpg"></p>
+
+<p class=Estilotexto align=center style='margin-left:18.0pt;text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'>Ilustración 5.1<br><br></p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto style='margin-left:35.45pt;text-align:justify;text-indent:
+-35.45pt'>          Aquí tenemos que elegir el día que queramos y el campo correspondiente
+de la fecha se rellenará. Una vez que tenemos el campo relleno podemos borrarlo
+haciendo clic sobre el icono<img width=18 height=16
+src="00Componentes%20comunes_archivos/image026.jpg">.<br><br></p>
+
+<p class=Estilotexto style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Cabecera de nuestra biblioteca: En la parte superior derecha de
+la aplicación, aparece la biblioteca en la que nos encontramos, además de la
+sucursal y si tuviese un logo también aparecería. En nuestro caso como veremos
+a continuación no tenemos un logo, por lo que solo aparecen la biblioteca y la
+sucursal.<br><br></p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto align=center style='text-align:center'><img width=135
+height=44 src="00Componentes%20comunes_archivos/image027.jpg"></p>
+
+<p class=Estilotexto align=center style='text-align:center'>Ilustración 5.2<br><br></p>
+
+<p class=Estilotexto align=center style='text-align:center'>&nbsp;</p>
+
+<p class=Estilotexto style='margin-left:21.3pt;text-align:justify;text-indent:
+-21.3pt'>             Como vemos en la imagen, nuestra biblioteca sería la de
+“Villanueva de Algaidas” y la sucursal es la de “Antequera”.<br><br></p>
+
+<p class=Estilotexto style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Salir de la aplicación: En la parte superior derecha, aparece el
+icono<img width=26 height=23 src="00Componentes%20comunes_archivos/image028.jpg">,
+si hacemos clic en el, nos saldremos de la aplicación. Si queremos volver a
+entrar nos tendríamos que logar de nuevo.</p>
+
+<p class=Estilotexto style='text-align:justify'>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>
