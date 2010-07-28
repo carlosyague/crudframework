@@ -307,7 +307,7 @@
 
 	<!-- ${session.timeout} establecido en librae/pom.xml -->
     <session-config>
-        <session-timeout>${session.timeout}</session-timeout>
+        <session-timeout>30</session-timeout>
     </session-config>
 
     <welcome-file-list>
