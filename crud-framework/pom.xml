@@ -366,8 +366,19 @@
 
 	<!-- ******************************************** -->
 	<!-- PROPIEDADES Y VERSIONES COMUNES DEL PROYECTO -->
-	<!-- ******************************************** -->
+	<!-- ******************************************** -->	
 	<properties>
+		<!-- profiled properties -->		
+		<jdbc.username>${profile.jdbc.username}</jdbc.username>
+		<jdbc.password>${profile.jdbc.password}</jdbc.password>
+		<dbunit.dataTypeFactoryName>${profile.dbunit.dataTypeFactoryName}</dbunit.dataTypeFactoryName>
+		<hibernate.dialect>${profile.hibernate.dialect}</hibernate.dialect>
+		<jdbc.groupId>${profile.jdbc.username}</jdbc.groupId>
+		<jdbc.artifactId>${profile.jdbc.artifactId}</jdbc.artifactId>
+		<jdbc.version>${profile.jdbc.version}</jdbc.version>
+		<jdbc.driverClassName>${profile.jdbc.driverClassName}</jdbc.driverClassName>
+		<jdbc.url>${profile.jdbc.url}</jdbc.url>
+	
 		<!-- Application settings -->
 		<copyright.year>2008</copyright.year>
 		<directorio_raiz>${env.CRUD_FRAMEWORK_DIR}/crud-framework</directorio_raiz>
