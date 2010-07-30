@@ -108,24 +108,6 @@
 							</dependentWarExcludes>
 						</configuration>
 					</execution>
-					<execution>
-						<id>create-skinny-war</id>
-						<goals>
-							<goal>war</goal>
-						</goals>
-						<configuration>
-							<warSourceExcludes>WEB-INF/lib/*.jar</warSourceExcludes>
-							<archive>
-								<manifest>
-									<addClasspath>true</addClasspath>
-									<classpathPrefix>lib/</classpathPrefix>
-								</manifest>
-							</archive>
-							<dependentWarExcludes>
-								**/jdbc.properties,**/hibernate.cfg.xml,**/sql-map-config.xml,**/web.xml,WEB-INF/classes/META-INF/**
-							</dependentWarExcludes>
-						</configuration>
-					</execution>
 				</executions>
 			</plugin>
 			
@@ -295,11 +277,23 @@
 			<groupId>org.crudfw.common</groupId>
 			<artifactId>crudfw-common-web</artifactId>
 			<version>1.0-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+			    	<groupId>javax.servlet</groupId>
+			        <artifactId>servlet-api</artifactId>
+        		</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.crudfw.common</groupId>
 			<artifactId>crudfw-common-core</artifactId>
 			<version>1.0-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+			    	<groupId>javax.servlet</groupId>
+			        <artifactId>servlet-api</artifactId>
+        		</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.crudfw.common</groupId>
@@ -331,7 +325,13 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
-			<!--scope>provided</scope-->
+			<!--scope>provided</scope-->			
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet.version}</version>
+			<scope>provided</scope>			
 		</dependency>
 		<!-- fin DEPENDENCIAS javax.servlet -->
 
