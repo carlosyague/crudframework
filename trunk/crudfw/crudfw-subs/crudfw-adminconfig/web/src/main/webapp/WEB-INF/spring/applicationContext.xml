@@ -9,6 +9,4 @@
     </description>
     <!-- Inclusión de managers exportados por Spring-remoting -->
     <import resource="applicationContext-export.xml" />
-    <!-- Inclusión de parámetros de Spring-security -->
-    <import resource="applicationContext-security.xml" />
 </beans>
