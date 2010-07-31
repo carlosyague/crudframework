@@ -173,12 +173,6 @@
     <build>
         <defaultGoal>package</defaultGoal>
 
-        <!--
-        <filters>
-            <filter>${directorio_raiz}/src/main/filters/env-${entorno}.properties</filter>
-        </filters>
-        -->
-
         <!-- CONFIGURACION PLUGINS COMUNES SUBMODULOS -->
         <pluginManagement>
             <plugins>
@@ -306,15 +300,6 @@
                     </configuration>
                 </plugin>
 
-                <!-- CHECKSTYLE PLUGIN -->
-                <plugin>
-                    <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>2.2</version>
-                    <configuration>
-                        <configLocation>${directorio_raiz}/src/resources/crudfw_checks.xml </configLocation>
-                    </configuration>
-                </plugin>
-
                 <!-- JAVADOC PLUGIN -->
                 <plugin>
                     <artifactId>maven-javadoc-plugin</artifactId>
@@ -339,64 +324,6 @@
                     <artifactId>maven-jxr-plugin</artifactId>
                     <configuration>
                         <aggregate>true</aggregate>
-                    </configuration>
-                </plugin>
-
-                <!-- PMD PLUGIN -->
-                <plugin>
-                    <artifactId>maven-pmd-plugin</artifactId>
-                    <configuration>
-                        <rulesets>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/basic-jsf.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/basic-jsp.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/basic.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/braces.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/clone.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/codesize.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/coupling.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/design.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/finalizers.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/imports.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/j2ee.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/javabeans.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/naming.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/optimizations.xml</ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/strictexception.xml</ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/strings.xml</ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/sunsecure.xml</ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/typeresolution.xml</ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/unusedcode.xml</ruleset>
-                        </rulesets>
-                        <sourceEncoding>${encoding.scheme}</sourceEncoding>
-                        <minimumTokens>100</minimumTokens>
-                        <linkXref>true</linkXref>
-                        <targetJdk>1.5</targetJdk>
-                    </configuration>
-                </plugin>
-
-                <!-- LICENSE PLUGIN -->
-
-                <plugin>
-                    <groupId>com.google.code.maven-license-plugin</groupId>
-                    <artifactId>maven-license-plugin</artifactId>
-                    <version>${crudfw.maven-license-plugin}</version>
-                    <configuration>
-                        <header>${directorio_raiz}/src/resources/license.txt</header>
-                        <excludes>
-                            <exclude>**/LICENSE.txt</exclude>
-                            <exclude>**/COPYING.LESSER</exclude>
-                            <exclude>**/COPYING</exclude>
-                            <exclude>**/*.odt</exclude>
-                            <exclude>**/*.properties</exclude>
-                        </excludes>
-                        <mapping>
-                            <jspx>xml</jspx>
-                        </mapping>
-                        <properties>
-                            <year>${project.inceptionYear}</year>
-                            <company>${developer.company}</company>
-                        </properties>
-                        <encoding>${encoding.scheme}</encoding>
                     </configuration>
                 </plugin>
 
@@ -660,8 +587,6 @@
         <cargo.port>8081</cargo.port>
         <cargo.container.url />
         <cargo.wait>false</cargo.wait>
-        <jboss.home>${profile.jboss.home}</jboss.home>
-        <jboss.port>${profile.server.port}</jboss.port>
 
         <!-- WS dependencies -->
         <axis2.version>1.4</axis2.version>
@@ -848,10 +773,7 @@
 
 			<!-- Tomcat Admin Webapp path -->
 			<tomcat.admin.path.z3950-common.jzkit-webapp2>local-tomcat</tomcat.admin.path.z3950-common.jzkit-webapp2>
-
-			<!-- JBOSS -->
-			<profile.jboss.home>${directorio_raiz}/../jboss-4.2.2.GA</profile.jboss.home>
-
+			
 			<!--OPAC -->
 			<profile.opac.host>localhost</profile.opac.host>
 			<profile.opac.port>6969</profile.opac.port>
