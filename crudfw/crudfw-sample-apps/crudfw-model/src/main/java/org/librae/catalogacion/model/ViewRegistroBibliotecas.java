@@ -6,7 +6,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.solr.client.solrj.beans.Field;
 import org.librae.common.model.SpringRemotableLazyEntity;
 
 /**
@@ -61,14 +60,12 @@ public class ViewRegistroBibliotecas extends SpringRemotableLazyEntity<ViewRegis
 	/*
 	 * PK del registro bibliografico
 	 */
-	@Field
 	private Long id;
 
 	/**
 	 * Concatenación de las PKs de la sucursal que posee el ejempalr y sus
 	 * padres hasta la raiz del árbol.
 	 */
-	@Field
 	private String bibliotecas;
 
 	/**
