@@ -1,0 +1,101 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax">
+
+	<t:div styleClass="arbol" rendered="#{readOnly=='false'}">
+		<t:div styleClass="dtree">
+			<t:tree2 value="#{beanTreeData.treeData}" var="node" varNodeToggler="true" clientSideToggle="false" showRootNode="false" showNav="true" showLines="true">
+				<f:facet name="bibliotecas">
+					<h:panelGroup>
+						<t:graphicImage value="/images/tree/ico_grupobiblioteca.jpg" />
+						<h:outputText value="#{node.description}" />
+					</h:panelGroup>
+				</f:facet>
+
+				<f:facet name="grupos">
+					<h:panelGroup styleClass="treeBibliotecas_#{node.identifier}" onclick="javascript:seleccionarNodo('treeBibliotecas', this)">
+						<t:graphicImage value="/images/tree/ico_grupobiblioteca.jpg" />
+						<t:commandLink action="#{beanNodoClick.nodoClick}" id="arbolGrupos">
+							<f:param name="nodoClicked" value="#{node.identifier}" assignTo="#{beanNodoClick.nodoClicked}"/>
+							<h:outputText value="#{node.description}" />
+						</t:commandLink>
+					</h:panelGroup>
+				</f:facet>
+
+				<f:facet name="biblioteca">
+					<h:panelGroup styleClass="treeBibliotecas_#{node.identifier}" onclick="javascript:seleccionarNodo('treeBibliotecas', this)">
+						<t:graphicImage value="/images/tree/ico_biblioteca.jpg" />
+						<t:commandLink action="#{beanNodoClick.nodoClick}" id="arbolBibliotecas">
+							<f:param name="nodoClicked" value="#{node.identifier}" assignTo="#{beanNodoClick.nodoClicked}"/>
+							<h:outputText value="#{node.description}" />
+						</t:commandLink>
+					</h:panelGroup>
+				</f:facet>
+
+				<f:facet name="sucursal">
+					<h:panelGroup styleClass="treeBibliotecas_#{node.identifier}" onclick="javascript:seleccionarNodo('treeBibliotecas', this)">
+						<t:graphicImage value="/images/tree/ico_sucursal.jpg" />
+
+						<t:commandLink action="#{beanNodoClick.nodoClick}" id="arbolSucursales">
+							<f:param name="nodoClicked" value="#{node.identifier}" assignTo="#{beanNodoClick.nodoClicked}"/>
+							<h:outputText value="#{node.description}" />
+						</t:commandLink>
+					</h:panelGroup>
+				</f:facet>
+			</t:tree2>
+
+			<script type="text/javascript">
+				//<![CDATA[
+					seleccionarNodoById('treeBibliotecas', '#{beanNodoClick.nodoClicked}');
+		  		//]]>
+		  	</script>
+
+  		</t:div>
+	</t:div>
+
+	<t:div styleClass="arbol" rendered="#{readOnly=='true'}">
+		<t:div styleClass="dtree">
+			<t:tree2 value="#{beanTreeData.treeData}" var="node" varNodeToggler="true" clientSideToggle="false" showRootNode="false" showNav="true" showLines="true">
+				<f:facet name="bibliotecas">
+					<h:panelGroup>
+						<t:graphicImage value="/images/tree/ico_grupobiblioteca.jpg" />
+						<h:outputText value="#{node.description}" />
+					</h:panelGroup>
+				</f:facet>
+
+				<f:facet name="grupos">
+					<h:panelGroup styleClass="treeBibliotecas_#{node.identifier}">
+						<t:graphicImage value="/images/tree/ico_grupobiblioteca.jpg" />
+						<h:outputText value="#{node.description}" />
+					</h:panelGroup>
+				</f:facet>
+
+				<f:facet name="biblioteca">
+					<h:panelGroup styleClass="treeBibliotecas_#{node.identifier}">
+						<t:graphicImage value="/images/tree/ico_biblioteca.jpg" />
+						<h:outputText value="#{node.description}" />
+					</h:panelGroup>
+				</f:facet>
+
+				<f:facet name="sucursal">
+					<h:panelGroup styleClass="treeBibliotecas_#{node.identifier}">
+						<t:graphicImage value="/images/tree/ico_sucursal.jpg" />
+						<h:outputText value="#{node.description}" />
+					</h:panelGroup>
+				</f:facet>
+			</t:tree2>
+
+			<script type="text/javascript">
+				//<![CDATA[
+					seleccionarNodoById('treeBibliotecas', '#{beanNodoClick.nodoClicked}');
+					deshabilitarRamas('#{readOnly}');
+		  		//]]>
+		  	</script>
+  		</t:div>
+	</t:div>
+
+</html>
