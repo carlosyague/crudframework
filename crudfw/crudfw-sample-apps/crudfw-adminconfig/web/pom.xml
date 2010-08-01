@@ -222,7 +222,7 @@
                      				<type>${project.packaging}</type>
                   				</artifactItem>
                  			</artifactItems>
-                 			<excludeGroupIds>crudfw-theme</excludeGroupIds>
+                 			<excludeArtifactIds>crudfw-common-theme</excludeArtifactIds>
                  			<!-- si ${server.shared.lib} viene vacío, se copiarán en: .\target\dependency -->
                				<outputDirectory>${server.shared.lib}</outputDirectory>
             			</configuration>
@@ -284,8 +284,8 @@
 			<version>${crudfw.context.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.crudfw.theme</groupId>
-			<artifactId>crudfw-theme</artifactId>
+			<groupId>org.crudfw</groupId>
+			<artifactId>crudfw-common-theme</artifactId>
 			<version>1.0-SNAPSHOT</version>
 			<type>war</type>
 		</dependency>

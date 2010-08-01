@@ -35,7 +35,7 @@
         <module>crudfw-common-websession</module>
         <module>crudfw-common-web</module>
         <module>crudfw-common-context</module>
-        <module>crudfw-theme</module>
+        <module>crudfw-common-theme</module>
   </modules>
 
 </project>
