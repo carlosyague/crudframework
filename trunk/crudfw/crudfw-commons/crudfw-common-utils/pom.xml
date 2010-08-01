@@ -11,9 +11,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.crudfw.common
     </groupId>
-    <artifactId>crudfw-common-exception
+    <artifactId>crudfw-common-utils
     </artifactId>
-    <name>CRUD Framework: Common Exception</name>
+    <name>CRUD Framework: Common Utils</name>
 
     <version>1.0-SNAPSHOT</version>
 
