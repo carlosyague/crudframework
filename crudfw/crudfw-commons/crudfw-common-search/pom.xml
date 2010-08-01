@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
 	<parent>
-		<artifactId>crudfw-servicios</artifactId>
+		<artifactId>crudfw-commons</artifactId>
 		<groupId>org.crudfw</groupId>
 
 		<version>1.0-SNAPSHOT</version>

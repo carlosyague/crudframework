@@ -113,13 +113,13 @@
 		</plugins>
 	</build>
 	<dependencies>
-        <!-- inicio DEPENDENCIAS crudfw-servicios -->
+        <!-- inicio DEPENDENCIAS crudfw-commons -->
 		<dependency>
 			<groupId>org.crudfw.common</groupId>
 			<artifactId>crudfw-common-core</artifactId>
 			<version>${crudfw.common.version}</version>
 		</dependency>
-		<!-- fin DEPENDENCIAS crudfw-servicios -->
+		<!-- fin DEPENDENCIAS crudfw-commons -->
 
 		<!-- inicio DEPENDENCIAS crudfw-subs -->
 		<dependency>
