@@ -13,7 +13,7 @@
 	<artifactId>crudfw-adminconfig</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>CRUD Framework-SUB: Administracion y Configuracion</name>
+	<name>Tennis Club Manager</name>
 
 	<developers>
 		<developer>

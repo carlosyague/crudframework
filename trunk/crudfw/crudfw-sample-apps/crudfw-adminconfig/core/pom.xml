@@ -7,7 +7,7 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>crudfw-adminconfig-core</artifactId>
-	<name>CRUD Framework-SUB: Administracion y Configuracion - Core</name>
+	<name>Tennis Club Manager - Core</name>
 	<build>
 		<resources>
 			<resource>

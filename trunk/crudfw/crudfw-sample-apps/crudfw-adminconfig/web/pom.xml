@@ -9,7 +9,7 @@
 	<artifactId>crudfw-adminconfig-webapp
 	</artifactId>
 	<packaging>war</packaging>
-	<name>CRUD Framework-SUB: Administracion y Configuracion - Web</name>
+	<name>Tennis Club Manager - Web</name>
 	<build>
 		<resources>
 			<resource>
