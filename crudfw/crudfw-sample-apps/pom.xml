@@ -71,7 +71,6 @@
 	</dependencies>
 	<modules>
     	<module>crudfw-model</module>
-		<module>crudfw-context-ear</module>
 		<module>crudfw-theme</module>
 		<module>crudfw-adminconfig</module>
 	</modules>
