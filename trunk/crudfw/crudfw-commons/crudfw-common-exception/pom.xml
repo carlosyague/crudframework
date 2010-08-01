@@ -13,7 +13,7 @@
     </groupId>
     <artifactId>crudfw-common-exception
     </artifactId>
-    <name>CRUD Framework-common: Exception</name>
+    <name>CRUD Framework: Common Exception</name>
 
     <version>1.0-SNAPSHOT</version>
 
