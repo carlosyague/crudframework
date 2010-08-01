@@ -27,7 +27,6 @@
     <dependencies/>
 
     <modules>
-        <module>crudfw-common-trazas</module>
         <module>crudfw-common-exception</module>
         <module>crudfw-common-file</module>
         <module>crudfw-common-search</module>    
