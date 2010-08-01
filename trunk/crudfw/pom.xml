@@ -387,8 +387,8 @@
     <!-- MODULOS -->
     <!-- ******* -->
     <modules>
-        <module>crudfw-servicios</module>
-        <module>crudfw-subs</module>
+        <module>crudfw-commons</module>
+        <module>crudfw-sample-apps</module>
     </modules>
 
     <!-- ********************************************* -->
