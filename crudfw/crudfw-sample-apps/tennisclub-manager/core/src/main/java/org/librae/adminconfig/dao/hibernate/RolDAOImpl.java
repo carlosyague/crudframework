@@ -36,7 +36,6 @@ import org.hibernate.criterion.Restrictions;
 import org.librae.adminconfig.dao.IRolDAO;
 import org.librae.adminconfig.model.Rol;
 import org.librae.adminconfig.model.UsuarioBibliotecaRol;
-import org.librae.circulacion.model.Prestamo;
 import org.librae.common.dao.hibernate.GenericSearchDao;
 import org.librae.common.util.CollectionsUtil;
 import org.librae.common.util.StringUtil;
@@ -143,9 +142,6 @@ public class RolDAOImpl extends GenericSearchDao<Rol, Long> implements IRolDAO,
                         .forClass(Rol.class);
                 criteriaAsignados.add(Restrictions.in("id", idRolesAsignados));
                 criteriaAsignados.setProjection(Projections.property("id"));
-
-                criteriaRoles.add(Property.forName(Prestamo.PROPTY_NAME_ID)
-                        .notIn(criteriaAsignados));
             }
             if (criterios.get("nivelUsuario") != null) {
                 criteriaRoles.add(Restrictions.le(Rol.PROPTY_NAME_NIVEL,

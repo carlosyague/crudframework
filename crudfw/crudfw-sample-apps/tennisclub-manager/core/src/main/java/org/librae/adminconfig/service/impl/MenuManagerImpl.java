@@ -13,9 +13,7 @@ import org.librae.adminconfig.model.Menu;
 import org.librae.adminconfig.model.Permiso;
 import org.librae.adminconfig.model.Usuario;
 import org.librae.adminconfig.service.IMenuManager;
-import org.librae.circulacion.model.Consorcio;
 import org.librae.common.Constants;
-import org.librae.common.dao.GenericDAO;
 import org.librae.common.exception.MensajesError;
 import org.librae.common.model.LibraeUser;
 import org.librae.common.model.MenuItem;
@@ -33,7 +31,6 @@ public class MenuManagerImpl extends GenericManagerImpl<Menu, Long> implements
 		IMenuManager, org.librae.common.service.IMenuManager {
 
 	IMenuDAO menuDao;
-	private GenericDAO<Consorcio, Long> consorcioDao;
 	private IFavoritoDAO favoritoDao;
 	private IFavoritoUsuarioDAO favoritoUsuarioDao;
 
@@ -48,44 +45,6 @@ public class MenuManagerImpl extends GenericManagerImpl<Menu, Long> implements
 		this.menuDao = menuDao;
 	}
 
-	/**
-	 * Convierte una lista de pojos Menu a una lista de MenuItem.
-	 *
-	 * @param menu
-	 *            lista de pojos Menu.
-	 * @param permisos
-	 * @return lista de MenuItem para convertirlos a cadenas.
-	 */
-	private List<MenuItem> convertMenuToMenuItem(final List<Menu> menu,
-			final List<CodPer> permisos, List<Consorcio> consorcios) {
-		List<MenuItem> salidaHijos = null;
-		final List<MenuItem> salida = new ArrayList<MenuItem>();
-		for (final Menu nodo : menu) {
-			salidaHijos = convertMenuToMenuItem(nodo.getHijos(), permisos,
-					consorcios);
-			if (("Consorcio".equals((nodo.getTexto())))
-					&& (contienePermisos(permisos, nodo.getPermiso()))) {
-				for (final Consorcio consorcio : consorcios) {
-					final StringBuilder url = new StringBuilder(nodo.getUrl());
-					url.append("&idConsorcio=");
-					url.append(consorcio.getId());
-					final MenuItem menuItem = new MenuItem(consorcio
-							.getNombre(), url.toString(), "_self", salidaHijos,
-							false);
-					salida.add(menuItem);
-				}
-			} else if ((contienePermisos(permisos, nodo.getPermiso()))
-					|| (!salidaHijos.isEmpty())) {
-				final boolean pintarImagen = (!salidaHijos.isEmpty() && nodo
-						.getPadre() != null);
-				final MenuItem menuItem = new MenuItem(nodo.getTexto(), nodo
-						.getUrl(), "_self", salidaHijos, pintarImagen);
-				salida.add(menuItem);
-			}
-		}
-		return salida;
-	}
-
 	private boolean contienePermisos(List<CodPer> codigosPermisos,
 			Permiso permiso) {
 		for (final CodPer codigoPermiso : codigosPermisos) {
@@ -95,23 +54,6 @@ public class MenuManagerImpl extends GenericManagerImpl<Menu, Long> implements
 			}
 		}
 		return false;
-	}
-
-	/**
-	 * @see org.librae.common.service.IMenuManager#getMenu()
-	 */
-	public String getMenu(final LibraeUser usuario) {
-		List<CodPer> permisos = new ArrayList<CodPer>();
-		List<MenuItem> salida = new ArrayList<MenuItem>();
-		if (usuario != null) {
-			permisos = usuario.getPer();
-		}
-		final List<Menu> menu = menuDao.getPrincipales();
-		final List<Consorcio> consorcios = consorcioDao.getAll();
-		if (permisos != null) {
-			salida = convertMenuToMenuItem(menu, permisos, consorcios);
-		}
-		return salida.toString();
 	}
 
 	public String getFavoritos(LibraeUser u) {
@@ -173,14 +115,6 @@ public class MenuManagerImpl extends GenericManagerImpl<Menu, Long> implements
 	}
 
 	// Getters && Setters
-
-	public GenericDAO<Consorcio, Long> getConsorcioDao() {
-		return consorcioDao;
-	}
-
-	public void setConsorcioDao(GenericDAO<Consorcio, Long> consorcioDao) {
-		this.consorcioDao = consorcioDao;
-	}
 
 	/**
 	 * @return the favoritoDao
