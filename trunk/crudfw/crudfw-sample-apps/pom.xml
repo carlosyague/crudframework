@@ -10,12 +10,12 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<groupId>org.crudfw</groupId>
-	<artifactId>crudfw-subsistemas</artifactId>
+	<artifactId>crudfw-samples</artifactId>
 	<packaging>pom</packaging>
 
 	<version>1.0-SNAPSHOT</version>
 
-	<name>CRUD Framework: Subsistemas</name>
+	<name>CRUD Framework: Sample Applications</name>
 	<build>
 		<!-- CONFIGURACION PLUGINS COMUNES SUBMODULOS -->
 		<pluginManagement>
@@ -70,7 +70,6 @@
 	<dependencies>
 	</dependencies>
 	<modules>
-    	<module>crudfw-model</module>
-		<module>crudfw-adminconfig</module>
+		<module>tennisclub-manager</module>
 	</modules>
 </project>
