@@ -13,9 +13,7 @@ import javax.persistence.Table;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.hibernate.annotations.ForeignKey;
-import org.librae.catalogacion.model.Ejemplar;
 import org.librae.common.model.BaseObject;
-import org.librae.lectores.model.Lector;
 
 /**
  * Asignación de valores de códigos<br>
@@ -41,14 +39,12 @@ public class AsignacionValorCodigo extends BaseObject {
     public static final String  COLUMN_NAME_ID           = "X_CODIGO_VALOR";
     public static final String  COLUMN_NAME_VALOR_CODIGO = "VAL_X_VALOR_CODIGO";
     public static final String  COLUMN_NAME_LECTOR       = "LEC_X_LECTOR";
-    public static final String  COLUMN_NAME_EJEMPLAR     = "EJE_X_EJEMPLAR";
     public static final String  COLUMN_NAME_BIBLIOTECA   = "BIB_X_VAL_BIBLIOTECA";
     public static final String  COLUMN_NAME_TIPO_CODIGO  = "TIP_X_TIPO_CODIGO";
 
     public static final String  PROPTY_NAME_ID           = "id";
     public static final String  PROPTY_NAME_BIBLIOTECA   = "biblioteca";
     public static final String  PROPTY_NAME_LECTOR       = "lector";
-    public static final String  PROPTY_NAME_EJEMPLAR     = "ejemplar";
     public static final String  PROPTY_NAME_VALOR_CODIGO = "valorCodigo";
     public static final String  PROPTY_NAME_TIPO_CODIGO  = "tipoCodigo";
 
@@ -65,16 +61,6 @@ public class AsignacionValorCodigo extends BaseObject {
     private Biblioteca          biblioteca;
 
     /**
-     * Identificador de los ejemplares
-     */
-    private Ejemplar            ejemplar;
-
-    /**
-     * Identificador de los lector
-     */
-    private Lector              lector;
-
-    /**
      * Valor de código. Id de la tabla CODIGOS_VAL
      */
     private ValorCodigo         valorCodigo;
@@ -84,13 +70,10 @@ public class AsignacionValorCodigo extends BaseObject {
     }
 
     public AsignacionValorCodigo(final ValorCodigo valorCodigo,
-            final Biblioteca biblioteca, final Ejemplar ejemplar,
-            final Lector lector) {
+            final Biblioteca biblioteca) {
         super();
         this.biblioteca = biblioteca;
         this.valorCodigo = valorCodigo;
-        this.ejemplar = ejemplar;
-        this.lector = lector;
     }
 
     /**
@@ -151,40 +134,6 @@ public class AsignacionValorCodigo extends BaseObject {
     }
 
     /**
-     * @return
-     */
-    @ManyToOne(targetEntity = Ejemplar.class, cascade = { CascadeType.PERSIST,
-            CascadeType.MERGE })
-    @JoinColumn(name = AsignacionValorCodigo.COLUMN_NAME_EJEMPLAR)
-    public Ejemplar getEjemplar() {
-        return ejemplar;
-    }
-
-    /**
-     * @param ejemplar
-     */
-    public void setEjemplar(final Ejemplar ejemplar) {
-        this.ejemplar = ejemplar;
-    }
-
-    /**
-     * @return
-     */
-    @ManyToOne(targetEntity = Lector.class, cascade = { CascadeType.PERSIST,
-            CascadeType.MERGE })
-    @JoinColumn(name = AsignacionValorCodigo.COLUMN_NAME_LECTOR)
-    public Lector getLector() {
-        return lector;
-    }
-
-    /**
-     * @param lector
-     */
-    public void setLector(final Lector lector) {
-        this.lector = lector;
-    }
-
-    /**
      * @see java.lang.Object#equals(java.lang.Object)
      */
     public boolean equals(final Object obj) {
@@ -200,9 +149,6 @@ public class AsignacionValorCodigo extends BaseObject {
 
         final AsignacionValorCodigo other = (AsignacionValorCodigo) obj;
 
-        if (getLector() == null && other.getLector() != null) {
-            return false;
-        }
         if (getBiblioteca() != null
                 && !getBiblioteca().equals(other.getBiblioteca())) {
             return false;

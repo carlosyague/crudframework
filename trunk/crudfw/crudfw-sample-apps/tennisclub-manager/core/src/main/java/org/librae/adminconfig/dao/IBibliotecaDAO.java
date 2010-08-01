@@ -95,18 +95,6 @@ public interface IBibliotecaDAO extends IGenericSearchDAO<Biblioteca, Long>,
     String actLabSegunCalendario(Long idBiblioteca);
 
     /**
-     * @param idEjemplar
-     * @return
-     */
-    List<Biblioteca> getBibliotecaByEjemplar(Long idEjemplar);
-
-    /**
-     * @param idRegistro
-     * @return
-     */
-    List<Biblioteca> getBibliotecaByRegistro(Long idRegistro);
-
-    /**
      * @param criterios
      * @return
      */

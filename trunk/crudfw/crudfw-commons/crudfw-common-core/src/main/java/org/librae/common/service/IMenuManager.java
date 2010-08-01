@@ -11,17 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 public interface IMenuManager {
 
     /**
-     * Obtiene la visualizacion del menu.
-     * 
-     * @param usuario
-     *            el usuario
-     * @param path
-     *            el path
-     * @return
-     */
-    String getMenu(LibraeUser usuario);
-
-    /**
      * Obtiene los favoritos para el menu del usuario.
      * 
      * @param usuario

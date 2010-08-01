@@ -270,7 +270,7 @@ public class BibliotecaManagerImpl extends GenericManagerImpl<Biblioteca, Long>
             if (!idValor.equals(new Long(0))) {
                 final ValorCodigo valor = valorCodigoDao.get(new Long(idValor));
                 final AsignacionValorCodigo asigVCod = new AsignacionValorCodigo(
-                        valor, biblioteca, null, null);
+                        valor, biblioteca);
                 asignacionValorCodigoDao.save(asigVCod);
             }
         }
@@ -446,33 +446,6 @@ public class BibliotecaManagerImpl extends GenericManagerImpl<Biblioteca, Long>
         final Biblioteca biblioteca = bibliotecaDao
                 .getBibliotecaByCodigo(getNodoPrincipal());
         return biblioteca;
-    }
-
-    public Object getTreeDataByEjemplar(Class treeNodeBase, Long idEjemplar)
-            throws Exception {
-        final List<Biblioteca> bibliotecasSucursales = bibliotecaDao
-                .getBibliotecaByEjemplar(idEjemplar);
-        final Constructor constructor = ReflectionUtil
-                .getConstructorTreeNodeBase3(treeNodeBase);
-        final Object root = constructor.newInstance("bibliotecas",
-                "Bibliotecas", false);
-        setTreeDataSucursal(treeNodeBase, root, bibliotecasSucursales,
-                new ArrayList());
-
-        return root;
-    }
-
-    public Object getTreeDataByRegistro(Class treeNodeBase, Long idRegistro)
-            throws Exception {
-        final List<Biblioteca> bibliotecasSucursales = bibliotecaDao
-                .getBibliotecaByRegistro(idRegistro);
-        final Constructor constructor = ReflectionUtil
-                .getConstructorTreeNodeBase3(treeNodeBase);
-        final Object root = constructor.newInstance("bibliotecas",
-                "biblioteca", false);
-        setTreeDataSucursal(treeNodeBase, root, bibliotecasSucursales,
-                new ArrayList());
-        return root;
     }
 
     /**
@@ -726,18 +699,6 @@ public class BibliotecaManagerImpl extends GenericManagerImpl<Biblioteca, Long>
 
     public TipoBiblioteca getTipoBiblioteca(Long idTipoBiblioteca) {
         return tipoBibliotecaDao.get(idTipoBiblioteca);
-    }
-
-    public boolean contieneRegistro(Long idBiblioteca, Long idRegistro) {
-        boolean contiene = false;
-        final List<Biblioteca> bibliotecasSucursales = bibliotecaDao
-                .getBibliotecaByRegistro(idRegistro);
-        for (final Biblioteca biblioteca : bibliotecasSucursales) {
-            if (biblioteca.getId().equals(idBiblioteca)) {
-                contiene = true;
-            }
-        }
-        return contiene;
     }
 
     public Direccion getDireccionByIdBiblioteca(Long idBiblioteca) {

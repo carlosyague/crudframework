@@ -168,28 +168,6 @@ public interface IBibliotecaManager extends GenericManager<Biblioteca, Long>,
     String actLabSegunCalendario(Long idBiblioteca);
 
     /**
-     * Obtiene el arbol de bibliotecas por ejemplar.
-     * 
-     * @param treeNodeBase
-     * @param idEjemplar
-     * @return
-     * @throws Exception
-     */
-    Object getTreeDataByEjemplar(Class treeNodeBase, Long idEjemplar)
-            throws Exception;
-
-    /**
-     * Obtiene el arbol de bibliotecas por ejemplar.
-     * 
-     * @param treeNodeBase
-     * @param idRegistro
-     * @return
-     * @throws Exception
-     */
-    Object getTreeDataByRegistro(Class treeNodeBase, Long idRegistro)
-            throws Exception;
-
-    /**
      * Monta el arbol a partir de las bibliotecas que tiene asignada el usuario.
      * 
      * @param idUsuario
@@ -245,15 +223,6 @@ public interface IBibliotecaManager extends GenericManager<Biblioteca, Long>,
      * @return
      */
     TipoBiblioteca getTipoBiblioteca(Long idTipoBiblioteca);
-
-    /**
-     * Devulve true si la biblioteca contiene un registro de tipo.
-     * 
-     * @param idBiblioteca
-     * @param idRegistro
-     * @return
-     */
-    boolean contieneRegistro(Long idBiblioteca, Long idRegistro);
 
     /**
      * Obtiene la direccion de la biblioteca.

@@ -40,8 +40,6 @@ import org.librae.adminconfig.model.PermisoRol;
 import org.librae.adminconfig.model.Rol;
 
 import org.librae.adminconfig.model.UsuarioBibliotecaRol;
-import org.librae.catalogacion.model.Ejemplar;
-import org.librae.catalogacion.model.RegistroEjemplar;
 
 import org.librae.common.Constants;
 import org.librae.common.dao.hibernate.GenericSearchDao;
@@ -229,25 +227,6 @@ public class BibliotecaDAOImpl extends GenericSearchDao<Biblioteca, Long>
                 sb.toString(), parametros);
 
         return ((diasSemana.isEmpty()) ? null : diasSemana.get(0));
-    }
-
-    public List<Biblioteca> getBibliotecaByEjemplar(Long idEjemplar) {
-        final StringBuilder sb = new StringBuilder();
-        sb.append("select e.biblioteca from ");
-        sb.append(Ejemplar.ENTITY_NAME).append(" e ");
-        sb.append("where e.id = ? ");
-        return getHibernateTemplate().find(sb.toString(), idEjemplar);
-    }
-
-    public List<Biblioteca> getBibliotecaByRegistro(Long idRegistro) {
-        final StringBuilder sb = new StringBuilder();
-        sb.append("select e.biblioteca from                         ");
-        sb.append(Ejemplar.ENTITY_NAME).append(" e,                 ");
-        sb.append(RegistroEjemplar.ENTITY_NAME).append(" re         ");
-        sb.append("where e.id = re.ejemplar.id                      ");
-        sb.append("and re.registro.id = ?                           ");
-        sb.append("and e.biblioteca.tipoBiblioteca.codigo = 'S'     ");
-        return getHibernateTemplate().find(sb.toString(), idRegistro);
     }
 
     public List<Biblioteca> buscarPorString(final Map<String, Object> criterios) {

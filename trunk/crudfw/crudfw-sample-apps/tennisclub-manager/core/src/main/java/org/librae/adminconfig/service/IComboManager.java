@@ -14,19 +14,6 @@ import org.librae.adminconfig.model.TipoIdentificacion;
 import org.librae.adminconfig.model.TipoPermiso;
 import org.librae.adminconfig.model.TipoVia;
 import org.librae.adminconfig.model.Tratamiento;
-import org.librae.catalogacion.model.EjemplarTipo;
-import org.librae.circulacion.model.CodigoNcipServicio;
-import org.librae.circulacion.model.EstadoReserva;
-import org.librae.circulacion.model.PoliticaPrestamoDom;
-import org.librae.circulacion.model.PoliticaReserva; // import
-// org.librae.circulacion.model.pib.ActividadPIB;
-import org.librae.circulacion.model.pib.AlcancePeticionPIB;
-import org.librae.circulacion.model.pib.EstadoPeticionPIB;
-import org.librae.circulacion.model.pib.TipoEventoPIB;
-import org.librae.circulacion.model.pib.TipoPeticionPIB;
-import org.librae.circulacion.model.pib.TipoResolucionPIB;
-import org.librae.importexport.model.TipoTransformJob;
-import org.librae.lectores.model.TipoLector;
 
 /**
  * Interfaz para los combos.
@@ -69,34 +56,6 @@ public interface IComboManager {
      * @return lista tipos de bibliotecas.
      */
     List<TipoBiblioteca> getTiposBiblioteca();
-
-    /**
-     * Obtiene las politicas de prestamo
-     * 
-     * @return lista politicas de prestamo.
-     */
-    List<PoliticaPrestamoDom> getPoliticas();
-
-    /**
-     * Obtiene las politicas de reserva.
-     * 
-     * @return lista politicas de reserva.
-     */
-    List<PoliticaReserva> getPoliticasReserva();
-
-    /**
-     * Obtiene los tipos de ejemplar.
-     * 
-     * @return lista tipos de ejemplar.
-     */
-    List<EjemplarTipo> getTiposEjemplar();
-
-    /**
-     * Obtiene los tipos de lector.
-     * 
-     * @return lista tipos de lector.
-     */
-    List<TipoLector> getTiposLector();
 
     /**
      * Obtiene los países.
@@ -178,75 +137,10 @@ public interface IComboManager {
     List<ComunidadAutonoma> getComAutonomas();
 
     /**
-     * Obtiene los tipos de lector de un lector.
-     * 
-     * @param idLector
-     * @return
-     */
-    List<TipoLector> getTiposLector(Long idLector);
-
-    /**
-     * Obtiene los estados de una reserva.
-     * 
-     * @param idLector
-     * @return
-     */
-    List<EstadoReserva> getEstadosReserva();
-
-    /**
-     * Obtiene los tipos de transformaciones o jobs.
-     * 
-     * @return
-     */
-    List<TipoTransformJob> getTiposTransformJob();
-
-    /**
-     * Obtiene la lista de tipos de peticion de PIB.
-     * 
-     * @return
-     */
-    List<TipoPeticionPIB> getTiposPeticionPIB();
-
-    /**
-     * Obtiene la lista de estados de peticion de PIB.
-     * 
-     * @return
-     */
-    List<EstadoPeticionPIB> getEstadosPeticionPIB();
-
-    /**
-     * Obtiene la lista de tipos de resolucion de PIB.
-     * 
-     * @return
-     */
-    List<TipoResolucionPIB> getTiposResolucionPIB();
-
-    /**
-     * Obtiene la lista de tipos de evento de PIB.
-     * 
-     * @return
-     */
-    List<TipoEventoPIB> getTiposEventoPIB();
-
-    /**
-     * Obtiene la lista de alcances de una petición de PIB.
-     * 
-     * @return
-     */
-    List<AlcancePeticionPIB> getAlcancesPeticionPIB();
-
-    /**
      * Obtener los tipos de permisos.
      * 
      * @return lista de permisos.
      */
     List<TipoPermiso> getTiposPermiso();
-
-    /**
-     * Obtener los codigos de servicos ncip.
-     * 
-     * @return lista de codigos.
-     */
-    List<CodigoNcipServicio> getCodigosNcipServicios();
 
 }
