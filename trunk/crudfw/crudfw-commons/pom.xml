@@ -28,10 +28,7 @@
 
     <modules>
         <module>crudfw-common-exception</module>
-        <module>crudfw-common-file</module>
-<!--        <module>crudfw-common-search</module>    -->
         <module>crudfw-common-core</module>
-        <module>crudfw-common-websession</module>
         <module>crudfw-common-web</module>
         <module>crudfw-common-context</module>
         <module>crudfw-common-theme</module>
