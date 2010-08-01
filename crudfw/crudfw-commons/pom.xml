@@ -34,6 +34,7 @@
         <module>crudfw-common-core</module>
         <module>crudfw-common-websession</module>
         <module>crudfw-common-web</module>
+        <module>crudfw-context-ear</module>
   </modules>
 
 </project>
