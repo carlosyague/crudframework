@@ -82,7 +82,6 @@
 		</dependency>
 	</dependencies>
 	<modules>
-		<module>model</module>
 		<module>core</module>
 		<module>web</module>
 	</modules>
