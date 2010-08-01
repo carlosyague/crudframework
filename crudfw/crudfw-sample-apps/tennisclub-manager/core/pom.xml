@@ -124,8 +124,8 @@
 		<!-- inicio DEPENDENCIAS crudfw-subs -->
 		<dependency>
 			<groupId>org.crudfw</groupId>
-			<artifactId>crudfw-context-ear</artifactId>
-			<version>${crudfw.context.version}</version>
+			<artifactId>crudfw-common-context</artifactId>
+			<version>1.0-SNAPSHOT</version>
 		</dependency>
         <dependency>
             <groupId>org.crudfw</groupId>
@@ -136,14 +136,6 @@
                     <groupId>org.crudfw.common</groupId>
                     <artifactId>crudfw-common-core</artifactId>
                 </exclusion>
-<!--                <exclusion>-->
-<!--                    <groupId>org.crudfw.common</groupId>-->
-<!--                    <artifactId>crudfw-common-auditoria</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.crudfw.common</groupId>-->
-<!--                    <artifactId>crudfw-common-search</artifactId>-->
-<!--                </exclusion>                -->
             </exclusions>
         </dependency>       
 		<!-- fin DEPENDENCIAS crudfw-subs -->	

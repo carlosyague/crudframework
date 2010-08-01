@@ -68,19 +68,7 @@
 		<dependency>
 			<groupId>${pom.parent.groupId}.common</groupId>
 			<artifactId>crudfw-common-core</artifactId>
-
 			<version>1.0-SNAPSHOT</version>
-
-		</dependency>
-		<dependency>
-			<groupId>org.crudfw.common</groupId>
-			<artifactId>crudfw-common-websession</artifactId>
-
-			<version>1.0-SNAPSHOT</version>
-
-			<scope>provided</scope>
-			<!-- en tomcat: este JAR debe encontrarse en shared/lib -->
-			<!-- en jboss: en crudfw-ear se incluye como un jarModule -->
 		</dependency>
 		<!-- fin DEPENDENCIAS crudfw-commons -->
 
