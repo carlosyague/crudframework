@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-modules id="moduleCoreId" project-version="1.5.0">
   <wb-module deploy-name="crudfw-adminconfig">
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/crudfw-adminconfig-core/crudfw-adminconfig-core">
-<dependency-type>uses</dependency-type>
-</dependent-module>
 <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/crudfw-common-core/crudfw-common-core">
-<dependency-type>uses</dependency-type>
-</dependent-module>
-<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/crudfw-model/crudfw-model">
 <dependency-type>uses</dependency-type>
 </dependent-module>
 <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/crudfw-common-web/crudfw-common-web">
