@@ -238,12 +238,7 @@
 			<version>${pom.parent.version}</version>
 		</dependency>
 
-		<!-- inicio DEPENDENCIAS crudfw-commons -->
-		<dependency>
-			<groupId>org.crudfw.common</groupId>
-			<artifactId>crudfw-common-file</artifactId>
-			<version>1.0-SNAPSHOT</version>
-		</dependency>
+		<!-- inicio DEPENDENCIAS crudfw-commons -->		
 		<dependency>
 			<groupId>org.crudfw.common</groupId>
 			<artifactId>crudfw-common-web</artifactId>
