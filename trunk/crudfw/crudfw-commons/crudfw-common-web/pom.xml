@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
 	<parent>
-		<artifactId>crudfw-servicios</artifactId>
+		<artifactId>crudfw-commons</artifactId>
 		<groupId>org.crudfw
         </groupId>
 
@@ -64,7 +64,7 @@
 		</plugins>
 	</build>
 	<dependencies>
-		<!-- inicio DEPENDENCIAS crudfw-servicios -->
+		<!-- inicio DEPENDENCIAS crudfw-commons -->
 		<dependency>
 			<groupId>${pom.parent.groupId}.common</groupId>
 			<artifactId>crudfw-common-core</artifactId>
@@ -82,7 +82,7 @@
 			<!-- en tomcat: este JAR debe encontrarse en shared/lib -->
 			<!-- en jboss: en crudfw-ear se incluye como un jarModule -->
 		</dependency>
-		<!-- fin DEPENDENCIAS crudfw-servicios -->
+		<!-- fin DEPENDENCIAS crudfw-commons -->
 
 		<!-- inicio DEPENDENCIAS javax.servlet -->
 		<dependency>

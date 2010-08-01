@@ -238,7 +238,7 @@
 			<version>${pom.parent.version}</version>
 		</dependency>
 
-		<!-- inicio DEPENDENCIAS crudfw-servicios -->
+		<!-- inicio DEPENDENCIAS crudfw-commons -->
 		<dependency>
 			<groupId>org.crudfw.common</groupId>
 			<artifactId>crudfw-common-file</artifactId>
@@ -275,7 +275,7 @@
 			<!-- en tomcat: este JAR debe encontrarse en shared/lib -->
 			<!-- en jboss: en crudfw-ear se incluye como un jarModule -->
 		</dependency>
-		<!-- fin DEPENDENCIAS crudfw-servicios -->
+		<!-- fin DEPENDENCIAS crudfw-commons -->
 
 		<!-- inicio DEPENDENCIAS crudfw-subs -->
 		<dependency>
