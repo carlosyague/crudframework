@@ -9,8 +9,8 @@
 		<artifactId>crudfw-samples</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-	<groupId>org.crudfw.adminconfig</groupId>
-	<artifactId>crudfw-adminconfig</artifactId>
+	<groupId>es.uma.crudfw.samples</groupId>
+	<artifactId>tennisclub-manager</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>Tennis Club Manager</name>
