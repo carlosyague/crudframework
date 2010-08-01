@@ -32,7 +32,6 @@
 			classpath:/spring/applicationContext-form.xml
 			classpath*:/spring/applicationContext-delegate.xml
 			classpath*:/spring/applicationContext.xml
-			/WEB-INF/spring/applicationContext.xml
 		</param-value>
     </context-param>
 
