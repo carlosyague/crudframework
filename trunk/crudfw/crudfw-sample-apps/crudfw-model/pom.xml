@@ -210,11 +210,11 @@
             <artifactId>crudfw-common-core</artifactId>
             <version>${crudfw.common.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.crudfw.common</groupId>
-            <artifactId>crudfw-common-search</artifactId>
-            <version>${crudfw.common.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.crudfw.common</groupId>-->
+<!--            <artifactId>crudfw-common-search</artifactId>-->
+<!--            <version>${crudfw.common.version}</version>-->
+<!--        </dependency>-->
         <!-- fin DEPENDENCIAS crudfw-commons -->
         
         <!-- Dependencias agregadas para la generación de los XSD para WS -->

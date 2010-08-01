@@ -140,10 +140,10 @@
 <!--                    <groupId>org.crudfw.common</groupId>-->
 <!--                    <artifactId>crudfw-common-auditoria</artifactId>-->
 <!--                </exclusion>-->
-                <exclusion>
-                    <groupId>org.crudfw.common</groupId>
-                    <artifactId>crudfw-common-search</artifactId>
-                </exclusion>                
+<!--                <exclusion>-->
+<!--                    <groupId>org.crudfw.common</groupId>-->
+<!--                    <artifactId>crudfw-common-search</artifactId>-->
+<!--                </exclusion>                -->
             </exclusions>
         </dependency>       
 		<!-- fin DEPENDENCIAS crudfw-subs -->	
