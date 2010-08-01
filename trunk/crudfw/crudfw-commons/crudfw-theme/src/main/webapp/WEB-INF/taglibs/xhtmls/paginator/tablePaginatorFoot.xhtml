@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+<ui:composition>
+
+	<c:if test="#{bean.num_pages > 0}">
+		<div class="paginacion">
+		<table>
+			<tbody>
+				<tr>
+					<td class="img"><c:choose>
+						<c:when test="#{bean.pag == 1}">
+							<a href="#"> <h:graphicImage
+								value="/images/btn_anterior_off.gif" /> </a>
+						</c:when>
+						<c:otherwise>
+							<h:commandLink action="#{bean.list}">
+								<f:param name="pag" value="#{bean.pag - 1}" />
+								<f:param name="num_res" value="#{bean.num_res}" />
+								<f:param name="orderColumn" value="#{bean.orderColumn}" />
+								<f:param name="ascendingOrder" value="#{bean.ascendingOrder}" />
+								<h:graphicImage value="/images/btn_anterior.gif" />
+							</h:commandLink>
+						</c:otherwise>
+					</c:choose></td>
+					<c:forEach var="pagNum" items="#{bean.pages}">
+						<c:choose>
+							<c:when test="#{bean.pag == pagNum}">
+								<td class="activo">#{pagNum}</td>
+							</c:when>
+							<c:otherwise>
+								<td><h:commandLink action="#{bean.list}" value="#{pagNum}">
+									<f:param name="pag" value="#{pagNum}" />
+									<f:param name="num_res" value="#{bean.num_res}" />
+									<f:param name="orderColumn" value="#{bean.orderColumn}" />
+									<f:param name="ascendingOrder" value="#{bean.ascendingOrder}" />
+								</h:commandLink></td>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					<td class="img"><c:choose>
+						<c:when test="#{bean.pag == bean.num_pages}">
+							<a href="#"> <h:graphicImage
+								value="/images/btn_siguiente_off.gif" /> </a>
+						</c:when>
+						<c:otherwise>
+							<h:commandLink action="#{bean.list}">
+								<f:param name="pag" value="#{bean.pag + 1}" />
+								<f:param name="num_res" value="#{bean.num_res}" />
+								<f:param name="orderColumn" value="#{bean.orderColumn}" />
+								<f:param name="ascendingOrder" value="#{bean.ascendingOrder}" />
+								<h:graphicImage value="/images/btn_siguiente.gif" />
+							</h:commandLink>
+						</c:otherwise>
+					</c:choose></td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</c:if>
+
+</ui:composition>
+</html>

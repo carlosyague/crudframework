@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax">
+
+
+<f:loadBundle basename="org.librae.common.messages" var="common" />
+<f:loadBundle basename="#{subsistema}" var="msg" />
+<t:div styleClass="header">
+<t:div styleClass="header_img">
+<h1><a href="#{facesContext.externalContext.requestContextPath}/"
+	title="Libr&#198; - Inicio" class="logotipo"><img
+	src="#{facesContext.externalContext.requestContextPath}/images/logo_top.gif"
+	alt="Logotipo de Libr&#198;" /></a></h1>
+
+</t:div>
+<div id="menu"></div>
+<div id="menuSecundario">
+	<h:outputLink value="/librae-adminconfig/logOut.html?service=#{facesContext.externalContext.requestContextPath}">
+		   <h:graphicImage value="/images/logout_icon.gif" alt="logOut" />
+	</h:outputLink>
+</div>
+</t:div>
+</html>
