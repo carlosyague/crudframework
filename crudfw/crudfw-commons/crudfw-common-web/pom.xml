@@ -12,7 +12,7 @@
 	<groupId>org.crudfw.common
     </groupId>
 	<artifactId>crudfw-common-web</artifactId>
-	<name>CRUD Framework-common: Web</name>
+	<name>CRUD Framework: Common Web</name>
 
 	<version>1.0-SNAPSHOT</version>
 
