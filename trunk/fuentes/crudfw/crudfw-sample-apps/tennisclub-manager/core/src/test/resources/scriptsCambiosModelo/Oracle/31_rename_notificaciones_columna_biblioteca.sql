@@ -1,0 +1,1 @@
+alter table men_notificaciones rename column bib_x_biblioteca to bib_x_biblioteca_fk;

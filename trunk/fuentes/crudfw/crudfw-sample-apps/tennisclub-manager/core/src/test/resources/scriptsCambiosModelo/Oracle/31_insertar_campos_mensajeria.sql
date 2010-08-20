@@ -1,0 +1,6 @@
+insert into MEN_DSI_CATALOGO (X_DSI_CATALOGO, L_ACTIVO, T_COD_TIPONOTIFICACION, T_DESCRIPCION, L_ENVIO_OBLIGATORIO, T_NOMBRE, GRU_X_GRUPOS_FUNCIONALES) values (-6,1, 'COD0006', 'Notificación al pasar una desiderata al estado Aceptada',0, 'Desideratas aceptadas', -1);
+insert into MEN_CANALES_INFORMACION (X_CANAL_INFORMACION, L_ACCION_BIBLIOTECARIO, T_DESCRIPCION, T_NOMBRE) values (-3,1, 'notificacion.descEmail','#notificacion.email');
+insert into MEN_DSI_CANALES_INFORMACION (X_DSI_CANALES_INFORMACION, C_PRIORIDAD, CAN_X_CANAL_INFORMACION, DSI_X_DSI_CATALOGO) values (-4,1, -3, -6);
+insert into MEN_DSI_CANALES_INFORMACION (X_DSI_CANALES_INFORMACION, C_PRIORIDAD, CAN_X_CANAL_INFORMACION, DSI_X_DSI_CATALOGO) values (-5,0, -1, -6);
+update LEC_LECTOR_CORREOS SET T_CORREO = 'librae@librae.com', N_ORDEN = 1 WHERE LEC_X_LECTOR = (select x_lector from lec_lectores where t_dni like '%28886902Y%');
+insert into MEN_NOTIFICACIONES (X_NOTIFICACIONES, L_ACCION_BIBLIOTECARIO, L_DESEA_NOTIFICACION,F_FECHA_ALTA, F_FECHA_NOTIFICACION, T_MENSAJE,T_NOTA,CAN_X_CANAL_INFORMACION,X_LECTOR,X_MOTIVO_NO_ENTREGA,X_DSI_CATALOGO,BIB_X_BIBLIOTECA_FK) values (-1,1,0,sysdate,null, 'Mensaje de la notificación', 'Nota de la notificación', -3,(select x_biblioteca from adm_bibliotecas where t_biblioteca like '%Btca. San Jerónimo%'),-1,-6,770);
