@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="/templates/popupTemplate.xhtml">
+	<ui:define name="title">
+		<h:outputText value="#{common['404.title']}" />
+	</ui:define>
+	<ui:define name="heading">
+	</ui:define>
+	<ui:define name="body">
+		<div id="contenido" style="width:98%;">
+    		<p style="margin:18% auto 0 auto; display:block; text-align:center; color:#009A54; font-size:25px;">
+			<h:outputText value="#{common['404.message']}" />
+		</p>
+    		<img src="#{facesContext.externalContext.requestContextPath}/images/404.gif" style="margin:1% auto 0 auto; display:block;"/>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

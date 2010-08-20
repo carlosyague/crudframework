@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
+	default-lazy-init="true">
+
+	<!-- Add new Exporter Managers to Remote here -->
+	
+	<bean id="propertyExporter"
+		class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="propertyManager" />
+		<property name="serviceInterface"
+			value="org.librae.adminconfig.service.IPropertyManager" />
+	</bean>
+	
+	<bean id="subsystemExporter"
+		class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="subsystemManager" />
+		<property name="serviceInterface"
+			value="org.librae.adminconfig.service.ISubsystemManager" />
+	</bean>
+	
+	<bean id="userExporter"
+		class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="userManager" />
+		<property name="serviceInterface"
+			value="org.librae.adminconfig.service.IUserManager" />
+	</bean>
+	
+	<bean id="bibliotecaExporter"
+		class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="bibliotecaManager" />
+		<property name="serviceInterface"
+			value="org.librae.adminconfig.service.IBibliotecaManager" />
+	</bean>
+	
+	<!-- Add Spring Servlets here.. -->
+	
+	<bean id="imageDownloaderBibliotecaServlet"
+		class="org.librae.adminconfig.webapp.servlet.ImageDownloaderBibliotecaServlet">
+		<property name="manager" ref="bibliotecaManager" />		
+	</bean>
+	
+	<bean id="imageDownloaderFicheroServlet"
+		class="org.librae.adminconfig.webapp.servlet.ImageDownloaderFicheroServlet">
+		<property name="manager" ref="parametroManager" />		
+	</bean>
+</beans>

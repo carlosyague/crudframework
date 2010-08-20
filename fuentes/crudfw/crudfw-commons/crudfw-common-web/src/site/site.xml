@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="librae-common-web">
+    <bannerLeft>
+        <name>librae-common-web</name>
+        <src>http://dev.librae.org/attachments/download/125</src>
+        <href>http://www.librae.org</href>
+    </bannerLeft>
+    <publishDate format="dd MMM yyyy"/>
+    <skin>
+        <groupId>org.apache.tapestry</groupId>
+        <artifactId>maven-skin</artifactId>
+        <version>1.1</version>
+    </skin>
+    <body>
+        <menu ref="modules"/>
+        ${reports}
+    </body>
+</project>
+

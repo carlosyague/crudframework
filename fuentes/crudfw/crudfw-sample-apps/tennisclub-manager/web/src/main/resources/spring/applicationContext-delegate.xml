@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
+	default-lazy-init="true">
+	<description>
+        Definición de beans delegados de cada Action.
+    </description>
+	<bean id="gestionRolesDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.GestionRolesDelegateImpl">
+		<property name="rolManager" ref="rolManager" />
+		<property name="usuarioManager" ref="usuarioManager" />
+		<property name="bibliotecaManager" ref="bibliotecaManager" />
+	</bean>
+	<bean id="usuarioDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.UsuarioDelegateImpl">
+		<property name="usuarioManager" ref="usuarioManager" />
+		<property name="usuarioBibliotecaRolManager" ref="usuarioBibliotecaRolManager" />
+	</bean>
+	<bean id="permisoSearchDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.PermisoSearchDelegateImpl">
+		<property name="permisoManager" ref="permisoManager" />
+	</bean>
+	<bean id="permisoAsignadosSearchDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.PermisoSearchDelegateImpl">
+		<property name="permisoManager" ref="permisoManager" />
+		<property name="rolManager" ref="rolManager" />
+		<property name="buscarPor" value="asignados" />
+	</bean>
+	<bean id="permisoNoAsignadosSearchDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.PermisoSearchDelegateImpl">
+		<property name="permisoManager" ref="permisoManager" />
+		<property name="rolManager" ref="rolManager" />
+		<property name="buscarPor" value="noAsignados" />
+	</bean>
+	<bean id="direccionDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.DireccionDelegateImpl">
+	</bean>
+	<bean id="bibliotecaDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.BibliotecaDelegateImpl">
+		<property name="bibliotecaManager" ref="bibliotecaManager" />
+		<property name="calendarioManager" ref="calendarioManager" />
+		<property name="codigoManager" ref="codigoManager" />
+		<property name="horarioManager" ref="horarioManager"></property>
+		<property name="horarioIntManager" ref="horarioIntManager"></property>
+		<property name="direccionManager" ref="direccionManager"></property>
+	</bean>
+	<bean id="usuarioSearchDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.UsuarioDelegateImpl">
+		<property name="usuarioManager" ref="usuarioManager" />
+		<property name="bibliotecaManager" ref="bibliotecaManager" />
+	</bean>
+	<bean id="menuDelegate" class="org.librae.common.webapp.delegate.impl.MenuDelegateImpl">
+		<property name="manager" ref="menuManager" />
+		<property name="favoritoManager" ref="favoritoManager" />
+	</bean>
+	<bean id="autorizarUsuarioDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.AutorizarUsuarioDelegateImpl">
+		<property name="bibliotecaManager" ref="bibliotecaManager" />
+		<property name="rolManager" ref="rolManager" />
+		<property name="usuarioManager" ref="usuarioManager" />
+		<property name="usuarioBibliotecaRolManager" ref="usuarioBibliotecaRolManager" />
+	</bean>
+	<bean id="gestionHorariosDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.GestionHorariosDelegateImpl">
+		<property name="horarioManager" ref="horarioManager" />
+	</bean>
+	<bean id="horarioIntDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.HorarioIntDelegateImpl">
+		<property name="horarioIntManager" ref="horarioIntManager" />
+		<property name="bibliotecaManager" ref="bibliotecaManager" />
+	</bean>
+	<bean id="gestionCodigosDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.GestionCodigosDelegateImpl">
+		<property name="codigoManager" ref="codigoManager" />
+		<property name="bibliotecaManager" ref="bibliotecaManager" />
+	</bean>
+	<bean id="codigoSearchDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.CodigoSearchDelegateImpl">
+		<property name="codigoManager" ref="codigoManager" />
+		<property name="comboManager" ref="comboManager" />
+	</bean>
+	<bean id="calendarioDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.CalendarioDelegateImpl" />
+	<bean id="admComboDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.ComboDelegateImpl">
+		<property name="comboManager" ref="comboManager" />
+	</bean>
+	<bean id="rolSearchDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.RolSearchDelegateImpl">
+		<property name="rolManager" ref="rolManager" />
+		<property name="bibliotecaManager" ref="bibliotecaManager" />
+	</bean>
+	<bean id="gestionPerfilesDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.GestionPerfilesDelegateImpl">
+		<property name="usuarioManager" ref="usuarioManager" />
+		<property name="rolManager" ref="rolManager" />
+	</bean>
+	<bean id="horarioIntSearchDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.HorarioIntSearchDelegateImpl">
+		<property name="horarioIntManager" ref="horarioIntManager" />
+		<property name="horarioManager" ref="horarioManager" />
+	</bean>
+	<bean id="catalogoDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.CatalogoDelegateImpl">
+		<property name="catalogoManager" ref="catalogoManager" />
+	</bean>
+	<bean id="catalogoSearchDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.CatalogoSearchDelegateImpl">
+		<property name="catalogoManager" ref="catalogoManager" />
+	</bean>
+	<bean id="parametroSearchDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.ParametroSearchDelegateImpl">
+		<property name="parametroManager" ref="parametroManager" />
+	</bean>
+	<bean id="parametroDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.ParametroDelegateImpl">
+		<property name="parametroManager" ref="parametroManager" />
+	</bean>
+	<bean id="favoritoUsuarioSearchDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.FavoritoUsuarioSearchDelegateImpl">
+		<property name="favoritoUsuarioManager" ref="favoritoUsuarioManager" />
+	</bean>
+	<bean id="rolAsignadosSearchDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.GestionRolesDelegateImpl">
+		<property name="rolManager" ref="rolManager" />
+		<property name="usuarioManager" ref="usuarioManager" />
+		<property name="buscarPor" value="asignados" />
+		<property name="bibliotecaManager" ref="bibliotecaManager" />
+	</bean>
+	<bean id="rolNoAsignadosSearchDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.GestionRolesDelegateImpl">
+		<property name="rolManager" ref="rolManager" />
+		<property name="usuarioManager" ref="usuarioManager" />
+		<property name="buscarPor" value="noAsignados" />
+		<property name="bibliotecaManager" ref="bibliotecaManager" />
+	</bean>
+	<bean id="usuarioBibliotecaRolSearchDelegate"
+		class="org.librae.adminconfig.webapp.delegate.impl.UsuarioBibliotecaRolSearchDelegateImpl">
+		<property name="usuarioBibliotecaRolManager" ref="usuarioBibliotecaRolManager" />
+		<property name="usuarioManager" ref="usuarioManager" />
+	</bean>
+</beans>

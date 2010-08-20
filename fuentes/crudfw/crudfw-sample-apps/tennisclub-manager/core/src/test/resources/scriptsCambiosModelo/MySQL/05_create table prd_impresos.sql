@@ -1,0 +1,1 @@
+create table PRD_IMPRESOS (X_PRODUCTO bigint not null auto_increment, T_PRODUCTO varchar(255) unique, T_PLANTILLA varchar(255), N_POSICION bigint, C_TIPOIMPRESION varchar(255), N_TIPOPRODUCTO integer, N_TIPOCODBARRAS integer, BIB_X_BIBLIOTECA bigint, primary key (X_PRODUCTO)) ENGINE=InnoDB;

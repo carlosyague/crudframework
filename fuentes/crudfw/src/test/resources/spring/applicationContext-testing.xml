@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
+    default-lazy-init="true">
+
+    <bean id="bibliotecaDAO" class="org.librae.adminconfig.dao.hibernate.BibliotecaDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="tipoBibliotecaDAO" class="org.librae.adminconfig.dao.hibernate.TipoBibliotecaDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="valorCodigoDAO" class="org.librae.adminconfig.dao.hibernate.ValorCodigoDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="asignacionValorCodigoDAO" class="org.librae.adminconfig.dao.hibernate.AsignacionValorCodigoDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="festivoDAO" class="org.librae.adminconfig.dao.hibernate.FestivoDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="arboledaFacade"
+        class="org.librae.adminconfig.facade.impl.ArboledaFacadeImpl">
+    </bean>
+
+    <bean id="bibliotecaManager" class="org.librae.adminconfig.service.impl.BibliotecaManagerImpl">
+        <constructor-arg ref="bibliotecaDAO" />
+        <property name="tipoBibliotecaDao" ref="tipoBibliotecaDAO" />
+        <property name="valorCodigoDao" ref="valorCodigoDAO"></property>
+        <property name="asignacionValorCodigoDao" ref="asignacionValorCodigoDAO"></property>
+        <property name="arboledaFacade" ref="arboledaFacade" />
+        <property name="festivoDao" ref="festivoDAO" />
+    </bean>
+    
+    
+</beans>
