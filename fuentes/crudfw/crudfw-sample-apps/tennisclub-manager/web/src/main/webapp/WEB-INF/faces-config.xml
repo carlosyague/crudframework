@@ -13,8 +13,7 @@
 			<supported-locale>en</supported-locale>
 			<supported-locale>es</supported-locale>
 		</locale-config>
-		<message-bundle>org.librae.common.messages</message-bundle>
-		<message-bundle>org.librae.adminconfig.messages</message-bundle>
+		<message-bundle>org.tennisclub.manager.messages</message-bundle>
 	</application>
 	
 	<!-- Components -->
