@@ -27,7 +27,6 @@
         <param-value>
 			classpath:/spring/applicationContext-resources.xml
 			classpath*:/spring/applicationContext-dao.xml
-			classpath*:/spring/applicationContext-facade.xml
 			classpath*:/spring/applicationContext-service.xml
 			classpath:/spring/applicationContext-form.xml
 			classpath*:/spring/applicationContext-delegate.xml
