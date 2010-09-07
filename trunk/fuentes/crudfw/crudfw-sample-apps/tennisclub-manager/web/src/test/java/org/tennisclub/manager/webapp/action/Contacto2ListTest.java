@@ -14,7 +14,7 @@ public class Contacto2ListTest extends BasePageTestCase {
     }
 
     @Override @SuppressWarnings("unchecked")
-    protected void onSetUp() throws Exception {
+    protected void onSetUp() {
         super.onSetUp();
         bean = new Contacto2ListAction();
         bean.setContacto2Manager(contacto2Manager);
@@ -28,7 +28,7 @@ public class Contacto2ListTest extends BasePageTestCase {
     }
 
     @Override
-    protected void onTearDown() throws Exception {
+    protected void onTearDown() {
         super.onTearDown();
         bean = null;
     }
