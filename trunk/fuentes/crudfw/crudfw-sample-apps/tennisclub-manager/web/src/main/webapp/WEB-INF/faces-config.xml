@@ -130,9 +130,37 @@
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 
-	<!-- Add additional beans here -->
 	
-	<!-- Navigation Rules -->
+
+    
+
+    <!--Contacto2-beans-START-->
+    <managed-bean>
+        <managed-bean-name>contacto2ListAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.Contacto2ListAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>contacto2Manager</property-name>
+            <value>#{contacto2Manager}</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>contacto2FormAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.Contacto2FormAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>id</property-name>
+            <value>#{param.id}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>contacto2Manager</property-name>
+            <value>#{contacto2Manager}</value>
+        </managed-property>
+    </managed-bean>
+    <!--Contacto2-beans-END-->
+
+    <!-- Add additional beans here -->
 	
 	<navigation-rule>
 		<from-view-id>/pages/prueba.xhtml</from-view-id>
@@ -147,4 +175,33 @@
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
+	
+	<!--Contacto2-nav-START-->
+    <navigation-rule>
+        <from-view-id>/pages/contacto2/list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/pages/contacto2/form.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/pages/contacto2/form.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/contacto2/form.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/pages/contacto2/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/pages/contacto2/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <!--Contacto2-nav-END-->
+    
+    <!-- Add additional rules here -->
 </faces-config>
