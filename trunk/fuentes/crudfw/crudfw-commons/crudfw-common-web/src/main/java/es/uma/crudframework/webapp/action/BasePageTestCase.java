@@ -216,7 +216,6 @@ public abstract class BasePageTestCase extends
                 "classpath:/spring/applicationContext-test.xml",
                 "classpath:/spring/applicationContext-dao.xml",
                 "classpath:/spring/applicationContext-service.xml",
-                "classpath:/spring/applicationContext-facade.xml",
                 "classpath:/spring/applicationContext-delegate.xml",
                 "classpath*:/spring/applicationContext.xml",
                 // for modular archetypes

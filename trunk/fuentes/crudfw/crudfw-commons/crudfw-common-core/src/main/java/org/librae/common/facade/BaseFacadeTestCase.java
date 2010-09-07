@@ -51,7 +51,6 @@ public abstract class BaseFacadeTestCase extends
         return new String[] {
                 "classpath:/spring/applicationContext-resources.xml",
                 "classpath*:/spring/applicationContext-dao.xml",
-                "classpath*:/spring/applicationContext-facade.xml",
                 "classpath*:/spring/applicationContext.xml", // for modular projects
                 "classpath:**/spring/applicationContext.xml"  };
     }
