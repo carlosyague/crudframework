@@ -28,7 +28,7 @@ public class ${pojo.shortName}ListTest extends BasePageTestCase {
     }
 
     @Override @SuppressWarnings("unchecked")
-    protected void onSetUp() throws Exception {
+    protected void onSetUp() {
         super.onSetUp();
         bean = new ${pojo.shortName}ListAction();
         bean.set${pojo.shortName}Manager(${pojoNameLower}Manager);
@@ -49,7 +49,7 @@ public class ${pojo.shortName}ListTest extends BasePageTestCase {
     }
 
     @Override
-    protected void onTearDown() throws Exception {
+    protected void onTearDown() {
         super.onTearDown();
         bean = null;
     }
