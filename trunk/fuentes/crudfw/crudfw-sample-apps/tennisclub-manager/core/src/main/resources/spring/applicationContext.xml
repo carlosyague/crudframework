@@ -9,7 +9,6 @@
     </description>
 
     <import resource="./applicationContext-dao.xml"/>
-    <import resource="./applicationContext-facade.xml"/>
     <import resource="./applicationContext-service.xml"/>
 
 </beans>
