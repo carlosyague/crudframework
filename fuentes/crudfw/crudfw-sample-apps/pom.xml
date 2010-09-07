@@ -48,6 +48,30 @@
 						</dependency>
 					</dependencies>
 				</plugin>
+
+    			<!-- CRUD GENERATOR PLUGIN -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>crudgenerator-maven-plugin</artifactId>
+					<version>0.1</version>
+					<configuration>
+						<genericCore>${crudgenerator.maven.plugin.genericCore}</genericCore>
+						<fullSource>${crudgenerator.maven.plugin.fullSource}</fullSource>
+						<componentProperties>
+							<appfusePackage>${crudgenerator.maven.plugin.appfusePackage}</appfusePackage>
+							<authorName>${crudgenerator.maven.plugin.autorName}</authorName>
+							<configurationfile>src/main/resources/hibernate.cfg.xml</configurationfile>
+							<sampleDataFile>src/test/resources/sample-data.xml</sampleDataFile>
+						</componentProperties>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>${jdbc.groupId}</groupId>
+							<artifactId>${jdbc.artifactId}</artifactId>
+							<version>${jdbc.version}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
@@ -69,6 +93,13 @@
 	</reporting>
 	<dependencies>
 	</dependencies>
+	<properties>
+		<crudgenerator.maven.plugin.version>0.1</crudgenerator.maven.plugin.version>
+		<crudgenerator.maven.plugin.autorName>cyague@lcc.uma</crudgenerator.maven.plugin.autorName>
+		<crudgenerator.maven.plugin.appfusePackage>es.uma.crudframework</crudgenerator.maven.plugin.appfusePackage>
+		<crudgenerator.maven.plugin.genericCore>false</crudgenerator.maven.plugin.genericCore>
+		<crudgenerator.maven.plugin.fullSource>false</crudgenerator.maven.plugin.fullSource>
+	</properties>
 	<modules>
 		<module>tennisclub-manager</module>
 	</modules>
