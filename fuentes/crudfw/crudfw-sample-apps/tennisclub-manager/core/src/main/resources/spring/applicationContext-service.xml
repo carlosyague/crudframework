@@ -32,6 +32,12 @@
     </bean>
     <!--ClienteManager-END-->
 
+    <!--FacturaManager-START-->
+    <bean id="facturaManager" class="org.tennisclub.manager.service.impl.FacturaManagerImpl">
+        <constructor-arg ref="facturaDAO"/>
+    </bean>
+    <!--FacturaManager-END-->
+
     <!-- Add new Managers here -->
 
 </beans>

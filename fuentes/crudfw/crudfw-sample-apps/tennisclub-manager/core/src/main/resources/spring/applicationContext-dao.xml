@@ -20,5 +20,11 @@
     </bean>
     <!--ClienteDao-END-->
 
+    <!--FacturaDao-START-->
+    <bean id="facturaDAO" class="org.tennisclub.manager.dao.hibernate.FacturaDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--FacturaDao-END-->
+
     <!-- Add new DAOs here -->
 </beans>
