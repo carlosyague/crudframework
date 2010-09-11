@@ -9,7 +9,7 @@
 
 
 <ui:composition template="/templates/defaultTemplate.xhtml">
-	<ui:define name="title">${'#'}{text['${pojoNameLower}Form.title']}</ui:define>
+	<ui:define name="title">${'#'}{text['${pojoNameLower}Detail.title']}</ui:define>
 	<ui:define name="body.id">${pojoNameLower}FormAction</ui:define>
 
 	<ui:define name="body">
@@ -22,13 +22,12 @@
 				<!-- PATH -->
 				<table border="0" cellpadding="0" cellspacing="0" class="ruta">
 					<tr>
-						<td class="path"><a
-							href="${'#'}{facesContext.externalContext.requestContextPath}/"
-							title="${'#'}{text['home.title']}"><h:outputText
-							value="${'#'}{text['home.title']}" /></a> > <h:outputText
-							value=" ${'#'}{text['${pojoNameLower}Form.pathText']}" /></td>
-						<td nowrap="true" class="fechahora">2 SEPT 2008 | 17:25<a
-							href="#" class="login">Martinruiz</a></td>
+						<td class="path">
+							<a href="${'#'}{facesContext.externalContext.requestContextPath}/"
+								title="${'#'}{common['home.title']}">
+								<h:outputText value="${'#'}{common['home.title']}" />
+							</a> > <h:outputText value=" ${'#'}{text['${pojoNameLower}Detail.title']}" />
+						</td>
 					</tr>
 				</table>
 				<!-- FIN PATH -->
@@ -36,28 +35,20 @@
 				<!-- CONTENIDO -->
 				<div id="contenido"><!-- PESTANA 1 -->
 				<div id="pestana1">
-				<table border="0" cellpadding="0" cellspacing="0" class="pestanas">
-					<tbody>
-						<tr>
-							<td><h:graphicImage value="/images/p01b.gif" /></td>
-							<td class="titulo_activa"><h:outputText
-								value="${'#'}{text['${pojoNameLower}Form.tab01Text']}" /></td>
-							<td><h:graphicImage value="/images/p02b.gif" /></td>
-						</tr>
-					</tbody>
-				</table>
 				<!-- CONTENIDO PESTANA -->
 				<div class="pestana">
 
 				<div class="cuadro">
 				<div class="cuadro02">
 
+				<br/>
 				<table cellspacing="0" cellpadding="0" border="0" width="100%">
 					<tbody>
 						<!-- cabecera de la ficha -->
 						<tr>
-							<td class="esq01 titular" colspan="2"><h:outputText
-								value=" ${'#'}{text['${pojoNameLower}Form.formTitle']}" /></td>
+							<td class="esq01 titular" colspan="2">
+								<h1><h:outputText value=" ${'#'}{text['${pojoNameLower}Detail.heading']}" /></h1>
+							</td>
 						</tr>
 
 
@@ -134,23 +125,24 @@
 
     		<tr>
     			<td class="esq02" colspan="2">
-    			
-    			<h:commandLink action="cancel" id="cancel" immediate="true" styleClass="boton_rojo" title="${'#'}{text['button.cancel']}" onclick="bCancel=true">
-        			<span> <h:outputText value="${'#'}{text['button.cancel']}" /> </span>
-        		</h:commandLink>
-        		
+    			    			        		
         		<c:if test="${'$'}{not empty ${pojoNameLower}FormAction.${pojoNameLower}.${idFieldName}}">        			            		
             		<h:commandLink action="${'#'}{${pojoNameLower}FormAction.delete}" id="delete"
-						styleClass="boton" title="${'#'}{text['button.delete']}"
+						styleClass="boton" title="${'#'}{common['button.delete']}"
 						onclick="bCancel=true; return confirmDelete('${pojo.shortName}')">
-						<span> <h:outputText value="${'#'}{text['button.delete']}" /> </span>
+						<span> <h:outputText value="${'#'}{common['button.delete']}" /> </span>
 					</h:commandLink>
         		</c:if>
             	
             	<h:commandLink action="${'#'}{${pojoNameLower}FormAction.save}" id="save"
-					styleClass="boton" title="${'#'}{text['button.save']}">
-					<span> <h:outputText value="${'#'}{text['button.save']}" /> </span>
+					styleClass="boton" title="${'#'}{common['button.save']}">
+					<span> <h:outputText value="${'#'}{common['button.save']}" /> </span>
 				</h:commandLink>
+				
+				<h:commandLink action="cancel" id="cancel" immediate="true" styleClass="boton_rojo" title="${'#'}{common['button.cancel']}" onclick="bCancel=true">
+        			<span> <h:outputText value="${'#'}{common['button.cancel']}" /> </span>
+        		</h:commandLink>
+        		
 				</td>
     		</tr>
 
