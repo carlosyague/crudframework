@@ -13,6 +13,7 @@
 			<supported-locale>en</supported-locale>
 			<supported-locale>es</supported-locale>
 		</locale-config>
+		<message-bundle>es.uma.crudframework.messages</message-bundle>
 		<message-bundle>org.tennisclub.manager.messages</message-bundle>
 	</application>
 	
@@ -159,6 +160,32 @@
     </managed-bean>
     <!--Contacto2-beans-END-->
 
+    <!--Cliente-beans-START-->
+    <managed-bean>
+        <managed-bean-name>clienteListAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.ClienteListAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>clienteManager</property-name>
+            <value>#{clienteManager}</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>clienteFormAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.ClienteFormAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>id</property-name>
+            <value>#{param.id}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>clienteManager</property-name>
+            <value>#{clienteManager}</value>
+        </managed-property>
+    </managed-bean>
+    <!--Cliente-beans-END-->
+
     <!-- Add additional beans here -->
 	
 	<navigation-rule>
@@ -202,5 +229,31 @@
     </navigation-rule>
     <!--Contacto2-nav-END-->
     
+    <!--Cliente-nav-START-->
+    <navigation-rule>
+        <from-view-id>/pages/cliente/list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/pages/cliente/form.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/pages/cliente/form.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/cliente/form.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/pages/cliente/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/pages/cliente/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <!--Cliente-nav-END-->
     <!-- Add additional rules here -->
 </faces-config>

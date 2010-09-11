@@ -94,8 +94,7 @@
 			/WEB-INF/taglibs/acegijsf.taglib.xml;
 			/WEB-INF/taglibs/corejsf-validator.taglib.xml;
 			/WEB-INF/taglibs/tomahawk.taglib.xml;
-			/WEB-INF/taglibs/sandbox.taglib.xml;
-			/WEB-INF/taglibs/librae.taglib.xml
+			/WEB-INF/taglibs/crud.taglib.xml
 		</param-value>
     </context-param>
     <filter>

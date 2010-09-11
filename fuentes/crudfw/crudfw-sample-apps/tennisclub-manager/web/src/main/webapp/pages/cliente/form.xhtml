@@ -8,24 +8,24 @@
 
 
 <ui:composition template="/templates/defaultTemplate.xhtml">
-	<ui:define name="title">#{text['contacto2Detail.title']}</ui:define>
-	<ui:define name="body.id">contacto2FormAction</ui:define>
+	<ui:define name="title">#{text['clienteDetail.title']}</ui:define>
+	<ui:define name="body.id">clienteFormAction</ui:define>
 
 	<ui:define name="body">
 		<f:view>
-			<f:loadBundle var="text" basename="#{contacto2FormAction.bundleName}"/>    
+			<f:loadBundle var="text" basename="#{clienteFormAction.bundleName}"/>    
 
-<h:form id="contacto2Form" onsubmit="return validateContacto2Form(this)">
+<h:form id="clienteForm" onsubmit="return validateClienteForm(this)">
 
 
 				<!-- PATH -->
 				<table border="0" cellpadding="0" cellspacing="0" class="ruta">
 					<tr>
-						<td class="path"><a
-							href="#{facesContext.externalContext.requestContextPath}/"
-							title="#{common['home.title']}"><h:outputText
-							value="#{common['home.title']}" /></a> > <h:outputText
-							value=" #{text['contacto2Detail.title']}" />
+						<td class="path">
+							<a href="#{facesContext.externalContext.requestContextPath}/"
+								title="#{common['home.title']}">
+								<h:outputText value="#{common['home.title']}" />
+							</a> > <h:outputText value=" #{text['clienteDetail.title']}" />
 						</td>
 					</tr>
 				</table>
@@ -46,18 +46,18 @@
 						<!-- cabecera de la ficha -->
 						<tr>
 							<td class="esq01 titular" colspan="2">
-								<h1><h:outputText value=" #{text['contacto2Detail.heading']}" /></h1>
+								<h1><h:outputText value=" #{text['clienteDetail.heading']}" /></h1>
 							</td>
 						</tr>
 
 
-<h:inputHidden value="#{contacto2FormAction.contacto2.id}" id="id"/>
+<h:inputHidden value="#{clienteFormAction.cliente.id}" id="id"/>
 	    
         
 		<tr>
-		<th width="10%"><h:outputLabel for="apellidos" value="#{text['contacto2.apellidos']}" /></th>
+		<th width="10%"><h:outputLabel for="apellidos" value="#{text['cliente.apellidos']}" /></th>
 		<td width="90%">
-    <h:inputText styleClass="text medium" id="apellidos" value="#{contacto2FormAction.contacto2.apellidos}" required="false" maxlength="255">
+    <h:inputText styleClass="text medium" id="apellidos" value="#{clienteFormAction.cliente.apellidos}" required="false" maxlength="255">
     </h:inputText>
         <t:message for="apellidos" styleClass="fieldError"/>
     	</td>
@@ -67,9 +67,9 @@
 	    
         
 		<tr>
-		<th width="10%"><h:outputLabel for="codigoPostal" value="#{text['contacto2.codigoPostal']}" /></th>
+		<th width="10%"><h:outputLabel for="codigoPostal" value="#{text['cliente.codigoPostal']}" /></th>
 		<td width="90%">
-    <h:inputText styleClass="text medium" id="codigoPostal" value="#{contacto2FormAction.contacto2.codigoPostal}" required="false" maxlength="255">
+    <h:inputText styleClass="text medium" id="codigoPostal" value="#{clienteFormAction.cliente.codigoPostal}" required="false" maxlength="255">
     </h:inputText>
         <t:message for="codigoPostal" styleClass="fieldError"/>
     	</td>
@@ -79,9 +79,9 @@
 	    
         
 		<tr>
-		<th width="10%"><h:outputLabel for="direccion" value="#{text['contacto2.direccion']}" /></th>
+		<th width="10%"><h:outputLabel for="direccion" value="#{text['cliente.direccion']}" /></th>
 		<td width="90%">
-    <h:inputText styleClass="text medium" id="direccion" value="#{contacto2FormAction.contacto2.direccion}" required="false" maxlength="255">
+    <h:inputText styleClass="text medium" id="direccion" value="#{clienteFormAction.cliente.direccion}" required="false" maxlength="255">
     </h:inputText>
         <t:message for="direccion" styleClass="fieldError"/>
     	</td>
@@ -91,9 +91,9 @@
 	    
         
 		<tr>
-		<th width="10%"><h:outputLabel for="nombre" value="#{text['contacto2.nombre']}" /></th>
+		<th width="10%"><h:outputLabel for="nombre" value="#{text['cliente.nombre']}" /></th>
 		<td width="90%">
-    <h:inputText styleClass="text medium" id="nombre" value="#{contacto2FormAction.contacto2.nombre}" required="false" maxlength="255">
+    <h:inputText styleClass="text medium" id="nombre" value="#{clienteFormAction.cliente.nombre}" required="false" maxlength="255">
     </h:inputText>
         <t:message for="nombre" styleClass="fieldError"/>
     	</td>
@@ -103,9 +103,9 @@
 	    
         
 		<tr>
-		<th width="10%"><h:outputLabel for="notas" value="#{text['contacto2.notas']}" /></th>
+		<th width="10%"><h:outputLabel for="notas" value="#{text['cliente.notas']}" /></th>
 		<td width="90%">
-    <h:inputText styleClass="text medium" id="notas" value="#{contacto2FormAction.contacto2.notas}" required="false" maxlength="255">
+    <h:inputText styleClass="text medium" id="notas" value="#{clienteFormAction.cliente.notas}" required="false" maxlength="255">
     </h:inputText>
         <t:message for="notas" styleClass="fieldError"/>
     	</td>
@@ -115,9 +115,9 @@
 	    
         
 		<tr>
-		<th width="10%"><h:outputLabel for="poblacion" value="#{text['contacto2.poblacion']}" /></th>
+		<th width="10%"><h:outputLabel for="poblacion" value="#{text['cliente.poblacion']}" /></th>
 		<td width="90%">
-    <h:inputText styleClass="text medium" id="poblacion" value="#{contacto2FormAction.contacto2.poblacion}" required="false" maxlength="255">
+    <h:inputText styleClass="text medium" id="poblacion" value="#{clienteFormAction.cliente.poblacion}" required="false" maxlength="255">
     </h:inputText>
         <t:message for="poblacion" styleClass="fieldError"/>
     	</td>
@@ -127,9 +127,9 @@
 	    
         
 		<tr>
-		<th width="10%"><h:outputLabel for="provincia" value="#{text['contacto2.provincia']}" /></th>
+		<th width="10%"><h:outputLabel for="provincia" value="#{text['cliente.provincia']}" /></th>
 		<td width="90%">
-    <h:inputText styleClass="text medium" id="provincia" value="#{contacto2FormAction.contacto2.provincia}" required="false" maxlength="255">
+    <h:inputText styleClass="text medium" id="provincia" value="#{clienteFormAction.cliente.provincia}" required="false" maxlength="255">
     </h:inputText>
         <t:message for="provincia" styleClass="fieldError"/>
     	</td>
@@ -139,9 +139,9 @@
 	    
         
 		<tr>
-		<th width="10%"><h:outputLabel for="tfno" value="#{text['contacto2.tfno']}" /></th>
+		<th width="10%"><h:outputLabel for="tfno" value="#{text['cliente.tfno']}" /></th>
 		<td width="90%">
-    <h:inputText styleClass="text medium" id="tfno" value="#{contacto2FormAction.contacto2.tfno}" required="false" maxlength="255">
+    <h:inputText styleClass="text medium" id="tfno" value="#{clienteFormAction.cliente.tfno}" required="false" maxlength="255">
     </h:inputText>
         <t:message for="tfno" styleClass="fieldError"/>
     	</td>
@@ -151,22 +151,21 @@
 
     		<tr>
     			<td class="esq02" colspan="2">
-    			        		
-        		<c:if test="${not empty contacto2FormAction.contacto2.id}">        			            		
-            		<h:commandLink action="#{contacto2FormAction.delete}" id="delete"
+    			    			        		
+        		<c:if test="${not empty clienteFormAction.cliente.id}">        			            		
+            		<h:commandLink action="#{clienteFormAction.delete}" id="delete"
 						styleClass="boton" title="#{common['button.delete']}"
-						onclick="bCancel=true; return confirmDelete('Contacto2')">
+						onclick="bCancel=true; return confirmDelete('Cliente')">
 						<span> <h:outputText value="#{common['button.delete']}" /> </span>
 					</h:commandLink>
         		</c:if>
             	
-            	<h:commandLink action="#{contacto2FormAction.save}" id="save"
+            	<h:commandLink action="#{clienteFormAction.save}" id="save"
 					styleClass="boton" title="#{common['button.save']}">
 					<span> <h:outputText value="#{common['button.save']}" /> </span>
 				</h:commandLink>
 				
-				<h:commandLink action="cancel" id="cancel" immediate="true" styleClass="boton_rojo" 
-					title="#{common['button.cancel']}" onclick="bCancel=true">
+				<h:commandLink action="cancel" id="cancel" immediate="true" styleClass="boton_rojo" title="#{common['button.cancel']}" onclick="bCancel=true">
         			<span> <h:outputText value="#{common['button.cancel']}" /> </span>
         		</h:commandLink>
         		
@@ -195,10 +194,10 @@
 	</div>
 </h:form>
 
-	<v:validatorScript functionName="validateContacto2Form" />
+	<v:validatorScript functionName="validateClienteForm" />
 
 	<script type="text/javascript">
-	    Form.focusFirstElement($('contacto2Form'));
+	    Form.focusFirstElement($('clienteForm'));
 	    highlightFormElements();
 	</script>
 

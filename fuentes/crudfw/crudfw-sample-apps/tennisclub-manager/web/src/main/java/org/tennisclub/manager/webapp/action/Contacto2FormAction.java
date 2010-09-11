@@ -4,7 +4,7 @@ package org.tennisclub.manager.webapp.action;
 import java.io.Serializable;
 
 import org.tennisclub.manager.model.Contacto2;
-import es.uma.crudframework.webapp.action.BasePage;
+import org.tennisclub.manager.webapp.action.BasePage;
 import org.tennisclub.manager.service.IContacto2Manager;
 
 /**
