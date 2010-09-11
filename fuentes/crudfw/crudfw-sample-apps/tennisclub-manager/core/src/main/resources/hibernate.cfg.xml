@@ -5,5 +5,6 @@
 	  <mapping class="org.tennisclub.manager.model.Contacto" />
        
       <mapping class="org.tennisclub.manager.model.Contacto2"/>
+        <mapping class="org.tennisclub.manager.model.Cliente"/>
     </session-factory>
 </hibernate-configuration>

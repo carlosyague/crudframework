@@ -14,5 +14,11 @@
     </bean>
     <!--Contacto2Dao-END-->
 
+    <!--ClienteDao-START-->
+    <bean id="clienteDAO" class="org.tennisclub.manager.dao.hibernate.ClienteDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--ClienteDao-END-->
+
     <!-- Add new DAOs here -->
 </beans>

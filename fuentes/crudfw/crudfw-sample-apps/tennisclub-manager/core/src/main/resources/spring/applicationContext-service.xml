@@ -26,6 +26,12 @@
     </bean>
     <!--Contacto2Manager-END-->
 
+    <!--ClienteManager-START-->
+    <bean id="clienteManager" class="org.tennisclub.manager.service.impl.ClienteManagerImpl">
+        <constructor-arg ref="clienteDAO"/>
+    </bean>
+    <!--ClienteManager-END-->
+
     <!-- Add new Managers here -->
 
 </beans>
