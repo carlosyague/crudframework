@@ -93,5 +93,32 @@
     </row>
     </table>
     <!--Cliente-END-->
+    <!--Factura-START-->
+    <table name="Factura">
+        <column>id</column>
+        <column>fechaPago</column>
+        <column>numeroTjtaCredito</column>
+        <column>orden</column>
+    <row>
+        <value description="id">-1</value>
+        <value description="fechaPago">2010-09-11</value>
+        <value description="numeroTjtaCredito">SaLbSpHkRpMcBmJkPyMxKbOdYmNnOrZvFnXuQyDtHzUgJdDuHsClPcWjGzEvVkJsHxZtEnQbJsVzQnPwIeXkQcAfLyDpAeUlLeBqCpJtNnSsBfRaVeXsUjYhWaIcNfQxKmChEcYpWeYlOcOfJcIyPoHtUwPaOgAtCuPyDeEjPlCdWqHmBmPqTmTaIyEhWeQbYtNgRaGkWsBtJeQsZzPpEdKsCnKwGgQkJrOxOdIvQkBaSzGyVuSiLwNtQzSdViY</value>
+        <value description="orden">YmArIjPkThHsBcRvJrUxEoWfVrJsAyNpZdYyVeWdVyDiOkZcHeNiHsEwXzDuCtXsQfDiMpJmWkPmCbRfSaElAmKnJeGqAbRgWyZgAcZxEeMvPsRiLiRpOhClUxKmEcMlMzVxImCkNuChDfSnNvEoTbGbVmRyQwYcWaQaMrNnUhWgEiUuVsXlHbDgJhEtMoLkOjXcDvFnUgKdPyFqUeBtAbDqVxEkYiIbFiPiTmJbFqNkMcWhPyCwOuFiBhKaHeB</value>
+    </row>
+    <row>
+        <value description="id">-2</value>
+        <value description="fechaPago">2010-09-11</value>
+        <value description="numeroTjtaCredito">FtUqMpGyYaDsLwCnCjHaTgPgWwEoPuGyFbPmJoKgFsWtAqVsBzZkRfIxHoQbMsGxGkJxZoEuHkCtTdGlUsUdMqNoSzIdBxElGoIgWvRkUsFeAjKpLjBsWoSpUoIeVkKcIaYqJvVrBzFjCdKhGtNuFpFyXsXbGkQzAkXpTeVoKxEdHvWoDzRuGfYvCpYgSlRoFfKzWxKgHeCsRxIiKqUyJxRsOuZpTtYuZuOaQzWjWsYwXkJqApVpYxHrMtMrIaN</value>
+        <value description="orden">KaKiPoXxFySwKhSjZxOdMxDoSsXbJxJjJxZiCjYdPuJaUaOfFnMuQvEcVbNlRxKtZxPgZdEiNpLcAxOpEvMrHwTiRtMfRkQbRdLgBmAnMaMpWcLaFfZiDhFaBaNaYdKsLnDtSdCqSxAzEgFvMcYvUzPaKbNbVsNhMmDiRuBhYiZkTrVnPiMrLnOxLgHvQyOfWnOeTvZtFbSiZeWnQdTnZdYmGnJwHrIfSkVlXxShAvStFrVuHfBnEfCxPaDfWtN</value>
+    </row>
+    <row>
+        <value description="id">-3</value>
+        <value description="fechaPago">2010-09-11</value>
+        <value description="numeroTjtaCredito">OmEhAsItRqKfMcJaBmEzHzXbLgAkNbDpCpUlPwVeYwMkRiCrDvAhBoZnKzFvCwHcSeVpUdNuLwAlOjUdOrBnBaBeHjZzOxEwFcJbUiJxEhTiTuMnIiBeBuYjEfDjEjWyDmKcAuKrFrCgHrGlAoOaKzGbJxXaFtYjAaFqCxTmPzAcKfNeHbNrXfHtJhYxTrZkXcBuHyNxGrOgEpVvHrCnMnHaXrXaLuDxBmIwSiDjJrEnSiLaPlVrOpSbNzBjYeB</value>
+        <value description="orden">DvBqQjRtUxVqPkLpNeAzJcJxNaKgOaWhObAhUzUdRjOcInJrOzNgQqNbSoZyHpPpBjAeOfCqFvRiSaQyWjHiAsReZsVwIlVqMyZoUjDkYfNhWnHgLwFlPlMsEyFlRlCaCqPlBwQyJwLyFuAhEoEhPlGaRcFxVbPlTxUcEoGzZgJhCeCoBbPzRyLhLoGiQyUdWnPoYrKhObQqNkBlLkOsYdWuKeJfAaQpBhEzCnHcNmFgDvAqMvAwZxUbAvIyHnU</value>
+    </row>
+    </table>
+    <!--Factura-END-->
 </dataset>
+
 
