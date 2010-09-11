@@ -16,6 +16,22 @@
 			<f:loadBundle var="text" basename="${'#'}{${pojoNameLower}ListAction.bundleName}"/>
 
 			<h:form id="edit${pojo.shortName}">
+				
+				<!-- PATH -->
+				<table border="0" cellpadding="0" cellspacing="0" class="ruta">
+					<tr>
+						<td class="path">
+							<a href="${'#'}{facesContext.externalContext.requestContextPath}/"
+								title="${'#'}{common['home.title']}">
+								<h:outputText value="${'#'}{common['home.title']}" />
+							</a> > <h:outputText value=" ${'#'}{text['${pojoNameLower}List.title']}" />
+						</td>
+					</tr>
+				</table>
+				<!-- FIN PATH -->
+				
+				<br/>
+				<h1><h:outputText value="${'#'}{text['${pojoNameLower}List.heading']}" /></h1>
 			
 				<crud:breadCrumb />
 
@@ -25,7 +41,7 @@
 						cellspacing="0" columns="1" columnClasses="blank">
 
 						<h:commandLink action="add" id="add" immediate="true" styleClass="btn_barra">
-							<span><h:outputText value="${'#'}{text['button.add']}" /></span>
+							<span><h:outputText value="${'#'}{common['button.add']}" /></span>
 						</h:commandLink>
 					</t:panelGrid>
 
@@ -46,7 +62,7 @@
         	<#lt/>    <h:selectBooleanCheckbox value="${'#'}{${pojoNameLower}Form.${pojoNameLower}.${field.name}}" id="${field.name}" disabled="disabled"/>
     		<#else>
         	<#lt/>  
-        			<crud:dataTableColumn columnName="lastName"
+        			<crud:dataTableColumn columnName="${field.name}"
 						columnLabel="${'#'}{text['${pojoNameLower}.${field.name}']}"
 						rowValue="${'#'}{entity.${field.name}}" />
     		</#if>
