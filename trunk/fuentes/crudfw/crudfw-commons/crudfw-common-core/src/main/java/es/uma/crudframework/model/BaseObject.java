@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -46,10 +47,9 @@ public abstract class BaseObject implements Serializable {
      * getter & setters<br>
      * ================
      */
-    
-	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = ID_GENERATOR_NAME)
-    @SequenceGenerator(name = ID_GENERATOR_NAME, sequenceName = ID_SEQUENCE_NAME)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
 		return id;
 	}
