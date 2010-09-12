@@ -1,2 +1,0 @@
-mvn deploy:deploy-file -DgroupId=org.pentaho.di -DartifactId=kettle-core -Dversion=3.1.2 -Dpackaging=jar -Dfile=./pentaho.kettle/kettle-core-3.1.2.jar -DrepositoryId=librae.internal -Durl=dav:http://dev.librae.org/archiva/repository/internal
-mvn deploy:deploy-file -DgroupId=org.pentaho.di -DartifactId=kettle-engine -Dversion=3.1.2 -Dpackaging=jar -Dfile=./pentaho.kettle/kettle-engine-3.1.2.jar -DrepositoryId=librae.internal -Durl=dav:http://dev.librae.org/archiva/repository/internal
