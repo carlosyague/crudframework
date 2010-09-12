@@ -92,51 +92,51 @@
         <system />
         <url />
     </issueManagement>
-    <distributionManagement>
-        <repository>
-            <id>crudfw.internal</id>
-            <name>Internal Release Repository</name>
-            <url>dav:http://dev.crudfw.org/archiva/repository/internal</url>
-        </repository>
-        <snapshotRepository>
-            <id>crudfw.snapshots</id>
-            <name>Internal Snapshot Repository</name>
-            <url>dav:http://dev.crudfw.org/archiva/repository/snapshots</url>
-        </snapshotRepository>
-        <site>
-            <id>www.crudfw.org</id>
-            <url>scp://www.crudfw.org/www/docs/project/</url>
-        </site>
-    </distributionManagement>
+<!--    <distributionManagement>-->
+<!--        <repository>-->
+<!--            <id>crudfw.internal</id>-->
+<!--            <name>Internal Release Repository</name>-->
+<!--            <url>dav:http://dev.crudfw.org/archiva/repository/internal</url>-->
+<!--        </repository>-->
+<!--        <snapshotRepository>-->
+<!--            <id>crudfw.snapshots</id>-->
+<!--            <name>Internal Snapshot Repository</name>-->
+<!--            <url>dav:http://dev.crudfw.org/archiva/repository/snapshots</url>-->
+<!--        </snapshotRepository>-->
+<!--        <site>-->
+<!--            <id>www.crudfw.org</id>-->
+<!--            <url>scp://www.crudfw.org/www/docs/project/</url>-->
+<!--        </site>-->
+<!--    </distributionManagement>-->
 
     <!-- ************ -->
     <!-- REPOSITORIOS -->
     <!-- ************ -->
-    <repositories>
-        <repository>
-            <id>crudfw.internal</id>
-            <url>http://dev.crudfw.org/archiva/repository/internal</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>warn</checksumPolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>never</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>crudfw.snapshots</id>
-            <url>http://dev.crudfw.org/archiva/repository/snapshots</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
-            </snapshots>
-        </repository>
-    </repositories>
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>crudfw.internal</id>-->
+<!--            <url>http://dev.crudfw.org/archiva/repository/internal</url>-->
+<!--            <releases>-->
+<!--                <enabled>true</enabled>-->
+<!--                <updatePolicy>always</updatePolicy>-->
+<!--                <checksumPolicy>warn</checksumPolicy>-->
+<!--            </releases>-->
+<!--            <snapshots>-->
+<!--                <enabled>false</enabled>-->
+<!--                <updatePolicy>never</updatePolicy>-->
+<!--                <checksumPolicy>fail</checksumPolicy>-->
+<!--            </snapshots>-->
+<!--        </repository>-->
+<!--        <repository>-->
+<!--            <id>crudfw.snapshots</id>-->
+<!--            <url>http://dev.crudfw.org/archiva/repository/snapshots</url>-->
+<!--            <snapshots>-->
+<!--                <enabled>true</enabled>-->
+<!--                <updatePolicy>always</updatePolicy>-->
+<!--                <checksumPolicy>fail</checksumPolicy>-->
+<!--            </snapshots>-->
+<!--        </repository>-->
+<!--    </repositories>-->
     <pluginRepositories>
         <pluginRepository>
             <id>appfuse</id>
@@ -689,11 +689,11 @@
         <page.bienvenida>inicio.htm</page.bienvenida>
         
         <!-- PROFILE por defecto "mysql" -->
-        <profile.jdbc.host>mysql.sigb</profile.jdbc.host>
+        <profile.jdbc.host>mysql.crudfw</profile.jdbc.host>
 			<profile.jdbc.port>3306</profile.jdbc.port>
-			<profile.jdbc.dbname>librae_db</profile.jdbc.dbname>
-			<profile.jdbc.username>librae_user</profile.jdbc.username>
-			<profile.jdbc.password>librae_pwd</profile.jdbc.password>
+			<profile.jdbc.dbname>crudfw_db</profile.jdbc.dbname>
+			<profile.jdbc.username>crudfw_user</profile.jdbc.username>
+			<profile.jdbc.password>crudfw_pwd</profile.jdbc.password>
 			<profile.jdbc.url>
 				<![CDATA[jdbc:mysql://${profile.jdbc.host}:${profile.jdbc.port}/${profile.jdbc.dbname}?createDatabaseIfNotExist=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8]]>
 			</profile.jdbc.url>

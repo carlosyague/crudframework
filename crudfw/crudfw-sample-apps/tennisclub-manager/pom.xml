@@ -9,7 +9,7 @@
 		<artifactId>crudfw-samples</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-	<groupId>es.uma.crudfw.samples</groupId>
+	<groupId>org.tennisclub.manager</groupId>
 	<artifactId>tennisclub-manager</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>

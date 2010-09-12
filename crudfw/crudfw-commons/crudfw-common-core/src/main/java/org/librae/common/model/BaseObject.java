@@ -4,9 +4,14 @@ import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Transient;
 
-import com.thoughtworks.xstream.XStream;
+import org.apache.commons.lang.builder.ToStringBuilder;
 
 /**
  * Base class for Model objects. Child objects should implement toString(),
@@ -14,54 +19,49 @@ import com.thoughtworks.xstream.XStream;
  * 
  * @author <a href="mailto:matt@raibledesigns.com">Matt Raible</a>
  */
+@MappedSuperclass
 public abstract class BaseObject implements Serializable {
 
+	public static final String PROPERTY_FIELD_ID = "id";
+	private static final String ID_GENERATOR_NAME = "id_generator";
+    private static final String ID_SEQUENCE_NAME = "SEQ_ID";
+	
+	protected Long id;
+	
     /**
      * usado en los checkboxes de los listados JSF.
      */
-    @Transient
+    
     protected Boolean     selected = Boolean.FALSE;
+    
     private final boolean par      = Boolean.FALSE;
 
     /**
      * usado en la creación temporal de beans que no queremos que sean salvables
      */
-    @Transient
+    
     private Boolean       temporal = Boolean.FALSE;
-
-    /**
-     * usado en los POJOs con IDs remotos obtenidos por NCIP
-     */
-    @Transient
-    private Long          idNcip   = null;
 
     /**
      * getter & setters<br>
      * ================
      */
-
-    /**
-     * @return the idNcip
-     */
-    public Long getIdNcip() {
-        return idNcip;
-    }
-
-    /**
-     * @param idNcip
-     *            the idNcip to set
-     */
-    public void setIdNcip(final Long idNcip) {
-        this.idNcip = idNcip;
-    }
-
-    public Boolean getIsPojoNcip() {
-        return (idNcip != null);
-    }
+    
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = ID_GENERATOR_NAME)
+    @SequenceGenerator(name = ID_GENERATOR_NAME, sequenceName = ID_SEQUENCE_NAME)
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 
     /**
      * @return the selected
      */
+	@Transient
     public final Boolean getSelected() {
         return selected;
     }
@@ -77,6 +77,7 @@ public abstract class BaseObject implements Serializable {
     /**
      * @return the temporal
      */
+    @Transient
     public final Boolean getTemporal() {
         return temporal;
     }
@@ -96,10 +97,11 @@ public abstract class BaseObject implements Serializable {
      * 
      * @return estilo css de tr
      */
+    @Transient
     public String getEstilo() {
         String res = "";
 
-        if (getSelected()) {
+        if (this.getSelected()) {
             res = "FilaSelec";
         }
 
@@ -132,8 +134,10 @@ public abstract class BaseObject implements Serializable {
                     field.set(this, value);
 
                 } catch (final IllegalArgumentException e) {
+                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 } catch (final IllegalAccessException e) {
+                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
@@ -152,7 +156,44 @@ public abstract class BaseObject implements Serializable {
      * @return a String representation of this class.
      */
     @Override
-    public abstract String toString();
+    public String toString() {
+		return reflectionToString();
+    }
+    
+    /**
+     * 
+     * @return
+     */
+    protected String reflectionToString() {
+    	final ToStringBuilder tsb = new ToStringBuilder(this);
+    	
+    	final Field[] fields = this.getClass().getDeclaredFields();
+
+        for (Field field : fields) {
+            final int modifiers = field.getModifiers();
+
+            if (!Modifier.isFinal(modifiers) && !Modifier.isStatic(modifiers)) {
+
+                try {
+                    field.setAccessible(true);
+                    
+                    /**
+                     * toString() de cada campo
+                     */
+                    final String fieldName = field.getName();
+                    final Object fieldValue = field.get(this);
+                    tsb.append(fieldName, fieldValue);
+                    
+                } catch (final IllegalArgumentException e) {
+                    e.printStackTrace();
+                } catch (final IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        
+        return tsb.toString();
+    }
 
     /**
      * Compares object equality. When using Hibernate, the primary key should
@@ -163,7 +204,65 @@ public abstract class BaseObject implements Serializable {
      * @return true/false based on equality tests
      */
     @Override
-    public abstract boolean equals(Object o);
+    public boolean equals(Object obj) {
+    	// if they are the same instance
+        if (this == obj) {
+            return true;
+        }
+        
+        Class clazz = this.getClass();
+        Object objCasted = null;
+        
+        try {
+        	objCasted = clazz.cast(obj);
+        } catch (ClassCastException e) {
+        	objCasted = null;
+        }
+        
+        if (objCasted != null) {
+        	return reflectionEquals(objCasted);
+        }
+        
+        return false;
+    }
+    
+    /**
+     * 
+     * @param other
+     * @return
+     */
+    protected boolean reflectionEquals(Object other) {
+    	boolean result = true;
+
+        for (Field field : this.getClass().getDeclaredFields()) {
+            final int modifiers = field.getModifiers();
+
+            if (!Modifier.isFinal(modifiers) && !Modifier.isStatic(modifiers) && 
+            		!field.getName().equals("id")) {
+
+                try {
+                    field.setAccessible(true);
+                    
+                    /**
+                     * equals() de cada campo
+                     */
+                    final Object fieldValueThis = field.get(this);
+                    final Object fieldValueOther = field.get(other);
+
+                    final boolean fieldEquals = (fieldValueThis == null && fieldValueOther == null) ||
+                    	(fieldValueThis != null && fieldValueOther != null && fieldValueThis.equals(fieldValueOther));
+                    result = result && fieldEquals;
+                    
+                } catch (final IllegalArgumentException e) {
+                    e.printStackTrace();
+                } catch (final IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        
+        return result;
+    }
 
     /**
      * When you override equals, you should override hashCode. See "Why are
@@ -173,28 +272,40 @@ public abstract class BaseObject implements Serializable {
      * @return hashCode
      */
     @Override
-    public abstract int hashCode();
-
+	public int hashCode() {
+    	return reflectionHashCode();
+	}
+    
     /**
-     * Método usado para convertir POJOs a XML.
      * 
      * @return
      */
-    public String toXML() {
-        final XStream xstream = new XStream();
-        return xstream.toXML(this);
-    }
+    protected int reflectionHashCode() {
+    	
+    	int result = 31;
+    	for (Field field : this.getClass().getDeclaredFields()) {
+            final int modifiers = field.getModifiers();
 
-    /**
-     * Método usado para convertir un objeto serializado en formato XML a
-     * Object.
-     * 
-     * @param xmlObject
-     * @return
-     */
-    public static Object fromXML(String xmlObject) {
-        final XStream xstream = new XStream();
-        return xstream.fromXML(xmlObject);
-    }
+            if (!Modifier.isFinal(modifiers) && !Modifier.isStatic(modifiers)) {
 
+                try {
+                    field.setAccessible(true);
+                    
+                    /**
+                     * hashCode() de cada campo
+                     */
+                    final Object fieldValue = field.get(this);
+
+                    result += (fieldValue == null)? 0 : fieldValue.hashCode();
+                    
+                } catch (final IllegalArgumentException e) {
+                    e.printStackTrace();
+                } catch (final IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    	
+    	return result;
+    }
 }

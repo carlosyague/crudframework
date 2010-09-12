@@ -19,11 +19,11 @@
     	</activation>
 
 		<properties>
-			<profile.jdbc.host>mysql.sigb</profile.jdbc.host>
+			<profile.jdbc.host>mysql.crudfw</profile.jdbc.host>
 			<profile.jdbc.port>3306</profile.jdbc.port>
-			<profile.jdbc.dbname>librae_db</profile.jdbc.dbname>
-			<profile.jdbc.username>librae_user</profile.jdbc.username>
-			<profile.jdbc.password>librae_pwd</profile.jdbc.password>
+			<profile.jdbc.dbname>crudfw_db</profile.jdbc.dbname>
+			<profile.jdbc.username>crudfw_user</profile.jdbc.username>
+			<profile.jdbc.password>crudfw_pwd</profile.jdbc.password>
 			<profile.jdbc.url>
 				<![CDATA[jdbc:mysql://${profile.jdbc.host}:${profile.jdbc.port}/${profile.jdbc.dbname}?createDatabaseIfNotExist=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8]]>
 			</profile.jdbc.url>
@@ -46,8 +46,6 @@
 
 			<!-- usado en los scripts de librae-model -->
 			<profile.database>mysql</profile.database>
-			<profile.path.script.auditoria>../../librae-servicios/librae-common-auditoria/target/hibernate3/sql/</profile.path.script.auditoria>
-			<profile.path.script.osworkflow>../../librae-servicios/librae-common-osworkflow/core/target/hibernate3/sql/</profile.path.script.osworkflow>
 		</properties>
 	</profile>
 	<!-- fin mysql -->

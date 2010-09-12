@@ -107,26 +107,6 @@ public class GenericDAOImpl<T, PK extends Serializable> extends
      * {@inheritDoc}
      */
     @SuppressWarnings(Constants.SUPPRESS_WARNINGS_UNCHECKED)
-    public final List<String> getAllXml() {
-        List<String> resultXml = null;
-
-        try {
-            final List<T> resultObj = getAll();
-            resultXml = entitiesToXml(resultObj);
-
-        } catch (final Exception e) {
-            this.log
-                    .error("ERROR al obtener el listado completo en BD:\n " + e);
-            throw ExceptionUtil.crearLibraeException("ERROR_GET_ALL_BD", e);
-        }
-
-        return resultXml;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @SuppressWarnings(Constants.SUPPRESS_WARNINGS_UNCHECKED)
     public final List<T> getAllDistinct() {
         final Collection result = new LinkedHashSet(this.getAll());
         return new ArrayList(result);
@@ -235,22 +215,6 @@ public class GenericDAOImpl<T, PK extends Serializable> extends
         }
 
         return entity;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @SuppressWarnings(Constants.SUPPRESS_WARNINGS_UNCHECKED)
-    public final String getXml(final PK id) {
-        String resultXml = null;
-
-        final T entity = get(id);
-
-        if (entity != null) {
-            resultXml = this.entityToXml(entity);
-        }
-
-        return resultXml;
     }
 
     /**
@@ -542,75 +506,5 @@ public class GenericDAOImpl<T, PK extends Serializable> extends
         }
 
         return result.toString();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public String entityToXml(T object) {
-        String result = null;
-
-        if (object instanceof BaseObject) {
-            final BaseObject baseObj = (BaseObject) object;
-
-            result = baseObj.toXML();
-        }
-
-        return result;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public List<String> entitiesToXml(List<T> listObjects) {
-        final List<String> result = new ArrayList<String>();
-
-        final Iterator<T> itObj = listObjects.iterator();
-        while (itObj.hasNext()) {
-            final T obj = itObj.next();
-
-            final String xmlObj = entityToXml(obj);
-
-            if (xmlObj != null) {
-                result.add(xmlObj);
-            }
-        }
-
-        return result;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public T xmlToEntity(String xmlObj) {
-        T result = null;
-
-        final Object obj = BaseObject.fromXML(xmlObj);
-
-        if (obj instanceof BaseObject) {
-            result = (T) obj;
-        }
-
-        return result;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public List<T> xmlToEntities(List<String> xmlObjects) {
-        final List<T> result = new ArrayList<T>();
-
-        final Iterator<String> itXmlObj = xmlObjects.iterator();
-        while (itXmlObj.hasNext()) {
-            final String xmlObj = itXmlObj.next();
-
-            final T obj = xmlToEntity(xmlObj);
-
-            if (obj != null) {
-                result.add(obj);
-            }
-        }
-
-        return result;
     }
 }

@@ -33,11 +33,7 @@
 
     <!-- Enable @Configured support -->
     <aop:spring-configured />
-
-    <!-- Log Interceptor de depuración -->
-    <bean id="logInterceptor"
-        class="org.librae.common.trazas.interceptors.LogDebugInterceptor" />
-
+    
     <tx:advice id="txAdvice">
         <tx:attributes>
             <!-- Read-only commented out to make things easier for end-users -->

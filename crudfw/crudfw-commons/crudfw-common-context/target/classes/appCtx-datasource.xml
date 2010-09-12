@@ -15,9 +15,9 @@
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://mysql.sigb:3306/librae_db?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8" />
-        <property name="username" value="librae_user" />
-        <property name="password" value="librae_pwd" />
+        <property name="url" value="jdbc:mysql://mysql.crudfw:3306/crudfw_db?createDatabaseIfNotExist=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8" />
+        <property name="username" value="crudfw_user" />
+        <property name="password" value="crudfw_pwd" />
         <property name="maxActive" value="100" />
         <property name="maxWait" value="10000" />
         <property name="defaultAutoCommit" value="true" />

@@ -36,15 +36,6 @@ public interface GenericDAO<T, PK extends Serializable> {
     List<T> getAll();
 
     /**
-     * Generic method used to get all objects of a particular type. This is the
-     * same as lookup up all rows in a table.<br>
-     * Usado para obtener un listado de entidades en formato XML.
-     * 
-     * @return List of populated objects
-     */
-    List<String> getAllXml();
-
-    /**
      * Gets all records without duplicates.
      * <p>
      * Note that if you use this method, it is imperative that your model
@@ -104,19 +95,6 @@ public interface GenericDAO<T, PK extends Serializable> {
      * @see org.springframework.orm.ObjectRetrievalFailureException
      */
     T get(PK id);
-
-    /**
-     * Generic method to get an object based on class and identifier. An
-     * ObjectRetrievalFailureException Runtime Exception is thrown if nothing is
-     * found.<br>
-     * Usado para obtener una entidad en formato XML.
-     * 
-     * @param id
-     *            the identifier (primary key) of the object to get
-     * @return a populated object
-     * @see org.springframework.orm.ObjectRetrievalFailureException
-     */
-    String getXml(PK id);
 
     /**
      * Checks for existence of an object of type T using the id arg.
@@ -248,40 +226,6 @@ public interface GenericDAO<T, PK extends Serializable> {
      * @return List Lista de resultados
      */
     List<T> execSQL(String sql);
-
-    /**
-     * Método usado para convertir un POJOs en XML.
-     * 
-     * @param object
-     * @return
-     */
-    String entityToXml(T object);
-
-    /**
-     * Método usado para convertir una lista de POJOs en una lista de XML.
-     * 
-     * @param object
-     * @return
-     */
-    List<String> entitiesToXml(List<T> objects);
-
-    /**
-     * Método usado para convertir un pojo serializado en XMl en su
-     * correspondiente instancia de POJO.
-     * 
-     * @param object
-     * @return
-     */
-    T xmlToEntity(String xmlObj);
-
-    /**
-     * Método usado para convertir una lista de pojos serializados en XML en una
-     * lista de sus correspondientes instancias de POJO.
-     * 
-     * @param object
-     * @return
-     */
-    List<T> xmlToEntities(List<String> xmlObj);
 
     /**
      * Elimina el objeto.

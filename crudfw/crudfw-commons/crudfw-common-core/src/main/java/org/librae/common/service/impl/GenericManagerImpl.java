@@ -89,13 +89,6 @@ public class GenericManagerImpl<T, PK extends Serializable> implements
     /**
      * {@inheritDoc}
      */
-    public List<String> getAllXml() {
-        return genericDAO.getAllXml();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public List<T> getAllNonLazy() {
         final List<T> result = toNonLazyEntities(genericDAO.getAll());
 
@@ -127,13 +120,6 @@ public class GenericManagerImpl<T, PK extends Serializable> implements
     /**
      * {@inheritDoc}
      */
-    public String getXml(final PK id) {
-        return genericDAO.getXml(id);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public T getNonLazy(PK id) {
         final T result = toNonLazyEntity(genericDAO.get(id));
 
@@ -159,13 +145,6 @@ public class GenericManagerImpl<T, PK extends Serializable> implements
      */
     public void remove(final PK id) {
         genericDAO.remove(id);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public List<T> xmlToEntities(List<String> xmlObjects) {
-        return genericDAO.xmlToEntities(xmlObjects);
     }
 
     /**

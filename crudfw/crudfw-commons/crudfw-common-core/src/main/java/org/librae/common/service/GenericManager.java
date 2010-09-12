@@ -38,15 +38,6 @@ public interface GenericManager<T, PK extends Serializable> {
     /**
      * Generic method used to get all objects of a particular type. This is the
      * same as lookup up all rows in a table.<br>
-     * Usado para obtener un listado de entidades en formato XML.
-     * 
-     * @return List of populated objects
-     */
-    List<String> getAllXml();
-
-    /**
-     * Generic method used to get all objects of a particular type. This is the
-     * same as lookup up all rows in a table.<br>
      * Usado para evitar la existencia de campos perezosos (Lazy) en los
      * resultados que ofrece Hibernate
      * 
@@ -98,19 +89,6 @@ public interface GenericManager<T, PK extends Serializable> {
      * Generic method to get an object based on class and identifier. An
      * ObjectRetrievalFailureException Runtime Exception is thrown if nothing is
      * found.<br>
-     * Usado para obtener un listado de entidades en formato XML.
-     * 
-     * @param id
-     *            the identifier (primary key) of the object to get
-     * @return a populated object
-     * @see org.springframework.orm.ObjectRetrievalFailureException
-     */
-    String getXml(PK id);
-
-    /**
-     * Generic method to get an object based on class and identifier. An
-     * ObjectRetrievalFailureException Runtime Exception is thrown if nothing is
-     * found.<br>
      * Usado para evitar la existencia de campos perezosos (Lazy) en los
      * resultados que ofrece Hibernate
      * 
@@ -149,12 +127,4 @@ public interface GenericManager<T, PK extends Serializable> {
     @Transactional(readOnly = false)
     void remove(PK id);
 
-    /**
-     * Método usado para convertir una lista de pojos serializados en XML en una
-     * lista de sus correspondientes instancias de POJO.
-     * 
-     * @param object
-     * @return
-     */
-    List<T> xmlToEntities(List<String> xmlObjects);
 }

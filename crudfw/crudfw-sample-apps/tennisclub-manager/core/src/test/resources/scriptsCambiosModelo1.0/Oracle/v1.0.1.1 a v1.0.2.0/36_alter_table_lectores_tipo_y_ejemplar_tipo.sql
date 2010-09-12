@@ -1,2 +1,0 @@
-ALTER TABLE cat_ejemplar_tipo ADD L_BORRADO NUMBER(1);
-ALTER TABLE lec_lector_tipos ADD L_BORRADO NUMBER(1);

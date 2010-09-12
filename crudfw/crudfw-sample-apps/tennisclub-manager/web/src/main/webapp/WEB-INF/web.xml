@@ -27,7 +27,6 @@
         <param-value>
 			classpath:/spring/applicationContext-resources.xml
 			classpath*:/spring/applicationContext-dao.xml
-			classpath*:/spring/applicationContext-facade.xml
 			classpath*:/spring/applicationContext-service.xml
 			classpath:/spring/applicationContext-form.xml
 			classpath*:/spring/applicationContext-delegate.xml
@@ -95,8 +94,7 @@
 			/WEB-INF/taglibs/acegijsf.taglib.xml;
 			/WEB-INF/taglibs/corejsf-validator.taglib.xml;
 			/WEB-INF/taglibs/tomahawk.taglib.xml;
-			/WEB-INF/taglibs/sandbox.taglib.xml;
-			/WEB-INF/taglibs/librae.taglib.xml
+			/WEB-INF/taglibs/crud.taglib.xml
 		</param-value>
     </context-param>
     <filter>

@@ -5,29 +5,40 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:t="http://myfaces.apache.org/tomahawk">
 <head>
-<title><h:outputText value="#{common['webapp.name']}" /><h:outputText
-	value=" - " /><ui:insert name="title" /></title>
-<ui:include src="/common/meta.xhtml" />
-<ui:include src="/common/script.xhtml" />
-<ui:include src="/common/styles.xhtml" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<ui:insert name="head" />
+	<title>
+		<h:outputText value="#{text['webapp.name']} - " /><ui:insert name="title" />
+	</title>
+	
+	<ui:include src="/common/meta.xhtml" />
+	<ui:include src="/common/script.xhtml" />
+	<ui:include src="/common/styles.xhtml" />
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+	<ui:insert name="head" />
 </head>
+
 <body id="#{body.id}" class="#{body.class}">
 
-<!-- div para forzar que el pie este abajo -->
-<t:div styleClass="container"><!-- CABECERA (con menu) -->
-	<ui:include src="/common/header.xhtml">
-		<ui:param name="subsistema" value="org.librae.adminconfig.messages"/>
-	</ui:include>
+	<t:div id="header">
+		<ui:include src="/common/header.xhtml"/>
+		<ui:include src="/common/menu/horizontal.xhtml"/>
+	</t:div>
+	
+	<t:div id="wrapper">
+		<t:div id="page">
+			
+			<t:div id="content">
+	
+				<ui:insert name="body" />
+	
+			</t:div>
+			
+			<t:div style="clear: both;">&nbsp;</t:div>
+		</t:div>
+	</t:div>
+	
+	<ui:include src="/common/footer.xhtml" />
 
-	<!-- FIN CABECERA --> <!-- CONTENIDO y MIGA DE PAN -->
-	<ui:insert name="body" /> <!-- FIN CONTENIDO y MIGA DE PAN -->
-</t:div>
-<!-- fin del div para forzar que el pie este abajo -->
-
-<!-- FOOTER -->
-<ui:include src="/common/footer.xhtml" />
-<!-- FIN FOOTER -->
 </body>
 </html>

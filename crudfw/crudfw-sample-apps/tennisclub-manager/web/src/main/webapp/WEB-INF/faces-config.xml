@@ -13,8 +13,8 @@
 			<supported-locale>en</supported-locale>
 			<supported-locale>es</supported-locale>
 		</locale-config>
-		<message-bundle>org.librae.common.messages</message-bundle>
-		<message-bundle>org.librae.adminconfig.messages</message-bundle>
+		<message-bundle>es.uma.crudframework.messages</message-bundle>
+		<message-bundle>org.tennisclub.manager.messages</message-bundle>
 	</application>
 	
 	<!-- Components -->
@@ -130,9 +130,89 @@
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 
-	<!-- Add additional beans here -->
 	
-	<!-- Navigation Rules -->
+
+    
+
+    <!--Contacto2-beans-START-->
+    <managed-bean>
+        <managed-bean-name>contacto2ListAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.Contacto2ListAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>contacto2Manager</property-name>
+            <value>#{contacto2Manager}</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>contacto2FormAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.Contacto2FormAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>id</property-name>
+            <value>#{param.id}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>contacto2Manager</property-name>
+            <value>#{contacto2Manager}</value>
+        </managed-property>
+    </managed-bean>
+    <!--Contacto2-beans-END-->
+
+    <!--Cliente-beans-START-->
+    <managed-bean>
+        <managed-bean-name>clienteListAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.ClienteListAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>clienteManager</property-name>
+            <value>#{clienteManager}</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>clienteFormAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.ClienteFormAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>id</property-name>
+            <value>#{param.id}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>clienteManager</property-name>
+            <value>#{clienteManager}</value>
+        </managed-property>
+    </managed-bean>
+    <!--Cliente-beans-END-->
+
+    <!--Factura-beans-START-->
+    <managed-bean>
+        <managed-bean-name>facturaListAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.FacturaListAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>facturaManager</property-name>
+            <value>#{facturaManager}</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>facturaFormAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.FacturaFormAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>id</property-name>
+            <value>#{param.id}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>facturaManager</property-name>
+            <value>#{facturaManager}</value>
+        </managed-property>
+    </managed-bean>
+    <!--Factura-beans-END-->
+
+    <!-- Add additional beans here -->
 	
 	<navigation-rule>
 		<from-view-id>/pages/prueba.xhtml</from-view-id>
@@ -147,4 +227,85 @@
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
+	
+	<!--Contacto2-nav-START-->
+    <navigation-rule>
+        <from-view-id>/pages/contacto2/list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/pages/contacto2/form.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/pages/contacto2/form.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/contacto2/form.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/pages/contacto2/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/pages/contacto2/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <!--Contacto2-nav-END-->
+    
+    <!--Cliente-nav-START-->
+    <navigation-rule>
+        <from-view-id>/pages/cliente/list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/pages/cliente/form.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/pages/cliente/form.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/cliente/form.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/pages/cliente/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/pages/cliente/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <!--Cliente-nav-END-->
+    <!--Factura-nav-START-->
+    <navigation-rule>
+        <from-view-id>/pages/factura/list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/pages/factura/form.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/pages/factura/form.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/factura/form.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/pages/factura/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/pages/factura/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <!--Factura-nav-END-->
+    <!-- Add additional rules here -->
 </faces-config>
