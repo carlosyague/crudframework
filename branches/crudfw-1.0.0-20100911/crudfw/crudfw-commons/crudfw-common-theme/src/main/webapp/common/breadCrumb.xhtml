@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax">
+
+	<h:outputText value="#{breadCrumbAction.insertarPath}" />
+
+	<t:panelGrid columns="2" styleClass="ruta" columnClasses="path,fechahora" cellpadding="0" cellspacing="0" border="0">
+
+		<h:panelGroup rendered="#{!noRenderizarSi}">
+			<ui:repeat value="#{breadCrumbAction.path}" var="item">
+			       <h:outputText value=" > " rendered="#{item.pos>1}"/>
+			       <h:outputText value="#{item.texto}" rendered="#{item.disabled == true}"/>
+			       <h:outputLink value="#{item.url}" rendered="#{item.disabled == false}">
+				   <h:outputText value="#{item.texto}" />
+			       </h:outputLink>
+			</ui:repeat>
+		</h:panelGroup>
+
+		<h:panelGroup>
+			<a4j:status>
+     			<f:facet name="start">
+     				<t:div styleClass="status">
+	     				<h:graphicImage value="/images/popup/ventana-modal-cargando/cargando.gif" />
+     				</t:div>
+     			</f:facet>
+    		</a4j:status>
+			<h:outputLink value="/librae-adminconfig/pages/iaa/autorizar/autorizar.html" styleClass="login" rendered="#{!noRenderizarSi}">
+		   		<h:outputText value="#{breadCrumbAction.usuarioLogado}" />
+	        </h:outputLink>
+		</h:panelGroup>
+
+		<t:panelGroup width="100%" style="text-align:center;" rendered="#{menuAction.mensajeExito!=null}">
+			<h:outputText value="#{menuAction.mensajeExito}" styleClass="messageOk"/>
+		</t:panelGroup>
+
+	</t:panelGrid>
+
+</html>

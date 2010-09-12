@@ -1,0 +1,38 @@
+<html 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html" 
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:t="http://myfaces.apache.org/tomahawk"
+>
+<ui:composition template="/templates/loginTemplate.xhtml">
+  <ui:define name="title">#{msg['login.title']}</ui:define>
+  <ui:define name="heading">#{msg['login.heading']}</ui:define>
+  <ui:define name="body">
+    <h:form id="loginForm" onsubmit="cursor_wait(); return true;">
+      <h:panelGrid align="center">
+        <h:outputText value="${loginController.loginMessage}" />
+        <h:messages id="messages" layout="table" globalOnly="false"
+          showSummary="true" showDetail="false" />
+        <h:panelGrid cellpadding="20">
+          <h:panelGrid columns="2">
+            <h:outputText id="userNameText" value="#{msg['login.label.userId']}" />
+            <t:inputText id="j_username" forceId="true"
+              value="#{loginController.userName}" size="20" maxlength="20"></t:inputText>
+            <h:outputText id="passwordText"
+              value="#{msg['login.label.password']}" />
+            <t:inputSecret id="j_password" forceId="true"
+              value="#{loginController.password}" size="20" maxlength="20"
+              redisplay="true"></t:inputSecret>
+            <h:panelGroup />
+            <h:panelGroup>
+              <h:commandButton id="submit" value="#{msg['login.button.login']}"
+                action="login" />
+            </h:panelGroup>
+          </h:panelGrid>
+        </h:panelGrid>
+      </h:panelGrid>
+    </h:form>
+  </ui:define>
+</ui:composition>
+</html>

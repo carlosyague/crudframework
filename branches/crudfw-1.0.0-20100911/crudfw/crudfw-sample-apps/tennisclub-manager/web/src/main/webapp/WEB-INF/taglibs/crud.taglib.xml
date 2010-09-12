@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE facelet-taglib PUBLIC "-//Sun Microsystems, Inc.//DTD Facelet Taglib 1.0//EN"
+    "http://java.sun.com/dtd/facelet-taglib_1_0.dtd">
+<facelet-taglib>
+	<namespace>http://www.uma.es/crudframework/jsf/facelets</namespace>
+	<tag>
+		<tag-name>tab</tag-name>
+		<source>xhtmls/tab.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>tableFooter</tag-name>
+		<source>xhtmls/tableFooter.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>dataTableColumn</tag-name>
+		<source>xhtmls/dataTableColumn.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>dataTableColumnDate</tag-name>
+		<source>xhtmls/dataTableColumnDate.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>dataTableColumnEditLink</tag-name>
+		<source>xhtmls/dataTableColumnEditLink.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>breadCrumb</tag-name>
+		<source>xhtmls/breadCrumb.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>windowMessages</tag-name>
+		<source>xhtmls/windowMessages.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>h1</tag-name>
+		<source>xhtmls/html/h1.xhtml</source>
+	</tag>
+</facelet-taglib>

@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:v="http://corejsf.com/validator">
+		
+	<t:div styleClass="contenido">
+		<t:div styleClass="pestana1">
+			<t:panelGrid columns="4" styleClass="pestanas"
+				columnClasses="blank,titulo_activa" cellpadding="0"
+				cellspacing="0" border="0">
+				
+				<h:graphicImage value="/images/p01b.gif" />
+				<h:outputText value="#{label}" />
+				<h:graphicImage value="/images/p02b.gif" />
+			</t:panelGrid>
+
+			<t:div styleClass="pestana">
+				<ui:insert name="tabBody" />
+			</t:div>
+		</t:div>
+	</t:div>
+</html>

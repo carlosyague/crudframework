@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"
+	default-lazy-init="true">
+
+	<description>
+		Definición de los beans de los Managers de la capa service y los
+		aspectos.
+	</description>
+
+    <!-- Capturamos de librae-context-ear la declaración de Transactional -->
+    <import resource="classpath*:earContext.xml"/>
+
+	<!-- =================================================================== -->
+	<!-- Managers: For accessing DAOs                                        -->
+	<!-- =================================================================== -->
+
+    <!--Contacto2Manager-START-->
+    <bean id="contacto2Manager" class="org.tennisclub.manager.service.impl.Contacto2ManagerImpl">
+        <constructor-arg ref="contacto2DAO"/>
+    </bean>
+    <!--Contacto2Manager-END-->
+
+    <!--ClienteManager-START-->
+    <bean id="clienteManager" class="org.tennisclub.manager.service.impl.ClienteManagerImpl">
+        <constructor-arg ref="clienteDAO"/>
+    </bean>
+    <!--ClienteManager-END-->
+
+    <!--FacturaManager-START-->
+    <bean id="facturaManager" class="org.tennisclub.manager.service.impl.FacturaManagerImpl">
+        <constructor-arg ref="facturaDAO"/>
+    </bean>
+    <!--FacturaManager-END-->
+
+    <!-- Add new Managers here -->
+
+</beans>

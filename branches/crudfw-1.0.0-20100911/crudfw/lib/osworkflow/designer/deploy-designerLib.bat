@@ -1,0 +1,5 @@
+start mvn deploy:deploy-file -DgroupId=jgoodies -DartifactId=forms -Dversion=1.0.4 -Dpackaging=jar -Dfile=./forms.jar -DrepositoryId=librae.internal -Durl=dav:http://dev.librae.org/archiva/repository/internal
+start mvn deploy:deploy-file -DgroupId=jgoodies -DartifactId=looks -Dversion=1.2 -Dpackaging=jar -Dfile=./looks.jar -DrepositoryId=librae.internal -Durl=dav:http://dev.librae.org/archiva/repository/internal
+start mvn deploy:deploy-file -DgroupId=jgraph -DartifactId=jgraph -Dversion=1.0.7 -Dpackaging=jar -Dfile=./jgraph.jar -DrepositoryId=librae.internal -Durl=dav:http://dev.librae.org/archiva/repository/internal
+start mvn deploy:deploy-file -DgroupId=ostermiller.org -DartifactId=syntax -Dversion=1.0.0 -Dpackaging=jar -Dfile=./syntax.jar -DrepositoryId=librae.internal -Durl=dav:http://dev.librae.org/archiva/repository/internal
+start mvn deploy:deploy-file -DgroupId=foxtrot -DartifactId=foxtrot -Dversion=2.0 -Dpackaging=jar -Dfile=./foxtrot.jar -DrepositoryId=librae.internal -Durl=dav:http://dev.librae.org/archiva/repository/internal

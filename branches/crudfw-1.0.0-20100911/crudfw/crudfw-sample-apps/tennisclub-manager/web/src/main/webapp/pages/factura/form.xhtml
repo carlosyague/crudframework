@@ -1,0 +1,149 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:v="http://corejsf.com/validator">
+
+
+<ui:composition template="/templates/defaultTemplate.xhtml">
+	<ui:define name="title">#{text['facturaDetail.title']}</ui:define>
+	<ui:define name="body.id">facturaFormAction</ui:define>
+
+	<ui:define name="body">
+		<f:view>
+			<f:loadBundle var="text" basename="#{facturaFormAction.bundleName}"/>    
+
+<h:form id="facturaForm" onsubmit="return validateFacturaForm(this)">
+
+
+				<!-- PATH -->
+				<table border="0" cellpadding="0" cellspacing="0" class="ruta">
+					<tr>
+						<td class="path">
+							<a href="#{facesContext.externalContext.requestContextPath}/"
+								title="#{common['home.title']}">
+								<h:outputText value="#{common['home.title']}" />
+							</a> > <h:outputText value=" #{text['facturaDetail.title']}" />
+						</td>
+					</tr>
+				</table>
+				<!-- FIN PATH -->
+				
+				<!-- CONTENIDO -->
+				<div id="contenido"><!-- PESTANA 1 -->
+				<div id="pestana1">
+				<!-- CONTENIDO PESTANA -->
+				<div class="pestana">
+
+				<div class="cuadro">
+				<div class="cuadro02">
+
+				<br/>
+				<table cellspacing="0" cellpadding="0" border="0" width="100%">
+					<tbody>
+						<!-- cabecera de la ficha -->
+						<tr>
+							<td class="esq01 titular" colspan="2">
+								<h1><h:outputText value=" #{text['facturaDetail.heading']}" /></h1>
+							</td>
+						</tr>
+
+
+<h:inputHidden value="#{facturaFormAction.factura.id}" id="id"/>
+	    
+        
+		<tr>
+		<th width="10%"><h:outputLabel for="fechaPago" value="#{text['factura.fechaPago']}" /></th>
+		<td width="90%">
+    <t:inputCalendar monthYearRowClass="yearMonthHeader" weekRowClass="weekHeader" id="fechaPago"
+            currentDayCellClass="currentDayCell" value="#{facturaFormAction.factura.fechaPago}"
+            renderAsPopup="true" addResources="true" required="false">
+    </t:inputCalendar>
+        <t:message for="fechaPago" styleClass="fieldError"/>
+    	</td>
+		</tr>
+    
+	
+	    
+        
+		<tr>
+		<th width="10%"><h:outputLabel for="numeroTjtaCredito" value="#{text['factura.numeroTjtaCredito']}" /></th>
+		<td width="90%">
+    <h:inputText styleClass="text medium" id="numeroTjtaCredito" value="#{facturaFormAction.factura.numeroTjtaCredito}" required="false" maxlength="255">
+    </h:inputText>
+        <t:message for="numeroTjtaCredito" styleClass="fieldError"/>
+    	</td>
+		</tr>
+    
+	
+	    
+        
+		<tr>
+		<th width="10%"><h:outputLabel for="orden" value="#{text['factura.orden']}" /></th>
+		<td width="90%">
+    <h:inputText styleClass="text medium" id="orden" value="#{facturaFormAction.factura.orden}" required="false" maxlength="255">
+    </h:inputText>
+        <t:message for="orden" styleClass="fieldError"/>
+    	</td>
+		</tr>
+    
+	
+
+    		<tr>
+    			<td class="esq02" colspan="2">
+    			    			        		
+        		<c:if test="${not empty facturaFormAction.factura.id}">        			            		
+            		<h:commandLink action="#{facturaFormAction.delete}" id="delete"
+						styleClass="boton" title="#{common['button.delete']}"
+						onclick="bCancel=true; return confirmDelete('Factura')">
+						<span> <h:outputText value="#{common['button.delete']}" /> </span>
+					</h:commandLink>
+        		</c:if>
+            	
+            	<h:commandLink action="#{facturaFormAction.save}" id="save"
+					styleClass="boton" title="#{common['button.save']}">
+					<span> <h:outputText value="#{common['button.save']}" /> </span>
+				</h:commandLink>
+				
+				<h:commandLink action="cancel" id="cancel" immediate="true" styleClass="boton_rojo" title="#{common['button.cancel']}" onclick="bCancel=true">
+        			<span> <h:outputText value="#{common['button.cancel']}" /> </span>
+        		</h:commandLink>
+        		
+				</td>
+    		</tr>
+
+		</tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div>
+
+	<div class="pie_pestana">
+		<table cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td width="5"><h:graphicImage value="/images/pie01.png" /></td>
+				<td class="blanco">&#x00A0;</td>
+				<td width="5"><h:graphicImage value="/images/pie02.png" /></td>
+			</tr>
+		</tbody>
+		</table>
+	</div>
+
+	</div>
+</h:form>
+
+	<v:validatorScript functionName="validateFacturaForm" />
+
+	<script type="text/javascript">
+	    Form.focusFirstElement($('facturaForm'));
+	    highlightFormElements();
+	</script>
+
+		</f:view>
+	</ui:define>
+</ui:composition>
+</html>
