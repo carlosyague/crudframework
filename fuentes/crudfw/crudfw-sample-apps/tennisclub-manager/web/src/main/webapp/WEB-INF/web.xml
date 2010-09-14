@@ -171,18 +171,19 @@
         <filter-name>extensionsFilter</filter-name>
         <url-pattern>/faces/myFacesExtensionResource/*</url-pattern>
     </filter-mapping>
-   	<filter>
+    <!--
+    <filter>
 		<filter-name>ajax4jsf</filter-name>
 		<filter-class>org.librae.common.webapp.filter.Ajax4jsfFilter</filter-class>		
 	</filter>
     <filter-mapping>
-        <!-- filter-name>richfaces</filter-name -->
         <filter-name>ajax4jsf</filter-name>
         <servlet-name>faces</servlet-name>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
         <dispatcher>INCLUDE</dispatcher>
     </filter-mapping>
+    -->
     <filter-mapping>
         <filter-name>lazyLoadingFilter</filter-name>
         <url-pattern>/*</url-pattern>
@@ -266,8 +267,6 @@
         <servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet</servlet-class>
     </servlet>
 
-
-	<!-- ${session.timeout} establecido en librae/pom.xml -->
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>

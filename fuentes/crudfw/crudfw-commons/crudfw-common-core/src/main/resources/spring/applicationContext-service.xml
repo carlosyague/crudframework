@@ -6,10 +6,4 @@
             http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"
        default-lazy-init="true">
 
-
-    <bean id="comboLocaleManager"
-		class="org.librae.common.service.impl.ComboLocaleManager" scope="singleton" lazy-init="false">
-		<constructor-arg type="java.lang.String" value="org.librae.common.messageCombo" />
-	</bean>
-
 </beans>

@@ -9,7 +9,7 @@
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"       
 	-->
 
-	<display-name>LibrAE: Theme</display-name>
+	<display-name>CRUD Framework: Theme</display-name>
 	<distributable />
 
 	<session-config>

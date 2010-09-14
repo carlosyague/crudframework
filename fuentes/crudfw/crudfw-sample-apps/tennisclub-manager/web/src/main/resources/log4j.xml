@@ -12,7 +12,7 @@
 
     <appender name="FILE" class="org.apache.log4j.RollingFileAppender">
         <param name="Threshold" value="INFO" />
-        <param name="File" value="librae.log" />
+        <param name="File" value="crudfw.log" />
         <param name="Append" value="true" />
         <param name="MaxFileSize" value="500KB" />
         <param name="MaxBackupIndex" value="1" />
@@ -48,18 +48,6 @@
     </logger>
 
     <logger name="org.springframework">
-        <level value="ERROR"/>
-    </logger>
-
-    <logger name="org.librae.adminconfig">
-        <level value="ERROR"/>
-    </logger>
-
-    <logger name="org.librae.common">
-        <level value="ERROR"/>
-    </logger>
-
-    <logger name="org.librae.common.webapp.filter.StaticFilter">
         <level value="ERROR"/>
     </logger>
 

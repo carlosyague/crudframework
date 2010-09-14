@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<project name="librae-common-core">
+<project name="crudfw-common-core">
     <bannerLeft>
-        <name>librae-common-core</name>
+        <name>crudfw-common-core</name>
         <src>https://appfuse.dev.java.net/images/appfuse-title.gif</src>
         <href>http://appfuse.org</href>
     </bannerLeft>

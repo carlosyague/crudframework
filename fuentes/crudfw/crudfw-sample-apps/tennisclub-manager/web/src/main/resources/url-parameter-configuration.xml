@@ -63,7 +63,7 @@ Of course, any feedback or experiences are highly appreciated!
 	<url-parameter>
 		<name>propertyId</name>
 		<managed-bean-name>propertyForm</managed-bean-name>
-		<managed-bean-class>org.librae.adminconfig.webapp.action.PropertyForm</managed-bean-class>
+		<managed-bean-class>es.uma.crudframework.webapp.action.PropertyForm</managed-bean-class>
 		<managed-bean-method>setId</managed-bean-method>
 	</url-parameter>	
 	-->

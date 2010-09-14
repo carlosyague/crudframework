@@ -701,7 +701,7 @@
 				<![CDATA[jdbc:mysql://${profile.jdbc.host}:${profile.jdbc.port}/${profile.jdbc.dbname}]]>
 			</profile.jdbc.url.cas>
 			<profile.hibernate.dialect>
-				org.librae.common.dao.hibernate.dialects.MySqlDialect
+				org.hibernate.dialect.MySQLDialect
 			</profile.hibernate.dialect>
 			<hibernate.dialect.osworkflow>
 				org.hibernate.dialect.MySQLDialect
