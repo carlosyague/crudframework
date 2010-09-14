@@ -13,7 +13,7 @@
 		aspectos.
 	</description>
 
-    <!-- Capturamos de librae-context-ear la declaración de Transactional -->
+    <!-- Capturamos de crudfw-context-ear la declaración de Transactional -->
     <import resource="classpath*:earContext.xml"/>
 
 	<!-- =================================================================== -->

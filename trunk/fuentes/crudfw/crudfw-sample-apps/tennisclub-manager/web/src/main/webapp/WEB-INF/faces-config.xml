@@ -23,18 +23,6 @@
 		<component-class>com.corejsf.validator.UIValidatorScript</component-class>
 	</component>
 	<component>
-		<component-type>org.librae.common.webapp.component.HtmlListado</component-type>
-		<component-class>org.librae.common.webapp.component.HtmlListado</component-class>
-	</component>
-	<component>
-		<component-type>org.librae.common.webapp.component.tree.HtmlTree</component-type>
-		<component-class>org.librae.common.webapp.component.tree.HtmlTree</component-class>
-	</component>
-	<component>
-		<component-type>org.librae.common.webapp.component.tree.UITree</component-type>
-		<component-class>org.librae.common.webapp.component.tree.UITreeData</component-class>
-	</component>
-	<component>
 		<component-type>org.apache.myfaces.SelectOneRow</component-type>
 		<component-class>org.apache.myfaces.custom.selectOneRow.SelectOneRow</component-class>
 	</component>
@@ -52,24 +40,6 @@
 		<description> Some replacements for the standard renderers
 		</description>
 		<renderer>
-			<description> Replacement renderer for h:outputLabel </description>
-			<component-family>javax.faces.Output</component-family>
-			<renderer-type>javax.faces.Label</renderer-type>
-			<renderer-class>org.librae.common.webapp.jsf.LabelRenderer</renderer-class>
-		</renderer>
-		<renderer>
-			<description> Replacement renderer for h:panelGrid that uses lists
-				instead of tables </description>
-			<component-family>javax.faces.Panel</component-family>
-			<renderer-type>javax.faces.Grid</renderer-type>
-			<renderer-class>org.librae.common.webapp.jsf.PanelGridRenderer</renderer-class>
-		</renderer>
-		<renderer>
-			<component-family>org.librae.common.webapp.component.tree.HtmlTree</component-family>
-			<renderer-type>org.librae.common.webapp.component.tree.HtmlTree</renderer-type>
-			<renderer-class>org.librae.common.webapp.component.tree.HtmlTreeRenderer</renderer-class>
-		</renderer>
-		<renderer>
 			<component-family>javax.faces.Panel</component-family>
 			<renderer-type>org.apache.myfaces.ModalDialog</renderer-type>
 			<renderer-class>org.apache.myfaces.custom.dialog.ModalDialogRenderer</renderer-class>
@@ -78,11 +48,6 @@
 			<component-family>org.apache.myfaces.SelectOneRow</component-family>
 			<renderer-type>org.apache.myfaces.SelectOneRow</renderer-type>
 			<renderer-class>org.apache.myfaces.custom.selectOneRow.SelectOneRowRenderer</renderer-class>
-		</renderer>
-		<renderer>
-			<component-family>javax.faces.Data</component-family>
-			<renderer-type>org.librae.common.webapp.component.renderer.HtmlListadoRenderer</renderer-type>
-			<renderer-class>org.librae.common.webapp.component.renderer.HtmlListadoRenderer</renderer-class>
 		</renderer>
 		<renderer>
 			<component-family>javax.faces.Input</component-family>
@@ -98,42 +63,11 @@
 	</validator>
 
 	<!-- Listeners -->
-	<lifecycle>
-		<phase-listener>org.librae.common.webapp.jsf.listener.selection.SelectionListPhaseListener</phase-listener>
-		<!-- phase-listener>org.librae.common.webapp.jsf.listener.user.UserWatchdogPhaseListener</phase-listener -->
-		<phase-listener>org.apache.myfaces.custom.ajax.api.AjaxDecodePhaseListener</phase-listener>
-	</lifecycle>
-
+	
 	<!-- Converters -->
-	<converter>
-		<converter-id>timeZoneConverter</converter-id>
-		<converter-class>org.librae.common.webapp.converter.TimeZoneConverter</converter-class>
-	</converter>
-	<converter>
-		<converter-id>horarioTimeConverter</converter-id>
-		<converter-class>org.librae.common.webapp.converter.HorarioTimeConverter</converter-class>
-	</converter>
-	<converter>
-		<converter-id>dateZoneConverter</converter-id>
-		<converter-class>org.librae.common.webapp.converter.DateZoneConverter</converter-class>
-	</converter>
 	
 	<!-- Managed Beans -->
-	<managed-bean>
-		<managed-bean-name>basePage</managed-bean-name>
-		<managed-bean-class>org.librae.common.webapp.action.BasePage</managed-bean-class>
-		<managed-bean-scope>request</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
-		<managed-bean-name>indexPruebaAction</managed-bean-name>
-		<managed-bean-class>org.librae.common.webapp.action.IndexPruebaAction</managed-bean-class>
-		<managed-bean-scope>request</managed-bean-scope>
-	</managed-bean>
-
 	
-
-    
-
     <!--Contacto2-beans-START-->
     <managed-bean>
         <managed-bean-name>contacto2ListAction</managed-bean-name>

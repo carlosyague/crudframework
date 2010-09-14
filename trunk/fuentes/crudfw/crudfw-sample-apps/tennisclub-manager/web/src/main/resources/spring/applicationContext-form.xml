@@ -8,25 +8,4 @@
 		Definición de beans de los formularios del Action.
 	</description>
 
-	<bean id="usuarioCriteriaForm" class="org.librae.adminconfig.webapp.form.UsuarioCriteriaForm" />
-
-	<bean id="rolCriteriaForm" class="org.librae.adminconfig.webapp.form.RolCriteriaForm" />
-
-	<bean id="usuarioForm" class="org.librae.adminconfig.webapp.form.UsuarioForm" />
-
-	<bean id="asignarPerfilesUsuarioForm"
-		class="org.librae.adminconfig.webapp.form.AsignarPerfilesUsuarioForm" />
-	<bean id="bibliotecaCriteriaForm" class="org.librae.adminconfig.webapp.form.BibliotecaCriteriaForm" />
-
-	<bean id="codigoCriteriaForm" class="org.librae.adminconfig.webapp.form.CodigoCriteriaForm" />
-
-	<bean id="gestionCodigoCriteriaForm" class="org.librae.adminconfig.webapp.form.GestionCodigoCriteriaForm" />
-
-	<bean id="codigoForm" class="org.librae.adminconfig.webapp.form.CodigoForm" />
-
-	<bean id="valorCodigoForm" class="org.librae.adminconfig.webapp.form.ValorCodigoForm" />
-	
-	<bean id="catalogoCriteriaForm" class="org.librae.adminconfig.webapp.form.CatalogoCriteriaForm" />
-
-	<bean id="catalogoForm" class="org.librae.adminconfig.webapp.form.CatalogoForm" />
 </beans>

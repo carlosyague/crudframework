@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="librae-subs">
+<project name="crudfw-sample-apps">
     <bannerLeft>
-        <name>librae-subs</name>
-        <src>http://dev.librae.org/attachments/download/125</src>
-        <href>http://www.librae.org</href>
+        <name>crudfw-sample-apps</name>
+        <src>http://dev.crudfw.org/attachments/download/125</src>
+        <href>http://code.google.com/p/crudframework</href>
     </bannerLeft>
     <publishDate format="dd MMM yyyy"/>
     <skin>

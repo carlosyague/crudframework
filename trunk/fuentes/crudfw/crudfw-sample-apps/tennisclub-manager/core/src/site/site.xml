@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<project name="librae-adminconfig">
+<project name="tennisclub-manager-core">
     <bannerLeft>
-        <name>librae-adminconfig</name>
+        <name>tennisclub-manager-core</name>
         <src>https://appfuse.dev.java.net/images/appfuse-title.gif</src>
         <href>http://appfuse.org</href>
     </bannerLeft>

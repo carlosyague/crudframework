@@ -4,10 +4,10 @@
 <dwr>
     <allow>
         <!--create creator="spring" javascript="UserManager">
-            <param name="class" value="org.librae.adminconfig.service.UserManager"/>
+            <param name="class" value="es.uma.crudframework.service.UserManager"/>
             <param name="beanName" value="userManager"/>
             <include method="getUsers"/>
         </create>
-        <convert converter="bean" match="org.librae.adminconfig.model.User"/-->
+        <convert converter="bean" match="es.uma.crudframework.model.User"/-->
     </allow>
 </dwr>
