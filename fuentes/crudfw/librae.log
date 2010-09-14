@@ -1,2 +1,0 @@
-[19/08/10 09:27:59:059 CEST] ERROR hbm2ddl.SchemaExport: Unsuccessful: create table Contacto (id bigint not null auto_increment, apellidos varchar(255), codigoPostal varchar(255), direccion varchar(255), nombre varchar(255), notas varchar(255), poblacion varchar(255), provincia varchar(255), tfno varchar(255), primary key (id)) ENGINE=InnoDB
-[19/08/10 09:27:59:059 CEST] ERROR hbm2ddl.SchemaExport: Table 'contacto' already exists
