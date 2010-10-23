@@ -20,7 +20,7 @@ public class Constants {
     /**
      * The name of the ResourceBundle used in this application.
      */
-    public static final String  BUNDLE_KEY                  = "ApplicationResources";
+    public static final String  BUNDLE_KEY                  = "es.uma.crudframework.messages";
 
     /**
      * File separator from System properties.
