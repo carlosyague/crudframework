@@ -374,12 +374,14 @@ public class AppFuseGeneratorMojo extends HibernateExporterMojo {
             disableInstallation = Boolean.valueOf(System
                     .getProperty("disableInstallation"));
         }
-
+        
         // allow installation to be supressed when testing
         if (!disableInstallation) {
+        	final String menuPage = this.getComponentProperty("menuPage");
+        	
             ArtifactInstaller installer = new ArtifactInstaller(getProject(),
                     pojoName, sourceDirectory, destinationDirectory,
-                    destinationSampleDataFile, genericCore);
+                    destinationSampleDataFile, genericCore, menuPage);
             installer.execute();
         }
     }
@@ -517,22 +519,33 @@ public class AppFuseGeneratorMojo extends HibernateExporterMojo {
             this.pojoName = pojoName;
             this.foundPojo = false;
             
-            
-
-
             SAXParserFactory spf = SAXParserFactory.newInstance();
             try {
                 SAXParser sp = spf.newSAXParser();
-                sp
-                        .setProperty(JAXP_SCHEMA_LANGUAGE, W3C_XML_SCHEMA);
+                sp.setProperty(JAXP_SCHEMA_LANGUAGE, W3C_XML_SCHEMA);
+                
+                final String xmlStringWithoutDocType = deleteDocTypeXml(xmlString);
 
-                sp.parse(new InputSource(new StringReader(xmlString)), this);
+                sp.parse(new InputSource(new StringReader(xmlStringWithoutDocType)), this);
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
                 ex.printStackTrace();
             }
 
             return foundPojo;
+        }
+        
+        private String deleteDocTypeXml(String xmlString) {
+        	String result = "";
+        	
+        	int indexOfHibernateConfigs = xmlString.indexOf("<hibernate-configuration>");
+        	if (indexOfHibernateConfigs >= 0) {
+        		result = xmlString.substring(indexOfHibernateConfigs);
+        	} else {
+        		result = xmlString;
+        	}
+        	
+        	return result;
         }
 
         @Override

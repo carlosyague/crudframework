@@ -3,8 +3,8 @@ package org.tennisclub.manager.model;
 import javax.persistence.Entity;
 
 import es.uma.crudframework.model.BaseObject;
-import es.uma.crudframework.model.annotations.CrudValidator;
-import es.uma.crudframework.model.annotations.CrudViewParams;
+import es.uma.crudframework.model.annotations.SemanticTypeField;
+import es.uma.crudframework.model.annotations.CrudSemanticTag;
 
 @Entity(name = Contacto2.ENTITY_NAME)
 public class Contacto2 extends BaseObject {
@@ -33,7 +33,7 @@ public class Contacto2 extends BaseObject {
 	/**
 	 * @return the tfno
 	 */
-	@CrudViewParams(validator=CrudValidator.VALIDATOR_REQUIRED_STRING)
+	@CrudSemanticTag(type=SemanticTypeField.NOT_NULLABLE)
 	public String getTfno() {
 		return tfno;
 	}
@@ -48,7 +48,7 @@ public class Contacto2 extends BaseObject {
 	/**
 	 * @return the nombre
 	 */
-	@CrudViewParams(validator=CrudValidator.VALIDATOR_REQUIRED_STRING)
+	@CrudSemanticTag(type=SemanticTypeField.NOT_NULLABLE)
 	public String getNombre() {
 		return nombre;
 	}
@@ -133,7 +133,7 @@ public class Contacto2 extends BaseObject {
 	/**
 	 * @return the notas
 	 */
-	@CrudViewParams(textArea=true)
+	@CrudSemanticTag(textArea=true)
 	public String getNotas() {
 		return notas;
 	}

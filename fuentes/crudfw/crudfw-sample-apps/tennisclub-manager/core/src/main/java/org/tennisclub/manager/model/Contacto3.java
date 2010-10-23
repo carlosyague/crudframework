@@ -6,8 +6,8 @@ import es.uma.crudframework.model.BaseObject;
 import es.uma.crudframework.model.annotations.SemanticTypeField;
 import es.uma.crudframework.model.annotations.CrudSemanticTag;
 
-@Entity(name = Cliente.ENTITY_NAME)
-public class Cliente extends BaseObject {
+@Entity(name = Contacto3.ENTITY_NAME)
+public class Contacto3 extends BaseObject {
 	/**
 	 * BaseObject implements Serializable
 	 */
@@ -16,7 +16,7 @@ public class Cliente extends BaseObject {
 	/**
 	 * POJO-JPA Constants
 	 */
-	public static final String ENTITY_NAME = "org.tennisclub.manager.model.Cliente";	 
+	public static final String ENTITY_NAME = "org.tennisclub.manager.model.Contacto3";	 
     
 	/**
 	 * fields

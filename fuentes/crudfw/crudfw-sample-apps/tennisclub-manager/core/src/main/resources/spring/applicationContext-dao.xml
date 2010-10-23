@@ -26,5 +26,17 @@
     </bean>
     <!--FacturaDao-END-->
 
+    <!--Contacto3Dao-START-->
+    <bean id="contacto3DAO" class="org.tennisclub.manager.dao.hibernate.Contacto3DAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--Contacto3Dao-END-->
+
+    <!--Contacto4Dao-START-->
+    <bean id="contacto4DAO" class="org.tennisclub.manager.dao.hibernate.Contacto4DAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--Contacto4Dao-END-->
+
     <!-- Add new DAOs here -->
 </beans>

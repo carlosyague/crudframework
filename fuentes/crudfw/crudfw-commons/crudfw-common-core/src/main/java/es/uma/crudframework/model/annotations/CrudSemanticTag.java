@@ -1,12 +1,21 @@
 package es.uma.crudframework.model.annotations;
 
-public @interface CrudViewParams {
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+
+
+public @interface CrudSemanticTag {
 	
 	/**
      * Devuelve el validador del campo
      * @return
      */
-	String validator() default CrudValidator.VALIDATOR_NONE;
+	String type() default SemanticTypeField.NONE;
     
     /**
      * Devuelve true si un campo de tipo String debe corresponderse a un textarea, en otro caso, será un inputText

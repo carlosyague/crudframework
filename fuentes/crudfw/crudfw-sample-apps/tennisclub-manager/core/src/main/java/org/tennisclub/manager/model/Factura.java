@@ -5,8 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 
 import es.uma.crudframework.model.BaseObject;
-import es.uma.crudframework.model.annotations.CrudValidator;
-import es.uma.crudframework.model.annotations.CrudViewParams;
+import es.uma.crudframework.model.annotations.SemanticTypeField;
+import es.uma.crudframework.model.annotations.CrudSemanticTag;
 
 @Entity(name = Factura.ENTITY_NAME)
 public class Factura extends BaseObject {
@@ -27,7 +27,7 @@ public class Factura extends BaseObject {
 	private Date fechaPago;
 	private String numeroTjtaCredito;
 
-	@CrudViewParams(validator = CrudValidator.VALIDATOR_REQUIRED_STRING)
+	@CrudSemanticTag(type= SemanticTypeField.NOT_NULLABLE)
 	public String getOrden() {
 		return orden;
 	}
@@ -44,8 +44,8 @@ public class Factura extends BaseObject {
 		this.fechaPago = fechaPago;
 	}
 
-	@CrudViewParams(validator = CrudValidator.VALIDATOR_REQUIRED_STRING)
-	public String getNumeroTjtaCredito() {
+	@CrudSemanticTag(type= SemanticTypeField.NOT_NULLABLE)
+	public String numeroTjtaCredito() {
 		return numeroTjtaCredito;
 	}
 
