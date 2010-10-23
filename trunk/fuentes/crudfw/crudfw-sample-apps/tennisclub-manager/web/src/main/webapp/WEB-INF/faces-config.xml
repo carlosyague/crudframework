@@ -146,6 +146,68 @@
     </managed-bean>
     <!--Factura-beans-END-->
 
+    
+
+    
+
+    
+
+    
+
+    
+
+    <!--Contacto4-beans-START-->
+    <managed-bean>
+        <managed-bean-name>contacto4ListAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.Contacto4ListAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>contacto4Manager</property-name>
+            <value>#{contacto4Manager}</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>contacto4FormAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.Contacto4FormAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>id</property-name>
+            <value>#{param.id}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>contacto4Manager</property-name>
+            <value>#{contacto4Manager}</value>
+        </managed-property>
+    </managed-bean>
+    <!--Contacto4-beans-END-->
+
+    <!--Contacto3-beans-START-->
+    <managed-bean>
+        <managed-bean-name>contacto3ListAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.Contacto3ListAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>contacto3Manager</property-name>
+            <value>#{contacto3Manager}</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>contacto3FormAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.Contacto3FormAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>id</property-name>
+            <value>#{param.id}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>contacto3Manager</property-name>
+            <value>#{contacto3Manager}</value>
+        </managed-property>
+    </managed-bean>
+    <!--Contacto3-beans-END-->
+
     <!-- Add additional beans here -->
 	
 	<navigation-rule>
@@ -241,5 +303,62 @@
         </navigation-case>
     </navigation-rule>
     <!--Factura-nav-END-->
+    
+    
+    
+    
+    
+    <!--Contacto4-nav-START-->
+    <navigation-rule>
+        <from-view-id>/pages/contacto4/list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/pages/contacto4/form.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/pages/contacto4/form.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/contacto4/form.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/pages/contacto4/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/pages/contacto4/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <!--Contacto4-nav-END-->
+    <!--Contacto3-nav-START-->
+    <navigation-rule>
+        <from-view-id>/pages/contacto3/list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/pages/contacto3/form.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/pages/contacto3/form.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/contacto3/form.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/pages/contacto3/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/pages/contacto3/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <!--Contacto3-nav-END-->
     <!-- Add additional rules here -->
 </faces-config>

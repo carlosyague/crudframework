@@ -1,0 +1,89 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:crud="http://www.uma.es/crudframework/jsf/facelets">
+	
+<ui:composition template="/templates/defaultTemplate.xhtml">
+	<ui:define name="title">#{text['contacto3List.title']}</ui:define>
+	<ui:define name="body.id">contacto3ListAction</ui:define>
+
+	<ui:define name="body">
+		<f:view>
+			<f:loadBundle var="text" basename="#{contacto3ListAction.bundleName}"/>
+
+			<h:form id="editContacto3">
+				
+				<!-- PATH -->
+				<table border="0" cellpadding="0" cellspacing="0" class="ruta">
+					<tr>
+						<td class="path">
+							<a href="#{facesContext.externalContext.requestContextPath}/"
+								title="#{common['home.title']}">
+								<h:outputText value="#{common['home.title']}" />
+							</a> > <h:outputText value=" #{text['contacto3List.title']}" />
+						</td>
+					</tr>
+				</table>
+				<!-- FIN PATH -->
+				
+				<br/>
+				<h1><h:outputText value="#{text['contacto3List.heading']}" /></h1>
+			
+				<crud:breadCrumb />
+
+				<crud:tab tabLabel="#{text['contacto3List.title']}">
+
+					<t:panelGrid styleClass="botones" border="0" cellpadding="0"
+						cellspacing="0" columns="1" columnClasses="blank">
+
+						<h:commandLink action="add" id="add" immediate="true" styleClass="btn_barra">
+							<span><h:outputText value="#{common['button.add']}" /></span>
+						</h:commandLink>
+					</t:panelGrid>
+
+				<t:dataTable id="contacto3s" var="entity" style="margin-top: 10px"
+    				value="#{contacto3ListAction.contacto3s}" rows="10" sortColumn="#{contacto3ListAction.sortColumn}"
+    				sortAscending="#{contacto3ListAction.ascending}" styleClass="listado"
+    				headerClass="standardTable_Header" rowClasses="impar,par">
+
+        			<crud:dataTableColumnEditLink columnName="id"
+						columnLabel="#{text['contacto3.id']}" rowValue="#{entity.id}"
+						crudFormAction="#{contacto3FormAction}" />
+        			<crud:dataTableColumn columnName="apellidos"
+						columnLabel="#{text['contacto3.apellidos']}"
+						rowValue="#{entity.apellidos}" />
+        			<crud:dataTableColumn columnName="codigoPostal"
+						columnLabel="#{text['contacto3.codigoPostal']}"
+						rowValue="#{entity.codigoPostal}" />
+        			<crud:dataTableColumn columnName="direccion"
+						columnLabel="#{text['contacto3.direccion']}"
+						rowValue="#{entity.direccion}" />
+        			<crud:dataTableColumn columnName="nombre"
+						columnLabel="#{text['contacto3.nombre']}"
+						rowValue="#{entity.nombre}" />
+        			<crud:dataTableColumn columnName="notas"
+						columnLabel="#{text['contacto3.notas']}"
+						rowValue="#{entity.notas}" />
+        			<crud:dataTableColumn columnName="poblacion"
+						columnLabel="#{text['contacto3.poblacion']}"
+						rowValue="#{entity.poblacion}" />
+        			<crud:dataTableColumn columnName="provincia"
+						columnLabel="#{text['contacto3.provincia']}"
+						rowValue="#{entity.provincia}" />
+        			<crud:dataTableColumn columnName="tfno"
+						columnLabel="#{text['contacto3.tfno']}"
+						rowValue="#{entity.tfno}" />
+				</t:dataTable>
+				
+				<crud:tableFooter tableName="contacto3s" />
+
+				</crud:tab>
+
+			</h:form>
+		</f:view>
+	</ui:define>
+</ui:composition>
+</html>

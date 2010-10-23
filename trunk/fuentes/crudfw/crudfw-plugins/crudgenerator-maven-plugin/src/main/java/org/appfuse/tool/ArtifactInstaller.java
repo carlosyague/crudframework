@@ -30,6 +30,7 @@ public class ArtifactInstaller {
     String              destinationDirectory;
     String              destinationSampleDataFile;
     String              sourceDirectory;
+    String				menuPage;
     MavenProject        project;
     boolean             genericCore;
 
@@ -43,6 +44,19 @@ public class ArtifactInstaller {
         this.destinationDirectory = destinationDirectory;
         this.destinationSampleDataFile = destinationSampleDataFile;
         this.genericCore = genericCore;
+    }
+    
+    public ArtifactInstaller(MavenProject project, String pojoName,
+            String sourceDirectory, String destinationDirectory,
+            String destinationSampleDataFile, boolean genericCore, String menuPage) {
+        this.project = project;
+        this.pojoName = pojoName;
+        this.pojoNameLower = pojoLowerCase(pojoName);
+        this.sourceDirectory = sourceDirectory;
+        this.destinationDirectory = destinationDirectory;
+        this.destinationSampleDataFile = destinationSampleDataFile;
+        this.genericCore = genericCore;
+        this.menuPage = menuPage;
     }
 
     public void execute() {
@@ -102,7 +116,9 @@ public class ArtifactInstaller {
             installInternationalizationKeys();
 
             // log("Installing menu...");
-            // installMenu();
+            if (menuPage != null) {
+            	installMenu();
+            }
 
             // log("Installing UI tests...");
             // installUITests();
@@ -387,17 +403,17 @@ public class ArtifactInstaller {
         createLoadFileTask("src/main/webapp/common/" + pojoName + "-menu.jsp",
                 "menu.jsp").execute();
         File existingFile = new File(destinationDirectory
-                + "/src/main/webapp/common/menu.jsp");
+                + menuPage);
 
         parseXMLFile(existingFile, pojoName, "</ul>", "menu.jsp");
 
-        createLoadFileTask(
-                "src/main/webapp/WEB-INF/" + pojoName + "-menu-config.xml",
-                "menu.config").execute();
-        existingFile = new File(destinationDirectory
-                + "/src/main/webapp/WEB-INF/menu-config.xml");
-
-        parseXMLFile(existingFile, pojoName, "    </Menus>", "menu.config");
+//        createLoadFileTask(
+//                "src/main/webapp/WEB-INF/" + pojoName + "-menu-config.xml",
+//                "menu.config").execute();
+//        existingFile = new File(destinationDirectory
+//                + "/src/main/webapp/WEB-INF/menu-config.xml");
+//
+//        parseXMLFile(existingFile, pojoName, "    </Menus>", "menu.config");
     }
 
     private String groupIdToPath() {

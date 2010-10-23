@@ -62,6 +62,7 @@
 							<authorName>${crudgenerator.maven.plugin.autorName}</authorName>
 							<configurationfile>src/main/resources/hibernate.cfg.xml</configurationfile>
 							<sampleDataFile>src/test/resources/sample-data.xml</sampleDataFile>
+							<menuPage>/src/main/webapp/common/menu/horizontal.xhtml</menuPage>
 						</componentProperties>
 					</configuration>
 					<dependencies>
