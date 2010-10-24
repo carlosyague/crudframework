@@ -8,6 +8,12 @@
         Definición de los beans de la capa DAO, sessionFactory y transactionManager
     </description>
     
+    <!--ContactoDao-START-->
+    <bean id="contactoDAO" class="org.tennisclub.manager.dao.hibernate.ContactoDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--ContactoDao-END-->
+    
     <!--Contacto2Dao-START-->
     <bean id="contacto2DAO" class="org.tennisclub.manager.dao.hibernate.Contacto2DAOImpl">
         <property name="sessionFactory" ref="sessionFactory"/>

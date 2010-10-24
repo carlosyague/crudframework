@@ -42,9 +42,13 @@ public abstract class AbstractCrudFormAction<T extends BaseObject> extends
 	 * ================
 	 */
 
-	protected abstract T createEmptyEntity();
-
-	protected abstract T getEntity();
+	protected T createEmptyEntity() {
+		return this.getManager().getDao().createEmpyEntity();
+	}
+	
+	public T getEntity() {
+		return entity;
+	} 
 
 	/**
 	 * actions<br>
