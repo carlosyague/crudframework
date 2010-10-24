@@ -20,6 +20,12 @@ import org.hibernate.Session;
  */
 public interface GenericDAO<T, PK extends Serializable> {
 
+	/**
+	 * creates an empty entity 
+	 * @return
+	 */
+	T createEmpyEntity();
+	
     /**
      * Count how many rows does the entity have.
      * 
