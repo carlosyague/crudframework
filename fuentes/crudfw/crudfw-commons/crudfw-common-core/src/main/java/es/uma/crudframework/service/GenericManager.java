@@ -3,6 +3,8 @@ package es.uma.crudframework.service;
 import java.io.Serializable;
 import java.util.List;
 
+import es.uma.crudframework.dao.GenericDAO;
+
 /**
  * Generic Manager that talks to GenericDAO to CRUD POJOs.
  * <p>
@@ -15,6 +17,18 @@ import java.util.List;
  *            the primary key for that type
  */
 public interface GenericManager<T, PK extends Serializable> {
+	
+	/**
+	 * devuelve el genericDao
+	 * @return
+	 */
+	GenericDAO<T, PK> getDao();
+	
+	/**
+	 * establece el genericDao
+	 * @param dao
+	 */
+	void setDao(GenericDAO<T, PK> dao);
 
     /**
      * Count how many rows does the entity have.

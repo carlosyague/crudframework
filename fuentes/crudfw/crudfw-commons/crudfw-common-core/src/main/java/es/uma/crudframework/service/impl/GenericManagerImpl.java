@@ -124,5 +124,20 @@ public class GenericManagerImpl<T, PK extends Serializable> implements
     public void remove(final PK id) {
         genericDAO.remove(id);
     }
+    
+    /**
+     * {@inheritDoc}
+     */
+    public GenericDAO<T, PK> getDao() {
+    	return genericDAO;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    public void setDao(GenericDAO<T, PK> dao) {
+    	this.genericDAO = dao;
+    }
+    
 }
 

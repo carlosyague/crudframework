@@ -41,6 +41,13 @@ public class GenericWSClientImpl<T, PK extends Serializable> implements
     protected String    returnType;                         // clase usada como
 
     // resultado
+    
+    /**
+     * {@inheritDoc}
+     */
+    public T createEmpyEntity() {
+    	return null;
+    }
 
     // Getter $ Setters
     public boolean getEnable() {

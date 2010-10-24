@@ -318,6 +318,23 @@ public class GenericDAOImpl<T, PK extends Serializable> extends
             throw ExceptionUtil.crearCrudException("ERROR_FLUSH_BD", e);
         }
     }
+    
+    /**
+     * {@inheritDoc}
+     */
+    public T createEmpyEntity() {
+    	T result = null;
+    	try {
+			result = persistentClass.newInstance();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return result;
+    }
 
     /**
      * {@inheritDoc}
