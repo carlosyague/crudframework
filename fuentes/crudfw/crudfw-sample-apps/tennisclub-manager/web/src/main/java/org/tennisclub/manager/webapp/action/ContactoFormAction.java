@@ -18,16 +18,5 @@ public class ContactoFormAction extends AbstractCrudFormAction<Contacto> impleme
 	 * 
 	 */
 	private static final long serialVersionUID = 4418128271569809260L;
-
-	@Override
-	protected Contacto createEmptyEntity() {
-		return new Contacto();
-	}
-	
-	@Override
-	public Contacto getEntity() {
-		return entity;
-	} 
-	
 	
 }

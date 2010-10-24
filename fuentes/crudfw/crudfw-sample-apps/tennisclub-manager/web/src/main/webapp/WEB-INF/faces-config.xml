@@ -68,6 +68,32 @@
 	
 	<!-- Managed Beans -->
 	
+	<!--Contacto-beans-START-->
+    <managed-bean>
+        <managed-bean-name>contactoListAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.ContactoListAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>manager</property-name>
+            <value>#{contactoManager}</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>contactoFormAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.ContactoFormAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>id</property-name>
+            <value>#{param.id}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>manager</property-name>
+            <value>#{contactoManager}</value>
+        </managed-property>
+    </managed-bean>
+    <!--Contacto-beans-END-->
+	
     <!--Contacto2-beans-START-->
     <managed-bean>
         <managed-bean-name>contacto2ListAction</managed-bean-name>
@@ -223,6 +249,33 @@
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
+	
+	<!--Contacto-nav-START-->
+    <navigation-rule>
+        <from-view-id>/pages/contacto/list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/pages/contacto/form.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/pages/contacto/form.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/contacto/form.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/pages/contacto/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/pages/contacto/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <!--Contacto-nav-END-->
 	
 	<!--Contacto2-nav-START-->
     <navigation-rule>

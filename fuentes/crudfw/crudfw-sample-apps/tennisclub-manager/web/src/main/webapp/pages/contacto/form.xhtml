@@ -51,13 +51,13 @@
 						</tr>
 
 
-<h:inputHidden value="#{contactoFormAction.contacto.id}" id="id"/>
+<h:inputHidden value="#{contactoFormAction.entity.id}" id="id"/>
 	    
         
 		<tr>
 		<th width="10%"><h:outputLabel for="apellidos" value="#{text['contacto.apellidos']}" /></th>
 		<td width="90%">
-    <h:inputText styleClass="text medium" id="apellidos" value="#{contactoFormAction.contacto.apellidos}" required="false" maxlength="255">
+    <h:inputText styleClass="text medium" id="apellidos" value="#{contactoFormAction.entity.apellidos}" required="false" maxlength="255">
     </h:inputText>
         <t:message for="apellidos" styleClass="fieldError"/>
     	</td>
@@ -69,7 +69,7 @@
 		<tr>
 		<th width="10%"><h:outputLabel for="codigoPostal" value="#{text['contacto.codigoPostal']}" /></th>
 		<td width="90%">
-    <h:inputText styleClass="text medium" id="codigoPostal" value="#{contactoFormAction.contacto.codigoPostal}" required="false" maxlength="255">
+    <h:inputText styleClass="text medium" id="codigoPostal" value="#{contactoFormAction.entity.codigoPostal}" required="false" maxlength="255">
     </h:inputText>
         <t:message for="codigoPostal" styleClass="fieldError"/>
     	</td>
@@ -81,7 +81,7 @@
 		<tr>
 		<th width="10%"><h:outputLabel for="direccion" value="#{text['contacto.direccion']}" /></th>
 		<td width="90%">
-    <h:inputText styleClass="text medium" id="direccion" value="#{contactoFormAction.contacto.direccion}" required="false" maxlength="255">
+    <h:inputText styleClass="text medium" id="direccion" value="#{contactoFormAction.entity.direccion}" required="false" maxlength="255">
     </h:inputText>
         <t:message for="direccion" styleClass="fieldError"/>
     	</td>
@@ -93,7 +93,7 @@
 		<tr>
 		<th width="10%"><h:outputLabel for="nombre" value="#{text['contacto.nombre']}" /></th>
 		<td width="90%">
-    <h:inputText styleClass="text medium" id="nombre" value="#{contactoFormAction.contacto.nombre}" required="false" maxlength="255">
+    <h:inputText styleClass="text medium" id="nombre" value="#{contactoFormAction.entity.nombre}" required="false" maxlength="255">
     </h:inputText>
         <t:message for="nombre" styleClass="fieldError"/>
     	</td>
@@ -105,7 +105,7 @@
 		<tr>
 		<th width="10%"><h:outputLabel for="notas" value="#{text['contacto.notas']}" /></th>
 		<td width="90%">
-    <h:inputText styleClass="text medium" id="notas" value="#{contactoFormAction.contacto.notas}" required="false" maxlength="255">
+    <h:inputText styleClass="text medium" id="notas" value="#{contactoFormAction.entity.notas}" required="false" maxlength="255">
     </h:inputText>
         <t:message for="notas" styleClass="fieldError"/>
     	</td>
@@ -117,7 +117,7 @@
 		<tr>
 		<th width="10%"><h:outputLabel for="poblacion" value="#{text['contacto.poblacion']}" /></th>
 		<td width="90%">
-    <h:inputText styleClass="text medium" id="poblacion" value="#{contactoFormAction.contacto.poblacion}" required="false" maxlength="255">
+    <h:inputText styleClass="text medium" id="poblacion" value="#{contactoFormAction.entity.poblacion}" required="false" maxlength="255">
     </h:inputText>
         <t:message for="poblacion" styleClass="fieldError"/>
     	</td>
@@ -129,7 +129,7 @@
 		<tr>
 		<th width="10%"><h:outputLabel for="provincia" value="#{text['contacto.provincia']}" /></th>
 		<td width="90%">
-    <h:inputText styleClass="text medium" id="provincia" value="#{contactoFormAction.contacto.provincia}" required="false" maxlength="255">
+    <h:inputText styleClass="text medium" id="provincia" value="#{contactoFormAction.entity.provincia}" required="false" maxlength="255">
     </h:inputText>
         <t:message for="provincia" styleClass="fieldError"/>
     	</td>
@@ -141,7 +141,7 @@
 		<tr>
 		<th width="10%"><h:outputLabel for="tfno" value="#{text['contacto.tfno']}" /></th>
 		<td width="90%">
-    <h:inputText styleClass="text medium" id="tfno" value="#{contactoFormAction.contacto.tfno}" required="false" maxlength="255">
+    <h:inputText styleClass="text medium" id="tfno" value="#{contactoFormAction.entity.tfno}" required="false" maxlength="255">
     </h:inputText>
         <t:message for="tfno" styleClass="fieldError"/>
     	</td>
@@ -152,7 +152,7 @@
     		<tr>
     			<td class="esq02" colspan="2">
     			    			        		
-        		<c:if test="${not empty contactoFormAction.contacto.id}">        			            		
+        		<c:if test="${not empty contactoFormAction.entity.id}">        			            		
             		<h:commandLink action="#{contactoFormAction.delete}" id="delete"
 						styleClass="boton" title="#{common['button.delete']}"
 						onclick="bCancel=true; return confirmDelete('contacto')">

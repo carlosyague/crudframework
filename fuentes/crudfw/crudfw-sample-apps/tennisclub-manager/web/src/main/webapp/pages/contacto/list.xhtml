@@ -7,14 +7,14 @@
 	xmlns:crud="http://www.uma.es/crudframework/jsf/facelets">
 	
 <ui:composition template="/templates/defaultTemplate.xhtml">
-	<ui:define name="title">#{text['contacto4List.title']}</ui:define>
-	<ui:define name="body.id">contacto4ListAction</ui:define>
+	<ui:define name="title">#{text['contactoList.title']}</ui:define>
+	<ui:define name="body.id">contactoListAction</ui:define>
 
 	<ui:define name="body">
 		<f:view>
-			<f:loadBundle var="text" basename="#{contacto4ListAction.bundleName}"/>
+			<f:loadBundle var="text" basename="#{contactoListAction.bundleName}"/>
 
-			<h:form id="editContacto4">
+			<h:form id="editContacto">
 				
 				<!-- PATH -->
 				<table border="0" cellpadding="0" cellspacing="0" class="ruta">
@@ -23,18 +23,18 @@
 							<a href="#{facesContext.externalContext.requestContextPath}/"
 								title="#{common['home.title']}">
 								<h:outputText value="#{common['home.title']}" />
-							</a> > <h:outputText value=" #{text['contacto4List.title']}" />
+							</a> > <h:outputText value=" #{text['contactoList.title']}" />
 						</td>
 					</tr>
 				</table>
 				<!-- FIN PATH -->
 				
 				<br/>
-				<h1><h:outputText value="#{text['contacto4List.heading']}" /></h1>
+				<h1><h:outputText value="#{text['contactoList.heading']}" /></h1>
 			
 				<crud:breadCrumb />
 
-				<crud:tab tabLabel="#{text['contacto4List.title']}">
+				<crud:tab tabLabel="#{text['contactoList.title']}">
 
 					<t:panelGrid styleClass="botones" border="0" cellpadding="0"
 						cellspacing="0" columns="1" columnClasses="blank">
@@ -44,41 +44,41 @@
 						</h:commandLink>
 					</t:panelGrid>
 
-				<t:dataTable id="contacto4s" var="entity" style="margin-top: 10px"
-    				value="#{contacto4ListAction.contacto4s}" rows="10" sortColumn="#{contacto4ListAction.sortColumn}"
-    				sortAscending="#{contacto4ListAction.ascending}" styleClass="listado"
+				<t:dataTable id="contactos" var="entity" style="margin-top: 10px"
+    				value="#{contactoListAction.entitiesList}" rows="10" sortColumn="#{contactoListAction.sortColumn}"
+    				sortAscending="#{contactoListAction.ascending}" styleClass="listado"
     				headerClass="standardTable_Header" rowClasses="impar,par">
 
         			<crud:dataTableColumnEditLink columnName="id"
-						columnLabel="#{text['contacto4.id']}" rowValue="#{entity.id}"
-						crudFormAction="#{contacto4FormAction}" />
+						columnLabel="#{text['contacto.id']}" rowValue="#{entity.id}"
+						crudFormAction="#{contactoFormAction}" />
         			<crud:dataTableColumn columnName="apellidos"
-						columnLabel="#{text['contacto4.apellidos']}"
+						columnLabel="#{text['contacto.apellidos']}"
 						rowValue="#{entity.apellidos}" />
         			<crud:dataTableColumn columnName="codigoPostal"
-						columnLabel="#{text['contacto4.codigoPostal']}"
+						columnLabel="#{text['contacto.codigoPostal']}"
 						rowValue="#{entity.codigoPostal}" />
         			<crud:dataTableColumn columnName="direccion"
-						columnLabel="#{text['contacto4.direccion']}"
+						columnLabel="#{text['contacto.direccion']}"
 						rowValue="#{entity.direccion}" />
         			<crud:dataTableColumn columnName="nombre"
-						columnLabel="#{text['contacto4.nombre']}"
+						columnLabel="#{text['contacto.nombre']}"
 						rowValue="#{entity.nombre}" />
         			<crud:dataTableColumn columnName="notas"
-						columnLabel="#{text['contacto4.notas']}"
+						columnLabel="#{text['contacto.notas']}"
 						rowValue="#{entity.notas}" />
         			<crud:dataTableColumn columnName="poblacion"
-						columnLabel="#{text['contacto4.poblacion']}"
+						columnLabel="#{text['contacto.poblacion']}"
 						rowValue="#{entity.poblacion}" />
         			<crud:dataTableColumn columnName="provincia"
-						columnLabel="#{text['contacto4.provincia']}"
+						columnLabel="#{text['contacto.provincia']}"
 						rowValue="#{entity.provincia}" />
         			<crud:dataTableColumn columnName="tfno"
-						columnLabel="#{text['contacto4.tfno']}"
+						columnLabel="#{text['contacto.tfno']}"
 						rowValue="#{entity.tfno}" />
 				</t:dataTable>
 				
-				<crud:tableFooter tableName="contacto4s" />
+				<crud:tableFooter tableName="contactos" />
 
 				</crud:tab>
 

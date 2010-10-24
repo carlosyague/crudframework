@@ -19,6 +19,12 @@
 	<!-- =================================================================== -->
 	<!-- Managers: For accessing DAOs                                        -->
 	<!-- =================================================================== -->
+	
+	<!--ContactoManager-START-->
+    <bean id="contactoManager" class="org.tennisclub.manager.service.impl.ContactoManagerImpl">
+        <constructor-arg ref="contactoDAO"/>
+    </bean>
+    <!--ContactoManager-END-->
 
     <!--Contacto2Manager-START-->
     <bean id="contacto2Manager" class="org.tennisclub.manager.service.impl.Contacto2ManagerImpl">
