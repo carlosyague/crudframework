@@ -6,7 +6,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 import es.uma.crudframework.model.BaseObject;
 
-@Entity(name = Pista.ENTITY_NAME)
+@Entity
 public class Pista extends BaseObject {
 
 	/**
@@ -16,9 +16,7 @@ public class Pista extends BaseObject {
 	
 	/**
 	 * POJO-JPA Constants
-	 */
-	public static final String ENTITY_NAME = "org.tennisclub.manager.model.Pista";	
-    
+	 */   
     public static final String PROPERTY_FIELD_TIPOPISTA = "tipoPista";
     public static final String PROPERTY_FIELD_NUMERO = "numero";    
     

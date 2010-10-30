@@ -6,7 +6,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 import es.uma.crudframework.model.BaseObject;
 
-@Entity(name = Socio.ENTITY_NAME)
+@Entity
 public class Socio extends BaseObject {
 
 	/**
@@ -17,8 +17,6 @@ public class Socio extends BaseObject {
 	/**
 	 * POJO-JPA Constants
 	 */
-	public static final String ENTITY_NAME = "org.tennisclub.manager.model.Socio";	
-    
     public static final String PROPERTY_FIELD_NAME = "name";
     public static final String PROPERTY_FIELD_FIRSTNAME = "firstName";    
     public static final String PROPERTY_FIELD_LASTNAME = "lastName";
