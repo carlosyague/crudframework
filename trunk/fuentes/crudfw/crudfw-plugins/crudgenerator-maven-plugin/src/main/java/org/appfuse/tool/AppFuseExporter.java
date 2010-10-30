@@ -65,50 +65,50 @@ public class AppFuseExporter extends GenericExporter {
         String sampleDataFile = getProperties().getProperty("sampleDataFile");
 
         // generate sample-data.xml
-        configureExporter("appfuse/dao/sample-data.ftl",
+        configureExporter("templates/dao/sample-data.ftl",
                 "src/test/resources/{class-name}-sample-data.xml").start();
 
         // Encourage use of genericCore - less code to maintain!
         if (genericCore) {
-            configureExporter("appfuse/service/generic-beans.ftl",
+            configureExporter("templates/service/generic-beans.ftl",
                     "src/main/resources/{class-name}-generic-beans.xml")
                     .start();
         } else {
             // DAO Test
-            configureExporter("appfuse/dao/dao-test.ftl",
+            configureExporter("templates/dao/dao-test.ftl",
                     "src/test/java/{basepkg-name}/dao/hibernate/{class-name}DaoTest.java")
                     .start();
 
             // DAO Interfaces
-            configureExporter("appfuse/dao/dao.ftl",
+            configureExporter("templates/dao/dao.ftl",
                     "src/main/java/{basepkg-name}/dao/I{class-name}DAO.java")
                     .start();
 
             // DAO Bean Definition - // todo with CoC: get rid of need for a
             // bean definition when classes exist
-            configureExporter("appfuse/dao/dao-bean.ftl",
+            configureExporter("templates/dao/dao-bean.ftl",
                     "src/main/resources/{class-name}Dao-bean.xml").start();
 
             String daoFramework = getProperties().getProperty("daoframework");
 
             // DAO Implementation
             configureExporter(
-                    "appfuse/dao/" + daoFramework + "/dao-impl.ftl",
+                    "templates/dao/" + daoFramework + "/dao-impl.ftl",
                     "src/main/java/{basepkg-name}/dao/" + daoFramework
                             + "/{class-name}DAOImpl.java").start();
 
             // Manager Test
-            configureExporter("appfuse/service/manager-test.ftl",
+            configureExporter("templates/service/manager-test.ftl",
                     "src/test/java/{basepkg-name}/service/impl/{class-name}ManagerImplTest.java")
                     .start();
 
             // Manager Interface
-            configureExporter("appfuse/service/manager.ftl",
+            configureExporter("templates/service/manager.ftl",
                     "src/main/java/{basepkg-name}/service/I{class-name}Manager.java")
                     .start();
 
             // Manager Implementation
-            configureExporter("appfuse/service/manager-impl.ftl",
+            configureExporter("templates/service/manager-impl.ftl",
                     "src/main/java/{basepkg-name}/service/impl/{class-name}ManagerImpl.java")
                     .start();
         }
@@ -117,16 +117,16 @@ public class AppFuseExporter extends GenericExporter {
 
         // iBATIS SQL Map files
         if (daoFramework.equals("ibatis")) {
-            configureExporter("appfuse/dao/ibatis/sql-map-config.ftl",
+            configureExporter("templates/dao/ibatis/sql-map-config.ftl",
                     "src/main/resources/{class-name}-sql-map-config.xml")
                     .start();
-            configureExporter("appfuse/dao/ibatis/sql-map.ftl",
+            configureExporter("templates/dao/ibatis/sql-map.ftl",
                     "src/main/resources/sqlmaps/{class-name}SQL.xml").start();
         }
 
         // Manager Bean Definition - // todo with CoC: get rid of need for a
         // bean definition when classes exist
-        configureExporter("appfuse/service/manager-bean.ftl",
+        configureExporter("templates/service/manager-bean.ftl",
                 "src/main/resources/{class-name}Manager-bean.xml").start();
     }
 
@@ -144,153 +144,153 @@ public class AppFuseExporter extends GenericExporter {
         String webFramework = getProperties().getProperty("webframework");
         if (webFramework.equalsIgnoreCase("jsf")) {
             // tests
-            configureExporter("appfuse/web/jsf/list-test.ftl",
+            configureExporter("templates/web/jsf/list-test.ftl",
                     "src/test/java/{basepkg-name}/webapp/action/{class-name}ListTest.java")
                     .start();
-            configureExporter("appfuse/web/jsf/form-test.ftl",
+            configureExporter("templates/web/jsf/form-test.ftl",
                     "src/test/java/{basepkg-name}/webapp/action/{class-name}FormTest.java")
                     .start();
 
             // managed beans
-            configureExporter("appfuse/web/jsf/list.ftl",
+            configureExporter("templates/web/jsf/list.ftl",
                     "src/main/java/{basepkg-name}/webapp/action/{class-name}ListAction.java")
                     .start();
-            configureExporter("appfuse/web/jsf/form.ftl",
+            configureExporter("templates/web/jsf/form.ftl",
                     "src/main/java/{basepkg-name}/webapp/action/{class-name}FormAction.java")
                     .start();
 
             // views
-            configureExporter("appfuse/web/jsf/list-view.ftl",
+            configureExporter("templates/web/jsf/list-view.ftl",
                     "src/main/webapp/pages/{class-name}/list.xhtml").start();
-            configureExporter("appfuse/web/jsf/form-view.ftl",
+            configureExporter("templates/web/jsf/form-view.ftl",
                     "src/main/webapp/pages/{class-name}/form.xhtml").start();
 
             // configuration
-            configureExporter("appfuse/web/jsf/navigation.ftl",
+            configureExporter("templates/web/jsf/navigation.ftl",
                     "src/main/webapp/WEB-INF/{class-name}-navigation.xml")
                     .start();
-            configureExporter("appfuse/web/jsf/managed-beans.ftl",
+            configureExporter("templates/web/jsf/managed-beans.ftl",
                     "src/main/webapp/WEB-INF/{class-name}-managed-beans.xml")
                     .start();
         } else if (webFramework.equalsIgnoreCase("spring")) {
             // tests
             configureExporter(
-                    "appfuse/web/spring/controller-test.ftl",
+                    "templates/web/spring/controller-test.ftl",
                     "src/test/java/{basepkg-name}/webapp/controller/{class-name}ControllerTest.java")
                     .start();
             configureExporter(
-                    "appfuse/web/spring/formcontroller-test.ftl",
+                    "templates/web/spring/formcontroller-test.ftl",
                     "src/test/java/{basepkg-name}/webapp/controller/{class-name}FormControllerTest.java")
                     .start();
 
             // controllers
-            configureExporter("appfuse/web/spring/controller.ftl",
+            configureExporter("templates/web/spring/controller.ftl",
                     "src/main/java/{basepkg-name}/webapp/controller/{class-name}Controller.java")
                     .start();
             configureExporter(
-                    "appfuse/web/spring/formcontroller.ftl",
+                    "templates/web/spring/formcontroller.ftl",
                     "src/main/java/{basepkg-name}/webapp/controller/{class-name}FormController.java")
                     .start();
 
             // views
-            configureExporter("appfuse/web/spring/list-view.ftl",
+            configureExporter("templates/web/spring/list-view.ftl",
                     "src/main/webapp/WEB-INF/pages/{class-name}s.jsp").start();
-            configureExporter("appfuse/web/spring/form-view.ftl",
+            configureExporter("templates/web/spring/form-view.ftl",
                     "src/main/webapp/WEB-INF/pages/{class-name}form.jsp")
                     .start();
 
             // configuration
-            configureExporter("appfuse/web/spring/controller-beans.ftl",
+            configureExporter("templates/web/spring/controller-beans.ftl",
                     "src/main/webapp/WEB-INF/{class-name}-beans.xml").start();
 
             // validation
-            configureExporter("appfuse/web/spring/form-validation.ftl",
+            configureExporter("templates/web/spring/form-validation.ftl",
                     "src/main/webapp/WEB-INF/{class-name}-validation.xml")
                     .start();
         } else if (webFramework.equalsIgnoreCase("struts")) {
             // tests
-            configureExporter("appfuse/web/struts/action-test.ftl",
+            configureExporter("templates/web/struts/action-test.ftl",
                     "src/test/java/{basepkg-name}/webapp/action/{class-name}ActionTest.java")
                     .start();
 
             // controllers
-            configureExporter("appfuse/web/struts/action.ftl",
+            configureExporter("templates/web/struts/action.ftl",
                     "src/main/java/{basepkg-name}/webapp/action/{class-name}Action.java")
                     .start();
 
             // views
-            configureExporter("appfuse/web/struts/list-view.ftl",
+            configureExporter("templates/web/struts/list-view.ftl",
                     "src/main/webapp/WEB-INF/pages/{class-name}List.jsp")
                     .start();
-            configureExporter("appfuse/web/struts/form-view.ftl",
+            configureExporter("templates/web/struts/form-view.ftl",
                     "src/main/webapp/WEB-INF/pages/{class-name}Form.jsp")
                     .start();
 
             // configuration
             // This template is not used anymore (APF-798), but retained in case
             // we do want to create definitions by default in the future
-            configureExporter("appfuse/web/struts/action-beans.ftl",
+            configureExporter("templates/web/struts/action-beans.ftl",
                     "src/main/webapp/WEB-INF/{class-name}-struts-bean.xml")
                     .start();
 
-            configureExporter("appfuse/web/struts/struts.ftl",
+            configureExporter("templates/web/struts/struts.ftl",
                     "src/main/resources/{class-name}-struts.xml").start();
 
             // validation
-            configureExporter("appfuse/web/struts/model-validation.ftl",
+            configureExporter("templates/web/struts/model-validation.ftl",
                     "src/main/resources/{basepkg-name}/model/{class-name}-validation.xml")
                     .start();
             configureExporter(
-                    "appfuse/web/struts/action-validation.ftl",
+                    "templates/web/struts/action-validation.ftl",
                     "src/main/resources/{basepkg-name}/webapp/action/{class-name}Action-validation.xml")
                     .start();
         } else if (webFramework.equalsIgnoreCase("tapestry")) {
             // tests
-            configureExporter("appfuse/web/tapestry/list-test.ftl",
+            configureExporter("templates/web/tapestry/list-test.ftl",
                     "src/test/java/{basepkg-name}/webapp/pages/{class-name}ListTest.java")
                     .start();
-            configureExporter("appfuse/web/tapestry/form-test.ftl",
+            configureExporter("templates/web/tapestry/form-test.ftl",
                     "src/test/java/{basepkg-name}/webapp/pages/{class-name}FormTest.java")
                     .start();
 
             // managed beans
-            configureExporter("appfuse/web/tapestry/list.ftl",
+            configureExporter("templates/web/tapestry/list.ftl",
                     "src/main/java/{basepkg-name}/webapp/pages/{class-name}List.java")
                     .start();
-            configureExporter("appfuse/web/tapestry/form.ftl",
+            configureExporter("templates/web/tapestry/form.ftl",
                     "src/main/java/{basepkg-name}/webapp/pages/{class-name}Form.java")
                     .start();
 
             // views
-            configureExporter("appfuse/web/tapestry/list-view.ftl",
+            configureExporter("templates/web/tapestry/list-view.ftl",
                     "src/main/webapp/WEB-INF/tapestry/{class-name}List.html")
                     .start();
-            configureExporter("appfuse/web/tapestry/form-view.ftl",
+            configureExporter("templates/web/tapestry/form-view.ftl",
                     "src/main/webapp/WEB-INF/tapestry/{class-name}Form.html")
                     .start();
 
             // configuration
-            configureExporter("appfuse/web/tapestry/list-page.ftl",
+            configureExporter("templates/web/tapestry/list-page.ftl",
                     "src/main/webapp/WEB-INF/tapestry/{class-name}List.page")
                     .start();
-            configureExporter("appfuse/web/tapestry/form-page.ftl",
+            configureExporter("templates/web/tapestry/form-page.ftl",
                     "src/main/webapp/WEB-INF/tapestry/{class-name}Form.page")
                     .start();
         }
 
         // menu
-        configureExporter("appfuse/web/menu.ftl",
+        configureExporter("templates/web/menu.ftl",
                 "src/main/webapp/common/{class-name}-menu.jsp").start();
-        configureExporter("appfuse/web/menu-config.ftl",
+        configureExporter("templates/web/menu-config.ftl",
                 "src/main/webapp/WEB-INF/{class-name}-menu-config.xml").start();
 
         // i18n
-        configureExporter("appfuse/web/ApplicationResources.ftl",
+        configureExporter("templates/web/ApplicationResources.ftl",
                 "src/main/resources/{class-name}-ApplicationResources.properties")
                 .start();
 
         // ui tests
-        configureExporter("appfuse/web/" + webFramework + "/web-tests.ftl",
+        configureExporter("templates/web/" + webFramework + "/web-tests.ftl",
                 "src/test/resources/{class-name}-web-tests.xml").start();
     }
 
