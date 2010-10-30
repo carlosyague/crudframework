@@ -8,17 +8,12 @@ import es.uma.crudframework.model.BaseObject;
 import es.uma.crudframework.model.annotations.SemanticTypeField;
 import es.uma.crudframework.model.annotations.CrudSemanticTag;
 
-@Entity(name = Factura.ENTITY_NAME)
+@Entity
 public class Factura extends BaseObject {
 	/**
 	 * BaseObject implements Serializable
 	 */
 	private static final long serialVersionUID = 486740873523309165L;
-
-	/**
-	 * POJO-JPA Constants
-	 */
-	public static final String ENTITY_NAME = "org.tennisclub.manager.model.Factura";
 
 	/**
 	 * fields

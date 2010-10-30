@@ -6,17 +6,12 @@ import es.uma.crudframework.model.BaseObject;
 import es.uma.crudframework.model.annotations.SemanticTypeField;
 import es.uma.crudframework.model.annotations.CrudSemanticTag;
 
-@Entity(name = Contacto3.ENTITY_NAME)
+@Entity
 public class Contacto3 extends BaseObject {
 	/**
 	 * BaseObject implements Serializable
 	 */
-	private static final long serialVersionUID = 486740873523309165L;
-	
-	/**
-	 * POJO-JPA Constants
-	 */
-	public static final String ENTITY_NAME = "org.tennisclub.manager.model.Contacto3";	 
+	private static final long serialVersionUID = 486740873523309165L; 
     
 	/**
 	 * fields

@@ -23,7 +23,7 @@ import es.uma.crudframework.model.BaseObject;
  * @author cyague
  *
  */
-@Entity(name = Llamada.ENTITY_NAME)
+@Entity
 public class Llamada extends BaseObject {
 
 	/**
@@ -34,7 +34,6 @@ public class Llamada extends BaseObject {
 	/**
 	 * POJO-JPA Constants
 	 */
-	public static final String ENTITY_NAME = "org.tennisclub.manager.model.Llamada";
 	public static final String COLUMN_NAME_CONTACTO = "contacto";
 	
 	public static final Character TIPO_LLAMADA_INTERPROVINCIAL = 'N';
