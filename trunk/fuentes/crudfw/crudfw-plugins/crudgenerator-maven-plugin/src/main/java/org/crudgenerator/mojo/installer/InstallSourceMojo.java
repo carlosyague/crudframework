@@ -1,4 +1,4 @@
-package org.appfuse.mojo.installer;
+package org.crudgenerator.mojo.installer;
 
 import org.apache.commons.beanutils.BeanComparator;
 import org.apache.commons.io.FileUtils;
@@ -13,8 +13,8 @@ import org.apache.tools.ant.Project;
 import org.apache.tools.ant.taskdefs.Get;
 import org.apache.tools.ant.taskdefs.LoadFile;
 import org.apache.tools.ant.taskdefs.optional.ReplaceRegExp;
-import org.appfuse.tool.SubversionUtils;
-import org.appfuse.tool.RenamePackages;
+import org.crudgenerator.tool.SubversionUtils;
+import org.crudgenerator.tool.RenamePackages;
 import org.tmatesoft.svn.core.SVNErrorMessage;
 import org.tmatesoft.svn.core.SVNException;
 

@@ -1,4 +1,4 @@
-package org.appfuse.mojo.installer;
+package org.crudgenerator.mojo.installer;
 /*
  * Copyright 2006 The Apache Software Foundation.
  *

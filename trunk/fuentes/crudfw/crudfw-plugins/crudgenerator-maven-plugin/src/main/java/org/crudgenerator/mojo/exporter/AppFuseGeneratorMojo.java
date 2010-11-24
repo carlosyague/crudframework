@@ -1,4 +1,4 @@
-package org.appfuse.mojo.exporter;
+package org.crudgenerator.mojo.exporter;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,9 +14,9 @@ import javax.xml.parsers.SAXParserFactory;
 import org.apache.commons.io.FileUtils;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.appfuse.mojo.HibernateExporterMojo;
-import org.appfuse.tool.AppFuseExporter;
-import org.appfuse.tool.ArtifactInstaller;
+import org.crudgenerator.mojo.HibernateExporterMojo;
+import org.crudgenerator.tool.AppFuseExporter;
+import org.crudgenerator.tool.ArtifactInstaller;
 import org.codehaus.plexus.components.interactivity.Prompter;
 import org.codehaus.plexus.components.interactivity.PrompterException;
 import org.hibernate.tool.hbm2x.Exporter;

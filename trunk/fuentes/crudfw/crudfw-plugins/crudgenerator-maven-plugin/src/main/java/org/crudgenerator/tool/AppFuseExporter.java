@@ -1,4 +1,4 @@
-package org.appfuse.tool;
+package org.crudgenerator.tool;
 
 import java.io.File;
 import java.util.Map;

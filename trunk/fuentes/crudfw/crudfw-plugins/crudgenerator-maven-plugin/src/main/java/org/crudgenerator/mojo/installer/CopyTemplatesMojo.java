@@ -1,10 +1,10 @@
-package org.appfuse.mojo.installer;
+package org.crudgenerator.mojo.installer;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
-import org.appfuse.tool.SubversionUtils;
+import org.crudgenerator.tool.SubversionUtils;
 import org.tmatesoft.svn.core.SVNException;
 import org.tmatesoft.svn.core.SVNErrorMessage;
 import org.codehaus.plexus.util.FileUtils;
