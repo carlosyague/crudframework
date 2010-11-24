@@ -1,4 +1,4 @@
-package org.appfuse.mojo.installer;
+package org.crudgenerator.mojo.installer;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -8,7 +8,7 @@ import org.apache.tools.ant.taskdefs.Replace;
 import org.apache.tools.ant.Project;
 import org.codehaus.plexus.components.interactivity.Prompter;
 import org.codehaus.plexus.components.interactivity.PrompterException;
-import org.appfuse.tool.ArtifactUninstaller;
+import org.crudgenerator.tool.ArtifactUninstaller;
 
 import java.io.File;
 

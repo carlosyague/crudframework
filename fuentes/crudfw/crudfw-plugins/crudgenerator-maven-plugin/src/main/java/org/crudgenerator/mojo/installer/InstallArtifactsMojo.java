@@ -1,10 +1,10 @@
-package org.appfuse.mojo.installer;
+package org.crudgenerator.mojo.installer;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
-import org.appfuse.tool.ArtifactInstaller;
+import org.crudgenerator.tool.ArtifactInstaller;
 import org.codehaus.plexus.components.interactivity.Prompter;
 import org.codehaus.plexus.components.interactivity.PrompterException;
 

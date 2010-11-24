@@ -1,4 +1,4 @@
-package org.appfuse.tool;
+package org.crudgenerator.tool;
 
 import org.tmatesoft.svn.core.SVNCommitInfo;
 import org.tmatesoft.svn.core.SVNErrorCode;

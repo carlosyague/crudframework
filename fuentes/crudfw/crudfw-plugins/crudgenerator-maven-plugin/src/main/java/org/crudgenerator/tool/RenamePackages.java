@@ -1,4 +1,4 @@
-package org.appfuse.tool;
+package org.crudgenerator.tool;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.maven.plugin.logging.Log;

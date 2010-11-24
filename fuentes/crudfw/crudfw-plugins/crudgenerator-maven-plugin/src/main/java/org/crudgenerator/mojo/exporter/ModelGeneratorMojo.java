@@ -1,4 +1,4 @@
-package org.appfuse.mojo.exporter;
+package org.crudgenerator.mojo.exporter;
 
 /*
  * Copyright 2005 Johann Reyes. Licensed under the Apache License, Version 2.0
@@ -21,7 +21,7 @@ import java.util.Iterator;
 import org.apache.commons.io.FileUtils;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.appfuse.mojo.HibernateExporterMojo;
+import org.crudgenerator.mojo.HibernateExporterMojo;
 import org.hibernate.tool.hbm2x.Exporter;
 import org.hibernate.tool.hbm2x.POJOExporter;
 

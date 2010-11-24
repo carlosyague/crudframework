@@ -1,9 +1,9 @@
-package org.appfuse.mojo.refactor;
+package org.crudgenerator.mojo.refactor;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.appfuse.mojo.HibernateExporterMojo;
-import org.appfuse.tool.RenamePackages;
+import org.crudgenerator.mojo.HibernateExporterMojo;
+import org.crudgenerator.tool.RenamePackages;
 import org.hibernate.tool.hbm2x.Exporter;
 
 /**

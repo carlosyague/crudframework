@@ -1,4 +1,4 @@
-package org.appfuse.mojo.exporter;
+package org.crudgenerator.mojo.exporter;
 
 import org.hibernate.tool.hbm2x.Exporter;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -7,29 +7,29 @@ import org.apache.maven.plugin.MojoExecutionException;
  * Generates Java classes and tests for DAOs and Managers from set of annotated POJOs.
  *
  * @author <a href="mailto:matt@raibledesigns.com">Matt Raible</a>
- * @goal gen-web
+ * @goal gen-core
  * @phase generate-sources
  * @execute phase="compile"
  */
-public class AppFuseGenerateWebMojo extends AppFuseGeneratorMojo {
+public class AppFuseGenerateCoreMojo extends AppFuseGeneratorMojo {
 
-    public AppFuseGenerateWebMojo() {
+    public AppFuseGenerateCoreMojo() {
         addDefaultComponent("target/appfuse/generated-sources", "configuration", false);
         addDefaultComponent("target/appfuse/generated-sources", "annotationconfiguration", true);
     }
 
     /**
-     * Returns <b>gen-web</b>.
+     * Returns <b>gen-core</b>.
      *
      * @return String goal's name
      */
     public String getName() {
-        return "gen-web";
+        return "gen-core";
     }
 
     @Override
     protected Exporter configureExporter(Exporter exp) throws MojoExecutionException {
-        super.setGenerateWebOnly(true);
+        super.setGenerateCoreOnly(true);
         return super.configureExporter(exp);
     }
 }

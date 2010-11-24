@@ -1,4 +1,4 @@
-package org.appfuse.mojo.exporter;
+package org.crudgenerator.mojo.exporter;
 
 /*
 * Copyright 2005 Johann Reyes.

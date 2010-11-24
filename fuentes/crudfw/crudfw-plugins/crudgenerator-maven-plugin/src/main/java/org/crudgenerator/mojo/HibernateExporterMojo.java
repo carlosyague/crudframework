@@ -1,4 +1,4 @@
-package org.appfuse.mojo;
+package org.crudgenerator.mojo;
 
 /*
  * Copyright 2005 Johann Reyes. Licensed under the Apache License, Version 2.0
@@ -25,7 +25,7 @@ import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
-import org.appfuse.mojo.exporter.Component;
+import org.crudgenerator.mojo.exporter.Component;
 import org.codehaus.mojo.hibernate3.ExporterMojo;
 import org.codehaus.mojo.hibernate3.HibernateUtils;
 import org.codehaus.mojo.hibernate3.configuration.ComponentConfiguration;

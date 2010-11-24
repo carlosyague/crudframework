@@ -1,4 +1,4 @@
-package org.appfuse.tool;
+package org.crudgenerator.tool;
 
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugin.logging.SystemStreamLog;
@@ -7,7 +7,7 @@ import org.apache.tools.ant.Project;
 import org.apache.tools.ant.types.FileSet;
 import org.apache.tools.ant.taskdefs.*;
 import org.apache.tools.ant.taskdefs.optional.ReplaceRegExp;
-import org.appfuse.mojo.installer.AntUtils;
+import org.crudgenerator.mojo.installer.AntUtils;
 
 import java.util.ArrayList;
 import java.io.File;

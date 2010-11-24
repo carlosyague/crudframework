@@ -1,4 +1,4 @@
-package org.appfuse.tool;
+package org.crudgenerator.tool;
 
 import org.hibernate.tool.hbm2x.ArtifactCollector;
 

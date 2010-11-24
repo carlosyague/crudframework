@@ -1,4 +1,4 @@
-package org.appfuse.tool;
+package org.crudgenerator.tool;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import org.apache.tools.ant.taskdefs.LoadFile;
 import org.apache.tools.ant.taskdefs.Replace;
 import org.apache.tools.ant.taskdefs.optional.ReplaceRegExp;
 import org.apache.tools.ant.types.FileSet;
-import org.appfuse.mojo.installer.AntUtils;
+import org.crudgenerator.mojo.installer.AntUtils;
 
 /**
  * This class is responsible for installing generated CRUD artifacts into an
