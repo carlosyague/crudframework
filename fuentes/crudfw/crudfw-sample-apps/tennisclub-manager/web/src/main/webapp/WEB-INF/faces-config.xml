@@ -234,6 +234,58 @@
     </managed-bean>
     <!--Contacto3-beans-END-->
 
+    <!--Contacto5-beans-START-->
+    <managed-bean>
+        <managed-bean-name>contacto5ListAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.Contacto5ListAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>contacto5Manager</property-name>
+            <value>#{contacto5Manager}</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>contacto5FormAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.Contacto5FormAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>id</property-name>
+            <value>#{param.id}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>contacto5Manager</property-name>
+            <value>#{contacto5Manager}</value>
+        </managed-property>
+    </managed-bean>
+    <!--Contacto5-beans-END-->
+
+    <!--Contacto6-beans-START-->
+    <managed-bean>
+        <managed-bean-name>contacto6ListAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.Contacto6ListAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>contacto6Manager</property-name>
+            <value>#{contacto6Manager}</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>contacto6FormAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.Contacto6FormAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>id</property-name>
+            <value>#{param.id}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>contacto6Manager</property-name>
+            <value>#{contacto6Manager}</value>
+        </managed-property>
+    </managed-bean>
+    <!--Contacto6-beans-END-->
+
     <!-- Add additional beans here -->
 	
 	<navigation-rule>
@@ -413,5 +465,57 @@
         </navigation-case>
     </navigation-rule>
     <!--Contacto3-nav-END-->
+    <!--Contacto5-nav-START-->
+    <navigation-rule>
+        <from-view-id>/pages/contacto5/list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/pages/contacto5/form.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/pages/contacto5/form.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/contacto5/form.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/pages/contacto5/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/pages/contacto5/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <!--Contacto5-nav-END-->
+    <!--Contacto6-nav-START-->
+    <navigation-rule>
+        <from-view-id>/pages/contacto6/list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/pages/contacto6/form.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/pages/contacto6/form.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/contacto6/form.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/pages/contacto6/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/pages/contacto6/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <!--Contacto6-nav-END-->
     <!-- Add additional rules here -->
 </faces-config>
