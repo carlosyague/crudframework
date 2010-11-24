@@ -56,6 +56,18 @@
     </bean>
     <!--Contacto4Manager-END-->
 
+    <!--Contacto5Manager-START-->
+    <bean id="contacto5Manager" class="org.tennisclub.manager.service.impl.Contacto5ManagerImpl">
+        <constructor-arg ref="contacto5DAO"/>
+    </bean>
+    <!--Contacto5Manager-END-->
+
+    <!--Contacto6Manager-START-->
+    <bean id="contacto6Manager" class="org.tennisclub.manager.service.impl.Contacto6ManagerImpl">
+        <constructor-arg ref="contacto6DAO"/>
+    </bean>
+    <!--Contacto6Manager-END-->
+
     <!-- Add new Managers here -->
 
 </beans>

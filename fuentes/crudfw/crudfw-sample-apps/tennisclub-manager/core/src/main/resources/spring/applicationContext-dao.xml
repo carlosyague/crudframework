@@ -44,5 +44,17 @@
     </bean>
     <!--Contacto4Dao-END-->
 
+    <!--Contacto5Dao-START-->
+    <bean id="contacto5DAO" class="org.tennisclub.manager.dao.hibernate.Contacto5DAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--Contacto5Dao-END-->
+
+    <!--Contacto6Dao-START-->
+    <bean id="contacto6DAO" class="org.tennisclub.manager.dao.hibernate.Contacto6DAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--Contacto6Dao-END-->
+
     <!-- Add new DAOs here -->
 </beans>

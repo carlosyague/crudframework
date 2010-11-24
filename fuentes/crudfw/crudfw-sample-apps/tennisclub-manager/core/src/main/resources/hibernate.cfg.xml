@@ -1,13 +1,14 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
     "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-  <session-factory>
-	  <mapping class="org.tennisclub.manager.model.Contacto" />
-       
-      <mapping class="org.tennisclub.manager.model.Contacto2"/>
-        <mapping class="org.tennisclub.manager.model.Cliente"/>
+  <session-factory>	  	           
+       	<mapping class="org.tennisclub.manager.model.Cliente"/>
         <mapping class="org.tennisclub.manager.model.Factura"/>
+        <mapping class="org.tennisclub.manager.model.Contacto" />
+        <mapping class="org.tennisclub.manager.model.Contacto2"/>
         <mapping class="org.tennisclub.manager.model.Contacto3"/>
         <mapping class="org.tennisclub.manager.model.Contacto4"/>
+        <mapping class="org.tennisclub.manager.model.Contacto5"/>
+        <mapping class="org.tennisclub.manager.model.Contacto6"/>
     </session-factory>
 </hibernate-configuration>
