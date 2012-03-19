@@ -3,16 +3,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<parent>
 		<artifactId>tennisclub-manager</artifactId>
-		<groupId>org.tennisclub.manager</groupId>
+		<groupId>org.crudfw.samples</groupId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.tennisclub.manager</groupId>
+	<groupId>org.crudfw.samples</groupId>
 	<artifactId>tennisclub-manager-web
 	</artifactId>
 	<packaging>war</packaging>
 	<name>Tennis Club Manager - Web</name>
 	<build>
+		<finalName>tennis-club</finalName>
 		<resources>
 			<resource>
 				<filtering>true</filtering>
@@ -185,6 +186,7 @@
 					</useProjectReferences>
 				</configuration>
 			</plugin>
+			<!-- 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
@@ -204,7 +206,9 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>			
+			</plugin>
+			-->			
+			<!-- 
 			<plugin>
         		<groupId>org.apache.maven.plugins</groupId>
         		<artifactId>maven-dependency-plugin</artifactId>
@@ -225,17 +229,17 @@
                   				</artifactItem>
                  			</artifactItems>
                  			<excludeArtifactIds>crudfw-common-theme</excludeArtifactIds>
-                 			<!-- si ${server.shared.lib} viene vacío, se copiarán en: .\target\dependency -->
                				<outputDirectory>${server.shared.lib}</outputDirectory>
             			</configuration>
           			</execution>
         		</executions>
       		</plugin>
+      		-->
 		</plugins>
 	</build>
 	<dependencies>
 		<dependency>
-			<groupId>org.tennisclub.manager</groupId>
+			<groupId>org.crudfw.samples</groupId>
 			<artifactId>tennisclub-manager-core</artifactId>
 			<version>${pom.parent.version}</version>
 		</dependency>
@@ -349,5 +353,16 @@
 			<version>${saaj.version}</version>
 		</dependency>
 		<!-- Fin saaj -->
+		<dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+            <exclusions>
+            	<exclusion>
+            		<groupId>com.sun.jmx</groupId>
+            		<artifactId>jmxri</artifactId>
+            	</exclusion>            	
+            </exclusions>
+        </dependency>
 	</dependencies>
 </project>

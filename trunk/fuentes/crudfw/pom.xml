@@ -18,49 +18,9 @@
     <!-- *************** -->
     <developers>
         <developer>
-            <id>vdiaz</id>
-            <name>Victor Diaz (Jefe de proyecto)</name>
-            <email>vmdiaz@sopragroup.com</email>
-        </developer>
-        <developer>
-            <id>ecastilla</id>
-            <name>Enrique Castilla (Analista)</name>
-            <email>ecastilla@ingenia.es</email>
-        </developer>
-        <developer>
-            <id>dfuentes</id>
-            <name>David Fuentes (Analista)</name>
-            <email>jdfuentes@sopragroup.com</email>
-        </developer>
-        <developer>
-            <id>cdelgado</id>
-            <name>J. Cayetano Delgado (Arquitecto)</name>
-            <email>cayetano@ingenia.es</email>
-        </developer>
-        <developer>
-            <id>asantamaria</id>
-            <name>Alejandro Santamaria (Analista Prog.)</name>
-            <email>asantamaria@ingenia.es</email>
-        </developer>
-        <developer>
             <id>cyague</id>
-            <name>Carlos Yagüe (Prog. Senior)</name>
-            <email>cyague@ingenia.es</email>
-        </developer>
-        <developer>
-            <id>jcisneros</id>
-            <name>Javier Cisneros (Prog. Senior)</name>
-            <email>javicisneros@gmail.es</email>
-        </developer>
-        <developer>
-            <id>aropero</id>
-            <name>Alicia Ropero (Prog. Senior)</name>
-            <email>aliciaropero@gmail.es</email>
-        </developer>
-        <developer>
-            <id>impena</id>
-            <name>Isabel Peña (Prog. Junior)</name>
-            <email>impena@ingenia.es</email>
+            <name>Carlos Yagüe</name>
+            <email>carlosyague@gmail.com</email>
         </developer>
     </developers>
     <licenses>
@@ -81,10 +41,10 @@
     <!-- ************************** -->
     <scm>
         <connection>
-			scm:svn:http://dev.crudfw.org/svn/crudfw/trunk/03-Fuentes/crudfw-src
+			scm:svn:http://crudframework.googlecode.com/svn/trunk/fuentes/crudfw/
 		</connection>
         <developerConnection>
-			scm:svn:http://dev.crudfw.org/svn/crudfw/trunk/03-Fuentes/crudfw-src
+			scm:svn:http://crudframework.googlecode.com/svn/trunk/fuentes/crudfw/
 		</developerConnection>
         <url>http://dev.crudfw.org/repositories/show/1</url>
     </scm>
@@ -631,7 +591,7 @@
         <myfaces.tomahawk.version>1.1.8</myfaces.tomahawk.version>
         <myfaces.tomahawk.sandbox.version>1.1.8</myfaces.tomahawk.sandbox.version>
         <facelets.version>1.1.14</facelets.version>
-        <primefaces.version>0.8.1</primefaces.version>
+        <primefaces.version>1.1</primefaces.version>
         <!--facelets.version>1.1.15.B1</facelets.version-->
 
         <acegijsf.version>1.1.3</acegijsf.version>
@@ -689,33 +649,33 @@
         <page.bienvenida>inicio.htm</page.bienvenida>
         
         <!-- PROFILE por defecto "mysql" -->
-        <profile.jdbc.host>mysql.crudfw</profile.jdbc.host>
-			<profile.jdbc.port>3306</profile.jdbc.port>
-			<profile.jdbc.dbname>crudfw_db</profile.jdbc.dbname>
-			<profile.jdbc.username>crudfw_user</profile.jdbc.username>
-			<profile.jdbc.password>crudfw_pwd</profile.jdbc.password>
-			<profile.jdbc.url>
-				<![CDATA[jdbc:mysql://${profile.jdbc.host}:${profile.jdbc.port}/${profile.jdbc.dbname}?createDatabaseIfNotExist=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8]]>
-			</profile.jdbc.url>
-			<profile.jdbc.url.cas>
-				<![CDATA[jdbc:mysql://${profile.jdbc.host}:${profile.jdbc.port}/${profile.jdbc.dbname}]]>
-			</profile.jdbc.url.cas>
-			<profile.hibernate.dialect>
-				org.hibernate.dialect.MySQLDialect
-			</profile.hibernate.dialect>
-			<hibernate.dialect.osworkflow>
-				org.hibernate.dialect.MySQLDialect
-			</hibernate.dialect.osworkflow>
-			<profile.dbunit.dataTypeFactoryName>
-				org.dbunit.ext.mysql.MySqlDataTypeFactory
-			</profile.dbunit.dataTypeFactoryName>
-			<profile.jdbc.driverClassName>com.mysql.jdbc.Driver</profile.jdbc.driverClassName>
-			<profile.jdbc.groupId>mysql</profile.jdbc.groupId>
-			<profile.jdbc.artifactId>mysql-connector-java</profile.jdbc.artifactId>
-			<profile.jdbc.version>5.0.8</profile.jdbc.version>
+        <profile.jdbc.host>localhost</profile.jdbc.host>
+		<profile.jdbc.port>3306</profile.jdbc.port>
+		<profile.jdbc.dbname>crudfw_db</profile.jdbc.dbname>
+		<profile.jdbc.username>root</profile.jdbc.username>
+		<profile.jdbc.password>root</profile.jdbc.password>
+		<profile.jdbc.url>
+			<![CDATA[jdbc:mysql://${profile.jdbc.host}:${profile.jdbc.port}/${profile.jdbc.dbname}?createDatabaseIfNotExist=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8]]>
+		</profile.jdbc.url>
+		<profile.jdbc.url.cas>
+			<![CDATA[jdbc:mysql://${profile.jdbc.host}:${profile.jdbc.port}/${profile.jdbc.dbname}]]>
+		</profile.jdbc.url.cas>
+		<profile.hibernate.dialect>
+			org.hibernate.dialect.MySQLDialect
+		</profile.hibernate.dialect>
+		<hibernate.dialect.osworkflow>
+			org.hibernate.dialect.MySQLDialect
+		</hibernate.dialect.osworkflow>
+		<profile.dbunit.dataTypeFactoryName>
+			org.dbunit.ext.mysql.MySqlDataTypeFactory
+		</profile.dbunit.dataTypeFactoryName>
+		<profile.jdbc.driverClassName>com.mysql.jdbc.Driver</profile.jdbc.driverClassName>
+		<profile.jdbc.groupId>mysql</profile.jdbc.groupId>
+		<profile.jdbc.artifactId>mysql-connector-java</profile.jdbc.artifactId>
+		<profile.jdbc.version>5.0.8</profile.jdbc.version>
 
-			<!-- usado en los scripts de librae-model -->
-			<profile.database>mysql</profile.database>
+		<!-- usado en los scripts de librae-model -->
+		<profile.database>mysql</profile.database>
 		
 		<!-- PROFILE POR DEFECTO "tomcat" -->
 		<profile.server.shared.lib>${env.CATALINA_HOME}/shared/lib</profile.server.shared.lib>

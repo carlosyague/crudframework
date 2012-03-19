@@ -2,7 +2,7 @@
 <dataset>
 
     <!--Contacto2-START-->
-    <table name="Contacto2">
+    <table name="contacto2">
         <column>id</column>
         <column>apellidos</column>
         <column>codigoPostal</column>
@@ -48,7 +48,7 @@
     </table>
     <!--Contacto2-END-->
     <!--Cliente-START-->
-    <table name="Cliente">
+    <table name="cliente">
         <column>id</column>
         <column>apellidos</column>
         <column>codigoPostal</column>
@@ -102,25 +102,25 @@
     <row>
         <value description="id">-1</value>
         <value description="fechaPago">2010-09-11</value>
-        <value description="numeroTjtaCredito">SaLbSpHkRpMcBmJkPyMxKbOdYmNnOrZvFnXuQyDtHzUgJdDuHsClPcWjGzEvVkJsHxZtEnQbJsVzQnPwIeXkQcAfLyDpAeUlLeBqCpJtNnSsBfRaVeXsUjYhWaIcNfQxKmChEcYpWeYlOcOfJcIyPoHtUwPaOgAtCuPyDeEjPlCdWqHmBmPqTmTaIyEhWeQbYtNgRaGkWsBtJeQsZzPpEdKsCnKwGgQkJrOxOdIvQkBaSzGyVuSiLwNtQzSdViY</value>
-        <value description="orden">YmArIjPkThHsBcRvJrUxEoWfVrJsAyNpZdYyVeWdVyDiOkZcHeNiHsEwXzDuCtXsQfDiMpJmWkPmCbRfSaElAmKnJeGqAbRgWyZgAcZxEeMvPsRiLiRpOhClUxKmEcMlMzVxImCkNuChDfSnNvEoTbGbVmRyQwYcWaQaMrNnUhWgEiUuVsXlHbDgJhEtMoLkOjXcDvFnUgKdPyFqUeBtAbDqVxEkYiIbFiPiTmJbFqNkMcWhPyCwOuFiBhKaHeB</value>
+        <value description="numeroTjtaCredito">123456789</value>
+        <value description="orden">KaKiPoXxFySwKhSjZxOdMxDoSsXbJxJjJxZiCjYdPuJaUaOfFnMuQvEcVbNlRxKtZxPgZdEiNpLcAxOpEvMrHwTiRtMfRkQbRdLgBmAnMaMpWcLaFfZiDhFaBaNaYdKsLnDtSdCqSxAzEgFvMcYvUzPaKbNbVsNhMmDiRuBhYiZkTrVnPiMrLnOxLgHvQyOfWnOeTvZtFbSiZeWnQdTnZdYmGnJwHrIfSkVlXxShAvStFrVuHfBnEfCxPaDfWtN</value>
     </row>
     <row>
         <value description="id">-2</value>
         <value description="fechaPago">2010-09-11</value>
-        <value description="numeroTjtaCredito">FtUqMpGyYaDsLwCnCjHaTgPgWwEoPuGyFbPmJoKgFsWtAqVsBzZkRfIxHoQbMsGxGkJxZoEuHkCtTdGlUsUdMqNoSzIdBxElGoIgWvRkUsFeAjKpLjBsWoSpUoIeVkKcIaYqJvVrBzFjCdKhGtNuFpFyXsXbGkQzAkXpTeVoKxEdHvWoDzRuGfYvCpYgSlRoFfKzWxKgHeCsRxIiKqUyJxRsOuZpTtYuZuOaQzWjWsYwXkJqApVpYxHrMtMrIaN</value>
+        <value description="numeroTjtaCredito">0123456789</value>
         <value description="orden">KaKiPoXxFySwKhSjZxOdMxDoSsXbJxJjJxZiCjYdPuJaUaOfFnMuQvEcVbNlRxKtZxPgZdEiNpLcAxOpEvMrHwTiRtMfRkQbRdLgBmAnMaMpWcLaFfZiDhFaBaNaYdKsLnDtSdCqSxAzEgFvMcYvUzPaKbNbVsNhMmDiRuBhYiZkTrVnPiMrLnOxLgHvQyOfWnOeTvZtFbSiZeWnQdTnZdYmGnJwHrIfSkVlXxShAvStFrVuHfBnEfCxPaDfWtN</value>
     </row>
     <row>
         <value description="id">-3</value>
         <value description="fechaPago">2010-09-11</value>
-        <value description="numeroTjtaCredito">OmEhAsItRqKfMcJaBmEzHzXbLgAkNbDpCpUlPwVeYwMkRiCrDvAhBoZnKzFvCwHcSeVpUdNuLwAlOjUdOrBnBaBeHjZzOxEwFcJbUiJxEhTiTuMnIiBeBuYjEfDjEjWyDmKcAuKrFrCgHrGlAoOaKzGbJxXaFtYjAaFqCxTmPzAcKfNeHbNrXfHtJhYxTrZkXcBuHyNxGrOgEpVvHrCnMnHaXrXaLuDxBmIwSiDjJrEnSiLaPlVrOpSbNzBjYeB</value>
+        <value description="numeroTjtaCredito">12345667890</value>
         <value description="orden">DvBqQjRtUxVqPkLpNeAzJcJxNaKgOaWhObAhUzUdRjOcInJrOzNgQqNbSoZyHpPpBjAeOfCqFvRiSaQyWjHiAsReZsVwIlVqMyZoUjDkYfNhWnHgLwFlPlMsEyFlRlCaCqPlBwQyJwLyFuAhEoEhPlGaRcFxVbPlTxUcEoGzZgJhCeCoBbPzRyLhLoGiQyUdWnPoYrKhObQqNkBlLkOsYdWuKeJfAaQpBhEzCnHcNmFgDvAqMvAwZxUbAvIyHnU</value>
     </row>
     </table>
     <!--Factura-END-->
     <!--Contacto3-START-->
-    <table name="Contacto3">
+    <table name="contacto3">
         <column>id</column>
         <column>apellidos</column>
         <column>codigoPostal</column>
@@ -166,7 +166,7 @@
     </table>
     <!--Contacto3-END-->
     <!--Contacto4-START-->
-    <table name="Contacto4">
+    <table name="contacto4">
         <column>id</column>
         <column>apellidos</column>
         <column>codigoPostal</column>
@@ -212,7 +212,7 @@
     </table>
     <!--Contacto4-END-->
     <!--Contacto5-START-->
-    <table name="Contacto5">
+    <table name="contacto5">
         <column>id</column>
         <column>apellidos</column>
         <column>codigoPostal</column>
@@ -258,7 +258,7 @@
     </table>
     <!--Contacto5-END-->
     <!--Contacto6-START-->
-    <table name="Contacto6">
+    <table name="contacto6">
         <column>id</column>
         <column>apellidos</column>
         <column>codigoPostal</column>

@@ -253,7 +253,7 @@
 
     <servlet>
 	    <servlet-name>Primefaces Resource Servlet</servlet-name>
-	    <servlet-class>org.primefaces.ui.resource.ResourceServlet</servlet-class>
+	    <servlet-class>org.primefaces.resource.ResourceServlet</servlet-class>
 	    <load-on-startup>1</load-on-startup>
 	</servlet>
 

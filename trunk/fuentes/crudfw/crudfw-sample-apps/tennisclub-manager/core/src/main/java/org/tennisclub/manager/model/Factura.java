@@ -40,7 +40,7 @@ public class Factura extends BaseObject {
 	}
 
 	@CrudSemanticTag(type= SemanticTypeField.NOT_NULLABLE)
-	public String numeroTjtaCredito() {
+	public String getNumeroTjtaCredito() {
 		return numeroTjtaCredito;
 	}
 
