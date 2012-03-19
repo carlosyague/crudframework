@@ -3,11 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<parent>
 		<artifactId>tennisclub-manager</artifactId>
-		<groupId>es.uma.crudfw.samples</groupId>
+		<groupId>org.crudfw.samples</groupId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.tennisclub.manager</groupId>
+	<groupId>org.crudfw.samples</groupId>
 	<artifactId>tennisclub-manager-core</artifactId>
 	<name>Tennis Club Manager - Core</name>
 	<build>
@@ -210,33 +210,27 @@
 	<dependencies>
         <!-- inicio DEPENDENCIAS crudfw-commons -->
 		<dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+            <exclusions>
+            	<exclusion>
+            		<groupId>com.sun.jmx</groupId>
+            		<artifactId>jmxri</artifactId>
+            	</exclusion>            	
+            </exclusions>
+        </dependency>
+		<dependency>
 			<groupId>org.crudfw.common</groupId>
 			<artifactId>crudfw-common-core</artifactId>
 			<version>${crudfw.common.version}</version>
 		</dependency>
-		<!-- fin DEPENDENCIAS crudfw-commons -->
-
-		<!-- inicio DEPENDENCIAS crudfw-subs -->
 		<dependency>
 			<groupId>org.crudfw</groupId>
 			<artifactId>crudfw-common-context</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>${crudfw.common.version}</version>
 		</dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.crudfw</groupId>-->
-<!--            <artifactId>crudfw-model</artifactId>-->
-<!--            <version>1.0-SNAPSHOT</version>-->
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.crudfw.common</groupId>-->
-<!--                    <artifactId>crudfw-common-core</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-<!--        </dependency>       -->
-		<!-- fin DEPENDENCIAS crudfw-subs -->	
-
-		<!-- inicio DEPENDENCIAS específicas de adminconfig-core -->
-		<!-- fin DEPENDENCIAS específicas de adminconfig-core -->
+		<!-- fin DEPENDENCIAS crudfw-commons -->
 	</dependencies>
 	
 	<properties>
