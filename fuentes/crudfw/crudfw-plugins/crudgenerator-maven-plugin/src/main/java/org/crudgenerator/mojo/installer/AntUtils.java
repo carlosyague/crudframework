@@ -15,13 +15,13 @@ package org.crudgenerator.mojo.installer;
  * limitations under the License.
  */
 
-import org.apache.tools.ant.DirectoryScanner;
-import org.apache.tools.ant.Project;
-import org.apache.tools.ant.types.FileSet;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.tools.ant.DirectoryScanner;
+import org.apache.tools.ant.Project;
+import org.apache.tools.ant.types.FileSet;
 
 /**
  * This class will provide a set of methods to interact with the ant build system at a java level.
@@ -58,7 +58,8 @@ public class AntUtils {
      * @param inPattern   The pattern to use in matching file names.
      * @return A list of file names that match the pattern in the target directory
      */
-    public static List generateFileNameListFromPattern(final String inDirectory, final String inPattern) {
+    @SuppressWarnings("rawtypes")
+	public static List generateFileNameListFromPattern(final String inDirectory, final String inPattern) {
         List<String> fileNames = new ArrayList<String>();
         DirectoryScanner directoryScanner = new DirectoryScanner();
         directoryScanner.setBasedir(inDirectory);
@@ -86,7 +87,8 @@ public class AntUtils {
      * @param inExcludePatterns The list of patterns to match and exclude in the fileset.
      * @return The file set to process.
      */
-    public static FileSet createFileset(final String inDirectory, final String inIncludePattern,
+    @SuppressWarnings("rawtypes")
+	public static FileSet createFileset(final String inDirectory, final String inIncludePattern,
                                         final List inExcludePatterns) {
         FileSet fileSet = new FileSet();
 

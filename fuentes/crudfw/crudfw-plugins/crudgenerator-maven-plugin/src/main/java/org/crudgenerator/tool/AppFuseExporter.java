@@ -13,7 +13,6 @@ import org.hibernate.util.StringHelper;
  * This class is used to process FreeMarker templates and produce files from
  * them.
  * 
- * @author mraible
  */
 public class AppFuseExporter extends GenericExporter {
 
@@ -54,7 +53,8 @@ public class AppFuseExporter extends GenericExporter {
         }
     }
 
-    private void generateCore() {
+    @SuppressWarnings("unused")
+	private void generateCore() {
 
         System.out.println(">> Generating Core CRUD");
 
@@ -294,7 +294,8 @@ public class AppFuseExporter extends GenericExporter {
                 "src/test/resources/{class-name}-web-tests.xml").start();
     }
 
-    private String getDaoFilename(String daoFramework) {
+    @SuppressWarnings("unused")
+	private String getDaoFilename(String daoFramework) {
         if (daoFramework.equalsIgnoreCase("ibatis")) {
             return "iBatis";
         } else if (daoFramework.equalsIgnoreCase("jpa")) {
@@ -323,7 +324,8 @@ public class AppFuseExporter extends GenericExporter {
 
         GenericExporter exporter = new GenericExporter(getConfiguration(),
                 getOutputDirectory()) {
-            @Override
+            @SuppressWarnings("rawtypes")
+			@Override
             protected void exportPOJO(Map map, POJOClass element) {
                 if (element.getShortName().contains(
                         System.getProperty("appfuse.entity"))) {

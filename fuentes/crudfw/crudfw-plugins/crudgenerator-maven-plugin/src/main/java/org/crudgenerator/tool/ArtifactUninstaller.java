@@ -1,21 +1,21 @@
 package org.crudgenerator.tool;
 
+import java.io.File;
+import java.util.ArrayList;
+
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugin.logging.SystemStreamLog;
 import org.apache.maven.project.MavenProject;
 import org.apache.tools.ant.Project;
-import org.apache.tools.ant.types.FileSet;
-import org.apache.tools.ant.taskdefs.*;
+import org.apache.tools.ant.taskdefs.Delete;
+import org.apache.tools.ant.taskdefs.Replace;
 import org.apache.tools.ant.taskdefs.optional.ReplaceRegExp;
+import org.apache.tools.ant.types.FileSet;
 import org.crudgenerator.mojo.installer.AntUtils;
-
-import java.util.ArrayList;
-import java.io.File;
 
 /**
  * This class is responsible for removing generated CRUD artifacts from an AppFuse application.
  *
- * @author mraible
  */
 public class ArtifactUninstaller {
     private Log log;
@@ -96,7 +96,8 @@ public class ArtifactUninstaller {
      * @param installedDirectory The destination directory to copy to.
      * @param removePattern  The file pattern to match to locate files to copy.
      */
-    protected void removeGeneratedFiles(final String installedDirectory, final String removePattern) {
+    @SuppressWarnings("rawtypes")
+	protected void removeGeneratedFiles(final String installedDirectory, final String removePattern) {
         antProject = AntUtils.createProject();
         Delete deleteTask = (Delete) antProject.createTask("delete");
 
@@ -282,7 +283,7 @@ public class ArtifactUninstaller {
     }
 
     private void log(String msg) {
-        getLog().info("[AppFuse] " + msg);
+        getLog().info("[crudfw] " + msg);
     }
 
     public Log getLog() {

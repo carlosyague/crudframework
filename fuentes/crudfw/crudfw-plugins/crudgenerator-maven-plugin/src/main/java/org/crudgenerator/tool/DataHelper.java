@@ -1,9 +1,5 @@
 package org.crudgenerator.tool;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.hibernate.mapping.Column;
-
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,12 +7,15 @@ import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.hibernate.mapping.Column;
+
 
 /**
  * This class is used to generate default data for tests, as well as manipulate
  * Strings for Freemarker templates.
  * 
- * @author mraible
  */
 public class DataHelper {
     private static final Log log = LogFactory.getLog(DataHelper.class);

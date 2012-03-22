@@ -12,8 +12,8 @@ package org.crudgenerator.mojo.exporter;
  */
 
 import org.apache.maven.plugin.MojoExecutionException;
-import org.crudgenerator.mojo.HibernateExporterMojo;
 import org.codehaus.mojo.hibernate3.HibernateUtils;
+import org.crudgenerator.mojo.HibernateExporterMojo;
 import org.hibernate.tool.hbm2x.Exporter;
 import org.hibernate.tool.hbm2x.GenericExporter;
 

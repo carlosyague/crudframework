@@ -25,7 +25,13 @@ import java.io.Serializable;
  * @version $Id$
  */
 public final class Component implements Serializable {
-    /**
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2337722146954822402L;
+
+	/**
      * Configuration alias for this goal implementation.
      */
     private String implementation;

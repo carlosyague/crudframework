@@ -12,7 +12,7 @@ import org.hibernate.tool.hbm2x.Exporter;
  * @author <a href="mailto:david@capehenrytech.com">David L. Whitehurst</a>
  * @goal refactor-packages
  */
-public class AppFusePackageRefactorMojo extends HibernateExporterMojo {
+public class CrudfwPackageRefactorMojo extends HibernateExporterMojo {
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {

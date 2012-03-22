@@ -19,7 +19,6 @@ import org.crudgenerator.mojo.installer.AntUtils;
  * This class is responsible for installing generated CRUD artifacts into an
  * AppFuse application.
  * 
- * @author mraible
  */
 public class ArtifactInstaller {
     private Log         log;
@@ -136,7 +135,8 @@ public class ArtifactInstaller {
      * @param inPattern
      *            The file pattern to match to locate files to copy.
      */
-    protected void copyGeneratedObjects(final String inSourceDirectory,
+    @SuppressWarnings("rawtypes")
+	protected void copyGeneratedObjects(final String inSourceDirectory,
             final String inDestinationDirectory, final String inPattern) {
         antProject = AntUtils.createProject();
         Copy copyTask = (Copy) antProject.createTask("copy");
@@ -448,7 +448,8 @@ public class ArtifactInstaller {
         echoTask.execute();
     }
 
-    private void installUITests() {
+    @SuppressWarnings("unused")
+	private void installUITests() {
         createLoadFileTask("src/test/resources/" + pojoName + "-web-tests.xml",
                 "web.tests").execute();
         File existingFile = new File(destinationDirectory
@@ -574,7 +575,7 @@ public class ArtifactInstaller {
     }
 
     private void log(String msg) {
-        getLog().info("[AppFuse] " + msg);
+        getLog().info("[crdufw] " + msg);
     }
 
     public Log getLog() {

@@ -1,23 +1,5 @@
 package org.crudgenerator.mojo.installer;
 
-import org.apache.commons.beanutils.BeanComparator;
-import org.apache.commons.io.FileUtils;
-import org.apache.maven.embedder.MavenEmbedder;
-import org.apache.maven.embedder.MavenEmbedderConsoleLogger;
-import org.apache.maven.model.Dependency;
-import org.apache.maven.plugin.AbstractMojo;
-import org.apache.maven.plugin.MojoExecutionException;
-import org.apache.maven.plugin.MojoFailureException;
-import org.apache.maven.project.MavenProject;
-import org.apache.tools.ant.Project;
-import org.apache.tools.ant.taskdefs.Get;
-import org.apache.tools.ant.taskdefs.LoadFile;
-import org.apache.tools.ant.taskdefs.optional.ReplaceRegExp;
-import org.crudgenerator.tool.SubversionUtils;
-import org.crudgenerator.tool.RenamePackages;
-import org.tmatesoft.svn.core.SVNErrorMessage;
-import org.tmatesoft.svn.core.SVNException;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -34,13 +16,30 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.apache.commons.beanutils.BeanComparator;
+import org.apache.commons.io.FileUtils;
+import org.apache.maven.embedder.MavenEmbedder;
+import org.apache.maven.embedder.MavenEmbedderConsoleLogger;
+import org.apache.maven.model.Dependency;
+import org.apache.maven.plugin.AbstractMojo;
+import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.project.MavenProject;
+import org.apache.tools.ant.Project;
+import org.apache.tools.ant.taskdefs.Get;
+import org.apache.tools.ant.taskdefs.LoadFile;
+import org.apache.tools.ant.taskdefs.optional.ReplaceRegExp;
+import org.crudgenerator.tool.RenamePackages;
+import org.crudgenerator.tool.SubversionUtils;
+import org.tmatesoft.svn.core.SVNErrorMessage;
+import org.tmatesoft.svn.core.SVNException;
+
 
 /**
  * This mojo is used to "install" source artifacts from Subversion into an AppFuse project.
  * If you get an OutOfMemoryError when running this plugin, you should be able to fix it
  * by setting your MAVEN_OPTS environment variable to "-Xms128M -Xmx256M".
  *
- * @author <a href="mailto:matt@raibledesigns.com">Matt Raible</a>
  * @goal full-source
  */
 public class InstallSourceMojo extends AbstractMojo {
@@ -52,7 +51,8 @@ public class InstallSourceMojo extends AbstractMojo {
     Properties appfuseProperties;
 
     // ThreadLocale to hold properties as they're built when traversing through a modular project
-    private static final ThreadLocal<Map> propertiesContextHolder = new ThreadLocal<Map>();
+    @SuppressWarnings("rawtypes")
+	private static final ThreadLocal<Map> propertiesContextHolder = new ThreadLocal<Map>();
 
 
     /**
@@ -87,7 +87,8 @@ public class InstallSourceMojo extends AbstractMojo {
      */
     private MavenProject project;
 
-    public void execute() throws MojoExecutionException, MojoFailureException {
+    @SuppressWarnings("rawtypes")
+	public void execute() throws MojoExecutionException, MojoFailureException {
         // If appfuse.version is specified as a property, and not a SNAPSHOT, use it for the tag
         String appfuseVersion = project.getProperties().getProperty("appfuse.version");
 
@@ -271,7 +272,8 @@ public class InstallSourceMojo extends AbstractMojo {
         }
     }
 
-    private void createFullSourcePom(List<Dependency> newDependencies) throws MojoFailureException {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	private void createFullSourcePom(List<Dependency> newDependencies) throws MojoFailureException {
         // Change spring-test and jmock dependencies to use <optional>true</option> instead of <scope>test</scope>.
         // This is necessary because Base*TestCase classes are in src/main/java. If we move these classes to their
         // own test module, this will no longer be necessary. For the first version of this mojo, it seems easier
@@ -591,7 +593,7 @@ public class InstallSourceMojo extends AbstractMojo {
     }
 
     private void log(String msg) {
-        getLog().info("[AppFuse] " + msg);
+        getLog().info("[crudfw] " + msg);
     }
 
     private void removeWarpathPlugin(File pom) {
@@ -626,7 +628,8 @@ public class InstallSourceMojo extends AbstractMojo {
         return addModuleDependencies(dependencies, moduleName, moduleLocation, false);
     }
 
-    private List<Dependency> addModuleDependencies(List<Dependency> dependencies, String moduleName, String moduleLocation, boolean removeWarpath) {
+    @SuppressWarnings("rawtypes")
+	private List<Dependency> addModuleDependencies(List<Dependency> dependencies, String moduleName, String moduleLocation, boolean removeWarpath) {
         log("Adding dependencies from " + moduleName + " module...");
 
         // Read dependencies from module's pom.xml

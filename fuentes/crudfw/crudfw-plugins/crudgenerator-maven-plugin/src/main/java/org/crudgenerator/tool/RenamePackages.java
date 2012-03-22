@@ -1,17 +1,19 @@
 package org.crudgenerator.tool;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.Vector;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugin.logging.SystemStreamLog;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
-
-import java.io.*;
-import java.util.Iterator;
-import java.util.Vector;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 
 /**
@@ -41,7 +43,8 @@ public class RenamePackages {
 
     String[] invalidFileTypes = new String[] { "class", "jar", "jpg", "gif", "png", "ico" };
 
-    private Vector filesets = new Vector();
+    @SuppressWarnings("rawtypes")
+	private Vector filesets = new Vector();
 
     /**
      * Constructor
@@ -54,7 +57,8 @@ public class RenamePackages {
      * simple method to add filesets
      * @param fileset
      */
-    public void addFileset(FileSet fileset) {
+    @SuppressWarnings("unchecked")
+	public void addFileset(FileSet fileset) {
         filesets.add(fileset);
     }
 
@@ -994,7 +998,8 @@ public class RenamePackages {
      * file back to disk, the difference is, it uses Spring Ant-style paths
      * to load the files
      */
-    private void renameOtherFiles()
+    @SuppressWarnings("rawtypes")
+	private void renameOtherFiles()
     {
         if (debug) {
             log.debug("Inside renameOtherFiles");
@@ -1145,7 +1150,8 @@ public class RenamePackages {
         }
     }
 
-    private void refactorNonPackageFiles() {
+    @SuppressWarnings("rawtypes")
+	private void refactorNonPackageFiles() {
 
         try
         {
