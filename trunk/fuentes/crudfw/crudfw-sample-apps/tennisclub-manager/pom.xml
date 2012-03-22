@@ -9,7 +9,7 @@
 		<artifactId>crudfw-samples</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-	<groupId>org.crudfw.samples</groupId>
+	<groupId>org.tennisclub.manager</groupId>
 	<artifactId>tennisclub-manager</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
@@ -52,10 +52,16 @@
 			<version>${jdbc.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>${log4j.version}</version>
-		</dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+            <exclusions>
+            	<exclusion>
+            		<groupId>com.sun.jmx</groupId>
+            		<artifactId>jmxri</artifactId>
+            	</exclusion>            	
+            </exclusions>
+        </dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
