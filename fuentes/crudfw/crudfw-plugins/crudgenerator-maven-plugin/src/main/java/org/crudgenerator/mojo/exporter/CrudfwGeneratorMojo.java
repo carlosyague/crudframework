@@ -17,7 +17,7 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.codehaus.plexus.components.interactivity.Prompter;
 import org.codehaus.plexus.components.interactivity.PrompterException;
 import org.crudgenerator.mojo.HibernateExporterMojo;
-import org.crudgenerator.tool.AppFuseExporter;
+import org.crudgenerator.tool.CrudfwExporter;
 import org.crudgenerator.tool.ArtifactInstaller;
 import org.hibernate.tool.hbm2x.Exporter;
 import org.xml.sax.Attributes;
@@ -309,7 +309,7 @@ public class CrudfwGeneratorMojo extends HibernateExporterMojo {
                 new File(getComponent().getOutputDirectory()).getPath());
 
         // now set the extra properties for the AppFuseExporter
-        AppFuseExporter exporter = (AppFuseExporter) super
+        CrudfwExporter exporter = (CrudfwExporter) super
                 .configureExporter(exp);
         exporter.getProperties().setProperty("ejb3",
                 getComponentProperty("ejb3", "true"));
@@ -391,7 +391,7 @@ public class CrudfwGeneratorMojo extends HibernateExporterMojo {
      */
     @Override
     protected Exporter createExporter() {
-        return new AppFuseExporter();
+        return new CrudfwExporter();
     }
 
     protected void setGenerateCoreOnly(boolean generateCoreOnly) {

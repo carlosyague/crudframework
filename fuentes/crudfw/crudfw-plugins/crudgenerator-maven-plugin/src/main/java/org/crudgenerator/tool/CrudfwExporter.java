@@ -14,13 +14,13 @@ import org.hibernate.util.StringHelper;
  * them.
  * 
  */
-public class AppFuseExporter extends GenericExporter {
+public class CrudfwExporter extends GenericExporter {
 
-    public AppFuseExporter() {
+    public CrudfwExporter() {
         init();
     }
 
-    public AppFuseExporter(Configuration cfg, File outputdir) {
+    public CrudfwExporter(Configuration cfg, File outputdir) {
         super(cfg, outputdir);
         init();
     }
