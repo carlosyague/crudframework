@@ -1,5 +1,9 @@
 package org.crudgenerator.tool;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+
 import org.tmatesoft.svn.core.SVNCommitInfo;
 import org.tmatesoft.svn.core.SVNErrorCode;
 import org.tmatesoft.svn.core.SVNErrorMessage;
@@ -18,10 +22,6 @@ import org.tmatesoft.svn.core.io.SVNRepositoryFactory;
 import org.tmatesoft.svn.core.io.diff.SVNDeltaProcessor;
 import org.tmatesoft.svn.core.io.diff.SVNDiffWindow;
 import org.tmatesoft.svn.core.wc.SVNWCUtil;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.OutputStream;
 
 /*
  * This example program export contents of the repository directory into file system using

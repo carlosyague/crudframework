@@ -4,15 +4,14 @@ import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
-import org.crudgenerator.tool.ArtifactInstaller;
 import org.codehaus.plexus.components.interactivity.Prompter;
 import org.codehaus.plexus.components.interactivity.PrompterException;
+import org.crudgenerator.tool.ArtifactInstaller;
 
 /**
  * This mojo is used to "install" generated artifacts (Java files, XML files)
  * into an AppFuse project.
  * 
- * @author <a href="mailto:matt@raibledesigns.com">Matt Raible</a>
  * @goal install
  * @phase generate-sources
  * @execute phase="compile"

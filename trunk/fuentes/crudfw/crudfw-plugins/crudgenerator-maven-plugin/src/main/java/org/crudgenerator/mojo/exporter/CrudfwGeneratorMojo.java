@@ -14,11 +14,11 @@ import javax.xml.parsers.SAXParserFactory;
 import org.apache.commons.io.FileUtils;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.codehaus.plexus.components.interactivity.Prompter;
+import org.codehaus.plexus.components.interactivity.PrompterException;
 import org.crudgenerator.mojo.HibernateExporterMojo;
 import org.crudgenerator.tool.AppFuseExporter;
 import org.crudgenerator.tool.ArtifactInstaller;
-import org.codehaus.plexus.components.interactivity.Prompter;
-import org.codehaus.plexus.components.interactivity.PrompterException;
 import org.hibernate.tool.hbm2x.Exporter;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
@@ -31,12 +31,11 @@ import org.xml.sax.helpers.DefaultHandler;
  * only DAOs and Managers will be created. For "web" modules, the same principle
  * applies.
  * 
- * @author <a href="mailto:matt@raibledesigns.com">Matt Raible</a>
  * @goal gen
  * @phase generate-sources
  * @execute phase="compile"
  */
-public class AppFuseGeneratorMojo extends HibernateExporterMojo {
+public class CrudfwGeneratorMojo extends HibernateExporterMojo {
     boolean         generateCoreOnly;
     boolean         generateWebOnly;
     String          pojoName;
@@ -103,7 +102,7 @@ public class AppFuseGeneratorMojo extends HibernateExporterMojo {
     /**
      * Default constructor.
      */
-    public AppFuseGeneratorMojo() {
+    public CrudfwGeneratorMojo() {
         addDefaultComponent("target/appfuse/generated-sources",
                 "configuration", false);
         addDefaultComponent("target/appfuse/generated-sources",
@@ -201,25 +200,23 @@ public class AppFuseGeneratorMojo extends HibernateExporterMojo {
         if (getProject().getPackaging().equals("war")
                 && getProject().hasParent()) {
             // assume first module in parent project has hibernate.cfg.xml
-            String moduleName = (String) getProject().getParent().getModules()
+            final String moduleName = (String) getProject().getParent().getModules()
                     .get(0);
-			log("moduleName="+moduleName);
             String pathToParent = getProject().getOriginalModel().getParent()
                     .getRelativePath();
-			log("pathToParent1="+pathToParent);
             pathToParent = pathToParent.substring(0, pathToParent
-                    .lastIndexOf('/') + 1);
-			log("pathToParent2="+pathToParent);
-            log("Assuming '"
-                    + moduleName
-                    + "' has hibernate.cfg.xml in its src/main/resources directory");
+                    .lastIndexOf('/'));                       
 
+            log(String.format("Assuming '%s' has hibernate.cfg.xml in its src/main/resources directory", moduleName));
             
-            getComponentProperties().put( "configurationfile",
-            getProject().getBasedir() + "/" + pathToParent + moduleName +
-            "/src/main/resources/hibernate.cfg.xml");
+            final String fileSeparator = System.getProperty("file.separator");
             
-
+            final StringBuilder configFile = new StringBuilder();
+            configFile.append(getProject().getBasedir());
+            configFile.append(fileSeparator).append(pathToParent).append(fileSeparator);
+            configFile.append(moduleName).append("/src/main/resources/hibernate.cfg.xml");
+            
+            getComponentProperties().put( "configurationfile", configFile.toString());            
         }
 
 		log("getComponentProperty('configurationfile')="+getComponentProperty("configurationfile"));
@@ -237,6 +234,7 @@ public class AppFuseGeneratorMojo extends HibernateExporterMojo {
         if (daoFramework.equals("hibernate")) {
             try {
                 log("hibernateConfig2="+hibernateConfig);
+  
 				String hibernateCfgXml = FileUtils.readFileToString(new File(
                         hibernateConfig));
 				log("hibernateCfgXml="+hibernateCfgXml);
@@ -405,7 +403,7 @@ public class AppFuseGeneratorMojo extends HibernateExporterMojo {
     }
 
     private void log(String msg) {
-        getLog().info("[AppFuse] " + msg);
+        getLog().info("[crudfw] " + msg);
     }
 
     private void addEntityToHibernateCfgXml(String hibernateCfgXml)
@@ -417,8 +415,7 @@ public class AppFuseGeneratorMojo extends HibernateExporterMojo {
             checkEntityExists();
 
             hibernateCfgXml = hibernateCfgXml.replace("</session-factory>",
-                    "    <mapping class=\"" + className + "\"/>"
-                            + "\n    </session-factory>");
+            		String.format("    <mapping class=\"%s\"/>\n    </session-factory>",className));
             log("Adding '" + pojoName + "' to hibernate.cfg.xml...");
         }
 

@@ -25,10 +25,10 @@ import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
-import org.crudgenerator.mojo.exporter.Component;
 import org.codehaus.mojo.hibernate3.ExporterMojo;
 import org.codehaus.mojo.hibernate3.HibernateUtils;
 import org.codehaus.mojo.hibernate3.configuration.ComponentConfiguration;
+import org.crudgenerator.mojo.exporter.Component;
 import org.hibernate.tool.hbm2x.Exporter;
 
 /**
@@ -245,7 +245,8 @@ public abstract class HibernateExporterMojo extends AbstractMojo implements
      * @return ClassLoader
      * @noinspection unchecked
      */
-    private ClassLoader getClassLoader() {
+    @SuppressWarnings({ "rawtypes", "unchecked", "deprecation" })
+	private ClassLoader getClassLoader() {
         try {
             List classpathElements = project.getCompileClasspathElements();
             classpathElements.add(project.getBuild().getOutputDirectory());

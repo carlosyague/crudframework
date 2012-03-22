@@ -1,22 +1,20 @@
 package org.crudgenerator.mojo.installer;
 
+import java.io.File;
+import java.io.IOException;
+
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
-import org.crudgenerator.tool.SubversionUtils;
-import org.tmatesoft.svn.core.SVNException;
-import org.tmatesoft.svn.core.SVNErrorMessage;
 import org.codehaus.plexus.util.FileUtils;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
+import org.crudgenerator.tool.SubversionUtils;
+import org.tmatesoft.svn.core.SVNErrorMessage;
+import org.tmatesoft.svn.core.SVNException;
 
 /**
  * This mojo is used to copy FreeMarker templates from AMP into an AppFuse project.
  *
- * @author <a href="mailto:matt@raibledesigns.com">Matt Raible</a>
  * @goal copy-templates
  */
 public class CopyTemplatesMojo extends AbstractMojo {
@@ -184,6 +182,6 @@ public class CopyTemplatesMojo extends AbstractMojo {
     }
 
     private void log(String msg) {
-        getLog().info("[AppFuse] " + msg);
+        getLog().info("[crudfw] " + msg);
     }
 }

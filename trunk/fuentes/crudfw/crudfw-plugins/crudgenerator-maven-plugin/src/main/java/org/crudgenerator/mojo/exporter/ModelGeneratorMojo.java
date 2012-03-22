@@ -127,7 +127,8 @@ public class ModelGeneratorMojo extends HibernateExporterMojo {
         return "gen-model";
     }
 
-    @Override
+    @SuppressWarnings("rawtypes")
+	@Override
     public void execute() throws MojoExecutionException, MojoFailureException {
 
         commonCorePackage = System.getProperty("appfusePackage");        

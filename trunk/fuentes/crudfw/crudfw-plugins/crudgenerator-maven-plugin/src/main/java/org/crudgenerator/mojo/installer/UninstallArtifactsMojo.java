@@ -1,21 +1,20 @@
 package org.crudgenerator.mojo.installer;
 
+import java.io.File;
+
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
-import org.apache.tools.ant.taskdefs.Replace;
 import org.apache.tools.ant.Project;
+import org.apache.tools.ant.taskdefs.Replace;
 import org.codehaus.plexus.components.interactivity.Prompter;
 import org.codehaus.plexus.components.interactivity.PrompterException;
 import org.crudgenerator.tool.ArtifactUninstaller;
 
-import java.io.File;
-
 /**
  * This mojo is used to "remove" installed artifacts installed by AMP.
  *
- * @author <a href="mailto:matt@raibledesigns.com">Matt Raible</a>
  * @goal remove
  */
 public class UninstallArtifactsMojo extends AbstractMojo {
@@ -128,6 +127,6 @@ public class UninstallArtifactsMojo extends AbstractMojo {
     }
 
     private void log(String msg) {
-        getLog().info("[AppFuse] " + msg);
+        getLog().info("[crudfw] " + msg);
     }
 }
