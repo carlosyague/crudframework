@@ -2,20 +2,14 @@
 <project>
 	<parent>
 		<artifactId>crudfw-commons</artifactId>
-		<groupId>org.crudfw
-        </groupId>
-
+		<groupId>org.crudfw</groupId>
 		<version>1.0-SNAPSHOT</version>
-
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.crudfw.common
     </groupId>
 	<artifactId>crudfw-common-web</artifactId>
 	<name>CRUD Framework: Common Web</name>
-
-	<version>1.0-SNAPSHOT</version>
-
 
 	<build>
 		<defaultGoal>install</defaultGoal>
@@ -68,7 +62,13 @@
 		<dependency>
 			<groupId>${pom.parent.groupId}.common</groupId>
 			<artifactId>crudfw-common-core</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${pom.parent.groupId}</groupId>
+			<artifactId>crudfw-common-theme</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
 		</dependency>
 		<!-- fin DEPENDENCIAS crudfw-commons -->
 

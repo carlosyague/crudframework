@@ -375,13 +375,23 @@ public class CrudfwGeneratorMojo extends HibernateExporterMojo {
         
         // allow installation to be supressed when testing
         if (!disableInstallation) {
-        	final String menuPage = this.getComponentProperty("menuPage");
+        	final String menuPage = getMenuPage();
         	
             ArtifactInstaller installer = new ArtifactInstaller(getProject(),
                     pojoName, sourceDirectory, destinationDirectory,
                     destinationSampleDataFile, genericCore, menuPage);
             installer.execute();
         }
+    }
+    
+    private String getMenuPage() {
+    	String result = this.getComponentProperty("menuPage");
+    	
+    	if (result == null) {
+    		result = System.getProperty("menuPage");
+    	}
+    	
+    	return result;
     }
 
     /**

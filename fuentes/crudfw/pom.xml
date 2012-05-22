@@ -386,7 +386,7 @@
         <!-- 1. Application settings -->
         <copyright.year>2008</copyright.year>
         <directorio_raiz>${env.crudfw_DIR}/crudfw</directorio_raiz>
-        <developer.company>UTE Sopra PROFit - Ingenia</developer.company>
+        <developer.company>Universidad de Málaga</developer.company>
 
 
         <!-- 2. Web.xml params -->
@@ -450,11 +450,6 @@
 
         <!-- 4. PLUGINS Y UTILS -->
         <!-- crudfw Maven Plugin -->
-        <crudfw.maven.plugin.version>0.1</crudfw.maven.plugin.version>
-        <crudfw.maven.plugin.autorName>${developer.company}</crudfw.maven.plugin.autorName>
-        <crudfw.maven.plugin.appfusePackage>org.crudfw.common</crudfw.maven.plugin.appfusePackage>
-        <crudfw.maven.plugin.genericCore>false</crudfw.maven.plugin.genericCore>
-        <crudfw.maven.plugin.fullSource>false</crudfw.maven.plugin.fullSource>
         <crudfw.maven-license-plugin>1.4.0</crudfw.maven-license-plugin>
 
         <!-- Eclipse Maven Plugin -->
