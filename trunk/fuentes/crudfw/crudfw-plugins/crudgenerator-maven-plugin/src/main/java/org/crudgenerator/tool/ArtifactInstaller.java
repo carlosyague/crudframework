@@ -72,11 +72,14 @@ public class ArtifactInstaller {
         if (project.getPackaging().equals("jar")
                 || (project.getPackaging().equals("war") && project.getParent() == null)) {
             log("Installing Spring bean definitions...");
-            if (genericCore) {
-                installGenericBeanDefinitions();
-            } else {
-                installDaoAndManagerBeanDefinitions();
-            }
+            
+//            if (genericCore) {
+//                installGenericBeanDefinitions();
+//            } else {
+//                installDaoAndManagerBeanDefinitions();
+//            }
+            installDaoAndManagerBeanDefinitions();
+            
             // only installs if iBATIS is configured as dao.framework
             installiBATISFiles();
         }

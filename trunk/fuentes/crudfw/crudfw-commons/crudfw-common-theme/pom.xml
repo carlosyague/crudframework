@@ -11,7 +11,7 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<groupId>org.crudfw</groupId>
+	<groupId>org.crudfw.common</groupId>
 	<artifactId>crudfw-common-theme</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
