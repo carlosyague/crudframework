@@ -26,6 +26,36 @@
 
 	<build>
 		<defaultGoal>install</defaultGoal>
+		<!-- CONFIGURACION PLUGINS COMUNES SUBMODULOS -->
+		<pluginManagement>
+			<plugins>
+
+    			<!-- CRUD GENERATOR PLUGIN -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>crudgenerator-maven-plugin</artifactId>
+					<version>1.0-SNAPSHOT</version>
+					<configuration>
+						<genericCore>false</genericCore>
+						<fullSource>false</fullSource>
+						<componentProperties>
+							<commonPackage>es.uma.crudframework</commonPackage>
+							<authorName>${developer.company}</authorName>
+							<configurationfile>src/main/resources/hibernate.cfg.xml</configurationfile>
+							<sampleDataFile>src/test/resources/sample-data.xml</sampleDataFile>
+							<menuPage>/src/main/webapp/common/menu/horizontal.xhtml</menuPage>
+						</componentProperties>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>${jdbc.groupId}</groupId>
+							<artifactId>${jdbc.artifactId}</artifactId>
+							<version>${jdbc.version}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
