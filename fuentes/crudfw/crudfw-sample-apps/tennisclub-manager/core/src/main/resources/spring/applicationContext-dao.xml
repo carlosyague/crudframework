@@ -56,12 +56,6 @@
     </bean>
     <!--Contacto6Dao-END-->
 
-    <!--JugadorDao-START-->
-    <bean id="jugadorDAO" class="org.tennisclub.manager.dao.hibernate.JugadorDAOImpl">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-    <!--JugadorDao-END-->
-
     <!--TorneoDao-START-->
     <bean id="torneoDAO" class="org.tennisclub.manager.dao.hibernate.TorneoDAOImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
