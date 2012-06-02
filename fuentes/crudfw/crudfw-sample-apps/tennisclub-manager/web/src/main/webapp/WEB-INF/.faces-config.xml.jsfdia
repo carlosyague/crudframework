@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#pages#prueba.xhtml"
+  PATH="/pages/prueba.xhtml" SHAPE="48,1457,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#prueba.xhtml:0" NAME="item"
+   PATH="/pages/prueba.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="form::#pages#prueba.xhtml" NAME="output"
+    PATH="/pages/prueba.xhtml" TARGET="rules:#pages#prueba.xhtml"
+    TITLE="form" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="list::#pages#prueba.xhtml" NAME="output1"
+    PATH="/pages/prueba.xhtml" TARGET="rules:#pages#prueba.xhtml"
+    TITLE="list" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#contacto#list.xhtml"
+  PATH="/pages/contacto/list.xhtml" SHAPE="48,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#contacto#list.xhtml:0" NAME="item"
+   PATH="/pages/contacto/list.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="add::#pages#contacto#form.xhtml"
+    NAME="output" PATH="/pages/contacto/form.xhtml"
+    TARGET="rules:#pages#contacto#form.xhtml" TITLE="add" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="edit::#pages#contacto#form.xhtml"
+    NAME="output1" PATH="/pages/contacto/form.xhtml"
+    TARGET="rules:#pages#contacto#form.xhtml" TITLE="edit" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#contacto#form.xhtml"
+  PATH="/pages/contacto/form.xhtml" SHAPE="272,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#contacto#form.xhtml:0" NAME="item"
+   PATH="/pages/contacto/form.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="cancel::#pages#contacto#list.xhtml"
+    NAME="output" PATH="/pages/contacto/list.xhtml"
+    TARGET="rules:#pages#contacto#list.xhtml" TITLE="cancel" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="list::#pages#contacto#list.xhtml"
+    NAME="output1" PATH="/pages/contacto/list.xhtml"
+    TARGET="rules:#pages#contacto#list.xhtml" TITLE="list" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#contacto2#list.xhtml"
+  PATH="/pages/contacto2/list.xhtml" SHAPE="48,161,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#contacto2#list.xhtml:0" NAME="item"
+   PATH="/pages/contacto2/list.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="add::#pages#contacto2#form.xhtml"
+    NAME="output" PATH="/pages/contacto2/form.xhtml"
+    TARGET="rules:#pages#contacto2#form.xhtml" TITLE="add" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="edit::#pages#contacto2#form.xhtml"
+    NAME="output1" PATH="/pages/contacto2/form.xhtml"
+    TARGET="rules:#pages#contacto2#form.xhtml" TITLE="edit" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#contacto2#form.xhtml"
+  PATH="/pages/contacto2/form.xhtml" SHAPE="272,177,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#contacto2#form.xhtml:0" NAME="item"
+   PATH="/pages/contacto2/form.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="cancel::#pages#contacto2#list.xhtml"
+    NAME="output" PATH="/pages/contacto2/list.xhtml"
+    TARGET="rules:#pages#contacto2#list.xhtml" TITLE="cancel" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="list::#pages#contacto2#list.xhtml"
+    NAME="output1" PATH="/pages/contacto2/list.xhtml"
+    TARGET="rules:#pages#contacto2#list.xhtml" TITLE="list" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#cliente#list.xhtml"
+  PATH="/pages/cliente/list.xhtml" SHAPE="48,305,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#cliente#list.xhtml:0" NAME="item"
+   PATH="/pages/cliente/list.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="add::#pages#cliente#form.xhtml"
+    NAME="output" PATH="/pages/cliente/form.xhtml"
+    TARGET="rules:#pages#cliente#form.xhtml" TITLE="add" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="edit::#pages#cliente#form.xhtml"
+    NAME="output1" PATH="/pages/cliente/form.xhtml"
+    TARGET="rules:#pages#cliente#form.xhtml" TITLE="edit" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#cliente#form.xhtml"
+  PATH="/pages/cliente/form.xhtml" SHAPE="272,321,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#cliente#form.xhtml:0" NAME="item"
+   PATH="/pages/cliente/form.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="cancel::#pages#cliente#list.xhtml"
+    NAME="output" PATH="/pages/cliente/list.xhtml"
+    TARGET="rules:#pages#cliente#list.xhtml" TITLE="cancel" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="list::#pages#cliente#list.xhtml"
+    NAME="output1" PATH="/pages/cliente/list.xhtml"
+    TARGET="rules:#pages#cliente#list.xhtml" TITLE="list" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#factura#list.xhtml"
+  PATH="/pages/factura/list.xhtml" SHAPE="48,449,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#factura#list.xhtml:0" NAME="item"
+   PATH="/pages/factura/list.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="add::#pages#factura#form.xhtml"
+    NAME="output" PATH="/pages/factura/form.xhtml"
+    TARGET="rules:#pages#factura#form.xhtml" TITLE="add" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="edit::#pages#factura#form.xhtml"
+    NAME="output1" PATH="/pages/factura/form.xhtml"
+    TARGET="rules:#pages#factura#form.xhtml" TITLE="edit" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#factura#form.xhtml"
+  PATH="/pages/factura/form.xhtml" SHAPE="272,465,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#factura#form.xhtml:0" NAME="item"
+   PATH="/pages/factura/form.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="cancel::#pages#factura#list.xhtml"
+    NAME="output" PATH="/pages/factura/list.xhtml"
+    TARGET="rules:#pages#factura#list.xhtml" TITLE="cancel" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="list::#pages#factura#list.xhtml"
+    NAME="output1" PATH="/pages/factura/list.xhtml"
+    TARGET="rules:#pages#factura#list.xhtml" TITLE="list" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#contacto4#list.xhtml"
+  PATH="/pages/contacto4/list.xhtml" SHAPE="48,593,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#contacto4#list.xhtml:0" NAME="item"
+   PATH="/pages/contacto4/list.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="add::#pages#contacto4#form.xhtml"
+    NAME="output" PATH="/pages/contacto4/form.xhtml"
+    TARGET="rules:#pages#contacto4#form.xhtml" TITLE="add" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="edit::#pages#contacto4#form.xhtml"
+    NAME="output1" PATH="/pages/contacto4/form.xhtml"
+    TARGET="rules:#pages#contacto4#form.xhtml" TITLE="edit" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#contacto4#form.xhtml"
+  PATH="/pages/contacto4/form.xhtml" SHAPE="272,609,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#contacto4#form.xhtml:0" NAME="item"
+   PATH="/pages/contacto4/form.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="cancel::#pages#contacto4#list.xhtml"
+    NAME="output" PATH="/pages/contacto4/list.xhtml"
+    TARGET="rules:#pages#contacto4#list.xhtml" TITLE="cancel" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="list::#pages#contacto4#list.xhtml"
+    NAME="output1" PATH="/pages/contacto4/list.xhtml"
+    TARGET="rules:#pages#contacto4#list.xhtml" TITLE="list" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#contacto3#list.xhtml"
+  PATH="/pages/contacto3/list.xhtml" SHAPE="48,737,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#contacto3#list.xhtml:0" NAME="item"
+   PATH="/pages/contacto3/list.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="add::#pages#contacto3#form.xhtml"
+    NAME="output" PATH="/pages/contacto3/form.xhtml"
+    TARGET="rules:#pages#contacto3#form.xhtml" TITLE="add" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="edit::#pages#contacto3#form.xhtml"
+    NAME="output1" PATH="/pages/contacto3/form.xhtml"
+    TARGET="rules:#pages#contacto3#form.xhtml" TITLE="edit" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#contacto3#form.xhtml"
+  PATH="/pages/contacto3/form.xhtml" SHAPE="272,753,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#contacto3#form.xhtml:0" NAME="item"
+   PATH="/pages/contacto3/form.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="cancel::#pages#contacto3#list.xhtml"
+    NAME="output" PATH="/pages/contacto3/list.xhtml"
+    TARGET="rules:#pages#contacto3#list.xhtml" TITLE="cancel" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="list::#pages#contacto3#list.xhtml"
+    NAME="output1" PATH="/pages/contacto3/list.xhtml"
+    TARGET="rules:#pages#contacto3#list.xhtml" TITLE="list" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#contacto5#list.xhtml"
+  PATH="/pages/contacto5/list.xhtml" SHAPE="48,881,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#contacto5#list.xhtml:0" NAME="item"
+   PATH="/pages/contacto5/list.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="add::#pages#contacto5#form.xhtml"
+    NAME="output" PATH="/pages/contacto5/form.xhtml"
+    TARGET="rules:#pages#contacto5#form.xhtml" TITLE="add" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="edit::#pages#contacto5#form.xhtml"
+    NAME="output1" PATH="/pages/contacto5/form.xhtml"
+    TARGET="rules:#pages#contacto5#form.xhtml" TITLE="edit" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#contacto5#form.xhtml"
+  PATH="/pages/contacto5/form.xhtml" SHAPE="272,897,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#contacto5#form.xhtml:0" NAME="item"
+   PATH="/pages/contacto5/form.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="cancel::#pages#contacto5#list.xhtml"
+    NAME="output" PATH="/pages/contacto5/list.xhtml"
+    TARGET="rules:#pages#contacto5#list.xhtml" TITLE="cancel" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="list::#pages#contacto5#list.xhtml"
+    NAME="output1" PATH="/pages/contacto5/list.xhtml"
+    TARGET="rules:#pages#contacto5#list.xhtml" TITLE="list" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#contacto6#list.xhtml"
+  PATH="/pages/contacto6/list.xhtml" SHAPE="48,1025,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#contacto6#list.xhtml:0" NAME="item"
+   PATH="/pages/contacto6/list.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="add::#pages#contacto6#form.xhtml"
+    NAME="output" PATH="/pages/contacto6/form.xhtml"
+    TARGET="rules:#pages#contacto6#form.xhtml" TITLE="add" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="edit::#pages#contacto6#form.xhtml"
+    NAME="output1" PATH="/pages/contacto6/form.xhtml"
+    TARGET="rules:#pages#contacto6#form.xhtml" TITLE="edit" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#contacto6#form.xhtml"
+  PATH="/pages/contacto6/form.xhtml" SHAPE="272,1041,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#contacto6#form.xhtml:0" NAME="item"
+   PATH="/pages/contacto6/form.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="cancel::#pages#contacto6#list.xhtml"
+    NAME="output" PATH="/pages/contacto6/list.xhtml"
+    TARGET="rules:#pages#contacto6#list.xhtml" TITLE="cancel" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="list::#pages#contacto6#list.xhtml"
+    NAME="output1" PATH="/pages/contacto6/list.xhtml"
+    TARGET="rules:#pages#contacto6#list.xhtml" TITLE="list" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#torneo#list.xhtml"
+  PATH="/pages/torneo/list.xhtml" SHAPE="48,1313,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#torneo#list.xhtml:0" NAME="item"
+   PATH="/pages/torneo/list.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="add::#pages#torneo#form.xhtml" NAME="output"
+    PATH="/pages/torneo/form.xhtml"
+    TARGET="rules:#pages#torneo#form.xhtml" TITLE="add" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="edit::#pages#torneo#form.xhtml"
+    NAME="output1" PATH="/pages/torneo/form.xhtml"
+    TARGET="rules:#pages#torneo#form.xhtml" TITLE="edit" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#torneo#form.xhtml"
+  PATH="/pages/torneo/form.xhtml" SHAPE="272,1329,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#torneo#form.xhtml:0" NAME="item"
+   PATH="/pages/torneo/form.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="cancel::#pages#torneo#list.xhtml"
+    NAME="output" PATH="/pages/torneo/list.xhtml"
+    TARGET="rules:#pages#torneo#list.xhtml" TITLE="cancel" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="list::#pages#torneo#list.xhtml"
+    NAME="output1" PATH="/pages/torneo/list.xhtml"
+    TARGET="rules:#pages#torneo#list.xhtml" TITLE="list" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>
