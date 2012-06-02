@@ -131,7 +131,7 @@ public class ModelGeneratorMojo extends HibernateExporterMojo {
 	@Override
     public void execute() throws MojoExecutionException, MojoFailureException {
 
-        commonCorePackage = System.getProperty("appfusePackage");        
+        commonCorePackage = System.getProperty("commonPackage");        
 
         getComponentProperties().put("implementation", "jdbcconfiguration");
         getComponentProperties().put(
@@ -289,19 +289,19 @@ public class ModelGeneratorMojo extends HibernateExporterMojo {
 
         if (commonCorePackage != null) {            
 
-            exporter.getProperties().setProperty("appfusepackage",
+            exporter.getProperties().setProperty("commonpackage",
                     commonCorePackage);
         } else {
             if (isFullSource()) {
                 System.out
-                        .println("MojoGeneratorModel::isFullSource appfusepackage="
+                        .println("MojoGeneratorModel::isFullSource commonpackage="
                                 + getProject().getGroupId());
 
-                exporter.getProperties().setProperty("appfusepackage",
+                exporter.getProperties().setProperty("commonpackage",
                         getProject().getGroupId());
             } else {                
 
-                exporter.getProperties().setProperty("appfusepackage",
+                exporter.getProperties().setProperty("commonpackage",
                         "org.appfuse");
             }
         }        

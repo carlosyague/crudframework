@@ -2,9 +2,9 @@
 <#assign identifierType = pojo.getJavaTypeName(pojo.identifierProperty, jdk5)>
 package ${basepackage}.webapp.action;
 
-import ${appfusepackage}.webapp.action.BasePageTestCase;
+import ${commonpackage}.webapp.action.BasePageTestCase;
 <#if genericcore>
-import ${appfusepackage}.service.GenericManager;
+import ${commonpackage}.service.GenericManager;
 <#else>
 import ${basepackage}.service.I${pojo.shortName}Manager;
 </#if>

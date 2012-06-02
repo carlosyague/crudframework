@@ -13,7 +13,7 @@ import org.springframework.orm.ObjectRetrievalFailureException;
 
 import ${basepackage}.dao.I${pojo.shortName}DAO;
 import ${basepackage}.model.${pojo.shortName};
-import ${appfusepackage}.service.impl.BaseManagerMockTestCase;
+import ${commonpackage}.service.impl.BaseManagerMockTestCase;
 
 public class ${pojo.shortName}ManagerImplTest extends BaseManagerMockTestCase {
 

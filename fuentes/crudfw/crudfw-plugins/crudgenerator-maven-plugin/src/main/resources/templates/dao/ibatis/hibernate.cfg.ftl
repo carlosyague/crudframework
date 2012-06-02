@@ -3,7 +3,7 @@
 
 <hibernate-configuration>
     <session-factory>
-        <mapping class="${appfusepackage}.model.User"/>
-        <mapping class="${appfusepackage}.model.Role"/>
+        <mapping class="${commonpackage}.model.User"/>
+        <mapping class="${commonpackage}.model.Role"/>
     </session-factory>
 </hibernate-configuration>

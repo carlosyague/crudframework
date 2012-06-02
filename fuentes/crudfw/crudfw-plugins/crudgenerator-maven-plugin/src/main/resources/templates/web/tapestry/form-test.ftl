@@ -6,10 +6,10 @@ package ${basepackage}.webapp.pages;
 
 import org.apache.tapestry.engine.ILink;
 import ${basepackage}.model.${pojo.shortName};
-import ${appfusepackage}.webapp.pages.MockRequestCycle;
-import ${appfusepackage}.webapp.pages.BasePageTestCase;
+import ${commonpackage}.webapp.pages.MockRequestCycle;
+import ${commonpackage}.webapp.pages.BasePageTestCase;
 <#if genericcore>
-import ${appfusepackage}.service.GenericManager;
+import ${commonpackage}.service.GenericManager;
 <#else>
 import ${basepackage}.service.${pojo.shortName}Manager;
 </#if>

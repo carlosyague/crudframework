@@ -4,12 +4,12 @@ package ${basepackage}.webapp.pages;
 import java.util.List;
 
 <#if genericcore>
-import ${appfusepackage}.service.GenericManager;
+import ${commonpackage}.service.GenericManager;
 <#else>
 import ${basepackage}.service.${pojo.shortName}Manager;
 </#if>
 import ${pojo.packageName}.${pojo.shortName};
-import ${appfusepackage}.webapp.pages.BasePage;
+import ${commonpackage}.webapp.pages.BasePage;
 import org.apache.tapestry.IRequestCycle;
 
 public abstract class ${pojo.shortName}List extends BasePage {

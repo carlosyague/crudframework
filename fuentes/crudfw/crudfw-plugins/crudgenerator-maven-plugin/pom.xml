@@ -9,7 +9,7 @@
         <version>13</version>
     </parent>
 
-    <groupId>org.crudfw.mojo</groupId>
+    <groupId>org.codehaus.mojo</groupId>
     <artifactId>crudgenerator-maven-plugin</artifactId>
     <packaging>maven-plugin</packaging>
     <name>Crud Generator Maven Plugin</name>
