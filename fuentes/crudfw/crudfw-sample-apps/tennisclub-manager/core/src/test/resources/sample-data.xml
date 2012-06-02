@@ -349,7 +349,54 @@
     </row>
     </table>
     <!--Jugador-END-->
+    <!--Torneo-START-->
+    <table name="Torneo">
+        <column>id</column>
+        <column>apellidos</column>
+        <column>codigoPostal</column>
+        <column>direccion</column>
+        <column>nombre</column>
+        <column>notas</column>
+        <column>poblacion</column>
+        <column>provincia</column>
+        <column>tfno</column>
+    <row>
+        <value description="id">-1</value>
+        <value description="apellidos">OzQzXnKdIcYmVbEcPaPhNgSoFzTeFpVcItIsUdJkNjXmQsCiWfPqElAjUpCtSsTiUjRoCjReXkEmPoHvQrRzKaErJeQpBpArLrXeQnNvFaVuQzBfFbRqRhUgDqFbLmYiOkOjMvUgYkKcGzVeHsQuAxSdGgYqCkDoCoWnBtWuJmCaCmJsDyKwVuXvQoImXuYyAaKaYrFcDuTrLjAyFbGeJqJkDcKcBiBlDsXdQaXuQlJnFiRuSiZzDiKdNoNmHgF</value>
+        <value description="codigoPostal">BoQkFuJrYjJrRgDnPpJxUoAeAhHwKdSjQeIpXkYtXlUeDqLjAxOtOeZmDiQtWlJcZtPmTuLuOuDgOlGcGaCyPpGtLzFsUfKzAoMbBxWuMzVoBrDgKrYyMkXhPgSfIrQoMkLsAeVrUwSvLkMeFqCgJmFtQmMlUrXkRlShZcAyXeNpPhCaBcHbFjMcVzAfLbVmLsCwAsZkOiPpZeWjYdRwSgSlCdZiDsQpQsZrXoZmLuXxWbXuCiZnDpShLtIgKiK</value>
+        <value description="direccion">JoEhAbTiNoGiZbJuXqVwLqYrEoKmSpBjGvEfTxKvLdLfEtHePlOkCpUmLcLhYrWsUjPrYnElQxAaHrLkIhQxUmVsBqWpTqIjJsNlOkIlChRiRnZvZlEbNqQtDjPqIxVgYsHfUpOjWcOhEqOvVeDgKqEbHtEgVgTrZdIdFbRvPmXxWsYmOuRbZrAxMnJpNrCyDwWlNfAxMvBxHiPkYvNcAiLcXyHzCvJlLcDmJsMjKiMsWwSsKjUfPlAdLfRaEhL</value>
+        <value description="nombre">OkAmUmRkUiNhTpQiFaUvOdLhNbLiBcScHaMjQxWkCxEtYyHtEsTmKcQvMpIcSaMkUaEsTwMiFlJlKcNiYsIsWnEoRvSrXdHqJoXoCiTwBxYcMfXhChIaXeUaIpTbUjHiQyBtGkEbVnZgChZzPqFrVsBjTnAzIyLpWvMgUjWcLeVvEyXkLdVwPdYgQpEsVsWpSlPhYrBqFmDaIsUrLtRbYrLdEiJeWfQmDfPaOmZaZwGmBhTfFvGwFmOqBxUcIhA</value>
+        <value description="notas">JnObNkXyYcZtRvKcRnYwXvFnNwUfQyZnScBrPkIsKeHlPtQrRtFnEsFgNnMfCtLkVqSmJmDaSpAkQdPnFuPaIiNaPkLfAfIqSjMzTpLmXqGkVrJtUaVlLoQmPgMeLbHvDdEuIqFpLoIjCqCsMnDwDaVwTnEbLxWlYsOkMeRdBhPlBjCkMtPgQvRmZdTfVtHlNsQhRaWvSwBcWzVdTjMrGgSgWeXfKzDyUfEeZdQyFsTiJpLkWbBrEvOxGcIrXkQ</value>
+        <value description="poblacion">IdDrQfYoPuPcJmJlZiZoZlQwBcYaUwPkLuNhUqRlBvJkQzZnNzHgLaAfTiEdJgRvGiJjNqDwGcMxTfRwWqYaGmElZfHzDlCyKoIsQcOcReZvXlXkJbRzGpMxZtAhGoViMnAuNjYcJzYuOcYrPdHnUgPrClUuXaRrEvKlXhIaLrSmEpBpEjIlLwFvLlBvKlXySgMnVoQsNtRnNbOtZnSlLpSkQnMoNiFqVnBgElOpOpLpXoPtNmUvWjIiPxUbTrX</value>
+        <value description="provincia">KpHeFaIuXcWsXtRoWpQuJmNnPxTeAfLaRvQiHmEiVkNdRrWmBdBcRpHlVfHaHqEhXqNcCwOjGcVsFhPvBpNiOgCtYzBpCqFtTbOgOvMeQfWbZyJqVvBdQrLtDiHhEaXcRdDsOdBgBxEjWbFnFlMrNzPuFmXvJtDxSgUfJfStPcLdCbIkZzPzVcFqYxGzJvBhLqPqPjNhYyTpWnYeTsBxQtLjYjNkSoHyNbFgAdSuIrZbOqNtRnFbIhVoNpEtAaA</value>
+        <value description="tfno">AyZqPjQqSmRlVfPdGyZfElZgMzSsWqWpTcSxEhPtOeWpVdSeOtTrOyEeScPtRhFkXpZiWuGcKqGkHsIcBmJdYnKzXwOcSbCrTrUlBvUrCoSnTrIxUfZdPmUwAmJlPwQbHvGcOaSoEeGaHhSfKeOjKqUsKoOzZrCxJkCqIwXuMqDhYiKcYxJdPlBjOpOmMoRfOuYsWzJvYoQzNqLxNhLyMpSzXuWmInWnAtHvFrXaEwSqNjKmHzSpMnRyVxOwOuW</value>
+    </row>
+    <row>
+        <value description="id">-2</value>
+        <value description="apellidos">ImVlNfWgQdAiEjOvQsDxGkPkPaRwNjLjOtFvRwChVfImTwNgOcIgYaCvSaClKrCnIiXkDxVuZaLcYbViAhRtFvUlTcGbUaXgZhTqKuBxJmMqBzNbIwIkBcSyRgKrUpTqKiHhUyFqYvUjXbKoVdAfEeXqZqBpZrBtOiIwRbDsLdQmLpSvNvDpHaUoUyMzPfFpGuCeEsKnTbNxDkCyAuVaAxPpJmMkPpTjDxLxTmBpMtJbDtOjPzKzPqAaXzMzIwP</value>
+        <value description="codigoPostal">YaNpTnYfXwYhTcTcPtTaAfSeWjEoPcCrQkQrUjEhAsPgYwTeArMrGlXwHwDaFkTlFhZzVrGhUzLkVtZpAjZgZvZzJzFfQyWdBdZeHzMlZcBeCvRuKrYaMyWgToEkOgXyTfTvGcGxPcVhUnFcXpVjJnWbIrIcTnGoSbOgPnPzTkSbRqOkEgRoTvEwAwHjKjTuIlOoRvWiVlSdWiDcXkQbDoTnCoTuZhPvBbLxArPqOcWfRoReZxBxDnGzOvKiCeI</value>
+        <value description="direccion">IcFuBjRrJwQmJoSmQlBtIqZlGvHmQvVjBwBjGxWvYlRoCtJxCaBpThBpRrMgIaGmNgLrExCeXxQmFmSbTmGbXcMkHjDrBdRpBuCaGiCeTaIzOcMvKyYmJiIaPeBuEdGeDzQnFaGxMlUjEaAdAjBcBrMeLzAuFtQcThJlZxEiXiIwQdXgFqRrHrWaJeYpFwAvJzXaOlDaUlYkQjBtElZiWfGoWaNxMjNsUkGeLnUcOmUoXkHhXyJiPrCzGwTySxM</value>
+        <value description="nombre">OnLdRdMmJcRfRhAuZnAzNxVuVmZaBzHlRdLkOxHiRwOuKdDaTxMdWrMdNlJhCnWwNiWyVxByTcXlJuSyFoAmApXzFmAoLdHrTnWrDlAbWlHkBrGfKwNaNnWcSxIqVmInApPtDmHxIzKvCfEzIkVnZaToZcVaVdGtRzAfToHdNzAwRfArEpNeMmXxKqAeKcGeAsXrUrItVkXdFoZeFmBpOfKdWvNaQpCmLjYlZsDpOoGhHaWdPeEuBtWkMiTpZyC</value>
+        <value description="notas">TgGmSvWfTxTeUzJdOtXjUlTnIfEgBkYlAjAbEhRuMnMnBbSeYwWzEfSvKdYxYbFlOpInThUoCfTaUyFbAlBdXwIzQkDaNzBlVqBdQmJkRsQiOmScLkKfSrTsQfBrRkIsFfIfNqTkAyAySeEgHhEjHcHtPbQoRuSpSkDuIvCbEmXrJtTeWvQoAgNvXjQtQrIcVcFsSbNxUaOyXqNcZmVkZqDsSgEaSfGmXdXqHiHhAnBzIcIkGnYxXdRtAmKfCmP</value>
+        <value description="poblacion">GtCjVxPmGqGhJjHzTsIlSuJaIrXjWvSxNdYkTaEvAfEwXkWmRrRxGjCiCxXjFyUhDzIvYsMnIxTqOwNqTyTvSeChQcChLdGmUnTuOnWvIzSzYwAaVdUuJqZnJnQlWjEsSwKyOuPhNcGySyJcWgOvLmRdSvFiYvOyXsRvRhNyDnNeLgGjIqSbPiSvObUzYgZfTiSxGuMxOuGeRwVgXdPqLtGyUuHjFfIrOwHiQjGaDiPcFlLtChDvRiUxEuRdQaV</value>
+        <value description="provincia">IrUuHmLtHfUjIrWcSmEdMqYsZsFhOhOnJnSuRqMhRkBnTjPsAcEtPkUmAuEgRlRsQgHmPeQkAdBqYfXxKwBeEuWsUzJkUoJtHiOnOlWlQiMzWeJyClNqNqKaKyYhExWiZnKhRtHbNpVsRsXuAnPpNqEgWmWjDdGmWcJzGzOfKjTcSrSvIyRiGxDcBzDsXhXkHiMpKsRfTjQhXhShRgRoZkMtAdQqMyYfIfTiGiCfXrHjJoBjIvElEeNzDrZvBoW</value>
+        <value description="tfno">YyJlBcObPuJeGdSdJfRkUbWjJbTuRbInZdHyLxHyIsCsJkAjBgWtPbSlUmDbSlZlOjUwTeMcKhLqAqYxNzDdSyTlHhXxLyZeNlTaMuJcBvVcRiJzAmTgXsXkXdMjJaZeOlBeOmDrOyJmVvEwGhNjZcXgCzPuJoNmKwUrWfLnVeGxLfAxQaDzHgXjDzTeCiYiNfSmLbNxZeHpXzKwFvWaMoUmXwAvWgMhRtZlTaLwGaQxMeApMfHiNwMxZdQhRdX</value>
+    </row>
+    <row>
+        <value description="id">-3</value>
+        <value description="apellidos">CjJeSpNqIaPuGyQhVoHlDuTlWtWmRmTzSuYhQjTmSiPzKpWbFtBaCtFvEbOeWtXnLrRlQwPkSnLpEgGxUeAeGmSfFwKaNhWnJaBnMbNeLxQwCxZeMqYgLtBiZgPqPdHpFcPaVbViKfHfQbOqZzFtDgZkPvCiAbWtEvGkZsGvKsWcHbAkUkAyXbRhUaMhRyTcEkUoVaThAaKxJuGvSfWeAiUiCaElKpZhMzQhDcLyVwPmSpNvGuTxLjMvTsVdUyC</value>
+        <value description="codigoPostal">TdYsRaEwKqIlJsKkOpSzQpSvUfWbNkBdNeAuWuBnEzBcUrEsCqIqKiUnNtUgTgYwZtYzUvPtTxEuNmNbOkGfHyMqBmZwSkDgGpIkXvTnYbViJeUdJoOkFnEzHkFvYzWaNuQdXnLxEyPjJfZvWhSkBrZgRwQbViJwSqPpFcCmKjVkZsHbBiGyCiGvCeOqUmHkKzQyGnCdZjBuQaUhQnJeJxGqAnYtEuOuCrYuGmVcBdEaOoIzMdWkTrDfVgNiByL</value>
+        <value description="direccion">HnEhDfFpDwKjFrTrNzXjIyIeFjBcMkBwJmTkVbXaErWqCzOxHyArDrZiAzUzQjHtWpJsUdBsYqZjVdWeWqMrLoEvOlIuOdFcIpMaWxLdDaBcJzJnSeUcYsIhMnTkXrCwXuPmVxSoOvNxDxQcCxStMyIuRiRhSxXgBpFdQbFnRnKoRtJoXiIzQbKmRoAbOdUfBrCkUzWlKvFhVsBrFfMkElHhSfVaOuTjFwWwEtNmEgVqUuSjUtIwVwPvXgLjUbO</value>
+        <value description="nombre">AqVkHcYkOzIxOaByUyEdMpThSmDzMdIaGhRdDhTwUgPjUsTiUlQnHaFxXoOwFzKjTaUcXrMlAgIePaXyMdDoWvWfPxVvVmGxKeDmCzHzSjAjOiCdHhXqDqQcDgYbZdUaKeRfIqBhDfSkStMpAmAbWhTsFpLoAdEkOoXbLdSvNfWnXxAtGtAkTcDsIsExGqDiSeAxImRpWlHtOdBgFwEpLlCfPjKzBrOmSpXzOyLpQlHtLqBuJxRrIrYcQbGiRrN</value>
+        <value description="notas">XjVqUoAsEySiEtZsFvBdPrEgWyVdKlEiAsIfAwOnWyArHsDcVsToIfVcIdMyJmRyInDjTvNsIgJlOyFgVtBhEsMuUyUvVgVsVgIuXfLqObVvWoZxIgAhLbWmLxPuEsZcEvUrCmPcOaYmPeKrHfVvDjUlXxAfWmObTgDhIyBsXrFmMiIdVxOcEjKjGkGtDmIeBxVuOnLbVdTcZcPjWhSkVfTxZfLlVmIoPiVsVjItNuLeRcIxWbUmZkWlNqVcRiJ</value>
+        <value description="poblacion">PpLbDgBoEoNfPiKmOyXzZkZpKuNaUrAuDhRoKxXfTpZjBlCqTcRkHlVeJaSvZqJgVlQoGxMfKoGqXeXdEwIiPsRsTzYzKeRxZvUbScLcFrSwQfXeJePvFlTbRjSlNySzFkMjSqTyPdZoCdYoUfJnDlCbYhNqEwBhRiJfSzRoFtOhMzTiGyXtTdBtOiIcJzPfPlVvQdSdPcClGxSaEoRuBzXaBlJpKcFxRaWnCcEtXnOfFjTuQkEpVzUmPoAxLhV</value>
+        <value description="provincia">PhQzGsRkOtWdAiFkXfVaMgPzOxDbPtZtMhJqSxFyWoBoUcLfUhSqFtVhXpYeHyVzJtHsLuDgVwIxZvWnWqZnKxLtZxGtWvOgCiAgGiDlWeEgIvCaYdHpExVoVhHqKyAsWjXqBuBkAvBxKsWgRwHaRbNkJvTqRcUlUyXuUmVbWhEsVkRtNfUuNnPqPfSuUgPwBiHqMmPaFnHpIaJsOrJhXnUfFqTdYqMoXmDcVdKjRvDoOzIaCiDkFmFoQlIwUdS</value>
+        <value description="tfno">DcFmXyDrPwQvPjTrExDzJyReUvFmFqXlQsCgBeOhFkVsFlJxVdXpNqBfAzHpHeFdYxAwHjMwBoGgZaPlJnFhTjFnJxDmOkNoQbRzXkIcHxGjHvCzTkTsMeUoMyHaYrAzYmSgTuIoHjVwQlVnUmRxVzYuCcKmZdBpYsOqOpBrEjSgTuAyHnUnAqFwIkToLkBaGtEtLvMxFlWrMwYzYkXqZiNxJoLmTjTlNzJrTrCfUwGhIuGaBnXjMaNfLqSiJlK</value>
+    </row>
+    </table>
+    <!--Torneo-END-->
 </dataset>
+
 
 
 
