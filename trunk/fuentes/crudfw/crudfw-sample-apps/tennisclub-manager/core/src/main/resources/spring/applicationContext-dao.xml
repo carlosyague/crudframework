@@ -62,5 +62,11 @@
     </bean>
     <!--JugadorDao-END-->
 
+    <!--TorneoDao-START-->
+    <bean id="torneoDAO" class="org.tennisclub.manager.dao.hibernate.TorneoDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--TorneoDao-END-->
+
     <!-- Add new DAOs here -->
 </beans>

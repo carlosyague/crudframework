@@ -74,6 +74,12 @@
     </bean>
     <!--JugadorManager-END-->
 
+    <!--TorneoManager-START-->
+    <bean id="torneoManager" class="org.tennisclub.manager.service.impl.TorneoManagerImpl">
+        <constructor-arg ref="torneoDAO"/>
+    </bean>
+    <!--TorneoManager-END-->
+
     <!-- Add new Managers here -->
 
 </beans>
