@@ -68,12 +68,6 @@
     </bean>
     <!--Contacto6Manager-END-->
 
-    <!--JugadorManager-START-->
-    <bean id="jugadorManager" class="org.tennisclub.manager.service.impl.JugadorManagerImpl">
-        <constructor-arg ref="jugadorDAO"/>
-    </bean>
-    <!--JugadorManager-END-->
-
     <!--TorneoManager-START-->
     <bean id="torneoManager" class="org.tennisclub.manager.service.impl.TorneoManagerImpl">
         <constructor-arg ref="torneoDAO"/>
