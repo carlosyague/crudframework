@@ -6,13 +6,13 @@
 package ${basepackage}.webapp.action;
 
 <#if genericcore>
-import ${appfusepackage}.service.GenericManager;
+import ${commonpackage}.service.GenericManager;
 <#else>
 import ${basepackage}.service.I${pojo.shortName}Manager;
 </#if>
 import ${pojo.packageName}.${pojo.shortName};
-import ${appfusepackage}.exception.CrudException;
-import ${appfusepackage}.webapp.action.BasePageTestCase;
+import ${commonpackage}.exception.CrudException;
+import ${commonpackage}.webapp.action.BasePageTestCase;
 import org.junit.Test;
 
 public class ${pojo.shortName}FormTest extends BasePageTestCase {

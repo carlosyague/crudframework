@@ -20,7 +20,7 @@ ${pojo.getPackageDeclaration()}
 
 }
 </#assign>
-import ${appfusepackage}.model.BaseObject;
+import ${commonpackage}.model.BaseObject;
 
 ${pojo.generateImports()}
 import javax.persistence.GeneratedValue;

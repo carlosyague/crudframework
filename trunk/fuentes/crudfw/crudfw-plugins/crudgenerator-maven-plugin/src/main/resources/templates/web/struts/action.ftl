@@ -6,12 +6,12 @@ package ${basepackage}.webapp.action;
 
 import com.opensymphony.xwork2.Preparable;
 <#if genericcore>
-import ${appfusepackage}.service.GenericManager;
+import ${commonpackage}.service.GenericManager;
 <#else>
 import ${basepackage}.service.${pojo.shortName}Manager;
 </#if>
 import ${basepackage}.model.${pojo.shortName};
-import ${appfusepackage}.webapp.action.BaseAction;
+import ${commonpackage}.webapp.action.BaseAction;
 
 import java.util.List;
 

@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 <#if genericcore>
-import ${appfusepackage}.service.GenericManager;
+import ${commonpackage}.service.GenericManager;
 <#else>
 import ${basepackage}.service.${pojo.shortName}Manager;
 </#if>

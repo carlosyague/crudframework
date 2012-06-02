@@ -6,12 +6,12 @@ package ${basepackage}.webapp.controller;
 
 import org.apache.commons.lang.StringUtils;
 <#if genericcore>
-import ${appfusepackage}.service.GenericManager;
+import ${commonpackage}.service.GenericManager;
 <#else>
 import ${basepackage}.service.${pojo.shortName}Manager;
 </#if>
 import ${basepackage}.model.${pojo.shortName};
-import ${appfusepackage}.webapp.controller.BaseFormController;
+import ${commonpackage}.webapp.controller.BaseFormController;
 import org.springframework.validation.BindException;
 import org.springframework.web.servlet.ModelAndView;
 

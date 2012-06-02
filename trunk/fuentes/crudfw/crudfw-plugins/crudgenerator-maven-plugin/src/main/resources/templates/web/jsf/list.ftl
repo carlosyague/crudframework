@@ -5,10 +5,10 @@ package ${basepackage}.webapp.action;
 import java.io.Serializable;
 import java.util.List;
 
-import ${appfusepackage}.webapp.action.BasePage;
+import ${commonpackage}.webapp.action.BasePage;
 <#if genericcore>
 import ${pojo.packageName}.${pojo.shortName};
-import ${appfusepackage}.service.GenericManager;
+import ${commonpackage}.service.GenericManager;
 <#else>
 import ${basepackage}.service.I${pojo.shortName}Manager;
 </#if>

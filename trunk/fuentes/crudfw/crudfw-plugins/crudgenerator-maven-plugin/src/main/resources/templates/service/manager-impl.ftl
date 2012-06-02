@@ -5,7 +5,7 @@ package ${basepackage}.service.impl;
 import ${basepackage}.dao.I${pojo.shortName}DAO;
 import ${basepackage}.model.${pojo.shortName};
 import ${basepackage}.service.I${pojo.shortName}Manager;
-import ${appfusepackage}.service.impl.GenericManagerImpl;
+import ${commonpackage}.service.impl.GenericManagerImpl;
 
 /**
  * Implementación del Manager <br/>DAO: I${pojo.shortName}DAO <br/>Entidad: ${pojo.shortName}

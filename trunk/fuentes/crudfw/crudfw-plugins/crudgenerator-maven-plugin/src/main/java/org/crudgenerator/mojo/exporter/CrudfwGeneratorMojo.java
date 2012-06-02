@@ -164,7 +164,7 @@ public class CrudfwGeneratorMojo extends HibernateExporterMojo {
 
         // pojoName = System.getProperty("entity");
         pojoName = getProperty("entity");
-        commonCorePackage = getProperty("appfusePackage");
+        commonCorePackage = getProperty("commonPackage");
 
         setComponentPropertyByCommandLine("authorName");
         setComponentPropertyByCommandLine("sampleDataFile");
@@ -341,17 +341,17 @@ public class CrudfwGeneratorMojo extends HibernateExporterMojo {
 
         if (commonCorePackage != null) {
 
-            exporter.getProperties().setProperty("appfusepackage",
+            exporter.getProperties().setProperty("commonpackage",
                     commonCorePackage);
         } else {
             if (isFullSource()) {
 
-                exporter.getProperties().setProperty("appfusepackage",
+                exporter.getProperties().setProperty("commonpackage",
                         getProject().getGroupId());
             } else {
 
-                exporter.getProperties().setProperty("appfusepackage",
-                        "org.appfuse");
+                exporter.getProperties().setProperty("commonpackage",
+                        "org.crudfw");
             }
         }
 
@@ -429,8 +429,8 @@ public class CrudfwGeneratorMojo extends HibernateExporterMojo {
             log("Adding '" + pojoName + "' to hibernate.cfg.xml...");
         }
 
-        hibernateCfgXml = hibernateCfgXml.replaceAll("\\$\\{appfusepackage}",
-                (isFullSource()) ? getProject().getGroupId() : "org.appfuse");
+        hibernateCfgXml = hibernateCfgXml.replaceAll("\\$\\{commonpackage}",
+                (isFullSource()) ? getProject().getGroupId() : "org.crudfw");
 
         try {
             FileUtils.writeStringToFile(new File(

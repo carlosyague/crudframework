@@ -3,9 +3,9 @@
 
 package ${basepackage}.dao.hibernate;
 
-import <#if daoframework == "jpa">javax.persistence.EntityNotFoundException<#else>${appfusepackage}.exception.CrudException</#if>;
+import <#if daoframework == "jpa">javax.persistence.EntityNotFoundException<#else>${commonpackage}.exception.CrudException</#if>;
 
-import ${appfusepackage}.dao.BaseDAOTestCase;
+import ${commonpackage}.dao.BaseDAOTestCase;
 import ${basepackage}.model.${pojo.shortName};
 import ${basepackage}.dao.I${pojo.shortName}DAO;
 import org.junit.Test;

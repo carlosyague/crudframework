@@ -9,7 +9,7 @@ import ${pojo.packageName}.${pojoName};
  *
  * @author ${authorName}
  */
-public interface I${pojoName}DAO extends ${pojo.importType("${appfusepackage}.dao.GenericDAO")}<${pojoName}, ${pojo.getJavaTypeName(pojo.identifierProperty, jdk5)}> {
+public interface I${pojoName}DAO extends ${pojo.importType("${commonpackage}.dao.GenericDAO")}<${pojoName}, ${pojo.getJavaTypeName(pojo.identifierProperty, jdk5)}> {
 </#assign>
 ${pojo.generateImports()
 }

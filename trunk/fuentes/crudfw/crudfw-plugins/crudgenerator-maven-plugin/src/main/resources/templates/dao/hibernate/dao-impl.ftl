@@ -2,7 +2,7 @@ package ${basepackage}.dao.hibernate;
 
 import ${basepackage}.model.${pojo.shortName};
 import ${basepackage}.dao.I${pojo.shortName}DAO;
-import ${appfusepackage}.dao.hibernate.GenericDAOImpl;
+import ${commonpackage}.dao.hibernate.GenericDAOImpl;
 
 /**
  * Implementación del DAO para la entidad ${pojo.shortName}

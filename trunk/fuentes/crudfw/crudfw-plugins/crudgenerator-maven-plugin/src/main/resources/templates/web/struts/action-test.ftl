@@ -7,14 +7,14 @@ package ${basepackage}.webapp.action;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 <#if genericcore>
-import ${appfusepackage}.service.GenericManager;
+import ${commonpackage}.service.GenericManager;
 <#assign managerClass = 'GenericManager'>
 <#else>
 import ${basepackage}.service.${pojo.shortName}Manager;
 <#assign managerClass = pojo.shortName + 'Manager'>
 </#if>
 import ${pojo.packageName}.${pojo.shortName};
-import ${appfusepackage}.webapp.action.BaseActionTestCase;
+import ${commonpackage}.webapp.action.BaseActionTestCase;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 public class ${pojo.shortName}ActionTest extends BaseActionTestCase {
