@@ -314,6 +314,32 @@
     </managed-bean>
     <!--Jugador-beans-END-->
 
+    <!--Torneo-beans-START-->
+    <managed-bean>
+        <managed-bean-name>torneoListAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.TorneoListAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>torneoManager</property-name>
+            <value>#{torneoManager}</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>torneoFormAction</managed-bean-name>
+        <managed-bean-class>org.tennisclub.manager.webapp.action.TorneoFormAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>id</property-name>
+            <value>#{param.id}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>torneoManager</property-name>
+            <value>#{torneoManager}</value>
+        </managed-property>
+    </managed-bean>
+    <!--Torneo-beans-END-->
+
     <!-- Add additional beans here -->
 	
 	<navigation-rule>
@@ -572,5 +598,31 @@
         </navigation-case>
     </navigation-rule>
     <!--Jugador-nav-END-->
+    <!--Torneo-nav-START-->
+    <navigation-rule>
+        <from-view-id>/pages/torneo/list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/pages/torneo/form.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/pages/torneo/form.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/torneo/form.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/pages/torneo/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/pages/torneo/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <!--Torneo-nav-END-->
     <!-- Add additional rules here -->
 </faces-config>
